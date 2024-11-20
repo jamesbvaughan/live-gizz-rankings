@@ -1,25 +1,52 @@
 import { vote } from "@/actions";
-import { songs } from "@/songs";
+import { db } from "@/drizzle/db";
+import { performances, Song } from "@/drizzle/schema";
+import { eq, sql } from "drizzle-orm";
 
-export default function Rank() {
-  const song = songs[0];
+async function getRandomSong() {
+  const randomSong = await db.query.songs.findFirst({
+    orderBy: sql`RANDOM()`,
+  });
+  if (!randomSong) {
+    throw new Error("No songs found");
+  }
 
-  const performanceA = song.performances[0];
-  const performanceB = song.performances[1];
+  return randomSong;
+}
 
-  const performances = [performanceA, performanceB];
+async function getRandomPerformances(song: Song) {
+  const randomPerformances = await db.query.performances.findMany({
+    limit: 2,
+    where: eq(performances.songId, song.id),
+    orderBy: sql`RANDOM()`,
+    with: {
+      show: true,
+    },
+  });
+
+  if (randomPerformances.length !== 2) {
+    throw new Error("Not enough performances found");
+  }
+
+  return randomPerformances;
+}
+
+export default async function Rank() {
+  const song = await getRandomSong();
+
+  const randomPerformances = await getRandomPerformances(song);
 
   return (
     <div className="space-y-10">
       <h2 className="text-center text-4xl">Which is better?</h2>
 
-      <h3 className="text-center text-4xl">{song.name}</h3>
+      <h3 className="text-center text-4xl">{song.title}</h3>
 
       <div className="grid grid-cols-2 gap-2">
-        {performances.map((performance) => (
-          <div key={performance.location} className="space-y-4">
+        {randomPerformances.map((performance) => (
+          <div key={performance.show.location} className="space-y-4">
             <h4 className="text-center text-2xl">
-              {performance.location} {performance.year}
+              {performance.show.location} {performance.show.date}
             </h4>
 
             {performance.spotifyTrackId && (
@@ -33,39 +60,40 @@ export default function Rank() {
               ></iframe>
             )}
 
-            {performance.bandcamp && (
-              <iframe
-                suppressHydrationWarning
-                style={{ border: 0, width: "100%", height: 42 }}
-                src={`https://bandcamp.com/EmbeddedPlayer/album=${performance.bandcamp.albumId}/size=small/bgcol=333333/linkcol=e32c14/track=${performance.bandcamp.trackId}/transparent=true/`}
-                seamless
-              >
-                <a
+            {performance.bandcampTrackId &&
+              performance.show.bandcampAlbumId && (
+                <iframe
                   suppressHydrationWarning
-                  href="https://kinggizzard.bandcamp.com/album/live-at-bonnaroo-22"
+                  style={{ border: 0, width: "100%", height: 42 }}
+                  src={`https://bandcamp.com/EmbeddedPlayer/album=${performance.show.bandcampAlbumId}/size=small/bgcol=333333/linkcol=e32c14/track=${performance.bandcampTrackId}/transparent=true/`}
+                  seamless
                 >
-                  Live At Bonnaroo &#39;22 by King Gizzard &amp; The Lizard
-                  Wizard
-                </a>
-              </iframe>
-            )}
+                  <a
+                    suppressHydrationWarning
+                    href="https://kinggizzard.bandcamp.com/album/live-at-bonnaroo-22"
+                  >
+                    Live At Bonnaroo &#39;22 by King Gizzard &amp; The Lizard
+                    Wizard
+                  </a>
+                </iframe>
+              )}
 
             <form action={vote}>
               <input
                 type="hidden"
-                name="performance1Id"
-                value={performanceA.location}
+                name="performanceId"
+                value={performance.id}
               />
               <input
                 type="hidden"
                 name="location"
-                value={performance.location}
+                value={performance.show.location}
               />
               <button
                 type="submit"
                 className="block aspect-square w-full border-2 border-black text-2xl hover:bg-gray-700"
               >
-                {performance.location} {performance.year} is better
+                {performance.show.location} {performance.show.date} is better
               </button>
             </form>
           </div>
