@@ -29,7 +29,7 @@ export default function Rank() {
 
       <div className="grid grid-cols-2 gap-2">
         {performances.map((performance) => (
-          <div key={performance.location}>
+          <div key={performance.location} className="space-y-4">
             <h4 className="text-center text-2xl">
               {performance.location} {performance.year}
             </h4>
