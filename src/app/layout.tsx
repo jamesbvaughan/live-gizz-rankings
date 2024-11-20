@@ -50,7 +50,8 @@ export default function RootLayout({
             <main>{children}</main>
 
             <footer>
-              Made by <a href="https://jamesbvaughan.com">James Vaughan</a>
+              Made by <a href="https://jamesbvaughan.com">James Vaughan</a>, no
+              affiliation with the band
             </footer>
           </div>
         </body>
