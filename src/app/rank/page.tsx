@@ -1,17 +1,5 @@
-import { songs, Performance } from "@/songs";
-
-function RankSongButton({ performance }: { performance: Performance }) {
-  return (
-    <button
-      className="block aspect-square w-full border-2 border-black text-2xl hover:bg-gray-700"
-      // onClick={() => {
-      //   console.log("voted for", performance.location);
-      // }}
-    >
-      {performance.location} {performance.year} is better
-    </button>
-  );
-}
+import { vote } from "@/actions";
+import { songs } from "@/songs";
 
 export default function Rank() {
   const song = songs[0];
@@ -62,7 +50,24 @@ export default function Rank() {
               </iframe>
             )}
 
-            <RankSongButton performance={performance} />
+            <form action={vote}>
+              <input
+                type="hidden"
+                name="performance1Id"
+                value={performanceA.location}
+              />
+              <input
+                type="hidden"
+                name="location"
+                value={performance.location}
+              />
+              <button
+                type="submit"
+                className="block aspect-square w-full border-2 border-black text-2xl hover:bg-gray-700"
+              >
+                {performance.location} {performance.year} is better
+              </button>
+            </form>
           </div>
         ))}
       </div>
