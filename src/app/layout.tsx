@@ -9,6 +9,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import { dark } from "@clerk/themes";
+import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Live Gizz Rankings",
@@ -34,6 +36,7 @@ function Header() {
     </header>
   );
 }
+const cloudflareAnalyticsToken = process.env.CLOUDFLARE_ANALYTICS_TOKEN;
 
 export default function RootLayout({
   children,
@@ -54,6 +57,18 @@ export default function RootLayout({
               affiliation with the band
             </footer>
           </div>
+
+          {/* Vercel analytics */}
+          <Analytics />
+
+          {/* Cloudflare analytics */}
+          {cloudflareAnalyticsToken ? (
+            <Script
+              defer
+              src="https://static.cloudflareinsights.com/beacon.min.js"
+              data-cf-beacon={`{"token": "${cloudflareAnalyticsToken}"}`}
+            />
+          ) : null}
         </body>
       </html>
     </ClerkProvider>
