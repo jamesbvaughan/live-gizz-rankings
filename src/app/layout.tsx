@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 function Header() {
   return (
     <header className="flex items-center justify-between">
-      <Link href="/">
+      <Link href="/" className="no-underline">
         <h1 className="text-4xl">Live Gizz Rankings</h1>
       </Link>
 

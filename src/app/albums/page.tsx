@@ -13,7 +13,11 @@ export default async function Albums() {
   return (
     <div className="grid grid-cols-2 gap-4">
       {albums.map((album) => (
-        <Link key={album.id} href={`/albums/${album.id}`}>
+        <Link
+          key={album.id}
+          href={`/albums/${album.id}`}
+          className="no-underline"
+        >
           <Image
             src={album.imageUrl ?? "TODO"}
             alt={album.title}
