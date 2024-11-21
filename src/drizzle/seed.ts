@@ -1,8 +1,18 @@
 import { dbHTTP as db } from "./db";
 import { albums, performances, shows, songs } from "./schema";
-import { seedAlbums, seedPerformances, seedShows, seedSongs } from "./seeds";
+import {
+  seedAlbums,
+  seedPerformances,
+  seedShows,
+  seedSongs,
+  validateSeedData,
+} from "./seeds";
 
 async function seed() {
+  console.log("Checking seed data validity...");
+  validateSeedData();
+  console.log("Seed data is valid.");
+
   console.log("Seeding database...");
 
   await Promise.all(

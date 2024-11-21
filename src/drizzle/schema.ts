@@ -6,15 +6,16 @@ import {
   real,
   text,
   timestamp,
+  unique,
   uuid,
 } from "drizzle-orm/pg-core";
 
 export const shows = pgTable("shows", {
   id: uuid("id").primaryKey().defaultRandom(),
   location: text("location").notNull(),
-  date: date("date").notNull(),
-  bandcampAlbumId: text("bandcamp_album_id"),
-  imageUrl: text("image_url"),
+  date: date("date").notNull().unique(),
+  bandcampAlbumId: text("bandcamp_album_id").unique(),
+  imageUrl: text("image_url").unique(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -26,9 +27,9 @@ export const showsRelations = relations(shows, ({ many }) => ({
 
 export const albums = pgTable("albums", {
   id: uuid("id").primaryKey().defaultRandom(),
-  title: text("title").notNull(),
+  title: text("title").notNull().unique(),
   imageUrl: text("image_url").notNull(),
-  bandcampAlbumId: text("bandcamp_album_id"),
+  bandcampAlbumId: text("bandcamp_album_id").unique(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -40,7 +41,7 @@ export const albumsRelations = relations(albums, ({ many }) => ({
 
 export const songs = pgTable("songs", {
   id: uuid("id").primaryKey().defaultRandom(),
-  title: text("title").notNull(),
+  title: text("title").notNull().unique(),
   albumId: uuid("album_id").references(() => albums.id),
   createdAt: timestamp("created_at").defaultNow(),
 });
@@ -57,22 +58,29 @@ export const songsRelations = relations(songs, ({ one, many }) => ({
 
 const DEFAULT_ELO_RATING = 1500;
 
-export const performances = pgTable("performances", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  songId: uuid("song_id")
-    .notNull()
-    .references(() => songs.id),
-  showId: uuid("show_id")
-    .notNull()
-    .references(() => shows.id),
-  spotifyTrackId: text("spotify_track_id"),
-  bandcampTrackId: text("bandcamp_track_id"),
-  youtubeVideoId: text("youtube_video_id"),
-  youtubeVideoStartTime: integer("youtube_video_start_time"),
-  eloRating: real("elo_rating").notNull().default(DEFAULT_ELO_RATING),
-  ratingLastUpdatedAt: timestamp("rating_last_updated_at").defaultNow(),
-  createdAt: timestamp("created_at").defaultNow(),
-});
+export const performances = pgTable(
+  "performances",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    songId: uuid("song_id")
+      .notNull()
+      .references(() => songs.id),
+    showId: uuid("show_id")
+      .notNull()
+      .references(() => shows.id),
+    spotifyTrackId: text("spotify_track_id").unique(),
+    bandcampTrackId: text("bandcamp_track_id").unique(),
+    youtubeVideoId: text("youtube_video_id"),
+    youtubeVideoStartTime: integer("youtube_video_start_time"),
+    eloRating: real("elo_rating").notNull().default(DEFAULT_ELO_RATING),
+    ratingLastUpdatedAt: timestamp("rating_last_updated_at").defaultNow(),
+    createdAt: timestamp("created_at").defaultNow(),
+  },
+  (t) => ({
+    showSong: unique().on(t.showId, t.songId),
+    youtube: unique().on(t.youtubeVideoId, t.youtubeVideoStartTime),
+  }),
+);
 
 export type Performance = typeof performances.$inferSelect;
 
