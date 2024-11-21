@@ -2,6 +2,7 @@ import { db } from "@/drizzle/db";
 import { performances, songs } from "@/drizzle/schema";
 import { getPerformanceTitle } from "@/utils";
 import { desc, eq } from "drizzle-orm";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ songId: string }> };
