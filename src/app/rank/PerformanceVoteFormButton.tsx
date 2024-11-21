@@ -41,7 +41,7 @@ export function PerformanceFormButtons({
 
             <button
               type="submit"
-              className="block aspect-square w-full border-2 border-black bg-cover text-2xl hover:bg-gray-700 hover:invert sm:text-4xl"
+              className="block aspect-square w-full bg-stone-900 bg-cover text-2xl hover:invert sm:text-4xl"
               style={{
                 backgroundImage: coverImageUrl
                   ? `url(${coverImageUrl})`
