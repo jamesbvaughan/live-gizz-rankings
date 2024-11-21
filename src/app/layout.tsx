@@ -24,7 +24,7 @@ function Header() {
         <h1 className="text-4xl">Live Gizz Rankings</h1>
       </Link>
 
-      <div>
+      <div className="flex items-center">
         <SignedOut>
           <SignInButton />
         </SignedOut>

@@ -9,6 +9,7 @@ export default function Home() {
       </p>
 
       <Link href="/rank">rank some songs</Link>
+      <Link href="/albums">browse rankings by album</Link>
     </div>
   );
 }

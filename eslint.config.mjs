@@ -11,6 +11,9 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
+/**
+ * @type {import("eslint").Linter.Config}
+ */
 const config = [
   ...compat.extends(
     "next/core-web-vitals",

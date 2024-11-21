@@ -1,6 +1,7 @@
 import { relations } from "drizzle-orm";
 import {
   date,
+  integer,
   pgTable,
   real,
   text,
@@ -13,6 +14,7 @@ export const shows = pgTable("shows", {
   location: text("location").notNull(),
   date: date("date").notNull(),
   bandcampAlbumId: text("bandcamp_album_id"),
+  imageUrl: text("image_url"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -25,11 +27,16 @@ export const showsRelations = relations(shows, ({ many }) => ({
 export const albums = pgTable("albums", {
   id: uuid("id").primaryKey().defaultRandom(),
   title: text("title").notNull(),
+  imageUrl: text("image_url").notNull(),
   bandcampAlbumId: text("bandcamp_album_id"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
 export type Album = typeof albums.$inferSelect;
+
+export const albumsRelations = relations(albums, ({ many }) => ({
+  songs: many(songs),
+}));
 
 export const songs = pgTable("songs", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -39,6 +46,14 @@ export const songs = pgTable("songs", {
 });
 
 export type Song = typeof songs.$inferSelect;
+
+export const songsRelations = relations(songs, ({ one, many }) => ({
+  album: one(albums, {
+    fields: [songs.albumId],
+    references: [albums.id],
+  }),
+  performances: many(performances),
+}));
 
 const DEFAULT_ELO_RATING = 1500;
 
@@ -52,7 +67,8 @@ export const performances = pgTable("performances", {
     .references(() => shows.id),
   spotifyTrackId: text("spotify_track_id"),
   bandcampTrackId: text("bandcamp_track_id"),
-  youtubeUrl: text("youtube_url"),
+  youtubeVideoId: text("youtube_video_id"),
+  youtubeVideoStartTime: integer("youtube_video_start_time"),
   eloRating: real("elo_rating").notNull().default(DEFAULT_ELO_RATING),
   ratingLastUpdatedAt: timestamp("rating_last_updated_at").defaultNow(),
   createdAt: timestamp("created_at").defaultNow(),
@@ -61,6 +77,10 @@ export const performances = pgTable("performances", {
 export type Performance = typeof performances.$inferSelect;
 
 export const performancesRelations = relations(performances, ({ one }) => ({
+  song: one(songs, {
+    fields: [performances.songId],
+    references: [songs.id],
+  }),
   show: one(shows, {
     fields: [performances.showId],
     references: [shows.id],

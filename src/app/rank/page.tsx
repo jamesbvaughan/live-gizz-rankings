@@ -1,7 +1,8 @@
-import { vote } from "@/actions";
 import { db } from "@/drizzle/db";
-import { performances, Song } from "@/drizzle/schema";
+import { Performance, performances, Show, Song } from "@/drizzle/schema";
+import { getPerformanceTitle, getShowTitle } from "@/utils";
 import { eq, sql } from "drizzle-orm";
+import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 
 async function getRandomSong() {
   const randomSong = await db.query.songs.findFirst({
@@ -21,6 +22,7 @@ async function getRandomPerformances(song: Song) {
     orderBy: sql`RANDOM()`,
     with: {
       show: true,
+      song: true,
     },
   });
 
@@ -31,73 +33,115 @@ async function getRandomPerformances(song: Song) {
   return randomPerformances;
 }
 
+function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
+  return (
+    <iframe
+      style={{ borderRadius: 0 }}
+      src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
+      width="100%"
+      height="80"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  );
+}
+
+function BandcampPlayer({
+  bandcampTrackId,
+  bandcampAlbumId,
+}: {
+  bandcampTrackId: string;
+  bandcampAlbumId: string;
+}) {
+  const bgColor = "333333";
+  const linkColor = "ffffff";
+  return (
+    <iframe
+      style={{ border: 0, width: "100%", height: 42 }}
+      src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=small/bgcol=${bgColor}/linkcol=${linkColor}/track=${bandcampTrackId}/transparent=true/`}
+      seamless
+    ></iframe>
+  );
+}
+
+function YouTubePlayer({
+  videoId,
+  startTime,
+}: {
+  videoId: string;
+  startTime: number | null;
+}) {
+  return (
+    <iframe
+      width="100%"
+      className="aspect-video"
+      src={`https://www.youtube.com/embed/${videoId}${startTime != null ? `?start=${startTime}` : ""}`}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+  );
+}
+
+function MediaPlayers({
+  performance,
+}: {
+  performance: Performance & { show: Show };
+}) {
+  return (
+    <div className="space-y-4">
+      {performance.spotifyTrackId && (
+        <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
+      )}
+
+      {performance.bandcampTrackId && performance.show.bandcampAlbumId && (
+        <BandcampPlayer
+          bandcampTrackId={performance.bandcampTrackId}
+          bandcampAlbumId={performance.show.bandcampAlbumId}
+        />
+      )}
+
+      {performance.youtubeVideoId && (
+        <YouTubePlayer
+          videoId={performance.youtubeVideoId}
+          startTime={performance.youtubeVideoStartTime}
+        />
+      )}
+    </div>
+  );
+}
+
 export default async function Rank() {
   const song = await getRandomSong();
 
   const randomPerformances = await getRandomPerformances(song);
+  const [performanceA, performanceB] = randomPerformances;
 
   return (
     <div className="space-y-10">
-      <h2 className="text-center text-4xl">Which is better?</h2>
+      <h2 className="text-center text-2xl sm:text-4xl">
+        Which <span className="font-bold">{song.title}</span> is better?
+      </h2>
 
-      <h3 className="text-center text-4xl">{song.title}</h3>
+      <PerformanceFormButtons
+        performanceA={performanceA}
+        performanceB={performanceB}
+      />
 
-      <div className="grid grid-cols-2 gap-2">
-        {randomPerformances.map((performance) => (
-          <div key={performance.show.location} className="space-y-4">
-            <h4 className="text-center text-2xl">
-              {performance.show.location} {performance.show.date}
-            </h4>
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        {randomPerformances.map((performance) => {
+          const showTitle = getShowTitle(performance.show);
 
-            {performance.spotifyTrackId && (
-              <iframe
-                style={{ borderRadius: 12 }}
-                src={`https://open.spotify.com/embed/track/${performance.spotifyTrackId}?theme=0`}
-                width="100%"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
-            )}
+          return (
+            <div key={performance.id} className="space-y-4">
+              <h3 className="text-xl">
+                Listen to {song.title} at {showTitle}
+              </h3>
 
-            {performance.bandcampTrackId &&
-              performance.show.bandcampAlbumId && (
-                <iframe
-                  suppressHydrationWarning
-                  style={{ border: 0, width: "100%", height: 42 }}
-                  src={`https://bandcamp.com/EmbeddedPlayer/album=${performance.show.bandcampAlbumId}/size=small/bgcol=333333/linkcol=e32c14/track=${performance.bandcampTrackId}/transparent=true/`}
-                  seamless
-                >
-                  <a
-                    suppressHydrationWarning
-                    href="https://kinggizzard.bandcamp.com/album/live-at-bonnaroo-22"
-                  >
-                    Live At Bonnaroo &#39;22 by King Gizzard &amp; The Lizard
-                    Wizard
-                  </a>
-                </iframe>
-              )}
-
-            <form action={vote}>
-              <input
-                type="hidden"
-                name="performanceId"
-                value={performance.id}
-              />
-              <input
-                type="hidden"
-                name="location"
-                value={performance.show.location}
-              />
-              <button
-                type="submit"
-                className="block aspect-square w-full border-2 border-black text-2xl hover:bg-gray-700"
-              >
-                {performance.show.location} {performance.show.date} is better
-              </button>
-            </form>
-          </div>
-        ))}
+              <MediaPlayers performance={performance} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
