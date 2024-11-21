@@ -11,6 +11,7 @@ import Link from "next/link";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
+import BackgroundCanvas from "./BackgroundCanvas";
 
 export const metadata: Metadata = {
   title: {
@@ -49,8 +50,10 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className="bg-gray-800 text-gray-100">
-          <div className="mx-auto max-w-[720px] space-y-10 bg-gray-900 px-4 py-6">
+        <body className="bg-black text-gray-100">
+          <BackgroundCanvas />
+
+          <div className="mx-auto max-w-[720px] space-y-10 bg-black/80 px-4 py-6">
             <Header />
 
             <main>{children}</main>
