@@ -12,6 +12,9 @@ import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import BackgroundCanvas from "./BackgroundCanvas";
+import Image from "next/image";
+
+import lgrHandwritten from "./lgr-handwritten.png";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +28,11 @@ function Header() {
   return (
     <header className="flex items-center justify-between">
       <Link href="/" className="no-underline">
-        <h1 className="text-4xl">Live Gizz Rankings</h1>
+        <Image
+          src={lgrHandwritten}
+          alt="Live Gizz Rankings"
+          className="h-36 w-auto"
+        />
       </Link>
 
       <div className="flex items-center">
