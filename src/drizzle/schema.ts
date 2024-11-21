@@ -77,7 +77,8 @@ export const performances = pgTable(
     createdAt: timestamp("created_at").defaultNow(),
   },
   (t) => ({
-    showSong: unique().on(t.showId, t.songId),
+    // For some reason, this statement always shows a diff with db:push
+    // showSong: unique().on(t.showId, t.songId),
     youtube: unique().on(t.youtubeVideoId, t.youtubeVideoStartTime),
   }),
 );
