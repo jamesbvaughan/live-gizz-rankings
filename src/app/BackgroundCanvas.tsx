@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 const numSides = 9;
 const lineThickness = 2;
+const spinSpeed = 15;
 
 function drawNonagon(
   ctx: CanvasRenderingContext2D,
@@ -82,7 +83,7 @@ export default function BackgroundCanvas() {
       const centerY = canvas.height / dpr / 2;
 
       const size = Math.min(cssWidth, cssHeight) / 2 - 24;
-      rotationRef.current = timestamp / 10000;
+      rotationRef.current = (spinSpeed * timestamp) / 1000000;
       shadowBlurRef.current = Math.floor((Math.sin(timestamp / 1000) + 1) * 48);
       drawNonagon(
         ctx,
@@ -106,5 +107,5 @@ export default function BackgroundCanvas() {
     };
   }, []);
 
-  return <canvas className="fixed z-[-1] opacity-20" ref={canvasRef} />;
+  return <canvas className="fixed z-[-1] opacity-15" ref={canvasRef} />;
 }
