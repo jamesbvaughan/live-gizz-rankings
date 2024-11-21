@@ -20,6 +20,16 @@ const config = [
     "next/typescript",
     "plugin:drizzle/recommended",
   ),
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          varsIgnorePattern: "^_",
+        },
+      ],
+    },
+  },
 ];
 
 export default config;

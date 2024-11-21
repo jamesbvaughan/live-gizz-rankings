@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:vercel": "yarn db:push && next build",
+    "db:push": "drizzle-kit push",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."

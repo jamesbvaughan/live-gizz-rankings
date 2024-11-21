@@ -1,6 +1,6 @@
 import { db } from "@/drizzle/db";
 import { Performance, performances, Show, Song } from "@/drizzle/schema";
-import { getPerformanceTitle, getShowTitle } from "@/utils";
+import { getShowTitle } from "@/utils";
 import { eq, sql } from "drizzle-orm";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 

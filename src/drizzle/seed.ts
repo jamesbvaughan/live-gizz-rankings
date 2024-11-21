@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { dbHTTP as db } from "./db";
 import { albums, performances, shows, songs } from "./schema";
 import { seedAlbums, seedPerformances, seedShows, seedSongs } from "./seeds";
