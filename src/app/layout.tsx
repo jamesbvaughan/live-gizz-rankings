@@ -53,7 +53,7 @@ export default function RootLayout({
         <body className="bg-black text-gray-100">
           <BackgroundCanvas />
 
-          <div className="mx-auto max-w-[720px] space-y-10 bg-black/80 px-4 py-6">
+          <div className="mx-auto max-w-[720px] space-y-10 px-4 py-6">
             <Header />
 
             <main>{children}</main>
