@@ -24,6 +24,7 @@ export function PerformanceFormButtons({
     >
       {[performanceA, performanceB].map((performance) => {
         const performanceTitle = getShowTitle(performance.show);
+        const coverImageUrl = performance.show.imageUrl;
         return (
           <form key={performance.id} action={submitVote}>
             <input
@@ -37,11 +38,14 @@ export function PerformanceFormButtons({
               value={performanceB.id}
             />
             <input type="hidden" name="winnerId" value={performance.id} />
+
             <button
               type="submit"
               className="block aspect-square w-full border-2 border-black bg-cover text-2xl hover:bg-gray-700 hover:invert sm:text-4xl"
               style={{
-                backgroundImage: `url(${performance.show.imageUrl})`,
+                backgroundImage: coverImageUrl
+                  ? `url(${coverImageUrl})`
+                  : undefined,
                 textShadow: "1px 1px 10px black",
               }}
             >
