@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "build:vercel": "yarn db:push && next build",
+    "build:vercel": "yarn db:push && yarn db:seed && next build",
     "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/drizzle/seed.ts",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
@@ -39,6 +40,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
