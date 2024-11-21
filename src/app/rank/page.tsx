@@ -58,12 +58,12 @@ function BandcampPlayer({
   bandcampTrackId: string;
   bandcampAlbumId: string;
 }) {
-  const bgColor = "333333";
-  const linkColor = "ffffff";
+  const bgColor = "000000";
+  const linkColor = "ff0000";
   return (
     <iframe
-      style={{ border: 0, width: "100%", height: 42 }}
-      src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=small/bgcol=${bgColor}/linkcol=${linkColor}/track=${bandcampTrackId}/transparent=true/`}
+      style={{ border: 0, width: "100%", height: 120 }}
+      src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
       seamless
     ></iframe>
   );
@@ -133,7 +133,7 @@ export default async function Rank() {
         performanceB={performanceB}
       />
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
         {randomPerformances.map((performance) => {
           const showTitle = getShowTitle(performance.show);
 
