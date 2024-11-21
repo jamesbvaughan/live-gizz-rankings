@@ -6,7 +6,7 @@ async function seed() {
   console.log("Seeding database...");
 
   await Promise.all(
-    seedAlbums.map((album) => {
+    Object.values(seedAlbums).map((album) => {
       const { id: _, ...albumWithoutId } = album;
       return db
         .insert(albums)
@@ -16,7 +16,7 @@ async function seed() {
   );
 
   await Promise.all(
-    seedSongs.map((song) => {
+    Object.values(seedSongs).map((song) => {
       const { id: _, ...songWithoutId } = song;
       return db
         .insert(songs)
@@ -26,7 +26,7 @@ async function seed() {
   );
 
   await Promise.all(
-    seedShows.map((show) => {
+    Object.values(seedShows).map((show) => {
       const { id: _, ...showWithoutId } = show;
       return db
         .insert(shows)
