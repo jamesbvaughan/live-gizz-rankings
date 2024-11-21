@@ -1,14 +1,27 @@
 import { db } from "@/drizzle/db";
 import { albums } from "@/drizzle/schema";
 import { eq } from "drizzle-orm";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function Album({
-  params,
-}: {
-  params: Promise<{ albumId: string }>;
-}) {
+type Props = { params: Promise<{ albumId: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { albumId } = await params;
+  const album = await db.query.albums.findFirst({
+    where: eq(albums.id, albumId),
+  });
+  if (!album) {
+    notFound();
+  }
+
+  return {
+    title: album.title,
+  };
+}
+
+export default async function Album({ params }: Props) {
   const { albumId } = await params;
   const album = await db.query.albums.findFirst({
     where: eq(albums.id, albumId),

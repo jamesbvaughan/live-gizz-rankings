@@ -13,7 +13,10 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Live Gizz Rankings",
+  title: {
+    template: "%s | Live Gizz Rankings",
+    default: "Live Gizz Rankings",
+  },
   description: "Find the best live version of King Gizzard songs",
 };
 

@@ -1,6 +1,11 @@
 import { db } from "@/drizzle/db";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Albums",
+};
 
 export default async function Albums() {
   const albums = await db.query.albums.findMany();

@@ -4,11 +4,23 @@ import { getPerformanceTitle } from "@/utils";
 import { desc, eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
-export default async function Song({
-  params,
-}: {
-  params: Promise<{ songId: string }>;
-}) {
+type Props = { params: Promise<{ songId: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { songId } = await params;
+  const song = await db.query.songs.findFirst({
+    where: eq(songs.id, songId),
+  });
+  if (!song) {
+    notFound();
+  }
+
+  return {
+    title: song.title,
+  };
+}
+
+export default async function Song({ params }: Props) {
   const { songId } = await params;
   const song = await db.query.songs.findFirst({
     where: eq(songs.id, songId),

@@ -3,6 +3,11 @@ import { Performance, performances, Show, Song } from "@/drizzle/schema";
 import { getShowTitle } from "@/utils";
 import { eq, sql } from "drizzle-orm";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rank Songs",
+};
 
 async function getRandomSong() {
   const randomSong = await db.query.songs.findFirst({
