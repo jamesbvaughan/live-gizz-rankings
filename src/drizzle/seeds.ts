@@ -459,4 +459,16 @@ export const seedPerformances: Omit<
     youtubeVideoId: "EaU-3FY1JXM",
     youtubeVideoStartTime: 1137,
   },
+
+  // ====================================================
+  // This Thing
+  {
+    id: "099acbaf-af1a-4fe4-9c6e-7898d4cfdd00",
+    songId: seedSongs.thisThing.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1260515879",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 ];
