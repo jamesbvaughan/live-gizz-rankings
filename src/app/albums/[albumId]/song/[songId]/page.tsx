@@ -1,6 +1,7 @@
 import { db } from "@/drizzle/db";
+import Image from "next/image";
 import { performances, songs } from "@/drizzle/schema";
-import { getPerformanceTitle } from "@/utils";
+import { getShowTitle } from "@/utils";
 import { desc, eq } from "drizzle-orm";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -37,17 +38,37 @@ export default async function Song({ params }: Props) {
   }
 
   return (
-    <div>
-      <h2 className="text-2xl">{song.title}</h2>
+    <div className="space-y-8">
+      <h2 className="text-6xl">{song.title}</h2>
 
-      {song.performances.map((performance) => {
-        const performanceTitle = getPerformanceTitle(song, performance.show);
-        return (
-          <div key={performance.id}>
-            {performanceTitle} ({performance.eloRating})
-          </div>
-        );
-      })}
+      <ol className="space-y-4">
+        {song.performances.map((performance, index) => {
+          const showTitle = getShowTitle(performance.show);
+
+          return (
+            <li key={performance.id} className="flex">
+              <div className="w-12 text-4xl">{index + 1}.</div>
+
+              <div className="flex space-x-4">
+                <div className="aspect-square w-24">
+                  {performance.show.imageUrl ? (
+                    <Image
+                      src={performance.show.imageUrl}
+                      alt={showTitle}
+                      width={500}
+                      height={500}
+                    />
+                  ) : null}
+                </div>
+
+                <div className="text-4xl">
+                  {showTitle} ({Math.round(performance.eloRating)})
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }
