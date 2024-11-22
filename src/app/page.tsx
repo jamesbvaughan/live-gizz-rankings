@@ -15,14 +15,14 @@ function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
 export default function Home() {
   return (
     <div className="space-y-8">
-      <p className="text-xl">
+      <p className="text-justify text-xl">
         The purpose of this site is to identify what the fan community believes
         to be King Gizzard &amp; The Lizard Wizard&apos;s best live performances
         of their songs.
       </p>
 
-      <div className="flex items-center justify-around">
-        <LinkButton href="/rank">rank some songs</LinkButton>
+      <div className="flex flex-col items-center justify-around gap-4 sm:flex-row">
+        <LinkButton href="/rank">rank some performances</LinkButton>
         <LinkButton href="/albums">browse rankings by album</LinkButton>
       </div>
     </div>
