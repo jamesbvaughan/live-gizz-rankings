@@ -129,7 +129,14 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
 
   // ====================================================
-  // U.S. Tour 2022
+  // World Tour 2022
+  mexicoCity22: {
+    id: "8c4b2700-ed44-4a14-8d08-93f6c7a0b5a3",
+    location: "Mexico City",
+    date: "2022-05-06",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
   bonnaroo22: {
     id: "1744f3c5-8da4-4e28-845d-0b2cf02db7a1",
     location: "Bonnaroo",
@@ -427,5 +434,14 @@ export const seedPerformances: Omit<
     bandcampTrackId: "1569212600",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 6745,
+  },
+  {
+    id: "5507e518-77de-41f7-8ed7-81830b63e78b",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.mexicoCity22.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "EaU-3FY1JXM",
+    youtubeVideoStartTime: 1137,
   },
 ];
