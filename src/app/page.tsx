@@ -12,6 +12,22 @@ function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
   );
 }
 
+function QnA({ children }: PropsWithChildren) {
+  return <div className="space-y-2">{children}</div>;
+}
+
+function Q({ children }: PropsWithChildren) {
+  return (
+    <p>
+      <b>{children}</b>
+    </p>
+  );
+}
+
+function A({ children }: PropsWithChildren) {
+  return <div className="space-y-2 text-gray-400">{children}</div>;
+}
+
 export default function Home() {
   return (
     <div className="space-y-8 text-xl">
@@ -29,11 +45,9 @@ export default function Home() {
       <div className="space-y-4 text-lg">
         <h2 className="text-2xl">FAQ</h2>
 
-        <div className="space-y-2">
-          <p>
-            <b>How does the ranking system work?</b>
-          </p>
-          <p>
+        <QnA>
+          <Q>How does the ranking system work?</Q>
+          <A>
             It uses the{" "}
             <a
               href="https://en.wikipedia.org/wiki/Elo_rating_system"
@@ -43,38 +57,42 @@ export default function Home() {
               Elo rating system
             </a>{" "}
             to calculate a score for each performance based on our votes.
-          </p>
-        </div>
+          </A>
+        </QnA>
 
-        <div className="space-y-2">
-          <p>
-            <b>Why is it missing my favorite song/performance?</b>
-          </p>
-          <p>
-            I currently maintain the song data manually, which is a bit tedious.
-            If there&apos;s a specific song or performance that you&apos;d like
-            added, please{" "}
-            <a href="mailto:james@jamesbvaughan.com" className="underline">
-              let me know
-            </a>
-            !
-          </p>
-          <p>
-            Even if I easily could, I don&apos;t think I&apos;d want to add{" "}
-            <i>every</i> song and performance to the database. There are some
-            songs{" "}
-            <span className="text-sm opacity-50">
-              (<i>*cough* *cough* work this time</i>)
-            </span>{" "}
-            where lots of us have strong opinons about what the <i>best</i>{" "}
-            performance is{" "}
-            <span className="text-sm opacity-50">
-              (<i>*cough* *cough* work this time atlanta &apos;24</i>)
-            </span>{" "}
-            and I want to make sure that people who take the time to vote end up
-            spending that time on songs that we&apos;re all most interested in.
-          </p>
-        </div>
+        <QnA>
+          <Q>Why is it missing my favorite song/performance?</Q>
+          <A>
+            <p>
+              I currently maintain the song data manually, which is a bit
+              tedious.
+            </p>
+            <p>
+              Even if I easily could add <i>every</i> song and performance to
+              the database, I don&apos;t think I&apos;d want to. There are some
+              songs{" "}
+              <span className="text-sm opacity-50">
+                (<i>*cough* *cough* work this time</i>)
+              </span>{" "}
+              where lots of us have strong opinons about what the <i>best</i>{" "}
+              performance is{" "}
+              <span className="text-sm opacity-50">
+                (<i>*cough* *cough* work this time atlanta &apos;24</i>)
+              </span>{" "}
+              and I want to make sure that people who take the time to vote end
+              up spending that time on songs that we&apos;re all most interested
+              in.
+            </p>
+            <p>
+              If there&apos;s a specific song or performance that you&apos;d
+              like to nominate, please{" "}
+              <a href="mailto:james@jamesbvaughan.com" className="underline">
+                let me know
+              </a>{" "}
+              and I'll add it!
+            </p>
+          </A>
+        </QnA>
       </div>
     </div>
   );
