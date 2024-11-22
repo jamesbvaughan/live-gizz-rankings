@@ -39,6 +39,8 @@ async function getUserPairs() {
   return userPairs;
 }
 
+const SHOW_ALL_PAIRS = false;
+
 export async function getRandomPairForCurrentUser() {
   const allPairs = generateAllPotentialPairs();
   const userPairs = await getUserPairs();
@@ -54,7 +56,7 @@ export async function getRandomPairForCurrentUser() {
           (userPair.performance1Id === pair[1] &&
             userPair.performance2Id === pair[0]),
       );
-      if (!userHasVoted) {
+      if (!userHasVoted || SHOW_ALL_PAIRS) {
         unvotedPairs.push(pair);
       }
     }
