@@ -1,11 +1,23 @@
 import { Album, Performance, Show, Song } from "./schema";
 
 export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
+  fafyl: {
+    title: "Float Along - Fill Your Lungs",
+    id: "55154b57-7925-408c-af21-c94fe06b3d62",
+    imageUrl: "https://f4.bcbits.com/img/a3907213656_16.jpg",
+    bandcampAlbumId: "1510489151",
+  },
   quarters: {
     title: "Quarters",
     id: "5ba9fb14-390a-4f14-a141-21b6fb66adac",
     imageUrl: "https://f4.bcbits.com/img/a3796441552_16.jpg",
     bandcampAlbumId: "1306577560",
+  },
+  pmdb: {
+    title: "Paper Mâché Dream Balloon",
+    id: "1d5545eb-e953-41a7-be6d-a3dbb9f5d8e7",
+    imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
+    bandcampAlbumId: "1762740948",
   },
   oddments: {
     title: "Oddments",
@@ -29,11 +41,27 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
 
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // ====================================================
+  // Float Along - Fill Your Lungs
+  letMeMendThePast: {
+    id: "fa5d8f49-6cee-40f7-b4ea-e68de744035e",
+    title: "Let Me Mend the Past",
+    albumId: seedAlbums.fafyl.id,
+  },
+
+  // ====================================================
   // Quarters
   theRiver: {
     id: "5855d6aa-2dd1-4f82-a2d8-44b4e663eb87",
     title: "The River",
     albumId: seedAlbums.quarters.id,
+  },
+
+  // ====================================================
+  // Paper Mâché Dream Balloon
+  sense: {
+    id: "d916bb15-6c5d-4d16-8224-4a4d30bd09b7",
+    title: "Sense",
+    albumId: seedAlbums.pmdb.id,
   },
 
   // ====================================================
@@ -63,6 +91,16 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
 export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // ====================================================
+  // Europe Tour 2019
+  madrid19: {
+    id: "11597d9b-21e7-43b7-b681-cd22a31c5a90",
+    location: "Madrid",
+    date: "2019-10-18",
+    imageUrl: "https://f4.bcbits.com/img/a3650674791_16.jpg",
+    bandcampAlbumId: "6509641",
+  },
+
+  // ====================================================
   // U.S. Tour 2022
   bonnaroo22: {
     id: "1744f3c5-8da4-4e28-845d-0b2cf02db7a1",
@@ -81,6 +119,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
 
   // ====================================================
   // U.S. Tour 2023
+  rr23: {
+    id: "af055b78-9c40-4f15-a676-ed05f3485019",
+    location: "Red Rocks",
+    date: "2023-06-07",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
   chicago23: {
     id: "1f8192d8-4650-4837-b119-b82507afe23c",
     location: "Chicago",
@@ -290,5 +335,38 @@ export const seedPerformances: Omit<
     bandcampTrackId: "772454983",
     youtubeVideoId: "_AZ9z62b8dU",
     youtubeVideoStartTime: 3745,
+  },
+
+  // ====================================================
+  // Sense
+  {
+    id: "122b97c0-3417-454c-b679-ee07fb8ee86a",
+    songId: seedSongs.sense.id,
+    showId: seedShows.rr23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "bsMwq3004x8",
+    youtubeVideoStartTime: 1164,
+  },
+
+  // ====================================================
+  // Let Me Mend the Past
+  {
+    id: "eba540a0-63b1-442d-af61-4306476921fd",
+    songId: seedSongs.letMeMendThePast.id,
+    showId: seedShows.madrid19.id,
+    spotifyTrackId: "5yDNY3VRjynyeuKxuhv04J",
+    bandcampTrackId: "3594277571",
+    youtubeVideoId: "_faNeGc3p3Y",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "cac1519d-5f78-400f-992c-c683948cf478",
+    songId: seedSongs.letMeMendThePast.id,
+    showId: seedShows.gorge24.id,
+    spotifyTrackId: "7Fhe1wCQjnFM0cjD9GQFKo",
+    bandcampTrackId: "860012551",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 5754,
   },
 ];
