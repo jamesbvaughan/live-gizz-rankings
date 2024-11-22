@@ -31,6 +31,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
     bandcampAlbumId: "1507780262",
   },
+  og: {
+    title: "Omnium Gatherum",
+    id: "560b0194-19ae-4bc9-aa24-0c2340596af7",
+    imageUrl: "https://f4.bcbits.com/img/a2638998972_16.jpg",
+    bandcampAlbumId: "129981996",
+  },
   iceDeath: {
     title: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
     id: "46f925f1-dd7f-4966-8c02-3562e32f22b5",
@@ -84,6 +90,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
+  },
+
+  // ====================================================
+  // Omnium Gatherum
+  magentaMountain: {
+    id: "9100f1b2-0e74-40bb-a945-0f59b54fff6d",
+    title: "Magenta Mountain",
+    albumId: seedAlbums.og.id,
   },
 
   // ====================================================
