@@ -416,4 +416,16 @@ export const seedPerformances: Omit<
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+
+  // ====================================================
+  // Magenta Mountain
+  {
+    id: "1447a081-953c-4d30-bd14-e43056d3847e",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.gorge24.id,
+    spotifyTrackId: "6qOqkCHPRH831SCRDTqBKv",
+    bandcampTrackId: "1569212600",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 6745,
+  },
 ];
