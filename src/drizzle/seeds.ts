@@ -25,6 +25,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a0348996479_16.jpg",
     bandcampAlbumId: "3657754108",
   },
+  fff: {
+    title: "Fishing For Fishies",
+    id: "bc67b3f7-af1d-443f-9d28-1c99f6d4aa60",
+    imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
+    bandcampAlbumId: "1507780262",
+  },
   iceDeath: {
     title: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
     id: "46f925f1-dd7f-4966-8c02-3562e32f22b5",
@@ -70,6 +76,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
     title: "Work This Time",
     albumId: seedAlbums.oddments.id,
+  },
+
+  // ====================================================
+  // Fishing For Fishies
+  plasticBoogie: {
+    id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
+    title: "Plastic Boogie",
+    albumId: seedAlbums.fff.id,
   },
 
   // ====================================================
@@ -187,6 +201,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     date: "2024-11-10",
     imageUrl: "https://f4.bcbits.com/img/a0496185183_16.jpg",
     bandcampAlbumId: "660285328",
+  },
+  okc24: {
+    id: "6070a189-e1a7-42ce-8d19-f5e43921967d",
+    location: "Oklahoma City",
+    date: "2024-11-12",
+    imageUrl: "https://f4.bcbits.com/img/a1910276487_16.jpg",
+    bandcampAlbumId: "2847156728",
   },
   houston24: {
     id: "8b1615e0-a6dc-42f6-b61c-465971545450",
@@ -368,5 +389,17 @@ export const seedPerformances: Omit<
     bandcampTrackId: "860012551",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 5754,
+  },
+
+  // ====================================================
+  // Plastic Boogie
+  {
+    id: "7465275c-8bba-47af-b84a-3ee345744de4",
+    songId: seedSongs.plasticBoogie.id,
+    showId: seedShows.okc24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3208205626",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 ];
