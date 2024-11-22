@@ -67,7 +67,9 @@ export default function RootLayout({
 
             <footer>
               <hr className="my-10 border-[#ff0000]" />
-              Made by <a href="https://jamesbvaughan.com">James Vaughan</a>
+              <div className="text-center">
+                made by <a href="https://jamesbvaughan.com">james</a>
+              </div>
             </footer>
           </div>
 
