@@ -3,6 +3,8 @@
 This is a small web app for crowdsourcing rankings for the best live
 performances of King Gizzard & The Lizard Wizard songs.
 
+Check it out at [livegizzrankings.com](https://livegizzrankings.com)!
+
 ## Development
 
 This is a fairly straightforward Next.js 15 app.
