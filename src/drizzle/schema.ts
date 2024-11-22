@@ -111,4 +111,19 @@ export const votes = pgTable("votes", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const votesRelations = relations(votes, ({ one }) => ({
+  performance1: one(performances, {
+    fields: [votes.performance1Id],
+    references: [performances.id],
+  }),
+  performance2: one(performances, {
+    fields: [votes.performance2Id],
+    references: [performances.id],
+  }),
+  winner: one(performances, {
+    fields: [votes.winnerId],
+    references: [performances.id],
+  }),
+}));
+
 export type Vote = typeof votes.$inferSelect;
