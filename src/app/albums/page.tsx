@@ -19,7 +19,7 @@ export default async function Albums() {
           className="no-underline"
         >
           <Image
-            src={album.imageUrl ?? "TODO"}
+            src={album.imageUrl}
             alt={album.title}
             className="aspect-square w-full"
             width={500}

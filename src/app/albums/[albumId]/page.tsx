@@ -1,4 +1,5 @@
 import { db } from "@/drizzle/db";
+import Image from "next/image";
 import { albums } from "@/drizzle/schema";
 import { eq } from "drizzle-orm";
 import { Metadata } from "next";
@@ -33,13 +34,33 @@ export default async function Album({ params }: Props) {
 
   return (
     <div>
-      <h2>{album.title}</h2>
+      <div className="grid grid-cols-2">
+        <div className="space-y-4">
+          <h2 className="text-2xl">{album.title}</h2>
 
-      {album.songs.map((song) => (
-        <Link key={song.id} href={`/albums/${albumId}/song/${song.id}`}>
-          {song.title}
-        </Link>
-      ))}
+          <div>
+            {album.songs.map((song) => (
+              <Link
+                key={song.id}
+                href={`/albums/${albumId}/song/${song.id}`}
+                className="hover:text-[#ff0000]"
+              >
+                {song.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <Image
+          src={album.imageUrl}
+          alt={album.title}
+          className="aspect-square w-full"
+          width={500}
+          height={500}
+        />
+      </div>
+
+      <Link href="/albums">Back to albums</Link>
     </div>
   );
 }

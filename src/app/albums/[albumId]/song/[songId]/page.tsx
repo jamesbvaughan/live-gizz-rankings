@@ -38,7 +38,7 @@ export default async function Song({ params }: Props) {
 
   return (
     <div>
-      <h2>{song.title}</h2>
+      <h2 className="text-2xl">{song.title}</h2>
 
       {song.performances.map((performance) => {
         const performanceTitle = getPerformanceTitle(song, performance.show);
