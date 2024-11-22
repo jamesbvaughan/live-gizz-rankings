@@ -1,6 +1,12 @@
 import { Album, Performance, Show, Song } from "./schema";
 
 export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
+  quarters: {
+    title: "Quarters",
+    id: "5ba9fb14-390a-4f14-a141-21b6fb66adac",
+    imageUrl: "https://f4.bcbits.com/img/a3796441552_16.jpg",
+    bandcampAlbumId: "1306577560",
+  },
   oddments: {
     title: "Oddments",
     id: "7f1d12b4-d57a-42e8-9aae-57082cab5633",
@@ -16,6 +22,11 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
 };
 
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
+  theRiver: {
+    id: "5855d6aa-2dd1-4f82-a2d8-44b4e663eb87",
+    title: "The River",
+    albumId: seedAlbums.quarters.id,
+  },
   workThisTime: {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
     title: "Work This Time",
@@ -44,6 +55,26 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     date: "2022-10-10",
     imageUrl: "https://f4.bcbits.com/img/a3180996672_16.jpg",
     bandcampAlbumId: "2418689883",
+  },
+
+  // ====================================================
+  // U.S. Tour 2023
+  chicago23: {
+    id: "1f8192d8-4650-4837-b119-b82507afe23c",
+    location: "Chicago",
+    date: "2023-06-11",
+    imageUrl: "https://f4.bcbits.com/img/a1324413369_16.jpg",
+    bandcampAlbumId: "3977429038",
+  },
+
+  // ====================================================
+  // Europe Tour 2023
+  palp23: {
+    id: "12a96ecf-2077-4264-8278-e76865b7507e",
+    location: "Palp",
+    date: "2023-08-14",
+    imageUrl: null,
+    bandcampAlbumId: null,
   },
 
   // ====================================================
@@ -96,6 +127,36 @@ export const seedPerformances: Omit<
   Performance,
   "createdAt" | "ratingLastUpdatedAt" | "eloRating"
 >[] = [
+  // ====================================================
+  // The River
+  {
+    id: "6805ba25-34c0-4cbf-a6f9-76bb927f4b99",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1xvoxeB8W7AWLYg3w4WFKh",
+    bandcampTrackId: "3613221164",
+    youtubeVideoId: "wP3stlzXxDg",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "900b4f8d-03a7-4302-be8a-06abe289d197",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.chicago23.id,
+    spotifyTrackId: "3VpnMEZ1t2toMTaE6R0B1z",
+    bandcampTrackId: "3791682806",
+    youtubeVideoId: "FoKm9lrkPcc",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "8c1e4ec8-7b9a-42c5-80ae-19d3d91cd61a",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.palp23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "myIjlvrfdfY",
+    youtubeVideoStartTime: 1545,
+  },
+
   // ====================================================
   // Work This Time
   {
