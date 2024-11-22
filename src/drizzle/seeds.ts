@@ -337,6 +337,15 @@ export const seedPerformances: Omit<
   // ====================================================
   // Magma
   {
+    id: "83354da3-ccf3-4589-875e-0ad48483f47e",
+    songId: seedSongs.magma.id,
+    showId: seedShows.rr23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "CkCQskIxtj8",
+    youtubeVideoStartTime: null,
+  },
+  {
     id: "01303513-e76e-453c-97fc-8c560e72127d",
     songId: seedSongs.magma.id,
     showId: seedShows.houston24.id,
