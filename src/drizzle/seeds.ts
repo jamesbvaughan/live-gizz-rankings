@@ -19,23 +19,45 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
   },
+  b741: {
+    title: "Flight b741",
+    id: "3e106926-3ea8-4742-87b4-7ea809799370",
+    imageUrl: "https://f4.bcbits.com/img/a3548545002_16.jpg",
+    bandcampAlbumId: "104852051",
+  },
 };
 
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
+  // ====================================================
+  // Quarters
   theRiver: {
     id: "5855d6aa-2dd1-4f82-a2d8-44b4e663eb87",
     title: "The River",
     albumId: seedAlbums.quarters.id,
   },
+
+  // ====================================================
+  // Oddments
   workThisTime: {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
     title: "Work This Time",
     albumId: seedAlbums.oddments.id,
   },
+
+  // ====================================================
+  // Ice, Death, Planets, Lungs, Mushrooms and Lava
   magma: {
     id: "717f22ee-9458-4bca-8dbf-e7940b1e4d96",
     title: "Magma",
     albumId: seedAlbums.iceDeath.id,
+  },
+
+  // ====================================================
+  // Flight b741
+  leRisque: {
+    id: "98521dd4-8ca6-48e2-b7ed-05e3bc765711",
+    title: "Le Risque",
+    albumId: seedAlbums.b741.id,
   },
 };
 
@@ -85,6 +107,20 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     date: "2024-08-16",
     imageUrl: "https://f4.bcbits.com/img/a4160066698_16.jpg",
     bandcampAlbumId: "3530855413",
+  },
+  minneapolis24: {
+    id: "04489d98-d04c-4980-bd62-b9f04807eb9f",
+    location: "Minneapolis",
+    date: "2024-09-03",
+    imageUrl: "https://f4.bcbits.com/img/a2807501952_16.jpg",
+    bandcampAlbumId: "1631866248",
+  },
+  rr24: {
+    id: "8fc370f6-46e7-488f-8e69-e4e3f3d10d28",
+    location: "Red Rocks",
+    date: "2024-09-08",
+    imageUrl: "https://f4.bcbits.com/img/a3263389792_16.jpg",
+    bandcampAlbumId: "79615285",
   },
   gorge24: {
     id: "69af662b-164e-499e-a459-e9cb903aae97",
@@ -163,7 +199,7 @@ export const seedPerformances: Omit<
     id: "fa02df1a-87c1-4c1e-9f75-50c1a3903e12",
     songId: seedSongs.workThisTime.id,
     showId: seedShows.bonnaroo22.id,
-    spotifyTrackId: "4b6tZw9nCvkQBlc6Nwi7M5?si=1e93797f9ec94a0a",
+    spotifyTrackId: "4b6tZw9nCvkQBlc6Nwi7M5",
     bandcampTrackId: "2385094002",
     youtubeVideoId: "5GycxF0R0G8",
     youtubeVideoStartTime: null,
@@ -233,5 +269,26 @@ export const seedPerformances: Omit<
     bandcampTrackId: "3206819149",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 2561,
+  },
+
+  // ====================================================
+  // Le Risque
+  {
+    id: "14d48726-2264-49e0-be00-baedc0d2c8bd",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "776JDTXwr7BvdDtKGDKXKQ",
+    bandcampTrackId: "1366238147",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 4719,
+  },
+  {
+    id: "43834f0c-0c58-4876-8a4e-d18174054064",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "2IKnCNrVaDRR3eFcx4puBO",
+    bandcampTrackId: "772454983",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 3745,
   },
 ];
