@@ -9,8 +9,9 @@ Check it out at [livegizzrankings.com](https://livegizzrankings.com)!
 
 This is a fairly straightforward Next.js 15 app.
 
-After cloning, run `yarn install` to install the dependencies and then
-`yarn dev` to start the dev server.
+After cloning, ask me for the values to populate your `.env` file, then run
+`yarn install` to install the dependencies and then `yarn dev` to start the dev
+server.
 
 ## Dashboards
 
