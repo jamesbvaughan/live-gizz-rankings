@@ -89,7 +89,7 @@ export default function Home() {
               <a href="mailto:james@jamesbvaughan.com" className="underline">
                 let me know
               </a>{" "}
-              and I'll add it!
+              and I&apos;ll add it!
             </p>
           </A>
         </QnA>
