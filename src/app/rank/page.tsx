@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 import { Metadata } from "next";
 import { getRandomPairForCurrentUser } from "./getRandomPair";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Rank Songs",
@@ -112,7 +113,26 @@ function MediaPlayers({
 export default async function Rank() {
   const pair = await getRandomPairForCurrentUser();
   if (!pair) {
-    return <div>No more performances to rank</div>;
+    return (
+      <div className="space-y-4">
+        <p>
+          You&apos;ve voted on every pair of performances that&apos;s been added
+          to the site. Thank you!
+        </p>
+        <p>
+          You can{" "}
+          <Link href="/albums" className="underline">
+            browse all the rankings by album here
+          </Link>{" "}
+          or{" "}
+          <a href="mailto:james@jamesbvaughan.com" className="underline">
+            email me
+          </a>{" "}
+          if there are more songs or performances that you&apos;d like to see
+          added here.
+        </p>
+      </div>
+    );
   }
 
   const performanceA = await getPerformanceById(pair[0]);
