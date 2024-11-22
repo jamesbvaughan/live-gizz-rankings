@@ -1,41 +1,34 @@
 import { db } from "@/drizzle/db";
-import { Performance, performances, Show, Song } from "@/drizzle/schema";
+import { Performance, performances, Show } from "@/drizzle/schema";
 import { getShowTitle } from "@/utils";
-import { eq, sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 import { Metadata } from "next";
+import { getRandomPairForCurrentUser } from "./getRandomPair";
 
 export const metadata: Metadata = {
   title: "Rank Songs",
 };
 
-async function getRandomSong() {
-  const randomSong = await db.query.songs.findFirst({
-    orderBy: sql`RANDOM()`,
+async function getPerformanceById(performanceId: string) {
+  const performance = await db.query.performances.findFirst({
+    where: eq(performances.id, performanceId),
+    with: { show: true, song: true },
   });
-  if (!randomSong) {
-    throw new Error("No songs found");
+  if (!performance) {
+    throw new Error("Performance not found");
   }
-
-  return randomSong;
+  return performance;
 }
 
-async function getRandomPerformances(song: Song) {
-  const randomPerformances = await db.query.performances.findMany({
-    limit: 2,
-    where: eq(performances.songId, song.id),
-    orderBy: sql`RANDOM()`,
-    with: {
-      show: true,
-      song: true,
-    },
+async function getSongById(songId: string) {
+  const song = await db.query.songs.findFirst({
+    where: eq(performances.id, songId),
   });
-
-  if (randomPerformances.length !== 2) {
-    throw new Error("Not enough performances found");
+  if (!song) {
+    throw new Error("Song not found");
   }
-
-  return randomPerformances;
+  return song;
 }
 
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
@@ -117,10 +110,16 @@ function MediaPlayers({
 }
 
 export default async function Rank() {
-  const song = await getRandomSong();
+  const pair = await getRandomPairForCurrentUser();
+  if (!pair) {
+    return <div>No more performances to rank</div>;
+  }
 
-  const randomPerformances = await getRandomPerformances(song);
-  const [performanceA, performanceB] = randomPerformances;
+  const performanceA = await getPerformanceById(pair[0]);
+  const performanceB = await getPerformanceById(pair[1]);
+  const song = await getSongById(performanceA.songId);
+
+  const performances = [performanceA, performanceB];
 
   return (
     <div className="space-y-10">
@@ -134,7 +133,7 @@ export default async function Rank() {
       />
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
-        {randomPerformances.map((performance) => {
+        {performances.map((performance) => {
           const showTitle = getShowTitle(performance.show);
 
           return (
