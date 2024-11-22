@@ -91,6 +91,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
   },
+  thisThing: {
+    id: "f4a714ed-0de5-43d3-a92c-14cf1c201c15",
+    title: "This Thing",
+    albumId: seedAlbums.fff.id,
+  },
 
   // ====================================================
   // Omnium Gatherum
