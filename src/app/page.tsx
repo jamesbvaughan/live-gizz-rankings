@@ -14,7 +14,7 @@ function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
 
 export default function Home() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-8">
       <p className="text-xl">
         The purpose of this site is to identify what the fan community believes
         to be King Gizzard &amp; The Lizard Wizard&apos;s best live performances

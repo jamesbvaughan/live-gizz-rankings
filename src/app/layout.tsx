@@ -68,7 +68,13 @@ export default function RootLayout({
             <footer>
               <hr className="my-10 border-[#ff0000]" />
               <div className="text-center">
-                made by <a href="https://jamesbvaughan.com">james</a>
+                made by{" "}
+                <a
+                  href="https://jamesbvaughan.com"
+                  className="hover:text-[#ff0000]"
+                >
+                  james
+                </a>
               </div>
             </footer>
           </div>

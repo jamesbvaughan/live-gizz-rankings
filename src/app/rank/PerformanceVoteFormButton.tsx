@@ -14,7 +14,9 @@ export function PerformanceFormButtons({
   performanceA: Performance & { show: Show };
   performanceB: Performance & { show: Show };
 }) {
-  const [canSubmit, setCanSubmit] = useState(false);
+  const [selectedPerformance, setSelectedPerformance] = useState<
+    (Performance & { show: Show }) | null
+  >(null);
   const [_state, submitVote, isPending] = useActionState(vote, null);
 
   return (
@@ -36,8 +38,9 @@ export function PerformanceFormButtons({
                 name="winnerId"
                 id={performance.id}
                 value={performance.id}
+                checked={selectedPerformance === performance}
                 onChange={() => {
-                  setCanSubmit(true);
+                  setSelectedPerformance(performance);
                 }}
               />
               <div className="border-8 border-transparent peer-checked:border-[#ff0000]">
@@ -65,15 +68,15 @@ export function PerformanceFormButtons({
       <input type="hidden" name="performanceIdB" value={performanceB.id} />
 
       <div className="flex h-24 items-center justify-center">
-        {canSubmit ? (
+        {selectedPerformance ? (
           <button
             type="submit"
-            className="h-16 w-48 border-2 border-gray-100 hover:bg-gray-100 hover:text-black"
+            className="border-2 border-gray-100 px-6 py-4 hover:bg-gray-100 hover:text-black"
           >
-            Submit vote
+            submit vote for {getShowTitle(selectedPerformance.show)}
           </button>
         ) : (
-          <div>Choose a performance to vote for</div>
+          <div>choose a performance above to vote for</div>
         )}
       </div>
     </Form>

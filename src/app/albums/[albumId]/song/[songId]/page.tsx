@@ -50,7 +50,7 @@ export default async function Song({ params }: Props) {
               <div className="w-12 text-4xl">{index + 1}.</div>
 
               <div className="flex space-x-4">
-                <div className="aspect-square w-24">
+                <div className="aspect-square w-24 bg-gray-900">
                   {performance.show.imageUrl ? (
                     <Image
                       src={performance.show.imageUrl}
