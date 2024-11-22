@@ -185,7 +185,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
 
   // ====================================================
-  // U.S. Tour 2024
+  // U.S. Tour 2024 pt. 1
   nyc24: {
     id: "4023c755-247d-4b29-86ec-7b1203e93bdf",
     location: "New York City",
@@ -214,12 +214,22 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2893046862_16.jpg",
     bandcampAlbumId: "3746606297",
   },
+
+  // ====================================================
+  // U.S. Tour 2024 pt. 2
   stanford24: {
     id: "935dd6ed-2153-4e4b-8bea-1d75825b8fe4",
     location: "Stanford",
     date: "2024-11-04",
     imageUrl: "https://f4.bcbits.com/img/a2511383545_16.jpg",
     bandcampAlbumId: "2620217443",
+  },
+  phoenix24: {
+    id: "8bd9f809-7ab8-4046-9347-e349eb663b86",
+    location: "Phoenix",
+    date: "2024-11-09",
+    imageUrl: "https://f4.bcbits.com/img/a3527600251_16.jpg",
+    bandcampAlbumId: "4200479984",
   },
   abq24: {
     id: "f0139f08-7075-4757-b811-9c458d04593c",
