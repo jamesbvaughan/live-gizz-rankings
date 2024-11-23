@@ -347,6 +347,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 3294,
   },
+  {
+    id: "3a0e7305-20f2-43c6-aac0-082e5e12c87d",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.remlinger23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "ZvMPzVVWQIA",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Magma
