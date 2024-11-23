@@ -73,7 +73,11 @@ export function PerformanceFormButtons({
             type="submit"
             className="border-2 border-gray-100 px-6 py-4 hover:bg-gray-100 hover:text-black"
           >
-            submit vote for {getShowTitle(selectedPerformance.show)}
+            {isPending ? (
+              "submitting vote..."
+            ) : (
+              <>submit vote for {getShowTitle(selectedPerformance.show)}</>
+            )}
           </button>
         ) : (
           <div>choose a performance above to vote for</div>
