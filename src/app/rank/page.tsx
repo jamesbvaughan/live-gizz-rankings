@@ -89,8 +89,11 @@ function MediaPlayers({
 }) {
   return (
     <div className="space-y-4">
-      {performance.spotifyTrackId && (
-        <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
+      {performance.youtubeVideoId && (
+        <YouTubePlayer
+          videoId={performance.youtubeVideoId}
+          startTime={performance.youtubeVideoStartTime}
+        />
       )}
 
       {performance.bandcampTrackId && performance.show.bandcampAlbumId && (
@@ -100,11 +103,8 @@ function MediaPlayers({
         />
       )}
 
-      {performance.youtubeVideoId && (
-        <YouTubePlayer
-          videoId={performance.youtubeVideoId}
-          startTime={performance.youtubeVideoStartTime}
-        />
+      {performance.spotifyTrackId && (
+        <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
       )}
     </div>
   );
