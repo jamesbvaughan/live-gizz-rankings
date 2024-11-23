@@ -48,17 +48,18 @@ export default async function Album({ params }: Props) {
         <div className="space-y-4">
           <h2 className="text-2xl">{album.title}</h2>
 
-          <div>
+          <ul>
             {songs.map((song) => (
-              <Link
-                key={song.id}
-                href={`/albums/${albumId}/song/${song.id}`}
-                className="hover:text-[#ff0000]"
-              >
-                {song.title}
-              </Link>
+              <li key={song.id}>
+                <Link
+                  href={`/albums/${albumId}/song/${song.id}`}
+                  className="hover:text-[#ff0000]"
+                >
+                  {song.title}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <Image
