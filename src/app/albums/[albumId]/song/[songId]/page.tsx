@@ -9,16 +9,20 @@ import Link from "next/link";
 import { seedSongs } from "@/drizzle/seeds";
 import { Suspense } from "react";
 
+function getSongById(songId: string) {
+  const song = Object.values(seedSongs).find((song) => song.id === songId);
+  if (!song) {
+    notFound();
+  }
+
+  return song;
+}
+
 type Props = { params: Promise<{ songId: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { songId } = await params;
-  const song = await db.query.songs.findFirst({
-    where: eq(songs.id, songId),
-  });
-  if (!song) {
-    notFound();
-  }
+  const song = getSongById(songId);
 
   return {
     title: song.title,
@@ -73,15 +77,6 @@ async function RankedPerformances({ songId }: { songId: string }) {
       })}
     </ol>
   );
-}
-
-function getSongById(songId: string) {
-  const song = Object.values(seedSongs).find((song) => song.id === songId);
-  if (!song) {
-    notFound();
-  }
-
-  return song;
 }
 
 export default async function Song({ params }: Props) {
