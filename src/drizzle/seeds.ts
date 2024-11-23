@@ -158,7 +158,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
 
   // ====================================================
-  // U.S. Tour 2023
+  // U.S. Residency Tour 2023
   rr23: {
     id: "af055b78-9c40-4f15-a676-ed05f3485019",
     location: "Red Rocks",
@@ -172,6 +172,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     date: "2023-06-11",
     imageUrl: "https://f4.bcbits.com/img/a1324413369_16.jpg",
     bandcampAlbumId: "3977429038",
+  },
+  remlinger23: {
+    id: "ae71a1cd-0823-4feb-85f8-065529415dff",
+    location: "Remlinger Farms",
+    date: "2023-06-17",
+    imageUrl: null,
+    bandcampAlbumId: null,
   },
 
   // ====================================================
