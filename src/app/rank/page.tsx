@@ -35,10 +35,9 @@ async function getSongById(songId: string) {
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
     <iframe
-      style={{ borderRadius: 0 }}
-      src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
       width="100%"
       height="80"
+      src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
     ></iframe>
@@ -56,10 +55,10 @@ function BandcampPlayer({
   const linkColor = "ff0000";
   return (
     <iframe
-      style={{ border: 0, width: "100%", height: 120 }}
+      width="100%"
+      height="120"
       src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
       loading="lazy"
-      seamless
     ></iframe>
   );
 }
