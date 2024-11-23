@@ -421,6 +421,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "bsMwq3004x8",
     youtubeVideoStartTime: 1164,
   },
+  {
+    id: "112e43a6-230b-4ef5-9329-2d09a74fda23",
+    songId: seedSongs.sense.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "76OfPpLfZQ0y6Mfn1VnxzC",
+    bandcampTrackId: "3200447140",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 5236,
+  },
 
   // ====================================================
   // Let Me Mend the Past
