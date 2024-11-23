@@ -58,6 +58,7 @@ function BandcampPlayer({
     <iframe
       style={{ border: 0, width: "100%", height: 120 }}
       src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
+      loading="lazy"
       seamless
     ></iframe>
   );
@@ -76,6 +77,7 @@ function YouTubePlayer({
       className="aspect-video"
       src={`https://www.youtube.com/embed/${videoId}${startTime != null ? `?start=${startTime}` : ""}`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy"
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
     ></iframe>
