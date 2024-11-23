@@ -1,36 +1,46 @@
-import { db } from "@/drizzle/db";
 import Image from "next/image";
-import { albums } from "@/drizzle/schema";
-import { eq } from "drizzle-orm";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { seedAlbums, seedSongs } from "@/drizzle/seeds";
 
 type Props = { params: Promise<{ albumId: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { albumId } = await params;
-  const album = await db.query.albums.findFirst({
-    where: eq(albums.id, albumId),
-  });
+function getAlbumById(albumId: string) {
+  const album = Object.values(seedAlbums).find((album) => album.id === albumId);
   if (!album) {
     notFound();
   }
+  return album;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { albumId } = await params;
+  const album = getAlbumById(albumId);
 
   return {
     title: album.title,
   };
 }
 
+export function generateStaticParams() {
+  const albums = Object.values(seedAlbums);
+
+  return albums.map((album) => ({
+    // TODO: maybe use a human-readable slug?
+    albumId: album.id,
+  }));
+}
+
+export const dynamicParams = false;
+
 export default async function Album({ params }: Props) {
   const { albumId } = await params;
-  const album = await db.query.albums.findFirst({
-    where: eq(albums.id, albumId),
-    with: { songs: true },
-  });
-  if (!album) {
-    notFound();
-  }
+  const album = getAlbumById(albumId);
+
+  const songs = Object.values(seedSongs).filter(
+    (song) => song.albumId === albumId,
+  );
 
   return (
     <div>
@@ -39,7 +49,7 @@ export default async function Album({ params }: Props) {
           <h2 className="text-2xl">{album.title}</h2>
 
           <div>
-            {album.songs.map((song) => (
+            {songs.map((song) => (
               <Link
                 key={song.id}
                 href={`/albums/${albumId}/song/${song.id}`}

@@ -1,4 +1,4 @@
-import { db } from "@/drizzle/db";
+import { seedAlbums } from "@/drizzle/seeds";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Albums() {
-  const albums = await db.query.albums.findMany();
+  const albums = Object.values(seedAlbums);
 
   return (
     <div className="grid grid-cols-2 gap-4">

@@ -1,10 +1,4 @@
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
@@ -15,6 +9,7 @@ import BackgroundCanvas from "./BackgroundCanvas";
 import Image from "next/image";
 
 import lgrHandwritten from "./lgr-handwritten.png";
+import { AccountButtons } from "./AccountButtons";
 
 export const metadata: Metadata = {
   title: {
@@ -35,15 +30,7 @@ function Header() {
         />
       </Link>
 
-      <div className="flex items-center">
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </div>
+      <AccountButtons />
     </header>
   );
 }
@@ -57,7 +44,7 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className="bg-black text-gray-100">
+        <body className="overflow-y-scroll bg-black text-gray-100">
           <BackgroundCanvas />
 
           <div className="mx-auto max-w-[720px] space-y-10 px-4 pb-10 pt-6">
