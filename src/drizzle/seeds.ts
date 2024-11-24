@@ -113,6 +113,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Sense",
     albumId: seedAlbums.pmdb.id,
   },
+  trapdoor: {
+    id: "7e5a8135-fab6-4dce-b54e-b784d94a7258",
+    title: "Trapdoor",
+    albumId: seedAlbums.pmdb.id,
+  },
 
   // ====================================================
   // Oddments
