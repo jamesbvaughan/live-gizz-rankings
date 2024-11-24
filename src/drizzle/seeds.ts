@@ -599,4 +599,16 @@ export const seedPerformances: Omit<
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+
+  // ====================================================
+  // Trapdoor
+  {
+    id: "8f921cb1-2296-4181-83db-9366a633c44c",
+    songId: seedSongs.trapdoor.id,
+    showId: seedShows.nola24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "2759753713",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 ];
