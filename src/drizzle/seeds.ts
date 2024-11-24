@@ -32,6 +32,7 @@
 
 import { Album, Performance, Show, Song } from "./schema";
 
+// Ordered by release date
 export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
   fafyl: {
     title: "Float Along - Fill Your Lungs",
@@ -89,6 +90,7 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
   },
 };
 
+// Ordered by album release date and position on album
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // ====================================================
   // Float Along - Fill Your Lungs
@@ -121,14 +123,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
   // ====================================================
   // Oddments
-  workThisTime: {
-    id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
-    title: "Work This Time",
-    albumId: seedAlbums.oddments.id,
-  },
   hotWax: {
     id: "57430f87-f009-4094-8c66-e08b8041bbc3",
     title: "Hot Wax",
+    albumId: seedAlbums.oddments.id,
+  },
+  workThisTime: {
+    id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
+    title: "Work This Time",
     albumId: seedAlbums.oddments.id,
   },
 
@@ -183,6 +185,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 };
 
+// Ordered by show date
 export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // ====================================================
   // Europe Tour 2019
@@ -343,86 +346,96 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
 };
 
+// Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances: Omit<
   Performance,
   "createdAt" | "ratingLastUpdatedAt" | "eloRating"
 >[] = [
   // ====================================================
-  // The River
+  // The Grim Reaper
   {
-    id: "6805ba25-34c0-4cbf-a6f9-76bb927f4b99",
-    songId: seedSongs.theRiver.id,
-    showId: seedShows.rr22.id,
-    spotifyTrackId: "1xvoxeB8W7AWLYg3w4WFKh",
-    bandcampTrackId: "3613221164",
-    youtubeVideoId: "wP3stlzXxDg",
-    youtubeVideoStartTime: null,
-  },
-  {
-    id: "900b4f8d-03a7-4302-be8a-06abe289d197",
-    songId: seedSongs.theRiver.id,
-    showId: seedShows.chicago23.id,
-    spotifyTrackId: "3VpnMEZ1t2toMTaE6R0B1z",
-    bandcampTrackId: "3791682806",
-    youtubeVideoId: "FoKm9lrkPcc",
-    youtubeVideoStartTime: null,
-  },
-  {
-    id: "8c1e4ec8-7b9a-42c5-80ae-19d3d91cd61a",
-    songId: seedSongs.theRiver.id,
-    showId: seedShows.palp23.id,
+    id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.nola24.id,
     spotifyTrackId: null,
-    bandcampTrackId: null,
-    youtubeVideoId: "myIjlvrfdfY",
-    youtubeVideoStartTime: 1545,
-  },
-
-  // ====================================================
-  // Work This Time
-  {
-    id: "fa02df1a-87c1-4c1e-9f75-50c1a3903e12",
-    songId: seedSongs.workThisTime.id,
-    showId: seedShows.bonnaroo22.id,
-    spotifyTrackId: "4b6tZw9nCvkQBlc6Nwi7M5",
-    bandcampTrackId: "2385094002",
-    youtubeVideoId: "5GycxF0R0G8",
-    youtubeVideoStartTime: null,
-  },
-  {
-    id: "77012079-f7fb-4764-9a9a-eef74e7ef072",
-    songId: seedSongs.workThisTime.id,
-    showId: seedShows.atlanta24.id,
-    spotifyTrackId: null,
-    bandcampTrackId: null,
-    youtubeVideoId: "ijYmTy8YnOw",
-    youtubeVideoStartTime: null,
-  },
-  {
-    id: "4440adfc-6170-4f63-8e6b-819c1a4e535f",
-    songId: seedSongs.workThisTime.id,
-    showId: seedShows.rr22.id,
-    spotifyTrackId: "6YE7MsZ4y82v4qvntAeivs",
-    bandcampTrackId: "1874767619",
+    bandcampTrackId: "2579325509",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+
+  // ====================================================
+  // Hot Wax
   {
-    id: "e899dff3-dabd-4cba-a453-4031f0719805",
-    songId: seedSongs.workThisTime.id,
-    showId: seedShows.nyc24.id,
-    spotifyTrackId: "31Phk1Hoda4CG1d0dXoOpl",
-    bandcampTrackId: "2109737640",
-    youtubeVideoId: "KTTNMU5juFo",
-    youtubeVideoStartTime: 3294,
-  },
-  {
-    id: "3a0e7305-20f2-43c6-aac0-082e5e12c87d",
-    songId: seedSongs.workThisTime.id,
-    showId: seedShows.remlinger23.id,
+    id: "7226d110-9b69-440a-af40-673ab468e0a2",
+    songId: seedSongs.hotWax.id,
+    showId: seedShows.atlanta24.id,
     spotifyTrackId: null,
     bandcampTrackId: null,
-    youtubeVideoId: "ZvMPzVVWQIA",
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 2523,
+  },
+
+  // ====================================================
+  // Le Risque
+  {
+    id: "14d48726-2264-49e0-be00-baedc0d2c8bd",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "776JDTXwr7BvdDtKGDKXKQ",
+    bandcampTrackId: "1366238147",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 4719,
+  },
+  {
+    id: "43834f0c-0c58-4876-8a4e-d18174054064",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "2IKnCNrVaDRR3eFcx4puBO",
+    bandcampTrackId: "772454983",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 3745,
+  },
+
+  // ====================================================
+  // Let Me Mend the Past
+  {
+    id: "eba540a0-63b1-442d-af61-4306476921fd",
+    songId: seedSongs.letMeMendThePast.id,
+    showId: seedShows.madrid19.id,
+    spotifyTrackId: "5yDNY3VRjynyeuKxuhv04J",
+    bandcampTrackId: "3594277571",
+    youtubeVideoId: "_faNeGc3p3Y",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "cac1519d-5f78-400f-992c-c683948cf478",
+    songId: seedSongs.letMeMendThePast.id,
+    showId: seedShows.gorge24.id,
+    spotifyTrackId: "7Fhe1wCQjnFM0cjD9GQFKo",
+    bandcampTrackId: "860012551",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 5754,
+  },
+
+  // ====================================================
+  // Magenta Mountain
+  {
+    id: "1447a081-953c-4d30-bd14-e43056d3847e",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.gorge24.id,
+    spotifyTrackId: "6qOqkCHPRH831SCRDTqBKv",
+    bandcampTrackId: "1569212600",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 6745,
+  },
+  {
+    id: "5507e518-77de-41f7-8ed7-81830b63e78b",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.mexicoCity22.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "EaU-3FY1JXM",
+    youtubeVideoStartTime: 1137,
   },
 
   // ====================================================
@@ -474,24 +487,45 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
-  // Le Risque
+  // Plastic Boogie
   {
-    id: "14d48726-2264-49e0-be00-baedc0d2c8bd",
-    songId: seedSongs.leRisque.id,
-    showId: seedShows.minneapolis24.id,
-    spotifyTrackId: "776JDTXwr7BvdDtKGDKXKQ",
-    bandcampTrackId: "1366238147",
-    youtubeVideoId: "qY7iyjHdBUM",
-    youtubeVideoStartTime: 4719,
+    id: "7465275c-8bba-47af-b84a-3ee345744de4",
+    songId: seedSongs.plasticBoogie.id,
+    showId: seedShows.okc24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3208205626",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // The River
+  {
+    id: "6805ba25-34c0-4cbf-a6f9-76bb927f4b99",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1xvoxeB8W7AWLYg3w4WFKh",
+    bandcampTrackId: "3613221164",
+    youtubeVideoId: "wP3stlzXxDg",
+    youtubeVideoStartTime: null,
   },
   {
-    id: "43834f0c-0c58-4876-8a4e-d18174054064",
-    songId: seedSongs.leRisque.id,
-    showId: seedShows.rr24.id,
-    spotifyTrackId: "2IKnCNrVaDRR3eFcx4puBO",
-    bandcampTrackId: "772454983",
-    youtubeVideoId: "_AZ9z62b8dU",
-    youtubeVideoStartTime: 3745,
+    id: "900b4f8d-03a7-4302-be8a-06abe289d197",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.chicago23.id,
+    spotifyTrackId: "3VpnMEZ1t2toMTaE6R0B1z",
+    bandcampTrackId: "3791682806",
+    youtubeVideoId: "FoKm9lrkPcc",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "8c1e4ec8-7b9a-42c5-80ae-19d3d91cd61a",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.palp23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "myIjlvrfdfY",
+    youtubeVideoStartTime: 1545,
   },
 
   // ====================================================
@@ -516,72 +550,6 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
-  // Let Me Mend the Past
-  {
-    id: "eba540a0-63b1-442d-af61-4306476921fd",
-    songId: seedSongs.letMeMendThePast.id,
-    showId: seedShows.madrid19.id,
-    spotifyTrackId: "5yDNY3VRjynyeuKxuhv04J",
-    bandcampTrackId: "3594277571",
-    youtubeVideoId: "_faNeGc3p3Y",
-    youtubeVideoStartTime: null,
-  },
-  {
-    id: "cac1519d-5f78-400f-992c-c683948cf478",
-    songId: seedSongs.letMeMendThePast.id,
-    showId: seedShows.gorge24.id,
-    spotifyTrackId: "7Fhe1wCQjnFM0cjD9GQFKo",
-    bandcampTrackId: "860012551",
-    youtubeVideoId: "Tfm4okv47M4",
-    youtubeVideoStartTime: 5754,
-  },
-
-  // ====================================================
-  // Plastic Boogie
-  {
-    id: "7465275c-8bba-47af-b84a-3ee345744de4",
-    songId: seedSongs.plasticBoogie.id,
-    showId: seedShows.okc24.id,
-    spotifyTrackId: null,
-    bandcampTrackId: "3208205626",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
-  },
-
-  // ====================================================
-  // Magenta Mountain
-  {
-    id: "1447a081-953c-4d30-bd14-e43056d3847e",
-    songId: seedSongs.magentaMountain.id,
-    showId: seedShows.gorge24.id,
-    spotifyTrackId: "6qOqkCHPRH831SCRDTqBKv",
-    bandcampTrackId: "1569212600",
-    youtubeVideoId: "Tfm4okv47M4",
-    youtubeVideoStartTime: 6745,
-  },
-  {
-    id: "5507e518-77de-41f7-8ed7-81830b63e78b",
-    songId: seedSongs.magentaMountain.id,
-    showId: seedShows.mexicoCity22.id,
-    spotifyTrackId: null,
-    bandcampTrackId: null,
-    youtubeVideoId: "EaU-3FY1JXM",
-    youtubeVideoStartTime: 1137,
-  },
-
-  // ====================================================
-  // This Thing
-  {
-    id: "099acbaf-af1a-4fe4-9c6e-7898d4cfdd00",
-    songId: seedSongs.thisThing.id,
-    showId: seedShows.phoenix24.id,
-    spotifyTrackId: null,
-    bandcampTrackId: "1260515879",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
-  },
-
-  // ====================================================
   // The Silver Cord
   {
     id: "945f799d-a651-4496-a6aa-f362cddea7d3",
@@ -594,13 +562,13 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
-  // The Grim Reaper
+  // This Thing
   {
-    id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
-    songId: seedSongs.theGrimReaper.id,
-    showId: seedShows.nola24.id,
+    id: "099acbaf-af1a-4fe4-9c6e-7898d4cfdd00",
+    songId: seedSongs.thisThing.id,
+    showId: seedShows.phoenix24.id,
     spotifyTrackId: null,
-    bandcampTrackId: "2579325509",
+    bandcampTrackId: "1260515879",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
@@ -618,14 +586,50 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
-  // Hot Wax
+  // Work This Time
   {
-    id: "7226d110-9b69-440a-af40-673ab468e0a2",
-    songId: seedSongs.hotWax.id,
+    id: "fa02df1a-87c1-4c1e-9f75-50c1a3903e12",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.bonnaroo22.id,
+    spotifyTrackId: "4b6tZw9nCvkQBlc6Nwi7M5",
+    bandcampTrackId: "2385094002",
+    youtubeVideoId: "5GycxF0R0G8",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "77012079-f7fb-4764-9a9a-eef74e7ef072",
+    songId: seedSongs.workThisTime.id,
     showId: seedShows.atlanta24.id,
     spotifyTrackId: null,
     bandcampTrackId: null,
-    youtubeVideoId: "I5S-AMdP4bs",
-    youtubeVideoStartTime: 2523,
+    youtubeVideoId: "ijYmTy8YnOw",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "4440adfc-6170-4f63-8e6b-819c1a4e535f",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "6YE7MsZ4y82v4qvntAeivs",
+    bandcampTrackId: "1874767619",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "e899dff3-dabd-4cba-a453-4031f0719805",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "31Phk1Hoda4CG1d0dXoOpl",
+    bandcampTrackId: "2109737640",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 3294,
+  },
+  {
+    id: "3a0e7305-20f2-43c6-aac0-082e5e12c87d",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.remlinger23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "ZvMPzVVWQIA",
+    youtubeVideoStartTime: null,
   },
 ];
