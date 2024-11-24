@@ -154,6 +154,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // Butterfly 3000
+  shanghai: {
+    id: "f927bc2e-d505-4cd6-8357-f3d73ded4403",
+    title: "Shanghai",
+    albumId: seedAlbums.bf3k.id,
+  },
+
+  // ====================================================
   // Omnium Gatherum
   theDrippingTap: {
     id: "ae4a1559-f995-4ba0-bb49-6c1e34e196b3",
