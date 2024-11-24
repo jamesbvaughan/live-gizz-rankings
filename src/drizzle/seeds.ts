@@ -126,6 +126,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Work This Time",
     albumId: seedAlbums.oddments.id,
   },
+  hotWax: {
+    id: "57430f87-f009-4094-8c66-e08b8041bbc3",
+    title: "Hot Wax",
+    albumId: seedAlbums.oddments.id,
+  },
 
   // ====================================================
   // Fishing For Fishies
