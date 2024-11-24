@@ -40,7 +40,9 @@ export default async function Rank() {
       <div className="space-y-4">
         <p>
           You&apos;ve voted on every pair of performances that&apos;s been added
-          to the site. Thank you!
+          to the site. Thank you! I add performances periodically as people
+          nominate their favorites, so check back later to see if you&apos;ve
+          got new ones to vote on.
         </p>
         <p>
           You can{" "}
