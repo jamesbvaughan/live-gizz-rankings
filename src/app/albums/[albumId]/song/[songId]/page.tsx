@@ -1,22 +1,12 @@
 import { db } from "@/drizzle/db";
 import Image from "next/image";
 import { performances, songs } from "@/drizzle/schema";
-import { getShowTitle } from "@/utils";
+import { getShowTitle, getSongById } from "@/utils";
 import { desc, eq } from "drizzle-orm";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { seedSongs } from "@/drizzle/seeds";
 import { Suspense } from "react";
-
-function getSongById(songId: string) {
-  const song = Object.values(seedSongs).find((song) => song.id === songId);
-  if (!song) {
-    notFound();
-  }
-
-  return song;
-}
 
 type Props = { params: Promise<{ songId: string }> };
 
@@ -52,7 +42,10 @@ async function RankedPerformances({ songId }: { songId: string }) {
           <li key={performance.id} className="flex">
             <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
 
-            <div className="flex shrink-0 space-x-4">
+            <Link
+              href={`/performances/${performance.id}`}
+              className="flex shrink-0 space-x-4"
+            >
               <div className="aspect-square w-24 bg-gray-900">
                 {performance.show.imageUrl ? (
                   <Image
@@ -71,7 +64,7 @@ async function RankedPerformances({ songId }: { songId: string }) {
                   ({Math.round(performance.eloRating)})
                 </div>
               </div>
-            </div>
+            </Link>
           </li>
         );
       })}

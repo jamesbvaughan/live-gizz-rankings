@@ -1,4 +1,5 @@
 import { db } from "@/drizzle/db";
+import Link from "next/link";
 
 export default async function Votes() {
   const votes = await db.query.votes.findMany({
@@ -17,8 +18,13 @@ export default async function Votes() {
         {votes.map((vote) => {
           return (
             <li key={vote.id}>
-              {vote.voterId} voted for {vote.winner.song.title} at{" "}
-              {vote.winner.show.location}
+              {vote.voterId} voted for{" "}
+              <Link
+                href={`/performances/${vote.winner.id}`}
+                className="hover:text-[#ff0000]"
+              >
+                {vote.winner.song.title} at {vote.winner.show.location}
+              </Link>
             </li>
           );
         })}

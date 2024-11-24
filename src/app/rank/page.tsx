@@ -1,11 +1,12 @@
 import { db } from "@/drizzle/db";
-import { Performance, performances, Show } from "@/drizzle/schema";
+import { performances } from "@/drizzle/schema";
 import { getShowTitle } from "@/utils";
 import { eq } from "drizzle-orm";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 import { Metadata } from "next";
 import { getRandomPairForCurrentUser } from "./getRandomPair";
 import Link from "next/link";
+import { MediaPlayers } from "@/components/MediaPlayers";
 
 export const metadata: Metadata = {
   title: "Rank Songs",
@@ -30,85 +31,6 @@ async function getSongById(songId: string) {
     throw new Error("Song not found");
   }
   return song;
-}
-
-function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
-  return (
-    <iframe
-      width="100%"
-      height="80"
-      src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-    ></iframe>
-  );
-}
-
-function BandcampPlayer({
-  bandcampTrackId,
-  bandcampAlbumId,
-}: {
-  bandcampTrackId: string;
-  bandcampAlbumId: string;
-}) {
-  const bgColor = "000000";
-  const linkColor = "ff0000";
-  return (
-    <iframe
-      width="100%"
-      height="120"
-      src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
-      loading="lazy"
-    ></iframe>
-  );
-}
-
-function YouTubePlayer({
-  videoId,
-  startTime,
-}: {
-  videoId: string;
-  startTime: number | null;
-}) {
-  return (
-    <iframe
-      width="100%"
-      className="aspect-video"
-      src={`https://www.youtube.com/embed/${videoId}${startTime != null ? `?start=${startTime}` : ""}`}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      loading="lazy"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-    ></iframe>
-  );
-}
-
-function MediaPlayers({
-  performance,
-}: {
-  performance: Performance & { show: Show };
-}) {
-  return (
-    <div className="space-y-4">
-      {performance.youtubeVideoId && (
-        <YouTubePlayer
-          videoId={performance.youtubeVideoId}
-          startTime={performance.youtubeVideoStartTime}
-        />
-      )}
-
-      {performance.bandcampTrackId && performance.show.bandcampAlbumId && (
-        <BandcampPlayer
-          bandcampTrackId={performance.bandcampTrackId}
-          bandcampAlbumId={performance.show.bandcampAlbumId}
-        />
-      )}
-
-      {performance.spotifyTrackId && (
-        <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
-      )}
-    </div>
-  );
 }
 
 export default async function Rank() {
@@ -163,7 +85,7 @@ export default async function Rank() {
                 Listen to {song.title} at {showTitle}
               </h3>
 
-              <MediaPlayers performance={performance} />
+              <MediaPlayers performance={performance} show={performance.show} />
             </div>
           );
         })}

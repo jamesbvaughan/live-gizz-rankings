@@ -1,18 +1,10 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { seedAlbums, seedSongs } from "@/drizzle/seeds";
+import { getAlbumById } from "@/utils";
 
 type Props = { params: Promise<{ albumId: string }> };
-
-function getAlbumById(albumId: string) {
-  const album = Object.values(seedAlbums).find((album) => album.id === albumId);
-  if (!album) {
-    notFound();
-  }
-  return album;
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { albumId } = await params;
