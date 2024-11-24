@@ -366,6 +366,15 @@ export const seedPerformances: Omit<
   // ====================================================
   // Hot Wax
   {
+    id: "a3820b34-318b-4ec5-8c16-97e78d696e9e",
+    songId: seedSongs.hotWax.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "4CjkjneR7VtlpNXljmm0kE",
+    bandcampTrackId: "1857901996",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 4534,
+  },
+  {
     id: "7226d110-9b69-440a-af40-673ab468e0a2",
     songId: seedSongs.hotWax.id,
     showId: seedShows.atlanta24.id,
