@@ -152,6 +152,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // The Silver Cord
+  theSilverCord: {
+    id: "c7633144-0d11-45a6-ac88-ee089b7e9605",
+    title: "The Silver Cord",
+    albumId: seedAlbums.tsc.id,
+  },
+
+  // ====================================================
   // Flight b741
   leRisque: {
     id: "98521dd4-8ca6-48e2-b7ed-05e3bc765711",
