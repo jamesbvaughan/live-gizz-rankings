@@ -142,6 +142,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
+  theGrimReaper: {
+    id: "99018b73-3191-49d3-a792-de9ea16b4a0e",
+    title: "The Grim Reaper",
+    albumId: seedAlbums.og.id,
+  },
 
   // ====================================================
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
