@@ -604,6 +604,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Shanghai
+  {
+    id: "fd1c988c-fe8b-4374-b6a1-8c609c2e7b05",
+    songId: seedSongs.shanghai.id,
+    showId: seedShows.warsaw23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "LpzCgLjOmHg",
+    youtubeVideoStartTime: 3130,
+  },
+
+  // ====================================================
   // The Silver Cord
   {
     id: "945f799d-a651-4496-a6aa-f362cddea7d3",
