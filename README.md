@@ -1,5 +1,7 @@
 # Live Gizz Rankings!
 
+![CI](https://github.com/jamesbvaughan/live-gizz-rankings/actions/workflows/ci.yaml/badge.svg?branch=main)
+
 This is a small web app for crowdsourcing rankings for the best live
 performances of King Gizzard & The Lizard Wizard songs.
 
