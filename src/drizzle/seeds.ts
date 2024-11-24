@@ -310,6 +310,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a1910276487_16.jpg",
     bandcampAlbumId: "2847156728",
   },
+  nola24: {
+    id: "48d267dc-90a2-401d-aec5-b127a7abe06d",
+    location: "New Orleans",
+    date: "2024-11-17",
+    imageUrl: "https://f4.bcbits.com/img/a2503962224_16.jpg",
+    bandcampAlbumId: "3455343812",
+  },
   houston24: {
     id: "8b1615e0-a6dc-42f6-b61c-465971545450",
     location: "Houston",
