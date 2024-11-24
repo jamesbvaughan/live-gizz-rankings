@@ -265,7 +265,14 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
 
   // ====================================================
-  // Europe Tour 2023
+  // Europe & UK Tour 2023
+  warsaw23: {
+    id: "4c9a09b8-d363-4220-976e-1071ab0b302c",
+    location: "Warsaw",
+    date: "2023-03-11",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
   palp23: {
     id: "12a96ecf-2077-4264-8278-e76865b7507e",
     location: "Palp",
