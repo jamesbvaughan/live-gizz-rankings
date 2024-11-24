@@ -582,4 +582,16 @@ export const seedPerformances: Omit<
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 7711,
   },
+
+  // ====================================================
+  // The Grim Reaper
+  {
+    id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.nola24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "2579325509",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 ];
