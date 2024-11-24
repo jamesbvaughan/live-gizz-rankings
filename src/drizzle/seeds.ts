@@ -621,6 +621,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "LpzCgLjOmHg",
     youtubeVideoStartTime: 3130,
   },
+  {
+    id: "6a920bec-910e-4db3-94ec-e647b647697a",
+    songId: seedSongs.shanghai.id,
+    showId: seedShows.vegas24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1382317975",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Silver Cord
