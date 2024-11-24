@@ -364,6 +364,18 @@ export const seedPerformances: Omit<
   "createdAt" | "ratingLastUpdatedAt" | "eloRating"
 >[] = [
   // ====================================================
+  // The Dripping Tap
+  {
+    id: "5022ab78-932a-4259-aee3-5258c0da2b6d",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.oregon24.id,
+    spotifyTrackId: "2CTTyK9PKu3l4NqRzcPz3I",
+    bandcampTrackId: "3160394251",
+    youtubeVideoId: "k69DG8aZ6mw",
+    youtubeVideoStartTime: 430,
+  },
+
+  // ====================================================
   // The Grim Reaper
   {
     id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
