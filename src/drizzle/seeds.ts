@@ -64,6 +64,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
     bandcampAlbumId: "1507780262",
   },
+  bf3k: {
+    title: "Butterfly 3000",
+    id: "40fdce93-4438-4700-8721-9fade20341a0",
+    imageUrl: "https://f4.bcbits.com/img/a3009849752_16.jpg",
+    bandcampAlbumId: "3244133050",
+  },
   og: {
     title: "Omnium Gatherum",
     id: "560b0194-19ae-4bc9-aa24-0c2340596af7",
