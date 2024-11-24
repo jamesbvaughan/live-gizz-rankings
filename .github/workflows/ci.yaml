@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+            next-${{ runner.os }}-
+      - run: yarn
+      - run: yarn lint
+      - run: yarn run prettier --check .
+
+  validate-seeds:
+    name: Validate seed data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+            next-${{ runner.os }}-
+      - run: yarn
+      - run: yarn validate-seeds
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+            next-${{ runner.os }}-
+      - run: yarn
+      - run: yarn run tsc
