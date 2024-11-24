@@ -149,6 +149,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
   // ====================================================
   // Omnium Gatherum
+  theDrippingTap: {
+    id: "ae4a1559-f995-4ba0-bb49-6c1e34e196b3",
+    title: "The Dripping Tap",
+    albumId: seedAlbums.og.id,
+  },
   magentaMountain: {
     id: "9100f1b2-0e74-40bb-a945-0f59b54fff6d",
     title: "Magenta Mountain",
