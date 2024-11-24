@@ -1,3 +1,32 @@
+// =============================================================================
+//
+//                             ABOUT THIS FILE
+//
+//  This was originally just meant to be for some test data to use during
+//  development, with the actual data being managed in the site's UI and with a
+//  database as the source of truth.
+//
+//  But after using this file for a while, I realized that the scale of data
+//  I'll be dealing with for this site isn't _that_ big, and that it could be
+//  easier to just maintain this text file than to build a whole UI for
+//  submitting and managing data in the database.
+//
+//
+//                             HOW TO ADD DATA
+//
+//  You can add entries to any of the data sets here. For each new item,
+//  generate a random UUIDv4 via whatever method you like. (An easy option is to
+//  go to https://duck.com/?q=uuid and copy the generated UUID from there.)
+//
+//  I've taken the image URLs from Bandcamp. At some point, I should probably
+//  start hosting those here so that Next.js can optimize their delivery.
+//
+//  You can find the Spotify/Bandcamp/Youtube IDs by going to the relevant
+//  service, generating an embedd snippet for the song of interest, and finding
+//  the IDs in the generated HTML.
+//
+// =============================================================================
+
 import { Album, Performance, Show, Song } from "./schema";
 
 export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
