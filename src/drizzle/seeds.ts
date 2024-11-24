@@ -25,6 +25,9 @@
 //  service, generating an embedd snippet for the song of interest, and finding
 //  the IDs in the generated HTML.
 //
+//  After making a change or addition, run `yarn validate-seeds` to check for
+//  any errors, like missing or duplicate IDs.
+//
 // =============================================================================
 
 import { Album, Performance, Show, Song } from "./schema";
