@@ -75,6 +75,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
   },
+  tsc: {
+    title: "The Silver Cord",
+    id: "e212c176-b78f-4b0b-93a0-651ca99591e2",
+    imageUrl: "https://f4.bcbits.com/img/a0297097933_16.jpg",
+    bandcampAlbumId: "2151949833",
+  },
   b741: {
     title: "Flight b741",
     id: "3e106926-3ea8-4742-87b4-7ea809799370",
