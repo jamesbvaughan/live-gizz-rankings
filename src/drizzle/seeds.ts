@@ -430,6 +430,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Her and I (Slow Jam 2)
+  {
+    id: "3322528a-0349-4d79-8449-42434abff995",
+    songId: seedSongs.herAndI.id,
+    showId: seedShows.atlanta24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3562250543",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: 4534,
+  },
+
+  // ====================================================
   // Hot Wax
   {
     id: "a3820b34-318b-4ec5-8c16-97e78d696e9e",
