@@ -40,6 +40,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3907213656_16.jpg",
     bandcampAlbumId: "1510489151",
   },
+  mindFuzz: {
+    title: "I'm In Your Mind Fuzz",
+    id: "29ae645d-1487-4963-9605-25a24904c205",
+    imageUrl: "https://f4.bcbits.com/img/a3937834400_16.jpg",
+    bandcampAlbumId: "3101239241",
+  },
   quarters: {
     title: "Quarters",
     id: "5ba9fb14-390a-4f14-a141-21b6fb66adac",
@@ -104,6 +110,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     id: "fa5d8f49-6cee-40f7-b4ea-e68de744035e",
     title: "Let Me Mend the Past",
     albumId: seedAlbums.fafyl.id,
+  },
+
+  // ====================================================
+  // I'm In Your Mind Fuzz
+  herAndI: {
+    id: "a0d4e6aa-e5d8-4402-82ef-27918958dafd",
+    title: "Her and I (Slow Jam 2)",
+    albumId: seedAlbums.mindFuzz.id,
   },
 
   // ====================================================
