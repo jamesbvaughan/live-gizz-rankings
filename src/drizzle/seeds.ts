@@ -381,8 +381,8 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     id: "8af52ec8-f9a6-43e3-ad24-a5ac42f3308d",
     location: "Atlanta",
     date: "2024-11-19",
-    imageUrl: null,
-    bandcampAlbumId: null,
+    imageUrl: "https://f4.bcbits.com/img/a2812384254_16.jpg",
+    bandcampAlbumId: "3316613276",
   },
 };
 
@@ -431,7 +431,7 @@ export const seedPerformances: Omit<
     songId: seedSongs.hotWax.id,
     showId: seedShows.atlanta24.id,
     spotifyTrackId: null,
-    bandcampTrackId: null,
+    bandcampTrackId: "1768274572",
     youtubeVideoId: "I5S-AMdP4bs",
     youtubeVideoStartTime: 2523,
   },
@@ -683,7 +683,7 @@ export const seedPerformances: Omit<
     songId: seedSongs.workThisTime.id,
     showId: seedShows.atlanta24.id,
     spotifyTrackId: null,
-    bandcampTrackId: null,
+    bandcampTrackId: "3726265588",
     youtubeVideoId: "ijYmTy8YnOw",
     youtubeVideoStartTime: null,
   },
