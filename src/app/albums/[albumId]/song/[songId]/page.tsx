@@ -46,7 +46,7 @@ async function RankedPerformances({ songId }: { songId: string }) {
               href={`/performances/${performance.id}`}
               className="flex shrink-0 space-x-4"
             >
-              <div className="aspect-square w-24 bg-gray-900">
+              <div className="aspect-square w-24 bg-background">
                 {performance.show.imageUrl ? (
                   <Image
                     src={performance.show.imageUrl}
@@ -60,7 +60,7 @@ async function RankedPerformances({ songId }: { songId: string }) {
               <div>
                 <div className="text-2xl sm:text-4xl">{showTitle}</div>
 
-                <div className="text-gray-500">
+                <div className="text-muted">
                   ({Math.round(performance.eloRating)})
                 </div>
               </div>

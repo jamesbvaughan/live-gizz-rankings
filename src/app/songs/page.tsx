@@ -34,12 +34,12 @@ export default async function Songs() {
                   <div key={song.id} className="flex items-end space-x-2">
                     <Link
                       href={`/albums/${album.id}/song/${song.id}`}
-                      className="text-lg hover:text-[#ff0000]"
+                      className="text-lg hover:text-red"
                     >
                       {song.title}
                     </Link>
 
-                    <div className="text-gray-500">
+                    <div className="text-muted">
                       {songPerformances.length} performances ranked
                     </div>
                   </div>

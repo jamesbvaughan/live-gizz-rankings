@@ -43,10 +43,10 @@ export function PerformanceFormButtons({
                   setSelectedPerformance(performance);
                 }}
               />
-              <div className="border-8 border-transparent peer-checked:border-[#ff0000]">
+              <div className="border-8 border-transparent peer-checked:border-red">
                 <label
                   htmlFor={performance.id}
-                  className="flex aspect-square w-full cursor-pointer items-center justify-center bg-stone-900 bg-cover text-center text-2xl hover:invert sm:text-4xl"
+                  className="flex aspect-square w-full cursor-pointer items-center justify-center bg-muted-2 bg-cover text-center text-2xl hover:invert sm:text-4xl"
                   style={{
                     backgroundImage: coverImageUrl
                       ? `url(${coverImageUrl})`
@@ -71,7 +71,7 @@ export function PerformanceFormButtons({
         {selectedPerformance ? (
           <button
             type="submit"
-            className="border-2 border-gray-100 px-6 py-4 hover:bg-gray-100 hover:text-black"
+            className="border-2 border-foreground px-6 py-4 hover:bg-foreground hover:text-background"
           >
             {isPending ? (
               "submitting vote..."

@@ -21,7 +21,7 @@ export default async function Votes() {
               {vote.voterId} voted for{" "}
               <Link
                 href={`/performances/${vote.winner.id}`}
-                className="hover:text-[#ff0000]"
+                className="hover:text-red"
               >
                 {vote.winner.song.title} at {vote.winner.show.location}
               </Link>

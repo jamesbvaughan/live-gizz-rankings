@@ -45,7 +45,7 @@ export default async function Album({ params }: Props) {
               <li key={song.id}>
                 <Link
                   href={`/albums/${albumId}/song/${song.id}`}
-                  className="hover:text-[#ff0000]"
+                  className="hover:text-red"
                 >
                   {song.title}
                 </Link>

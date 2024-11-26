@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className="overflow-y-scroll bg-black text-gray-100">
+        <body className="overflow-y-scroll bg-background text-foreground">
           <BackgroundCanvas />
 
           <div className="mx-auto max-w-[720px] space-y-10 px-4 pb-10 pt-6">
@@ -53,13 +53,10 @@ export default function RootLayout({
             <main>{children}</main>
 
             <footer>
-              <hr className="my-10 border-[#ff0000]" />
+              <hr className="my-10 border-red" />
               <div className="text-center">
                 made by{" "}
-                <a
-                  href="https://jamesbvaughan.com"
-                  className="hover:text-[#ff0000]"
-                >
+                <a href="https://jamesbvaughan.com" className="hover:text-red">
                   james
                 </a>
               </div>
