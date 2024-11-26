@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.5.0",
-    "@clerk/themes": "^2.1.45",
+    "@clerk/themes": "^2.1.48",
     "@neondatabase/serverless": "^0.10.3",
     "@next/env": "^15.0.3",
     "@vercel/analytics": "^1.4.1",
