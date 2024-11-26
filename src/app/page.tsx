@@ -30,16 +30,70 @@ function A({ children }: PropsWithChildren) {
 
 export default function Home() {
   return (
-    <div className="space-y-8 text-xl">
-      <p>
-        The purpose of this site is to identify what the fan community believes
-        to be King Gizzard &amp; The Lizard Wizard&apos;s best live performances
-        of their songs.
-      </p>
+    <div className="space-y-16 text-xl">
+      <div className="space-y-8">
+        <p>
+          The purpose of this site is to identify what the fan community
+          believes to be King Gizzard &amp; The Lizard Wizard&apos;s best live
+          performances of their songs.
+        </p>
 
-      <div className="flex flex-col items-center justify-around gap-4 sm:flex-row">
-        <LinkButton href="/rank">rank some performances</LinkButton>
-        <LinkButton href="/albums">browse rankings by album</LinkButton>
+        <div className="flex flex-col items-center justify-around gap-4 sm:flex-row">
+          <LinkButton href="/rank">rank some performances</LinkButton>
+          <LinkButton href="/albums">browse rankings by album</LinkButton>
+        </div>
+      </div>
+
+      <div className="space-y-4 text-lg">
+        <h2 className="text-2xl">Related projects</h2>
+
+        <div>
+          <a
+            className="font-bold hover:text-red"
+            href="https://kglw.net/jams/artist/1"
+            target="_blank"
+            rel="noopener"
+          >
+            KGLW.net Notable Versions
+          </a>{" "}
+          <span className="text-gray-400">
+            - A list of particularly notable live versions of songs, curated by
+            the{" "}
+            <a
+              href="https://kglw.net"
+              target="_blank"
+              rel="noopener"
+              className="underline hover:text-red"
+            >
+              KGLW.net
+            </a>{" "}
+            team.
+          </span>
+        </div>
+
+        <div>
+          <a
+            className="font-bold hover:text-red"
+            href="https://tapes.kglw.net/notables/curated/"
+            target="_blank"
+            rel="noopener"
+          >
+            Gizz Tapes Curated Notable Versions
+          </a>{" "}
+          <span className="text-gray-400">
+            - A curated subset of the above list, only containing versions with
+            recordings available to listen to on{" "}
+            <a
+              className="underline hover:text-red"
+              href="https://tapes.kglw.net/"
+              target="blank"
+              rel="noopener"
+            >
+              Gizz Tapes
+            </a>
+            .
+          </span>
+        </div>
       </div>
 
       <div className="space-y-4 text-lg">
