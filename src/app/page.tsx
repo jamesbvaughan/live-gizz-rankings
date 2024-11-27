@@ -107,6 +107,7 @@ export default function Home() {
               href="https://en.wikipedia.org/wiki/Elo_rating_system"
               target="_blank"
               rel="noopener"
+              className="underline hover:text-red"
             >
               Elo rating system
             </a>{" "}
