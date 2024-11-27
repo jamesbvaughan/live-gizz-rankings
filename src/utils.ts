@@ -23,6 +23,16 @@ export function getShowBySlug(showSlug: string) {
   return allShows.find((show) => show.slug === showSlug);
 }
 
+export function getShowPath(show: Show): string;
+export function getShowPath(showId: string): string;
+export function getShowPath(showOrShowId: Show | string): string {
+  const show =
+    typeof showOrShowId === "string"
+      ? getShowById(showOrShowId)!
+      : showOrShowId;
+  return `/shows/${show.slug}`;
+}
+
 // =============================================================================
 // PERFORMANCES
 
