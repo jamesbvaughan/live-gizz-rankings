@@ -355,6 +355,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
 
   // ====================================================
   // U.S. Tour 2024 pt. 2
+  la24: {
+    id: "a81ef768-32b5-4fbd-8d9e-fefd3cf44411",
+    location: "Los Angeles",
+    date: "2024-11-01",
+    imageUrl: "https://f4.bcbits.com/img/a3083529929_16.jpg",
+    bandcampAlbumId: "2053666447",
+  },
   stanford24: {
     id: "935dd6ed-2153-4e4b-8bea-1d75825b8fe4",
     location: "Stanford",
