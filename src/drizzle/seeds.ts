@@ -353,6 +353,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2807501952_16.jpg",
     bandcampAlbumId: "1631866248",
   },
+  stl24: {
+    id: "29361dc0-6671-4297-8157-5eb03bdbf7b2",
+    location: "St. Louis",
+    date: "2024-09-05",
+    imageUrl: "https://f4.bcbits.com/img/a1541766080_16.jpg",
+    bandcampAlbumId: "2447524963",
+  },
   rr24: {
     id: "8fc370f6-46e7-488f-8e69-e4e3f3d10d28",
     location: "Red Rocks",
@@ -447,6 +454,18 @@ export const seedPerformances: Omit<
   Performance,
   "createdAt" | "ratingLastUpdatedAt" | "eloRating"
 >[] = [
+  // ====================================================
+  // The Book
+  {
+    id: "e411b59b-0814-4c12-a020-bb7a17c6de80",
+    songId: seedSongs.theBook.id,
+    showId: seedShows.stl24.id,
+    spotifyTrackId: "43Gg2ItnDmSQMa4dSH42oC",
+    bandcampTrackId: "3317707139",
+    youtubeVideoId: "FGOsQiPCpEA",
+    youtubeVideoStartTime: 2168,
+  },
+
   // ====================================================
   // The Dripping Tap
   {
