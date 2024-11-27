@@ -452,6 +452,13 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2812384254_16.jpg",
     bandcampAlbumId: "3316613276",
   },
+  miami24: {
+    id: "2c2ae0d1-f46a-409e-9fa4-1c046bdacd9d",
+    location: "Miami",
+    date: "2024-11-21",
+    imageUrl: "https://f4.bcbits.com/img/a1675499924_16.jpg",
+    bandcampAlbumId: "4243074642",
+  },
 };
 
 // Ordered alphabetically by song title, not ordered with songs
