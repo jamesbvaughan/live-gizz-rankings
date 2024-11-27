@@ -70,6 +70,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
     bandcampAlbumId: "1507780262",
   },
+  itrn: {
+    title: "Infest the Rats' Nest",
+    id: "e889bd13-f73f-40fc-8ea9-17a6c3e9ad26",
+    imageUrl: "https://f4.bcbits.com/img/a0402916090_16.jpg",
+    bandcampAlbumId: "3925296262",
+  },
   bf3k: {
     title: "Butterfly 3000",
     id: "40fdce93-4438-4700-8721-9fade20341a0",
