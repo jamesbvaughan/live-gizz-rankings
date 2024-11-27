@@ -10,7 +10,6 @@ import Image from "next/image";
 
 import lgrHandwritten from "./lgr-handwritten.png";
 import { AccountButtons } from "./AccountButtons";
-import { PHProvider } from "./posthog";
 
 export const metadata: Metadata = {
   title: {
@@ -45,42 +44,37 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <PHProvider>
-          <body className="overflow-y-scroll bg-background text-foreground">
-            <BackgroundCanvas />
+        <body className="overflow-y-scroll bg-background text-foreground">
+          <BackgroundCanvas />
 
-            <div className="mx-auto max-w-[720px] space-y-10 px-4 pb-10 pt-6">
-              <Header />
+          <div className="mx-auto max-w-[720px] space-y-10 px-4 pb-10 pt-6">
+            <Header />
 
-              <main>{children}</main>
+            <main>{children}</main>
 
-              <footer>
-                <hr className="my-10 border-red" />
-                <div className="text-center">
-                  made by{" "}
-                  <a
-                    href="https://jamesbvaughan.com"
-                    className="hover:text-red"
-                  >
-                    james
-                  </a>
-                </div>
-              </footer>
-            </div>
+            <footer>
+              <hr className="my-10 border-red" />
+              <div className="text-center">
+                made by{" "}
+                <a href="https://jamesbvaughan.com" className="hover:text-red">
+                  james
+                </a>
+              </div>
+            </footer>
+          </div>
 
-            {/* Vercel analytics */}
-            <Analytics />
+          {/* Vercel analytics */}
+          <Analytics />
 
-            {/* Cloudflare analytics */}
-            {cloudflareAnalyticsToken ? (
-              <Script
-                defer
-                src="https://static.cloudflareinsights.com/beacon.min.js"
-                data-cf-beacon={`{"token": "${cloudflareAnalyticsToken}"}`}
-              />
-            ) : null}
-          </body>
-        </PHProvider>
+          {/* Cloudflare analytics */}
+          {cloudflareAnalyticsToken ? (
+            <Script
+              defer
+              src="https://static.cloudflareinsights.com/beacon.min.js"
+              data-cf-beacon={`{"token": "${cloudflareAnalyticsToken}"}`}
+            />
+          ) : null}
+        </body>
       </html>
     </ClerkProvider>
   );
