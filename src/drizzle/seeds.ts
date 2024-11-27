@@ -125,6 +125,19 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // Oddments
+  hotWax: {
+    id: "57430f87-f009-4094-8c66-e08b8041bbc3",
+    title: "Hot Wax",
+    albumId: seedAlbums.oddments.id,
+  },
+  workThisTime: {
+    id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
+    title: "Work This Time",
+    albumId: seedAlbums.oddments.id,
+  },
+
+  // ====================================================
   // I'm In Your Mind Fuzz
   herAndI: {
     id: "a0d4e6aa-e5d8-4402-82ef-27918958dafd",
@@ -154,16 +167,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
-  // Oddments
-  hotWax: {
-    id: "57430f87-f009-4094-8c66-e08b8041bbc3",
-    title: "Hot Wax",
-    albumId: seedAlbums.oddments.id,
-  },
-  workThisTime: {
-    id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
-    title: "Work This Time",
-    albumId: seedAlbums.oddments.id,
+  // Sketches of Brunswick East
+  theBook: {
+    id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
+    title: "The Book",
+    albumId: seedAlbums.sketches.id,
   },
 
   // ====================================================
