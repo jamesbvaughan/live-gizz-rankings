@@ -500,6 +500,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Float Along - Fill Your Lungs
+  {
+    id: "a12280bf-6c20-4768-9d42-d98c4d5e799d",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.miami24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1130482149",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // The Grim Reaper
   {
     id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
