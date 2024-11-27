@@ -118,6 +118,11 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // ====================================================
   // Float Along - Fill Your Lungs
+  headOn: {
+    id: "556e6f5e-9099-4351-9c7e-0edb17e76b73",
+    title: "Head On/Pill",
+    albumId: seedAlbums.fafyl.id,
+  },
   letMeMendThePast: {
     id: "fa5d8f49-6cee-40f7-b4ea-e68de744035e",
     title: "Let Me Mend the Past",
