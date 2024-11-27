@@ -423,6 +423,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "k69DG8aZ6mw",
     youtubeVideoStartTime: 430,
   },
+  {
+    id: "3660d32e-f36d-4a25-a9ef-1bd76a3b7a1b",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.maine24.id,
+    spotifyTrackId: "3zHBOqkLTsy98klQ5yKgds",
+    bandcampTrackId: "1178632036",
+    youtubeVideoId: "6JS4Uq8X6X8",
+    youtubeVideoStartTime: 6350,
+  },
 
   // ====================================================
   // The Grim Reaper
