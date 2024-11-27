@@ -5,6 +5,7 @@ export default async function Rankings() {
   const performances = await db.query.performances.findMany({
     with: { song: true, show: true },
   });
+
   return (
     <div>
       <h2>All rankings</h2>

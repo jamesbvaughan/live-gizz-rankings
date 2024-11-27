@@ -126,6 +126,7 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     bandcampAlbumId: "104852051",
   },
 };
+export const allAlbums = Object.values(seedAlbums) as Album[];
 
 // Ordered by album release date and position on album
 export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
@@ -288,6 +289,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     albumId: seedAlbums.b741.id,
   },
 };
+export const allSongs = Object.values(seedSongs) as Song[];
 
 // Ordered by show date
 export const seedShows: Record<string, Omit<Show, "createdAt">> = {
@@ -533,6 +535,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     bandcampAlbumId: "4243074642",
   },
 };
+export const allShows = Object.values(seedShows) as Show[];
 
 // Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances: Omit<
@@ -941,3 +944,4 @@ export const seedPerformances: Omit<
     youtubeVideoStartTime: null,
   },
 ];
+export const allPerformances = seedPerformances as Performance[];

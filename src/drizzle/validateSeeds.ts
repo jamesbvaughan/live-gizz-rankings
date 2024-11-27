@@ -7,19 +7,30 @@ function fail(message: string): never {
 
 console.log("Checking seed data validity...");
 
-// Ensure that UUIDs are valid and unique
+// Ensure that UUIDs and slugs are valid and unique
 const uuids = new Set<string>();
 [seedAlbums, seedSongs, seedShows].forEach((seed) => {
-  for (const [_, { id }] of Object.entries(seed)) {
+  const slugs = new Set<string>();
+  for (const [_, { id, slug }] of Object.entries(seed)) {
     if (id.length !== 36) {
       fail("Invalid UUID");
+    }
+    if (slug.length === 0) {
+      fail("Empty slug");
+    }
+    if (slug.toLowerCase() !== slug) {
+      fail("Invalid slug");
     }
 
     if (uuids.has(id)) {
       fail(`Duplicate UUID: ${id}`);
     }
-
     uuids.add(id);
+
+    if (slugs.has(slug)) {
+      fail(`Duplicate slug: ${slug}`);
+    }
+    slugs.add(slug);
   }
 });
 

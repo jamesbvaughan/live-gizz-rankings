@@ -1,11 +1,13 @@
-import { notFound } from "next/navigation";
 import { Album, Performance, Show, Song } from "./drizzle/schema";
 import {
-  seedAlbums,
-  seedPerformances,
-  seedShows,
-  seedSongs,
+  allAlbums,
+  allPerformances,
+  allShows,
+  allSongs,
 } from "./drizzle/seeds";
+
+// =============================================================================
+// SHOWS
 
 export function getShowTitle(show: Show) {
   const date = new Date(show.date);
@@ -13,42 +15,92 @@ export function getShowTitle(show: Show) {
   return `${show.location} '${year.toString()}`;
 }
 
+export function getShowById(showId: string) {
+  return allShows.find((show) => show.id === showId);
+}
+
+export function getShowBySlug(showSlug: string) {
+  return allShows.find((show) => show.slug === showSlug);
+}
+
+// =============================================================================
+// PERFORMANCES
+
 export function getPerformanceTitle(song: Song, show: Show) {
   const showTitle = getShowTitle(show);
   return `${song.title} ${showTitle}`;
 }
 
+export function getPerformanceSlug(performance: Performance): string {
+  const song = getSongById(performance.songId)!;
+  const show = getShowById(performance.showId)!;
+  return `${song.slug}-${show.slug}`;
+}
+
 export function getPerformanceById(performanceId: string) {
-  const performance = Object.values(seedPerformances).find(
+  return allPerformances.find(
     (performance) => performance.id === performanceId,
   );
-  if (!performance) {
-    notFound();
-  }
-  return performance as Performance;
 }
+
+export function getPerformanceBySlug(performanceSlug: string) {
+  const performance = allPerformances.find(
+    (performance) => getPerformanceSlug(performance) === performanceSlug,
+  );
+  return performance;
+}
+
+export function getPerformancePath(performance: Performance): string;
+export function getPerformancePath(performanceId: string): string;
+export function getPerformancePath(
+  performanceOrPerformanceId: Performance | string,
+): string {
+  const performance =
+    typeof performanceOrPerformanceId === "string"
+      ? getPerformanceById(performanceOrPerformanceId)!
+      : performanceOrPerformanceId;
+  const slug = getPerformanceSlug(performance);
+  return `/performances/${slug}`;
+}
+
+// =============================================================================
+// SONGS
 
 export function getSongById(songId: string) {
-  const song = Object.values(seedSongs).find((song) => song.id === songId);
-  if (!song) {
-    notFound();
-  }
-
-  return song as Song;
+  return allSongs.find((song) => song.id === songId);
 }
+
+export function getSongBySlug(songSlug: string) {
+  return allSongs.find((song) => song.slug === songSlug);
+}
+
+export function getSongPath(songId: string): string;
+export function getSongPath(song: Song): string;
+export function getSongPath(songOrSongId: string | Song) {
+  const song =
+    typeof songOrSongId === "string"
+      ? getSongById(songOrSongId)!
+      : songOrSongId;
+  return `/songs/${song.slug}`;
+}
+
+// =============================================================================
+// ALBUMS
 
 export function getAlbumById(albumId: string) {
-  const album = Object.values(seedAlbums).find((album) => album.id === albumId);
-  if (!album) {
-    notFound();
-  }
-  return album as Album;
+  return allAlbums.find((album) => album.id === albumId);
 }
 
-export function getShowById(showId: string) {
-  const show = Object.values(seedShows).find((show) => show.id === showId);
-  if (!show) {
-    notFound();
-  }
-  return show as Show;
+export function getAlbumBySlug(albumSlug: string) {
+  return allAlbums.find((album) => album.slug === albumSlug);
+}
+
+export function getAlbumPath(albumId: string): string;
+export function getAlbumPath(album: Album): string;
+export function getAlbumPath(albumOrAlbumId: Album | string): string {
+  const album =
+    typeof albumOrAlbumId === "string"
+      ? getAlbumById(albumOrAlbumId)!
+      : albumOrAlbumId;
+  return `/albums/${album.slug}`;
 }

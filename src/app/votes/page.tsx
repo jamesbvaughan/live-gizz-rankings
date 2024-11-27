@@ -1,11 +1,10 @@
 import { db } from "@/drizzle/db";
+import { getPerformancePath } from "@/utils";
 import Link from "next/link";
 
 export default async function Votes() {
   const votes = await db.query.votes.findMany({
     with: {
-      performance1: { with: { song: true, show: true } },
-      performance2: { with: { song: true, show: true } },
       winner: { with: { song: true, show: true } },
     },
   });
@@ -16,13 +15,11 @@ export default async function Votes() {
 
       <ol className="list-disc space-y-2 pl-4">
         {votes.map((vote) => {
+          const performancePath = getPerformancePath(vote.winner);
           return (
             <li key={vote.id}>
               {vote.voterId} voted for{" "}
-              <Link
-                href={`/performances/${vote.winner.id}`}
-                className="hover:text-red"
-              >
+              <Link href={performancePath} className="hover:text-red">
                 {vote.winner.song.title} at {vote.winner.show.location}
               </Link>
             </li>

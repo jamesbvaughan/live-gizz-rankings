@@ -1,18 +1,28 @@
 import { db } from "@/drizzle/db";
 import Image from "next/image";
-import { performances, songs } from "@/drizzle/schema";
-import { getShowTitle, getSongById } from "@/utils";
+import { performances } from "@/drizzle/schema";
+import {
+  getAlbumPath,
+  getPerformancePath,
+  getShowTitle,
+  getSongById,
+  getSongBySlug,
+} from "@/utils";
 import { desc, eq } from "drizzle-orm";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Suspense } from "react";
 
-type Props = { params: Promise<{ songId: string }> };
+type Params = { songSlug: string };
+type Props = { params: Promise<Params> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { songId } = await params;
-  const song = getSongById(songId);
+  const { songSlug } = await params;
+  const song = getSongBySlug(songSlug);
+  if (!song) {
+    notFound();
+  }
 
   return {
     title: song.title,
@@ -20,32 +30,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function RankedPerformances({ songId }: { songId: string }) {
-  const song = await db.query.songs.findFirst({
-    where: eq(songs.id, songId),
-    with: {
-      performances: {
-        with: { show: true },
-        orderBy: desc(performances.eloRating),
-      },
-    },
-  });
+  const song = getSongById(songId);
   if (!song) {
     notFound();
   }
 
+  const songPerformances = await db.query.performances.findMany({
+    where: eq(performances.songId, songId),
+    with: { show: true },
+    orderBy: desc(performances.eloRating),
+  });
+
   return (
     <ol className="space-y-4">
-      {song.performances.map((performance, index) => {
+      {songPerformances.map((performance, index) => {
         const showTitle = getShowTitle(performance.show);
+        const performancePath = getPerformancePath(performance);
 
         return (
           <li key={performance.id} className="flex">
             <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
 
-            <Link
-              href={`/performances/${performance.id}`}
-              className="flex shrink-0 space-x-4"
-            >
+            <Link href={performancePath} className="flex shrink-0 space-x-4">
               <div className="aspect-square w-24 bg-background">
                 {performance.show.imageUrl ? (
                   <Image
@@ -73,19 +79,26 @@ async function RankedPerformances({ songId }: { songId: string }) {
 }
 
 export default async function Song({ params }: Props) {
-  const { songId } = await params;
-  const song = getSongById(songId);
+  const { songSlug } = await params;
+  const song = getSongBySlug(songSlug);
+  if (!song) {
+    notFound();
+  }
+
+  const albumPath = getAlbumPath(song.albumId);
 
   return (
     <div className="space-y-8">
       <h2 className="text-4xl sm:text-6xl">{song.title}</h2>
 
       <Suspense fallback="Loading performances...">
-        <RankedPerformances songId={songId} />
+        <RankedPerformances songId={song.id} />
       </Suspense>
 
       <div>
-        <Link href={`/albums/${song.albumId}`}>Back to album</Link>
+        <Link href={albumPath} className="hover:text-red">
+          Back to album
+        </Link>
       </div>
     </div>
   );
