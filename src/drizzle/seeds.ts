@@ -36,78 +36,91 @@ import { Album, Performance, Show, Song } from "./schema";
 export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
   fafyl: {
     title: "Float Along - Fill Your Lungs",
+    slug: "float-along-fill-your-lungs",
     id: "55154b57-7925-408c-af21-c94fe06b3d62",
     imageUrl: "https://f4.bcbits.com/img/a3907213656_16.jpg",
     bandcampAlbumId: "1510489151",
   },
   oddments: {
     title: "Oddments",
+    slug: "oddments",
     id: "7f1d12b4-d57a-42e8-9aae-57082cab5633",
     imageUrl: "https://f4.bcbits.com/img/a0348996479_16.jpg",
     bandcampAlbumId: "3657754108",
   },
   mindFuzz: {
     title: "I'm In Your Mind Fuzz",
+    slug: "im-in-your-mind-fuzz",
     id: "29ae645d-1487-4963-9605-25a24904c205",
     imageUrl: "https://f4.bcbits.com/img/a3937834400_16.jpg",
     bandcampAlbumId: "3101239241",
   },
   quarters: {
     title: "Quarters",
+    slug: "quarters",
     id: "5ba9fb14-390a-4f14-a141-21b6fb66adac",
     imageUrl: "https://f4.bcbits.com/img/a3796441552_16.jpg",
     bandcampAlbumId: "1306577560",
   },
   pmdb: {
     title: "Paper Mâché Dream Balloon",
+    slug: "paper-mache-dream-balloon",
     id: "1d5545eb-e953-41a7-be6d-a3dbb9f5d8e7",
     imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
     bandcampAlbumId: "1762740948",
   },
   sketches: {
     title: "Sketches of Brunswick East",
+    slug: "sketches-of-brunswick-east",
     id: "a8fcce86-fab9-44d1-b3c2-1c6b1297ab2e",
     imageUrl: "https://f4.bcbits.com/img/a4206546710_16.jpg",
     bandcampAlbumId: "1255749163",
   },
   fff: {
     title: "Fishing For Fishies",
+    slug: "fishing-for-fishies",
     id: "bc67b3f7-af1d-443f-9d28-1c99f6d4aa60",
     imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
     bandcampAlbumId: "1507780262",
   },
   itrn: {
     title: "Infest the Rats' Nest",
+    slug: "infest-the-rats-nest",
     id: "e889bd13-f73f-40fc-8ea9-17a6c3e9ad26",
     imageUrl: "https://f4.bcbits.com/img/a0402916090_16.jpg",
     bandcampAlbumId: "3925296262",
   },
   bf3k: {
     title: "Butterfly 3000",
+    slug: "butterfly-3000",
     id: "40fdce93-4438-4700-8721-9fade20341a0",
     imageUrl: "https://f4.bcbits.com/img/a3009849752_16.jpg",
     bandcampAlbumId: "3244133050",
   },
   og: {
     title: "Omnium Gatherum",
+    slug: "omnium-gatherum",
     id: "560b0194-19ae-4bc9-aa24-0c2340596af7",
     imageUrl: "https://f4.bcbits.com/img/a2638998972_16.jpg",
     bandcampAlbumId: "129981996",
   },
   iceDeath: {
     title: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
+    slug: "ice-death-planets-lungs-mushrooms-and-lava",
     id: "46f925f1-dd7f-4966-8c02-3562e32f22b5",
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
   },
   tsc: {
     title: "The Silver Cord",
+    slug: "the-silver-cord",
     id: "e212c176-b78f-4b0b-93a0-651ca99591e2",
     imageUrl: "https://f4.bcbits.com/img/a0297097933_16.jpg",
     bandcampAlbumId: "2151949833",
   },
   b741: {
     title: "Flight b741",
+    slug: "flight-b741",
     id: "3e106926-3ea8-4742-87b4-7ea809799370",
     imageUrl: "https://f4.bcbits.com/img/a3548545002_16.jpg",
     bandcampAlbumId: "104852051",
@@ -120,16 +133,19 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Float Along - Fill Your Lungs
   headOn: {
     id: "556e6f5e-9099-4351-9c7e-0edb17e76b73",
+    slug: "head-on-pill",
     title: "Head On/Pill",
     albumId: seedAlbums.fafyl.id,
   },
   letMeMendThePast: {
     id: "fa5d8f49-6cee-40f7-b4ea-e68de744035e",
+    slug: "let-me-mend-the-past",
     title: "Let Me Mend the Past",
     albumId: seedAlbums.fafyl.id,
   },
   fafyl: {
     id: "4a0aac05-3060-4750-9eb0-fd6a058fbfc1",
+    slug: "float-along-fill-your-lungs",
     title: "Float Along - Fill Your Lungs",
     albumId: seedAlbums.fafyl.id,
   },
@@ -138,11 +154,13 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Oddments
   hotWax: {
     id: "57430f87-f009-4094-8c66-e08b8041bbc3",
+    slug: "hot-wax",
     title: "Hot Wax",
     albumId: seedAlbums.oddments.id,
   },
   workThisTime: {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
+    slug: "work-this-time",
     title: "Work This Time",
     albumId: seedAlbums.oddments.id,
   },
@@ -151,6 +169,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // I'm In Your Mind Fuzz
   herAndI: {
     id: "a0d4e6aa-e5d8-4402-82ef-27918958dafd",
+    slug: "her-and-i-slow-jam-2",
     title: "Her and I (Slow Jam 2)",
     albumId: seedAlbums.mindFuzz.id,
   },
@@ -159,6 +178,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Quarters
   theRiver: {
     id: "5855d6aa-2dd1-4f82-a2d8-44b4e663eb87",
+    slug: "the-river",
     title: "The River",
     albumId: seedAlbums.quarters.id,
   },
@@ -167,11 +187,13 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Paper Mâché Dream Balloon
   sense: {
     id: "d916bb15-6c5d-4d16-8224-4a4d30bd09b7",
+    slug: "sense",
     title: "Sense",
     albumId: seedAlbums.pmdb.id,
   },
   trapdoor: {
     id: "7e5a8135-fab6-4dce-b54e-b784d94a7258",
+    slug: "trapdoor",
     title: "Trapdoor",
     albumId: seedAlbums.pmdb.id,
   },
@@ -180,6 +202,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Sketches of Brunswick East
   theBook: {
     id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
+    slug: "the-book",
     title: "The Book",
     albumId: seedAlbums.sketches.id,
   },
@@ -188,11 +211,13 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Fishing For Fishies
   plasticBoogie: {
     id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
+    slug: "plastic-boogie",
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
   },
   thisThing: {
     id: "f4a714ed-0de5-43d3-a92c-14cf1c201c15",
+    slug: "this-thing",
     title: "This Thing",
     albumId: seedAlbums.fff.id,
   },
@@ -201,6 +226,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Infest the Rats' Nest
   hell: {
     id: "babd0c51-56c4-4b07-91ce-c734e797e876",
+    slug: "hell",
     title: "Hell",
     albumId: seedAlbums.itrn.id,
   },
@@ -209,6 +235,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Butterfly 3000
   shanghai: {
     id: "f927bc2e-d505-4cd6-8357-f3d73ded4403",
+    slug: "shanghai",
     title: "Shanghai",
     albumId: seedAlbums.bf3k.id,
   },
@@ -217,16 +244,19 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Omnium Gatherum
   theDrippingTap: {
     id: "ae4a1559-f995-4ba0-bb49-6c1e34e196b3",
+    slug: "the-dripping-tap",
     title: "The Dripping Tap",
     albumId: seedAlbums.og.id,
   },
   magentaMountain: {
     id: "9100f1b2-0e74-40bb-a945-0f59b54fff6d",
+    slug: "magenta-mountain",
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
   theGrimReaper: {
     id: "99018b73-3191-49d3-a792-de9ea16b4a0e",
+    slug: "the-grim-reaper",
     title: "The Grim Reaper",
     albumId: seedAlbums.og.id,
   },
@@ -235,6 +265,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
   magma: {
     id: "717f22ee-9458-4bca-8dbf-e7940b1e4d96",
+    slug: "magma",
     title: "Magma",
     albumId: seedAlbums.iceDeath.id,
   },
@@ -243,6 +274,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // The Silver Cord
   theSilverCord: {
     id: "c7633144-0d11-45a6-ac88-ee089b7e9605",
+    slug: "the-silver-cord",
     title: "The Silver Cord",
     albumId: seedAlbums.tsc.id,
   },
@@ -251,6 +283,7 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // Flight b741
   leRisque: {
     id: "98521dd4-8ca6-48e2-b7ed-05e3bc765711",
+    slug: "le-risque",
     title: "Le Risque",
     albumId: seedAlbums.b741.id,
   },
@@ -262,6 +295,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // Europe Tour 2019
   madrid19: {
     id: "11597d9b-21e7-43b7-b681-cd22a31c5a90",
+    slug: "madrid-2019",
     location: "Madrid",
     date: "2019-10-18",
     imageUrl: "https://f4.bcbits.com/img/a3650674791_16.jpg",
@@ -272,6 +306,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // World Tour 2022
   mexicoCity22: {
     id: "8c4b2700-ed44-4a14-8d08-93f6c7a0b5a3",
+    slug: "mexico-city-2022",
     location: "Mexico City",
     date: "2022-05-06",
     imageUrl: null,
@@ -279,6 +314,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   bonnaroo22: {
     id: "1744f3c5-8da4-4e28-845d-0b2cf02db7a1",
+    slug: "bonnaroo-2022",
     location: "Bonnaroo",
     date: "2022-06-17",
     imageUrl: "https://f4.bcbits.com/img/a3553224286_16.jpg",
@@ -286,6 +322,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   rr22: {
     id: "ca4d9095-cb3a-46d9-8dd8-3fdc7b15a7b6",
+    slug: "red-rocks-2022",
     location: "Red Rocks",
     date: "2022-10-10",
     imageUrl: "https://f4.bcbits.com/img/a3180996672_16.jpg",
@@ -296,6 +333,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // U.S. Residency Tour 2023
   rr23: {
     id: "af055b78-9c40-4f15-a676-ed05f3485019",
+    slug: "red-rocks-2023",
     location: "Red Rocks",
     date: "2023-06-07",
     imageUrl: null,
@@ -303,6 +341,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   chicago23: {
     id: "1f8192d8-4650-4837-b119-b82507afe23c",
+    slug: "chicago-2023",
     location: "Chicago",
     date: "2023-06-11",
     imageUrl: "https://f4.bcbits.com/img/a1324413369_16.jpg",
@@ -310,6 +349,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   remlinger23: {
     id: "ae71a1cd-0823-4feb-85f8-065529415dff",
+    slug: "remlinger-farms-2023",
     location: "Remlinger Farms",
     date: "2023-06-17",
     imageUrl: null,
@@ -320,6 +360,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // Europe & UK Tour 2023
   warsaw23: {
     id: "4c9a09b8-d363-4220-976e-1071ab0b302c",
+    slug: "warsaw-2023",
     location: "Warsaw",
     date: "2023-03-11",
     imageUrl: null,
@@ -327,6 +368,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   palp23: {
     id: "12a96ecf-2077-4264-8278-e76865b7507e",
+    slug: "palp-2023",
     location: "Palp",
     date: "2023-08-14",
     imageUrl: null,
@@ -337,6 +379,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // U.S. Tour 2024 pt. 1
   nyc24: {
     id: "4023c755-247d-4b29-86ec-7b1203e93bdf",
+    slug: "nyc-2024",
     location: "New York City",
     date: "2024-08-16",
     imageUrl: "https://f4.bcbits.com/img/a4160066698_16.jpg",
@@ -344,6 +387,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   maine24: {
     id: "212bb7b3-2ed9-4270-bf35-7026716a36b6",
+    slug: "maine-2024",
     location: "Maine",
     date: "2024-08-20",
     imageUrl: "https://f4.bcbits.com/img/a1001399634_16.jpg",
@@ -351,6 +395,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   kentucky24: {
     id: "fdc39520-041b-4faf-bde8-8288dbbf4f55",
+    slug: "kentucky-2024",
     location: "Kentucky",
     date: "2024-08-25",
     imageUrl: "https://f4.bcbits.com/img/a0274986703_16.jpg",
@@ -358,6 +403,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   minneapolis24: {
     id: "04489d98-d04c-4980-bd62-b9f04807eb9f",
+    slug: "minneapolis-2024",
     location: "Minneapolis",
     date: "2024-09-03",
     imageUrl: "https://f4.bcbits.com/img/a2807501952_16.jpg",
@@ -365,6 +411,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   stl24: {
     id: "29361dc0-6671-4297-8157-5eb03bdbf7b2",
+    slug: "st-louis-2024",
     location: "St. Louis",
     date: "2024-09-05",
     imageUrl: "https://f4.bcbits.com/img/a1541766080_16.jpg",
@@ -372,6 +419,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   rr24: {
     id: "8fc370f6-46e7-488f-8e69-e4e3f3d10d28",
+    slug: "red-rocks-2024",
     location: "Red Rocks",
     date: "2024-09-08",
     imageUrl: "https://f4.bcbits.com/img/a3263389792_16.jpg",
@@ -379,6 +427,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   oregon24: {
     id: "1e8be424-f5cf-4d4a-b6c2-b124fdeb405f",
+    slug: "oregon-2024",
     location: "Oregon",
     date: "2024-09-11",
     imageUrl: "https://f4.bcbits.com/img/a1151612533_10.jpg",
@@ -386,6 +435,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   gorge24: {
     id: "69af662b-164e-499e-a459-e9cb903aae97",
+    slug: "the-gorge-2024",
     location: "The Gorge",
     date: "2024-09-14",
     imageUrl: "https://f4.bcbits.com/img/a2893046862_16.jpg",
@@ -396,6 +446,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   // U.S. Tour 2024 pt. 2
   la24: {
     id: "a81ef768-32b5-4fbd-8d9e-fefd3cf44411",
+    slug: "los-angeles-2024",
     location: "Los Angeles",
     date: "2024-11-01",
     imageUrl: "https://f4.bcbits.com/img/a3083529929_16.jpg",
@@ -403,6 +454,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   stanford24: {
     id: "935dd6ed-2153-4e4b-8bea-1d75825b8fe4",
+    slug: "stanford-2024",
     location: "Stanford",
     date: "2024-11-04",
     imageUrl: "https://f4.bcbits.com/img/a2511383545_16.jpg",
@@ -410,6 +462,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   vegas24: {
     id: "06c550a5-028e-438c-b8a7-6ede67b3737f",
+    slug: "las-vegas-2024",
     location: "Las Vegas",
     date: "2024-11-08",
     imageUrl: "https://f4.bcbits.com/img/a3468174213_16.jpg",
@@ -417,6 +470,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   phoenix24: {
     id: "8bd9f809-7ab8-4046-9347-e349eb663b86",
+    slug: "phoenix-2024",
     location: "Phoenix",
     date: "2024-11-09",
     imageUrl: "https://f4.bcbits.com/img/a3527600251_16.jpg",
@@ -424,6 +478,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   abq24: {
     id: "f0139f08-7075-4757-b811-9c458d04593c",
+    slug: "albuquerque-2024",
     location: "Albuquerque",
     date: "2024-11-10",
     imageUrl: "https://f4.bcbits.com/img/a0496185183_16.jpg",
@@ -431,6 +486,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   okc24: {
     id: "6070a189-e1a7-42ce-8d19-f5e43921967d",
+    slug: "oklahoma-city-2024",
     location: "Oklahoma City",
     date: "2024-11-12",
     imageUrl: "https://f4.bcbits.com/img/a1910276487_16.jpg",
@@ -438,6 +494,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   austin24: {
     id: "2b1b2dec-7264-4891-ba73-f7116e0818ff",
+    slug: "austin-2024",
     location: "Austin",
     date: "2024-11-15",
     imageUrl: "https://f4.bcbits.com/img/a2463924603_16.jpg",
@@ -445,6 +502,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   houston24: {
     id: "8b1615e0-a6dc-42f6-b61c-465971545450",
+    slug: "houston-2024",
     location: "Houston",
     date: "2024-11-16",
     imageUrl: "https://f4.bcbits.com/img/a3220456230_16.jpg",
@@ -452,6 +510,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   nola24: {
     id: "48d267dc-90a2-401d-aec5-b127a7abe06d",
+    slug: "new-orleans-2024",
     location: "New Orleans",
     date: "2024-11-17",
     imageUrl: "https://f4.bcbits.com/img/a2503962224_16.jpg",
@@ -459,6 +518,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   atlanta24: {
     id: "8af52ec8-f9a6-43e3-ad24-a5ac42f3308d",
+    slug: "atlanta-2024",
     location: "Atlanta",
     date: "2024-11-19",
     imageUrl: "https://f4.bcbits.com/img/a2812384254_16.jpg",
@@ -466,6 +526,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
   },
   miami24: {
     id: "2c2ae0d1-f46a-409e-9fa4-1c046bdacd9d",
+    slug: "miami-2024",
     location: "Miami",
     date: "2024-11-21",
     imageUrl: "https://f4.bcbits.com/img/a1675499924_16.jpg",
