@@ -1,8 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { useEffect } from "react";
+
+const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
+  ssr: false,
+});
 
 export function PHProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -10,8 +15,16 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
       api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
       person_profiles: "identified_only",
       capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+      loaded: (posthog) => {
+        if (process.env.NODE_ENV === "development") posthog.debug(); // debug mode in development
+      },
     });
   }, []);
 
-  return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
+  return (
+    <PostHogProvider client={posthog}>
+      {children}
+      <PostHogPageView />
+    </PostHogProvider>
+  );
 }
