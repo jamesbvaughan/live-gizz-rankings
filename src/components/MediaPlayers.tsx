@@ -1,4 +1,5 @@
 import { Performance, Show } from "@/drizzle/schema";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
@@ -39,15 +40,10 @@ function YouTubePlayer({
   startTime: number | null;
 }) {
   return (
-    <iframe
-      width="100%"
-      className="aspect-video"
-      src={`https://www.youtube.com/embed/${videoId}${startTime != null ? `?start=${startTime}` : ""}`}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      loading="lazy"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-    ></iframe>
+    <YouTubeEmbed
+      videoid={videoId}
+      params={startTime == null ? undefined : `start=${startTime}`}
+    />
   );
 }
 
