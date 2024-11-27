@@ -123,6 +123,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Let Me Mend the Past",
     albumId: seedAlbums.fafyl.id,
   },
+  fafyl: {
+    id: "4a0aac05-3060-4750-9eb0-fd6a058fbfc1",
+    title: "Float Along - Fill Your Lungs",
+    albumId: seedAlbums.fafyl.id,
+  },
 
   // ====================================================
   // Oddments
