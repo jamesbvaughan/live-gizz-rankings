@@ -12,7 +12,7 @@ import {
 
 export const shows = pgTable("shows", {
   id: uuid("id").primaryKey().defaultRandom(),
-  slug: text("slug").unique(),
+  slug: text("slug").unique().notNull(),
   location: text("location").notNull(),
   date: date("date").notNull().unique(),
   bandcampAlbumId: text("bandcamp_album_id").unique(),
@@ -28,7 +28,7 @@ export const showsRelations = relations(shows, ({ many }) => ({
 
 export const albums = pgTable("albums", {
   id: uuid("id").primaryKey().defaultRandom(),
-  slug: text("slug").unique(),
+  slug: text("slug").unique().notNull(),
   title: text("title").notNull().unique(),
   imageUrl: text("image_url").notNull(),
   bandcampAlbumId: text("bandcamp_album_id").unique(),
@@ -43,7 +43,7 @@ export const albumsRelations = relations(albums, ({ many }) => ({
 
 export const songs = pgTable("songs", {
   id: uuid("id").primaryKey().defaultRandom(),
-  slug: text("slug").unique(),
+  slug: text("slug").unique().notNull(),
   title: text("title").notNull().unique(),
   albumId: uuid("album_id").references(() => albums.id),
   createdAt: timestamp("created_at").defaultNow(),
