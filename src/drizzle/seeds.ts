@@ -174,6 +174,14 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // Infest the Rats' Nest
+  hell: {
+    id: "babd0c51-56c4-4b07-91ce-c734e797e876",
+    title: "Hell",
+    albumId: seedAlbums.itrn.id,
+  },
+
+  // ====================================================
   // Butterfly 3000
   shanghai: {
     id: "f927bc2e-d505-4cd6-8357-f3d73ded4403",
@@ -454,6 +462,18 @@ export const seedPerformances: Omit<
     showId: seedShows.nola24.id,
     spotifyTrackId: null,
     bandcampTrackId: "2579325509",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Hell
+  {
+    id: "cddf4cb0-e21c-4073-8fd4-50df154d3c62",
+    songId: seedSongs.hell.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3251862866",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
