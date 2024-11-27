@@ -20,6 +20,7 @@
     "@neondatabase/serverless": "^0.10.3",
     "@next/env": "^15.0.3",
     "@next/third-parties": "^15.0.3",
+    "@sentry/nextjs": "^8",
     "@vercel/analytics": "^1.4.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.36.4",
