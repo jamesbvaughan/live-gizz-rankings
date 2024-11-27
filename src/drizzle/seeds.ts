@@ -40,6 +40,12 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3907213656_16.jpg",
     bandcampAlbumId: "1510489151",
   },
+  oddments: {
+    title: "Oddments",
+    id: "7f1d12b4-d57a-42e8-9aae-57082cab5633",
+    imageUrl: "https://f4.bcbits.com/img/a0348996479_16.jpg",
+    bandcampAlbumId: "3657754108",
+  },
   mindFuzz: {
     title: "I'm In Your Mind Fuzz",
     id: "29ae645d-1487-4963-9605-25a24904c205",
@@ -58,11 +64,11 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
     bandcampAlbumId: "1762740948",
   },
-  oddments: {
-    title: "Oddments",
-    id: "7f1d12b4-d57a-42e8-9aae-57082cab5633",
-    imageUrl: "https://f4.bcbits.com/img/a0348996479_16.jpg",
-    bandcampAlbumId: "3657754108",
+  sketches: {
+    title: "Sketches of Brunswick East",
+    id: "a8fcce86-fab9-44d1-b3c2-1c6b1297ab2e",
+    imageUrl: "https://f4.bcbits.com/img/a4206546710_16.jpg",
+    bandcampAlbumId: "1255749163",
   },
   fff: {
     title: "Fishing For Fishies",
