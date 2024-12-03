@@ -207,6 +207,15 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // Flying Microtonal Banana
+  openWater: {
+    id: "b2906883-cc2a-4bd6-96c4-6c728b60dd54",
+    slug: "open-water",
+    title: "Open Water",
+    albumId: seedAlbums.fmb.id,
+  },
+
+  // ====================================================
   // Sketches of Brunswick East
   theBook: {
     id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
