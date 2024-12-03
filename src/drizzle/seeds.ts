@@ -784,6 +784,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Open Water
+  {
+    id: "eca3f420-ca48-4e40-bcd5-c7d9f2274d66",
+    songId: seedSongs.openWater.id,
+    showId: seedShows.gorge24.id,
+    spotifyTrackId: "5PZtsofG0HiTJgQtfHOuVV",
+    bandcampTrackId: "1325552537",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 2139,
+  },
+
+  // ====================================================
   // Plastic Boogie
   {
     id: "7465275c-8bba-47af-b84a-3ee345744de4",
