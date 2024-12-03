@@ -47,8 +47,6 @@ function drawNonagon(
 
 export default function BackgroundCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rotationRef = useRef(0);
-  const shadowBlurRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -75,8 +73,6 @@ export default function BackgroundCanvas() {
       ctx.scale(dpr, dpr);
     }
 
-    window.addEventListener("resize", resizeCanvas);
-
     function animate(timestamp: number) {
       ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
@@ -84,23 +80,15 @@ export default function BackgroundCanvas() {
       const centerY = canvas.height / dpr / 2;
 
       const size = Math.min(cssWidth, cssHeight) / 2 - 24;
-      rotationRef.current = (spinSpeed * timestamp) / 1000000;
-      shadowBlurRef.current = Math.floor((Math.sin(timestamp / 5000) + 1) * 48);
-      console.log(shadowBlurRef.current);
-      drawNonagon(
-        ctx,
-        vertices,
-        centerX,
-        centerY,
-        size,
-        rotationRef.current,
-        shadowBlurRef.current,
-      );
+      const rotation = (spinSpeed * timestamp) / 1000000;
+      const shadowBlur = Math.floor((Math.sin(timestamp / 5000) + 1) * 48);
+      drawNonagon(ctx, vertices, centerX, centerY, size, rotation, shadowBlur);
 
       requestAnimationFrame(animate);
     }
 
     resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
     const frame = requestAnimationFrame(animate);
 
     return () => {
