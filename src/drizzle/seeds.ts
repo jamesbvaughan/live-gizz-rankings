@@ -520,6 +520,15 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3083529929_16.jpg",
     bandcampAlbumId: "2053666447",
   },
+  sd24: {
+    // Acoustic!
+    id: "481aec4e-39bb-48d9-8082-4469c74e00da",
+    slug: "san-diego-2024",
+    location: "San Diego",
+    date: "2024-11-02",
+    imageUrl: "https://f4.bcbits.com/img/a3464482652_16.jpg",
+    bandcampAlbumId: "3483464958",
+  },
   stanford24: {
     id: "935dd6ed-2153-4e4b-8bea-1d75825b8fe4",
     slug: "stanford-2024",
