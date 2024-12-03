@@ -981,6 +981,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Supercell
+  {
+    id: "fd75230f-fa9d-4226-ac9d-9ba6d6256e61",
+    songId: seedSongs.supercell.id,
+    showId: seedShows.abq24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3435936842",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // This Thing
   {
     id: "099acbaf-af1a-4fe4-9c6e-7898d4cfdd00",
