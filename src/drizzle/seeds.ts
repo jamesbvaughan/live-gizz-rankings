@@ -118,6 +118,14 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
   },
+  petro: {
+    title:
+      "PetroDragonic Apocalypse; or, Dawn of Eternal Night: An Annihilation of Planet Earth and the Beginning of Merciless Damnation",
+    slug: "petro",
+    id: "f43bb6f3-6b08-4687-a39e-a4f379325f93",
+    imageUrl: "https://f4.bcbits.com/img/a2805471381_16.jpg",
+    bandcampAlbumId: "3699259806",
+  },
   tsc: {
     title: "The Silver Cord",
     slug: "the-silver-cord",
