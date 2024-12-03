@@ -310,6 +310,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Supercell",
     albumId: seedAlbums.petro.id,
   },
+  converge: {
+    id: "8879d2b7-57e3-4e38-bc0c-250f3b5fb288",
+    slug: "converge",
+    title: "Converge",
+    albumId: seedAlbums.petro.id,
+  },
   gilaMonster: {
     id: "259d79c1-2e33-478f-b670-4e64d416c6f2",
     slug: "gila-monster",
