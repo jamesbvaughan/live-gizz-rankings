@@ -625,6 +625,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "B7kGqj915YY",
     youtubeVideoStartTime: 5257,
   },
+  {
+    id: "a53404e6-cd75-4aee-b28b-a61a7053c01c",
+    songId: seedSongs.converge.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "6BXiniViNwI2URSWZ5VNMk",
+    bandcampTrackId: "3111015917",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 2983,
+  },
 
   // ====================================================
   // The Dripping Tap
