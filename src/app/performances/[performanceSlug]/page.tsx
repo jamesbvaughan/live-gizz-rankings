@@ -4,10 +4,13 @@ import {
   getPerformanceBySlug,
   getPerformanceSlug,
   getShowById,
+  getShowPath,
   getShowTitle,
   getSongById,
+  getSongPath,
 } from "@/utils";
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Params = { performanceSlug: string };
@@ -53,7 +56,13 @@ export default async function PerformancePage({ params }: Props) {
   return (
     <div className="space-y-4">
       <h2 className="text-4xl">
-        {song.title} - {getShowTitle(show)}
+        <Link href={getSongPath(song)} className="hover:text-red">
+          {song.title}
+        </Link>{" "}
+        -{" "}
+        <Link href={getShowPath(show)} className="hover:text-red">
+          {getShowTitle(show)}
+        </Link>
       </h2>
 
       <MediaPlayers performance={performance} show={show} />
