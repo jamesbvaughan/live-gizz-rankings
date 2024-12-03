@@ -6,8 +6,13 @@ const numSides = 9;
 const lineThickness = 2;
 const spinSpeed = 15;
 
+const minShadowBlur = 5;
+const maxShadowBlur = 40;
+
+const padding = 12;
+
 function drawNonagon(
-  ctx: CanvasRenderingContext2D,
+  ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D,
   vertices: Array<{ x: number; y: number }>,
   centerX: number,
   centerY: number,
@@ -19,7 +24,6 @@ function drawNonagon(
   ctx.lineWidth = lineThickness;
   ctx.shadowColor = "red";
   ctx.shadowBlur = shadowBlur;
-  ctx.lineJoin = "miter";
 
   for (let i = 0; i < numSides; i++) {
     const angle = ((2 * Math.PI) / numSides) * i - Math.PI / 2 + rotation;
@@ -27,19 +31,12 @@ function drawNonagon(
     vertices[i].y = centerY + radius * Math.sin(angle);
   }
 
-  for (let i = 0; i < numSides; i++) {
+  ctx.beginPath();
+  for (let i = 0; i < numSides - 1; i++) {
     for (let j = i + 1; j < numSides; j++) {
-      ctx.beginPath();
       ctx.moveTo(vertices[i].x, vertices[i].y);
       ctx.lineTo(vertices[j].x, vertices[j].y);
-      ctx.stroke();
     }
-  }
-
-  ctx.beginPath();
-  ctx.moveTo(vertices[0].x, vertices[0].y);
-  for (let i = 1; i < numSides; i++) {
-    ctx.lineTo(vertices[i].x, vertices[i].y);
   }
   ctx.closePath();
   ctx.stroke();
@@ -50,7 +47,8 @@ export default function BackgroundCanvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
+    const offscreenCanvas = canvas.transferControlToOffscreen();
+    const ctx = offscreenCanvas.getContext("2d")!;
 
     const vertices: Array<{ x: number; y: number }> = [];
     for (let i = 0; i < numSides; i++) {
@@ -64,8 +62,8 @@ export default function BackgroundCanvas() {
       cssWidth = window.innerWidth;
       cssHeight = window.innerHeight;
 
-      canvas.width = cssWidth * dpr;
-      canvas.height = cssHeight * dpr;
+      offscreenCanvas.width = cssWidth * dpr;
+      offscreenCanvas.height = cssHeight * dpr;
 
       canvas.style.width = `${cssWidth}px`;
       canvas.style.height = `${cssHeight}px`;
@@ -74,14 +72,21 @@ export default function BackgroundCanvas() {
     }
 
     function animate(timestamp: number) {
-      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      ctx.clearRect(
+        0,
+        0,
+        offscreenCanvas.width / dpr,
+        offscreenCanvas.height / dpr,
+      );
 
-      const centerX = canvas.width / dpr / 2;
-      const centerY = canvas.height / dpr / 2;
+      const centerX = offscreenCanvas.width / dpr / 2;
+      const centerY = offscreenCanvas.height / dpr / 2;
 
-      const size = Math.min(cssWidth, cssHeight) / 2 - 24;
+      const size = Math.min(cssWidth, cssHeight) / 2 - padding * 2;
       const rotation = (spinSpeed * timestamp) / 1000000;
-      const shadowBlur = Math.floor((Math.sin(timestamp / 5000) + 1) * 48);
+      const scale = (Math.sin(timestamp / 5000) + 1) / 2;
+      const shadowBlur =
+        Math.floor(scale * (maxShadowBlur - minShadowBlur)) + minShadowBlur;
       drawNonagon(ctx, vertices, centerX, centerY, size, rotation, shadowBlur);
 
       requestAnimationFrame(animate);
