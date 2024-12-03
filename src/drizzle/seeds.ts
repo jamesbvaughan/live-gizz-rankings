@@ -296,6 +296,16 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   },
 
   // ====================================================
+  // PetroDragonic Apocalypse; or, Dawn of Eternal Night:
+  // An Annihilation of Planet Earth and the Beginning of Merciless Damnation
+  gilaMonster: {
+    id: "259d79c1-2e33-478f-b670-4e64d416c6f2",
+    slug: "gila-monster",
+    title: "Gila Monster",
+    albumId: seedAlbums.petro.id,
+  },
+
+  // ====================================================
   // The Silver Cord
   theSilverCord: {
     id: "c7633144-0d11-45a6-ac88-ee089b7e9605",
