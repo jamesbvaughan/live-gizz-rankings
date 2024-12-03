@@ -160,22 +160,22 @@
     snakecase-keys "5.4.4"
     tslib "2.4.1"
 
-"@clerk/clerk-react@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-5.17.0.tgz#2dfb76aa8d3d8a07367e1e612037bb1366e49949"
-  integrity sha512-++PSiayBaK877XTjbTZzyqommVlxnFNevxCKsOXbq8+KENAyYkUZ6LJpyoWjfjg1fnKq6oUFax+TwnyOyyxoqw==
+"@clerk/clerk-react@5.17.1":
+  version "5.17.1"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-5.17.1.tgz#bd6be3f1fc24fc9e141f938762622498302b99c0"
+  integrity sha512-j8WfJcd0NrD2hvtc3EF5IcWos3ajbKz2Bmv5do3VKYoj2JG1M6UbT2jDJ0Qv2gV8Cks51VNp+YuP89gX5ZNnrQ==
   dependencies:
     "@clerk/shared" "2.17.0"
     "@clerk/types" "4.35.0"
     tslib "2.4.1"
 
-"@clerk/nextjs@^6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@clerk/nextjs/-/nextjs-6.5.0.tgz#57a94f20f372afca18af9b5ddc253a1fb96d69d7"
-  integrity sha512-0+MhX4Hz/fdvVYeZIC7XNI8qZ7vX+UtfMksE6qdyWR5IGewCsNiIHlDW0fDtau6p1e6TsQ66qTnZz15yU4G7dw==
+"@clerk/nextjs@^6.5.1":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@clerk/nextjs/-/nextjs-6.5.1.tgz#f7805160685b91a802f55b56a1630128f0d056d0"
+  integrity sha512-/FS1wRMOZvEF7azI+DX/DoQ3Q49oqjC3R4GgJzKnd1TIXZxhnPQbM1OvOnwBa7OEieieaXm+aPko+EYPYnSy9A==
   dependencies:
     "@clerk/backend" "1.18.0"
-    "@clerk/clerk-react" "5.17.0"
+    "@clerk/clerk-react" "5.17.1"
     "@clerk/shared" "2.17.0"
     "@clerk/types" "4.35.0"
     crypto-js "4.2.0"
