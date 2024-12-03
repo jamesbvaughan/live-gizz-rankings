@@ -1069,6 +1069,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "a2894ae5-3616-442f-ab87-2481ecb4ce5d",
+    songId: seedSongs.witchcraft.id,
+    showId: seedShows.oregon24.id,
+    spotifyTrackId: "4Pjh8T0eOv75ClSpGKaQKv",
+    bandcampTrackId: "1450224668",
+    youtubeVideoId: "k69DG8aZ6mw",
+    youtubeVideoStartTime: 5000,
+  },
 
   // ====================================================
   // Work This Time
