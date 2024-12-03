@@ -73,6 +73,7 @@ export default async function Rank() {
       </h2>
 
       <PerformanceFormButtons
+        key={performanceA.id + performanceB.id}
         performanceA={performanceA}
         performanceB={performanceB}
       />
