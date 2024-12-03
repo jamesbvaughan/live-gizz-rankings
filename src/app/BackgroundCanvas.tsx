@@ -19,6 +19,7 @@ function drawNonagon(
   ctx.lineWidth = lineThickness;
   ctx.shadowColor = "red";
   ctx.shadowBlur = shadowBlur;
+  ctx.lineJoin = "miter";
 
   for (let i = 0; i < numSides; i++) {
     const angle = ((2 * Math.PI) / numSides) * i - Math.PI / 2 + rotation;
@@ -36,11 +37,11 @@ function drawNonagon(
   }
 
   ctx.beginPath();
-  for (let i = 0; i < numSides; i++) {
-    const nextIndex = (i + 1) % numSides;
-    ctx.moveTo(vertices[i].x, vertices[i].y);
-    ctx.lineTo(vertices[nextIndex].x, vertices[nextIndex].y);
+  ctx.moveTo(vertices[0].x, vertices[0].y);
+  for (let i = 1; i < numSides; i++) {
+    ctx.lineTo(vertices[i].x, vertices[i].y);
   }
+  ctx.closePath();
   ctx.stroke();
 }
 
@@ -84,7 +85,8 @@ export default function BackgroundCanvas() {
 
       const size = Math.min(cssWidth, cssHeight) / 2 - 24;
       rotationRef.current = (spinSpeed * timestamp) / 1000000;
-      shadowBlurRef.current = Math.floor((Math.sin(timestamp / 1000) + 1) * 48);
+      shadowBlurRef.current = Math.floor((Math.sin(timestamp / 5000) + 1) * 48);
+      console.log(shadowBlurRef.current);
       drawNonagon(
         ctx,
         vertices,
