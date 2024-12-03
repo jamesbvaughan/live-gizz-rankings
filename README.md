@@ -21,3 +21,4 @@ server.
 - [Vercel](https://vercel.com/team-jamesbvaughan/live-gizz-rankings)
 - [Cloudflare](https://dash.cloudflare.com/8626cc1676b25c2036fc683169065d37/livegizzrankings.com)
 - [Neon](https://console.neon.tech/app/projects/snowy-paper-47174605)
+- [Sentry](https://live-gizz-rankings.sentry.io/issues/?project=4508368385802240)
