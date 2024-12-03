@@ -640,6 +640,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 7470,
   },
+  {
+    id: "ce6b7332-bfb3-4da1-a22c-0af4e956f178",
+    songId: seedSongs.gilaMonster.id,
+    showId: seedShows.austin24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3138958661",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Grim Reaper
