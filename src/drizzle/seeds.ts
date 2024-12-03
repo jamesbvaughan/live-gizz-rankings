@@ -1059,6 +1059,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Witchcraft
+  {
+    id: "51482dd3-f28e-470d-89ab-7f7f902137ef",
+    songId: seedSongs.witchcraft.id,
+    showId: seedShows.sd24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "2575113191",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Work This Time
   {
     id: "fa02df1a-87c1-4c1e-9f75-50c1a3903e12",
