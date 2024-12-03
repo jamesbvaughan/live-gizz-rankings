@@ -304,6 +304,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Motor Spirit",
     albumId: seedAlbums.petro.id,
   },
+  supercell: {
+    id: "eb1c3c7a-c735-4013-8408-64be214d6a39",
+    slug: "supercell",
+    title: "Supercell",
+    albumId: seedAlbums.petro.id,
+  },
   gilaMonster: {
     id: "259d79c1-2e33-478f-b670-4e64d416c6f2",
     slug: "gila-monster",
