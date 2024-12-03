@@ -837,6 +837,27 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Motor Spirit
+  {
+    id: "bed7020d-dd44-4399-a0fb-ebe07b9bbda4",
+    songId: seedSongs.motorSpirit.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "4IUcqbuMq35rfybFc25PmS",
+    bandcampTrackId: "2302924408",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 7128,
+  },
+  {
+    id: "7a2c68cc-caf5-4aa4-a84f-9fe787999367",
+    songId: seedSongs.motorSpirit.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "1ZKS4yZgNzgbL1AsWHI73R",
+    bandcampTrackId: "45887920",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 1629,
+  },
+
+  // ====================================================
   // Open Water
   {
     id: "eca3f420-ca48-4e40-bcd5-c7d9f2274d66",
