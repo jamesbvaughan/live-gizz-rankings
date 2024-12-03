@@ -69,6 +69,13 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
     bandcampAlbumId: "1762740948",
   },
+  fmb: {
+    title: "Flying Microtonal Banana",
+    slug: "flying-microtonal-banana",
+    id: "003314d7-fe25-4742-8b47-cb52f7966bc2",
+    imageUrl: "https://f4.bcbits.com/img/a2731568276_16.jpg",
+    bandcampAlbumId: "114372498",
+  },
   sketches: {
     title: "Sketches of Brunswick East",
     slug: "sketches-of-brunswick-east",
