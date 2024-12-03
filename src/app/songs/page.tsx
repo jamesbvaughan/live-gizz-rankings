@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 export default async function Songs() {
   return (
     <div className="space-y-6">
+      <h2 className="text-4xl">All songs with ranked performances</h2>
+
       {allAlbums.map((album) => {
         const albumSongs = allSongs.filter((song) => song.albumId === album.id);
         const albumPath = getAlbumPath(album);
