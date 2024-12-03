@@ -630,6 +630,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Gila Monster
+  {
+    id: "acc7c935-9a69-4a72-9d72-8bf1030e97bf",
+    songId: seedSongs.gilaMonster.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "0iENbL7mwaoYJEOph99UQb",
+    bandcampTrackId: "396623506",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 7470,
+  },
+
+  // ====================================================
   // The Grim Reaper
   {
     id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
