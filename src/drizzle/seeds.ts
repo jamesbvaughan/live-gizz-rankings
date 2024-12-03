@@ -615,6 +615,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Converge
+  {
+    id: "3d1cb14d-3f71-4250-8d89-087824b5cbca",
+    songId: seedSongs.converge.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "5pjMPlXJedFoUauZCgNRKi",
+    bandcampTrackId: "1080660396",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 5257,
+  },
+
+  // ====================================================
   // The Dripping Tap
   {
     id: "5022ab78-932a-4259-aee3-5258c0da2b6d",
