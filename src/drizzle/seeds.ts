@@ -298,6 +298,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
   // ====================================================
   // PetroDragonic Apocalypse; or, Dawn of Eternal Night:
   // An Annihilation of Planet Earth and the Beginning of Merciless Damnation
+  motorSpirit: {
+    id: "7a076db2-b2b7-4cea-a0cb-2abdaf36c7a1",
+    slug: "motor-spirit",
+    title: "Motor Spirit",
+    albumId: seedAlbums.petro.id,
+  },
   gilaMonster: {
     id: "259d79c1-2e33-478f-b670-4e64d416c6f2",
     slug: "gila-monster",
