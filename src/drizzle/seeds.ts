@@ -334,6 +334,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Gila Monster",
     albumId: seedAlbums.petro.id,
   },
+  dragon: {
+    id: "615908d3-72ae-4034-8d28-59cdf0341967",
+    slug: "dragon",
+    title: "Dragon",
+    albumId: seedAlbums.petro.id,
+  },
 
   // ====================================================
   // The Silver Cord
