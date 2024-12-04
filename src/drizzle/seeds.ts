@@ -346,6 +346,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
   // ====================================================
   // Flight b741
+  fieldOfVision: {
+    id: "89b0330f-92a1-4df9-b3a9-539fabb5ab8a",
+    slug: "field-of-vision",
+    title: "Field of Vision",
+    albumId: seedAlbums.b741.id,
+  },
   leRisque: {
     id: "98521dd4-8ca6-48e2-b7ed-05e3bc765711",
     slug: "le-risque",
