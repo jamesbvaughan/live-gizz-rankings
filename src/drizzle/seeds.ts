@@ -352,6 +352,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
   // ====================================================
   // Flight b741
+  mirageCity: {
+    id: "c842a0d7-2f49-4a2d-8f05-4f2f19aae3e9",
+    slug: "mirage-city",
+    title: "Mirage City",
+    albumId: seedAlbums.b741.id,
+  },
   fieldOfVision: {
     id: "89b0330f-92a1-4df9-b3a9-539fabb5ab8a",
     slug: "field-of-vision",
