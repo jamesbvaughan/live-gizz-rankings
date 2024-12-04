@@ -951,6 +951,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Mirage City
+  {
+    id: "ab36e296-a0a9-4553-9c7e-8efec595c58b",
+    songId: seedSongs.mirageCity.id,
+    showId: seedShows.abq24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "804204545",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Motor Spirit
   {
     id: "bed7020d-dd44-4399-a0fb-ebe07b9bbda4",
