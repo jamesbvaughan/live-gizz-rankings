@@ -6,7 +6,12 @@ import { db } from "./drizzle/db";
 import { performances, votes } from "./drizzle/schema";
 import { and, eq, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { getSongById } from "./utils";
+import {
+  getPerformanceTitle,
+  getShowById,
+  getSongById,
+  getSongPath,
+} from "./utils";
 
 const voteSchema = zfd.formData({
   performanceIdA: zfd.text(),
@@ -104,9 +109,14 @@ export async function vote(
     });
   });
 
-  revalidatePath(`/songs`);
   const song = getSongById(performanceA.songId)!;
-  revalidatePath(`/songs/${song.slug}`);
+  const songPath = getSongPath(song);
+  revalidatePath(songPath);
+  revalidatePath(`/songs`);
+  revalidatePath(`/votes`);
 
-  console.log(`New vote: User ${userId} voted!`);
+  const show = getShowById(winner.showId)!;
+  const performanceTitle = getPerformanceTitle(song, show);
+
+  console.log(`New vote: User ${userId} voted for ${performanceTitle}!`);
 }
