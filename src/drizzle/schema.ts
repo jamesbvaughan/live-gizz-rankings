@@ -113,7 +113,7 @@ export const votes = pgTable("votes", {
     .notNull()
     .references(() => performances.id),
   voterId: text("voter_id").notNull(), // References the Clerk user ID
-  createdAt: timestamp("created_at").defaultNow(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
 export const votesRelations = relations(votes, ({ one }) => ({
