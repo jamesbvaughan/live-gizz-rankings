@@ -183,6 +183,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
 
   // ====================================================
   // I'm In Your Mind Fuzz
+  slowJam1: {
+    id: "d8206c9b-096f-4c9b-a477-ec36ed88de72",
+    slug: "slow-jam-1",
+    title: "Slow Jam 1",
+    albumId: seedAlbums.mindFuzz.id,
+  },
   herAndI: {
     id: "a0d4e6aa-e5d8-4402-82ef-27918958dafd",
     slug: "her-and-i-slow-jam-2",
