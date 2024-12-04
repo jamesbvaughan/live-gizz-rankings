@@ -669,6 +669,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Dragon
+  {
+    id: "21fed194-6093-4628-bffd-cde4644e9ff2",
+    songId: seedSongs.dragon.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "1o67U4f00s9QcsLAYpthl2",
+    bandcampTrackId: "358317737",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 6877,
+  },
+
+  // ====================================================
   // The Dripping Tap
   {
     id: "5022ab78-932a-4259-aee3-5258c0da2b6d",
