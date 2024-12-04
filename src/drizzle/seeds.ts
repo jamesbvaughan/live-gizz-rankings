@@ -684,6 +684,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Field of Vision
+  {
+    id: "3cc50612-b3bf-4d7d-a04e-02c1647e2f3e",
+    songId: seedSongs.fieldOfVision.id,
+    showId: seedShows.abq24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "3432281975",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Float Along - Fill Your Lungs
   {
     id: "a12280bf-6c20-4768-9d42-d98c4d5e799d",
