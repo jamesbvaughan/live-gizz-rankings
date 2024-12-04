@@ -1029,6 +1029,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Slow Jam 1
+  {
+    id: "c5d9c89b-f30c-43b9-b089-2e215377d4da",
+    songId: seedSongs.slowJam1.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "797472773",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Supercell
   {
     id: "fd75230f-fa9d-4226-ac9d-9ba6d6256e61",
