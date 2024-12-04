@@ -686,6 +686,15 @@ export const seedPerformances: Omit<
   // ====================================================
   // Field of Vision
   {
+    id: "17232093-089f-4133-9b92-41d7306e258b",
+    songId: seedSongs.fieldOfVision.id,
+    showId: seedShows.stanford24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "2767430040",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+  {
     id: "3cc50612-b3bf-4d7d-a04e-02c1647e2f3e",
     songId: seedSongs.fieldOfVision.id,
     showId: seedShows.abq24.id,
