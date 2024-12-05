@@ -699,15 +699,6 @@ export const seedPerformances = [
     youtubeVideoId: "cTO9U8nG280",
     youtubeVideoStartTime: 7426,
   },
-  {
-    id: "bcaad977-51cf-4b4e-b728-214302087fe1",
-    songId: seedSongs.billabongValley.id,
-    showId: seedShows.houston24.id,
-    spotifyTrackId: null,
-    bandcampTrackId: "565249783",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
-  },
 
   // ====================================================
   // The Book
