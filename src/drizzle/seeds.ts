@@ -519,6 +519,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a2807501952_16.jpg",
     bandcampAlbumId: "1631866248",
   },
+  milwaukee24: {
+    id: "6aadd547-499e-4b52-9b29-76682af9614e",
+    slug: "milwaukee-2024",
+    location: "Milwaukee",
+    date: "2024-09-04",
+    imageUrl: "https://f4.bcbits.com/img/a0203986788_16.jpg",
+    bandcampAlbumId: "1407410068",
+  },
   stl24: {
     id: "29361dc0-6671-4297-8157-5eb03bdbf7b2",
     slug: "st-louis-2024",
