@@ -822,6 +822,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "2304ff6d-2f92-43b1-b447-568dc96f4fdd",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.vegas24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "4158827757",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Head On/Pill
