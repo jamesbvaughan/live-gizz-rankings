@@ -1125,6 +1125,15 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 5236,
   },
+  {
+    id: "1c7d7c58-d3a7-4936-b65a-baf48d89c5e0",
+    songId: seedSongs.sense.id,
+    showId: seedShows.sd24.id,
+    spotifyTrackId: "1h7phi5cC4rev9hi6RQhVA",
+    bandcampTrackId: "548760256",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Shanghai
