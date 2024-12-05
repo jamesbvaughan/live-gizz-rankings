@@ -28,7 +28,7 @@ for (const [_year, shows] of sortedShowsByYear) {
 export default async function ShowsPage() {
   return (
     <div className="space-y-8">
-      <h2 className="text-4xl">All Shows</h2>
+      <h2 className="text-4xl">Shows with ranked performances</h2>
 
       {sortedShowsByYear.map(([year, shows]) => {
         return (
