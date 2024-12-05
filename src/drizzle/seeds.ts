@@ -270,6 +270,12 @@ export const seedSongs = {
     title: "Shanghai",
     albumId: seedAlbums.bf3k.id,
   },
+  interiorPeople: {
+    id: "96f2555a-796d-4dd1-8bfa-52c007a55190",
+    slug: "interior-people",
+    title: "Interior People",
+    albumId: seedAlbums.bf3k.id,
+  },
 
   // ====================================================
   // Omnium Gatherum
