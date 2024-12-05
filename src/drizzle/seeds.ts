@@ -69,6 +69,13 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
     bandcampAlbumId: "1762740948",
   },
+  nonagon: {
+    title: "Nonagon Infinity",
+    slug: "nonagon-infinity",
+    id: "8a1332c8-c7d2-481c-9551-afa8bab79bd6",
+    imageUrl: "https://f4.bcbits.com/img/a1566708845_16.jpg",
+    bandcampAlbumId: "87057479",
+  },
   fmb: {
     title: "Flying Microtonal Banana",
     slug: "flying-microtonal-banana",
@@ -682,6 +689,15 @@ export const seedPerformances = [
     bandcampTrackId: "565249783",
     youtubeVideoId: "cTO9U8nG280",
     youtubeVideoStartTime: 7426,
+  },
+  {
+    id: "bcaad977-51cf-4b4e-b728-214302087fe1",
+    songId: seedSongs.billabongValley.id,
+    showId: seedShows.houston24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "565249783",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
