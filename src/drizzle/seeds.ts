@@ -744,6 +744,18 @@ export const seedPerformances: Omit<
   },
 
   // ====================================================
+  // Flamethrower
+  {
+    id: "26a94f68-1544-4654-9c95-d46736cfa115",
+    songId: seedSongs.flamethrower.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "1TrcOMQEKAf3S028tgJ5BP",
+    bandcampTrackId: "2113186532",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 6501,
+  },
+
+  // ====================================================
   // Float Along - Fill Your Lungs
   {
     id: "a12280bf-6c20-4768-9d42-d98c4d5e799d",
