@@ -754,6 +754,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 6501,
   },
+  {
+    id: "2c31152a-fa9f-4066-9404-746fd5302278",
+    songId: seedSongs.flamethrower.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "3M9KMHUTs4KK8iAR8W22Q5",
+    bandcampTrackId: "3074457233",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 6824,
+  },
 
   // ====================================================
   // Float Along - Fill Your Lungs
