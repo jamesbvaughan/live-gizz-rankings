@@ -7,7 +7,12 @@ import {
   getShowTitle,
   getSongById,
 } from "@/utils";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Votes",
+};
 
 function PerformanceLink({ performanceId }: { performanceId: string }) {
   const performance = getPerformanceById(performanceId)!;
