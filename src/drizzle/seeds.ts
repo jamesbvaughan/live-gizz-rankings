@@ -631,6 +631,14 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a2812384254_16.jpg",
     bandcampAlbumId: "3316613276",
   },
+  stAugustine24: {
+    id: "2abeb068-9075-483d-8dc3-66a24a5e528c",
+    slug: "st-augustine-2024",
+    location: "St. Augustine",
+    date: "2024-11-20",
+    imageUrl: "https://f4.bcbits.com/img/a1954948404_16.jpg",
+    bandcampAlbumId: "1834138981",
+  },
   miami24: {
     id: "2c2ae0d1-f46a-409e-9fa4-1c046bdacd9d",
     slug: "miami-2024",
