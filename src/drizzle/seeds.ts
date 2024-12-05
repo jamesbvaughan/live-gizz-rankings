@@ -243,6 +243,15 @@ export const seedSongs = {
   },
 
   // ====================================================
+  // Nonagon Infinity
+  robotStop: {
+    id: "047f1192-9893-4776-882f-d76542a71943",
+    slug: "robot-stop",
+    title: "Robot Stop",
+    albumId: seedAlbums.nonagon.id,
+  },
+
+  // ====================================================
   // Sketches of Brunswick East
   theBook: {
     id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
