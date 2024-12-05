@@ -50,6 +50,12 @@ for (const performance of seedPerformances) {
     if (!show.bandcampAlbumId) {
       fail(`Missing bandcamp album ID for ${show.location} ${show.date}`);
     }
+
+    if (mediaIds.has(performance.bandcampTrackId)) {
+      fail(`Duplicate Bandcamp track ID: ${performance.bandcampTrackId}`);
+    }
+    mediaIds.add(performance.bandcampTrackId);
+
     const bandcampKey = performance.bandcampTrackId + show.bandcampAlbumId;
     if (mediaIds.has(bandcampKey)) {
       fail(`Duplicate Bandcamp track and album ID: ${bandcampKey}`);
