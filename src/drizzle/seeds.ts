@@ -896,6 +896,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Interior People
+  {
+    id: "eb5d8e1a-2637-476d-9fd7-8909caf62fff",
+    songId: seedSongs.interiorPeople.id,
+    showId: seedShows.vegas24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1493100647",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Le Risque
   {
     id: "14d48726-2264-49e0-be00-baedc0d2c8bd",
