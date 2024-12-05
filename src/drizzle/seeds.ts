@@ -33,7 +33,7 @@
 import { Album, Performance, Show, Song } from "./schema";
 
 // Ordered by release date
-export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
+export const seedAlbums = {
   fafyl: {
     title: "Float Along - Fill Your Lungs",
     slug: "float-along-fill-your-lungs",
@@ -140,11 +140,11 @@ export const seedAlbums: Record<string, Omit<Album, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a3548545002_16.jpg",
     bandcampAlbumId: "104852051",
   },
-};
+} as const satisfies Record<string, Omit<Album, "createdAt">>;
 export const allAlbums = Object.values(seedAlbums) as Album[];
 
 // Ordered by album release date and position on album
-export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
+export const seedSongs = {
   // ====================================================
   // Float Along - Fill Your Lungs
   headOn: {
@@ -376,11 +376,11 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Le Risque",
     albumId: seedAlbums.b741.id,
   },
-};
+} as const satisfies Record<string, Omit<Song, "createdAt">>;
 export const allSongs = Object.values(seedSongs) as Song[];
 
 // Ordered by show date
-export const seedShows: Record<string, Omit<Show, "createdAt">> = {
+export const seedShows = {
   // ====================================================
   // Europe Tour 2019
   madrid19: {
@@ -647,14 +647,11 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     imageUrl: "https://f4.bcbits.com/img/a1675499924_16.jpg",
     bandcampAlbumId: "4243074642",
   },
-};
+} as const satisfies Record<string, Omit<Show, "createdAt">>;
 export const allShows = Object.values(seedShows) as Show[];
 
 // Ordered alphabetically by song title, not ordered with songs
-export const seedPerformances: Omit<
-  Performance,
-  "createdAt" | "ratingLastUpdatedAt" | "eloRating"
->[] = [
+export const seedPerformances = [
   // ====================================================
   // The Book
   {
@@ -1260,5 +1257,8 @@ export const seedPerformances: Omit<
     youtubeVideoId: "ZvMPzVVWQIA",
     youtubeVideoStartTime: null,
   },
-];
-export const allPerformances = seedPerformances as Performance[];
+] as const satisfies Omit<
+  Performance,
+  "createdAt" | "ratingLastUpdatedAt" | "eloRating"
+>[];
+export const allPerformances = seedPerformances as unknown as Performance[];
