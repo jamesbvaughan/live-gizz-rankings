@@ -1157,6 +1157,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Robot Stop
+  {
+    id: "f8c20b2c-c004-47ab-8604-7c9dcfd9d0c7",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.bonnaroo22.id,
+    spotifyTrackId: "0fyuQlbg24Y5MkvpDS0LDi",
+    bandcampTrackId: "3563988407",
+    youtubeVideoId: "TbTBVZuTq4k",
+    youtubeVideoStartTime: 65,
+  },
+
+  // ====================================================
   // Sense
   {
     id: "122b97c0-3417-454c-b679-ee07fb8ee86a",
