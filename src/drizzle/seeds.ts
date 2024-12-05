@@ -393,7 +393,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     slug: "mexico-city-2022",
     location: "Mexico City",
     date: "2022-05-06",
-    imageUrl: null,
+    imageUrl: "/showCovers/mexicoCity22.webp",
     bandcampAlbumId: null,
   },
   bonnaroo22: {
@@ -420,7 +420,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     slug: "red-rocks-2023",
     location: "Red Rocks",
     date: "2023-06-07",
-    imageUrl: null,
+    imageUrl: "/showCovers/rr23.webp",
     bandcampAlbumId: null,
   },
   chicago23: {
@@ -436,7 +436,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     slug: "remlinger-farms-2023",
     location: "Remlinger Farms",
     date: "2023-06-17",
-    imageUrl: null,
+    imageUrl: "/showCovers/remlinger23.webp",
     bandcampAlbumId: null,
   },
 
