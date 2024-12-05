@@ -447,7 +447,7 @@ export const seedShows: Record<string, Omit<Show, "createdAt">> = {
     slug: "warsaw-2023",
     location: "Warsaw",
     date: "2023-03-11",
-    imageUrl: null,
+    imageUrl: "/showCovers/warsaw23.webp",
     bandcampAlbumId: null,
   },
   palp23: {

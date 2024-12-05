@@ -4,6 +4,7 @@ import { performances } from "@/drizzle/schema";
 import {
   getAlbumPath,
   getPerformancePath,
+  getShowById,
   getShowTitle,
   getSongById,
   getSongBySlug,
@@ -37,14 +38,14 @@ async function RankedPerformances({ songId }: { songId: string }) {
 
   const songPerformances = await db.query.performances.findMany({
     where: eq(performances.songId, songId),
-    with: { show: true },
     orderBy: desc(performances.eloRating),
   });
 
   return (
     <ol className="space-y-4">
       {songPerformances.map((performance, index) => {
-        const showTitle = getShowTitle(performance.show);
+        const show = getShowById(performance.showId)!;
+        const showTitle = getShowTitle(show);
         const performancePath = getPerformancePath(performance);
 
         return (
@@ -53,9 +54,9 @@ async function RankedPerformances({ songId }: { songId: string }) {
 
             <Link href={performancePath} className="flex shrink-0 space-x-4">
               <div className="aspect-square w-24 bg-background">
-                {performance.show.imageUrl ? (
+                {show.imageUrl ? (
                   <Image
-                    src={performance.show.imageUrl}
+                    src={show.imageUrl}
                     alt={showTitle}
                     width={500}
                     height={500}
