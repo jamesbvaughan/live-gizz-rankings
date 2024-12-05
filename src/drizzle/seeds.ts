@@ -340,6 +340,12 @@ export const seedSongs: Record<string, Omit<Song, "createdAt">> = {
     title: "Dragon",
     albumId: seedAlbums.petro.id,
   },
+  flamethrower: {
+    id: "20a76786-5937-4b04-bcaa-37916a9edced",
+    slug: "flamethrower",
+    title: "Flamethrower",
+    albumId: seedAlbums.petro.id,
+  },
 
   // ====================================================
   // The Silver Cord
