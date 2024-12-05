@@ -771,6 +771,15 @@ export const seedPerformances: Omit<
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 6824,
   },
+  {
+    id: "bde784d7-5d75-42cb-9faf-892604c95314",
+    songId: seedSongs.flamethrower.id,
+    showId: seedShows.stAugustine24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "307643811",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Float Along - Fill Your Lungs
