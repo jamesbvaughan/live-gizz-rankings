@@ -673,6 +673,18 @@ export const allShows = Object.values(seedShows) as Show[];
 // Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances = [
   // ====================================================
+  // Billabong Valley
+  {
+    id: "1ef77fac-6429-4b08-b567-7bfec3cd35c0",
+    songId: seedSongs.billabongValley.id,
+    showId: seedShows.milwaukee24.id,
+    spotifyTrackId: "1W2oJM2m0r0dAmkN8vyRtZ",
+    bandcampTrackId: "565249783",
+    youtubeVideoId: "cTO9U8nG280",
+    youtubeVideoStartTime: 7426,
+  },
+
+  // ====================================================
   // The Book
   {
     id: "e411b59b-0814-4c12-a020-bb7a17c6de80",
