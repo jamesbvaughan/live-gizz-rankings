@@ -228,6 +228,12 @@ export const seedSongs = {
     title: "Open Water",
     albumId: seedAlbums.fmb.id,
   },
+  billabongValley: {
+    id: "26a34912-4213-4d6b-b9db-9c8098cc636b",
+    slug: "billabong-valley",
+    title: "Billabong Valley",
+    albumId: seedAlbums.fmb.id,
+  },
 
   // ====================================================
   // Sketches of Brunswick East
