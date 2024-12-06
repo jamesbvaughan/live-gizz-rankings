@@ -110,6 +110,7 @@ const connectSources = [
 
   // Prod auth
   "https://clerk.livegizzrankings.com",
+  "https://accounts.livegizzrankings.com",
 
   // Cloudflare Analytics
   "https://cloudflareinsights.com",
