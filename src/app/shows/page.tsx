@@ -37,7 +37,7 @@ export default async function ShowsPage() {
             <h3 className="text-2xl">{year}</h3>
 
             <div className="grid grid-cols-2 gap-4">
-              {shows!.map((show) => {
+              {shows!.map((show, index) => {
                 const showPath = getShowPath(show);
                 const showTitle = getShowTitle(show);
 
@@ -46,6 +46,7 @@ export default async function ShowsPage() {
                     <div className="aspect-square bg-muted-3">
                       {show.imageUrl ? (
                         <Image
+                          priority={index < 4}
                           src={show.imageUrl}
                           alt={`Album cover for ${showTitle}`}
                           className="aspect-square w-full"

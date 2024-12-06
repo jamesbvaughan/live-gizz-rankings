@@ -15,12 +15,13 @@ export default async function Albums() {
       <h2 className="text-4xl">Albums with ranked performances</h2>
 
       <div className="grid grid-cols-2 gap-4">
-        {allAlbums.map((album) => {
+        {allAlbums.map((album, index) => {
           const albumPath = getAlbumPath(album);
 
           return (
             <Link key={album.id} href={albumPath} className="no-underline">
               <Image
+                priority={index < 4}
                 src={album.imageUrl}
                 alt={`Album cover for ${album.title}`}
                 className="aspect-square w-full"

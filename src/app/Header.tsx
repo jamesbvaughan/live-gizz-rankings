@@ -35,6 +35,7 @@ export function Header() {
     <header className="flex flex-col items-center space-y-4 sm:flex-row sm:justify-between">
       <Link href="/" className="shrink-0 no-underline">
         <Image
+          priority
           src={lgrHandwritten}
           alt="Live Gizz Rankings"
           className="h-36 w-auto"
