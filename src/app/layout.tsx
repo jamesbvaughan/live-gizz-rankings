@@ -12,12 +12,20 @@ import BackgroundCanvas from "./BackgroundCanvas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
+const title = "Live Gizz Rankings";
+const description = "Find the best live version of King Gizzard songs";
+
 export const metadata: Metadata = {
   title: {
-    template: "%s | Live Gizz Rankings",
-    default: "Live Gizz Rankings",
+    template: `%s | ${title}`,
+    default: title,
   },
-  description: "Find the best live version of King Gizzard songs",
+  description,
+  openGraph: {
+    url: "https://livegizzrankings.com",
+    siteName: title,
+    description,
+  },
 };
 
 export const viewport: Viewport = {
