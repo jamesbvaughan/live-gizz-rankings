@@ -4,6 +4,7 @@ import { YouTubeEmbed } from "@next/third-parties/google";
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
     <iframe
+      className="rounded-xl"
       width="100%"
       height="80"
       src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
