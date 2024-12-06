@@ -110,6 +110,9 @@ const connectSources = [
 
   // Prod auth
   "https://clerk.livegizzrankings.com",
+
+  // Cloudflare Analytics
+  "https://cloudflareinsights.com",
 ];
 
 const frameSources = [
