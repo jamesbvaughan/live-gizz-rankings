@@ -34,7 +34,7 @@ export function PerformanceFormButtons({
               <input
                 hidden
                 required
-                className="peer"
+                className="peer hidden"
                 type="radio"
                 name="winnerId"
                 id={performance.id}
