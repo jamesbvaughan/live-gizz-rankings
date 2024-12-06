@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const experimental_ppr = true;
+
 export function generateStaticParams(): Params[] {
   return allShows.map((show) => ({
     showSlug: show.slug,
