@@ -7,7 +7,7 @@ import { Suspense } from "react";
 
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
-import { allPerformances, allSongs } from "@/drizzle/seeds";
+import { allPerformances, allShows, allSongs } from "@/drizzle/seeds";
 import { getPerformancePath, getShowBySlug, getShowTitle } from "@/utils";
 
 type Params = { showSlug: string };
@@ -26,6 +26,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: showTitle,
   };
 }
+
+export function generateStaticParams(): Params[] {
+  return allShows.map((show) => ({
+    showSlug: show.slug,
+  }));
+}
+
+export const dynamicParams = false;
 
 async function PerformanceElo({ performanceId }: { performanceId: string }) {
   const performance = await db.query.performances.findFirst({
