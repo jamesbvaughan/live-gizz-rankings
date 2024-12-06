@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import tailwindConfig from "@/../tailwind.config";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -7,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Finding King Gizzard's best live performances",
     start_url: "/",
     display: "standalone",
-    background_color: "#000",
-    theme_color: "#000",
+    background_color: tailwindConfig.theme.extend.colors.background,
+    theme_color: tailwindConfig.theme.extend.colors.background,
     icons: [
       {
         src: "/icon.png",

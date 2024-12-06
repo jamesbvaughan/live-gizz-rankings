@@ -9,6 +9,8 @@ import BackgroundCanvas from "./BackgroundCanvas";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
+import tailwindConfig from "@/../tailwind.config";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Live Gizz Rankings",
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: tailwindConfig.theme.extend.colors.background,
   colorScheme: "dark",
 };
 
