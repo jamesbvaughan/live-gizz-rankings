@@ -14,7 +14,7 @@ function HeaderMenuLink({ href, title }: { href: string; title: string }) {
 
 function HeaderMenu() {
   return (
-    <div className="flex items-center space-x-4 text-muted">
+    <div className="flex min-h-7 items-center space-x-4 text-muted">
       <HeaderMenuLink href="/rank" title="Vote" />
 
       <div className="h-6 border-l border-muted-2" />
