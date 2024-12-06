@@ -1,5 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     default: "Live Gizz Rankings",
   },
   description: "Find the best live version of King Gizzard songs",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark",
 };
 
 const cloudflareAnalyticsToken = process.env.CLOUDFLARE_ANALYTICS_TOKEN;
