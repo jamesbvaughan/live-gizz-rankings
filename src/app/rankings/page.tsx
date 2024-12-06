@@ -1,5 +1,11 @@
+import { Metadata } from "next";
+
 import { db } from "@/drizzle/db";
 import { getPerformanceTitle } from "@/utils";
+
+export const metadata: Metadata = {
+  title: "Ranked Performances",
+};
 
 export default async function Rankings() {
   const performances = await db.query.performances.findMany({

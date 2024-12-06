@@ -1,7 +1,12 @@
 import { desc } from "drizzle-orm";
+import { Metadata } from "next";
 
 import { db } from "@/drizzle/db";
 import { nominations } from "@/drizzle/schema";
+
+export const metadata: Metadata = {
+  title: "Nominations",
+};
 
 export default async function NominationsPage() {
   const allNominations = await db.query.nominations.findMany({
