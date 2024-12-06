@@ -132,3 +132,16 @@ export const votesRelations = relations(votes, ({ one }) => ({
 }));
 
 export type Vote = typeof votes.$inferSelect;
+
+export const nominations = pgTable("nominations", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  /**
+   * References the Clerk user ID or null if there was no logged in user.
+   */
+  userId: text("user_id"),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  performanceId: uuid("performance_id").references(() => performances.id),
+});
+
+export type Nomination = typeof nominations.$inferSelect;

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { NominationForm } from "./NominationForm";
+
 function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
   return (
     <Link
@@ -30,7 +32,7 @@ function A({ children }: PropsWithChildren) {
 
 export default function Home() {
   return (
-    <div className="space-y-16 text-xl">
+    <div className="space-y-12 text-xl">
       <div className="space-y-8">
         <p>
           The purpose of this site is to identify what the fan community
@@ -45,7 +47,7 @@ export default function Home() {
       </div>
 
       <div className="space-y-4 text-lg">
-        <h2 className="text-2xl">Related projects</h2>
+        <h2 className="text-3xl">Related projects</h2>
 
         <div>
           <a
@@ -87,7 +89,7 @@ export default function Home() {
       </div>
 
       <div className="space-y-4 text-lg">
-        <h2 className="text-2xl">FAQ</h2>
+        <h2 className="text-3xl">FAQ</h2>
 
         <QnA>
           <Q>How does the ranking system work?</Q>
@@ -129,12 +131,23 @@ export default function Home() {
             </p>
             <p>
               If there&apos;s a specific song or performance that you&apos;d
-              like to nominate, please{" "}
-              <a href="mailto:james@jamesbvaughan.com">let me know</a> and
+              like to nominate, please submit it via the form below this or{" "}
+              <a href="mailto:james@jamesbvaughan.com">email me</a> and
               I&apos;ll add it!
             </p>
           </A>
         </QnA>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-3xl">Nominate a performance</h2>
+
+        <p>
+          Is this site missing one of your favorite performances? Nominate it
+          for inclusion here!
+        </p>
+
+        <NominationForm />
       </div>
     </div>
   );

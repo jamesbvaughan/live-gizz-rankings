@@ -5,14 +5,14 @@ import { and, eq, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { zfd } from "zod-form-data";
 
-import { db } from "./drizzle/db";
-import { performances, votes } from "./drizzle/schema";
+import { db } from "../drizzle/db";
+import { performances, votes } from "../drizzle/schema";
 import {
   getPerformanceTitle,
   getShowById,
   getSongById,
   getSongPath,
-} from "./utils";
+} from "../utils";
 
 const voteSchema = zfd.formData({
   performanceIdA: zfd.text(),
