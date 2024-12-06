@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 import { db } from "@/drizzle/db";
 import { nominations } from "@/drizzle/schema";
@@ -39,6 +40,8 @@ export async function submitNomination(
     console.error(`Failed to submit nomination: ${(error as Error).message}`);
     return { success: false, userError: "Failed to submit nomination" };
   }
+
+  revalidatePath("/nominations");
 
   console.log(`Nomination submitted: ${message}`);
   return { success: true };
