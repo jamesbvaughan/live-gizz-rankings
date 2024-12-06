@@ -2,6 +2,8 @@ import bundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
+import { cspHeaderValue } from "./cspHeader";
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -10,6 +12,19 @@ const nextConfig: NextConfig = {
         hostname: "f4.bcbits.com",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: cspHeaderValue,
+          },
+        ],
+      },
+    ];
   },
 };
 
