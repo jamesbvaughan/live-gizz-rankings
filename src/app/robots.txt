@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /rank
-
-Sitemap: https://livegizzrankings.com/sitemap.xml
