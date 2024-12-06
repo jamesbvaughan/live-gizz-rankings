@@ -16,6 +16,9 @@ const scriptSources = [
 
   // Vercel Analytics
   "https://va.vercel-scripts.com",
+
+  // Vercel toolbar
+  "https://vercel.live",
 ];
 
 const connectSources = ["https://related-molly-28.clerk.accounts.dev"];
