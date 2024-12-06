@@ -15,7 +15,17 @@ function HeaderMenuLink({ href, title }: { href: string; title: string }) {
 function HeaderMenu() {
   return (
     <div className="flex min-h-7 items-center space-x-4 text-muted">
-      <HeaderMenuLink href="/rank" title="Vote" />
+      <Link
+        href="/rank"
+        className="no-underline"
+        // Prefetching this page causes an error on production because the page
+        // redirects to the clerk login page.
+        // I _think_ this could be fixed on Clerk's end since the error is a
+        // CORS thing, but I'm not certain.
+        prefetch={false}
+      >
+        Vote
+      </Link>
 
       <div className="h-6 border-l border-muted-2" />
 
