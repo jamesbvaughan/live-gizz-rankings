@@ -13,15 +13,23 @@ const scriptSources = [
 
   // Dev auth
   "https://related-molly-28.clerk.accounts.dev",
+  "https://related-molly-28.accounts.dev",
 
   // Vercel Analytics
   "https://va.vercel-scripts.com",
 
   // Vercel toolbar
   "https://vercel.live",
+
+  // Vercel toolbar
+  "https://js.sentry-cdn.com",
 ];
 
-const connectSources = ["https://related-molly-28.clerk.accounts.dev"];
+const connectSources = [
+  // Dev auth
+  "https://related-molly-28.clerk.accounts.dev",
+  "https://related-molly-28.accounts.dev",
+];
 
 const frameSources = ["https://bandcamp.com", "https://open.spotify.com"];
 
