@@ -17,6 +17,11 @@ export default async function NominationsPage() {
     <div className="space-y-6">
       <h2 className="text-4xl">Performance nominations</h2>
 
+      <p>
+        These are user-submitted nominations for performances to add to the
+        database.
+      </p>
+
       <ul className="ml-6 list-disc space-y-2">
         {allNominations.map((nomination) => {
           return (
