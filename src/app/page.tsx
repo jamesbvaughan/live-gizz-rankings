@@ -3,22 +3,6 @@ import { PropsWithChildren } from "react";
 
 import { NominationForm } from "./NominationForm";
 
-function LinkButton({
-  href,
-  children,
-  prefetch = true,
-}: PropsWithChildren<{ href: string; prefetch?: boolean }>) {
-  return (
-    <Link
-      prefetch={prefetch}
-      href={href}
-      className="block h-24 w-64 content-center border-2 border-foreground text-center text-xl no-underline hover:bg-foreground hover:text-background"
-    >
-      {children}
-    </Link>
-  );
-}
-
 function QnA({ children }: PropsWithChildren) {
   return <div className="space-y-2">{children}</div>;
 }
@@ -39,18 +23,32 @@ export default function Home() {
   return (
     <div className="space-y-12 text-xl">
       <div className="space-y-8">
-        <p>
-          The purpose of this site is to identify what the fan community
-          believes to be King Gizzard &amp; The Lizard Wizard&apos;s best live
-          performances of their songs.
-        </p>
+        <div className="space-y-4">
+          <p>
+            The purpose of this site is to identify what the fan community
+            believes to be King Gizzard &amp; The Lizard Wizard&apos;s best live
+            performances of their songs.
+          </p>
 
-        <div className="flex flex-col items-center justify-around gap-4 sm:flex-row">
-          <LinkButton href="/rank" prefetch={false}>
-            rank some performances
-          </LinkButton>
-          <LinkButton href="/albums">browse rankings by album</LinkButton>
+          <p>
+            Use the links at the top ofthis page to browse the ranked
+            performances by song, album, or show.
+          </p>
+
+          <p>
+            This is still a work-in-progress! The most helpful thing that you
+            can do is go and vote on some performances.
+          </p>
         </div>
+      </div>
+
+      <div className="flex justify-around">
+        <Link
+          href="/rank"
+          className="block content-center border-2 border-foreground px-6 py-6 text-center text-2xl no-underline hover:bg-foreground hover:text-background"
+        >
+          vote on some performances
+        </Link>
       </div>
 
       <div className="space-y-4 text-lg">
