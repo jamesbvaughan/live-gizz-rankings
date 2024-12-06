@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
+import unusedImportsPlugin from "eslint-plugin-unused-imports";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,8 +28,9 @@ const config = [
   ),
   {
     plugins: {
-      "simple-import-sort": simpleImportSort,
       import: importPlugin,
+      "simple-import-sort": simpleImportSortPlugin,
+      "unused-imports": unusedImportsPlugin,
     },
     rules: {
       "@typescript-eslint/no-unused-vars": [
@@ -38,12 +40,14 @@ const config = [
         },
       ],
 
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-
       "import/first": "error",
       "import/newline-after-import": "error",
       "import/no-duplicates": "error",
+
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+
+      "unused-imports/no-unused-imports": "error",
     },
   },
 ];
