@@ -140,7 +140,7 @@ export const nominations = pgTable("nominations", {
    */
   userId: text("user_id"),
   message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
   performanceId: uuid("performance_id").references(() => performances.id),
 });
 
