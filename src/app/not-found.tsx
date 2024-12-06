@@ -6,6 +6,10 @@ const notFoundMessages = [
   "There is no Planet B. There's also no webpage at this URL.",
 ];
 
+// Force this page to be dynamic so that the error message is different each
+// time it loads.
+export const dynamic = "force-dynamic";
+
 export default function NotFound() {
   const message =
     notFoundMessages[Math.floor(Math.random() * notFoundMessages.length)];
