@@ -8,9 +8,9 @@ import Script from "next/script";
 
 import tailwindConfig from "@/../tailwind.config";
 
-import BackgroundCanvas from "./BackgroundCanvas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { NonagonSvg } from "./Nonagon";
 
 const title = "Live Gizz Rankings";
 const description = "Find the best live version of King Gizzard songs";
@@ -43,7 +43,11 @@ export default function RootLayout({
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
         <body className="overflow-y-scroll bg-background text-foreground">
-          <BackgroundCanvas />
+          {/* <BackgroundCanvas /> */}
+
+          <div className="fixed h-screen w-screen">
+            <NonagonSvg />
+          </div>
 
           <div className="mx-auto max-w-[720px] space-y-6 px-4 pb-10 pt-6 sm:space-y-10">
             <Header />

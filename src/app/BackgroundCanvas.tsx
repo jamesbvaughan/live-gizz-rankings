@@ -71,6 +71,14 @@ export default function BackgroundCanvas() {
       ctx.scale(dpr, dpr);
     }
 
+    async function download() {
+      const link = document.createElement("a");
+      link.download = "canvas-image.png"; // Set the downloaded file name
+      const blob = await offscreenCanvas.convertToBlob({ type: "image/png" });
+      link.href = URL.createObjectURL(blob);
+      link.click(); // Trigger download
+    }
+
     function animate(timestamp: number) {
       ctx.clearRect(
         0,
@@ -87,9 +95,11 @@ export default function BackgroundCanvas() {
       const scale = (Math.sin(timestamp / 5000) + 1) / 2;
       const shadowBlur =
         Math.floor(scale * (maxShadowBlur - minShadowBlur)) + minShadowBlur;
-      drawNonagon(ctx, vertices, centerX, centerY, size, rotation, shadowBlur);
+      drawNonagon(ctx, vertices, centerX, centerY, size, 0, shadowBlur);
 
-      requestAnimationFrame(animate);
+      download();
+
+      // requestAnimationFrame(animate);
     }
 
     resizeCanvas();
