@@ -1,3 +1,6 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import { db } from "@/drizzle/db";
 import { Vote } from "@/drizzle/schema";
 import {
@@ -7,8 +10,6 @@ import {
   getShowTitle,
   getSongById,
 } from "@/utils";
-import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Votes",

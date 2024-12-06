@@ -1,12 +1,13 @@
-import { db } from "@/drizzle/db";
-import Image from "next/image";
-import { performances, Show } from "@/drizzle/schema";
-import { getPerformancePath, getShowBySlug, getShowTitle } from "@/utils";
 import { eq } from "drizzle-orm";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
+
+import { db } from "@/drizzle/db";
+import { performances, Show } from "@/drizzle/schema";
+import { getPerformancePath, getShowBySlug, getShowTitle } from "@/utils";
 
 type Params = { showSlug: string };
 type Props = { params: Promise<Params> };

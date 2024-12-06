@@ -1,6 +1,8 @@
 import "@/drizzle/envConfig";
-import { drizzle as drizzleWebsocket } from "drizzle-orm/neon-serverless";
+
 import { drizzle as drizzleHTTP } from "drizzle-orm/neon-http";
+import { drizzle as drizzleWebsocket } from "drizzle-orm/neon-serverless";
+
 import * as schema from "./schema";
 
 const postgresUrl = process.env.POSTGRES_URL!;

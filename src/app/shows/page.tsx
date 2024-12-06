@@ -1,9 +1,10 @@
-import { Show } from "@/drizzle/schema";
-import { allShows } from "@/drizzle/seeds";
-import { getShowPath, getShowTitle } from "@/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Show } from "@/drizzle/schema";
+import { allShows } from "@/drizzle/seeds";
+import { getShowPath, getShowTitle } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Shows",

@@ -1,3 +1,5 @@
+import type { MetadataRoute } from "next";
+
 import {
   allAlbums,
   allPerformances,
@@ -10,7 +12,6 @@ import {
   getShowPath,
   getSongPath,
 } from "@/utils";
-import type { MetadataRoute } from "next";
 
 const baseUrl = "https://livegizzrankings.com";
 

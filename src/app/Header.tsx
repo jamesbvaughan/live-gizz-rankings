@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-import lgrHandwritten from "./lgr-handwritten.png";
 import { AccountButtons } from "./AccountButtons";
+import lgrHandwritten from "./lgr-handwritten.png";
 
 function HeaderMenuLink({ href, title }: { href: string; title: string }) {
   return (

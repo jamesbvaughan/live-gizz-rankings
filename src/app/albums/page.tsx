@@ -1,8 +1,9 @@
-import { allAlbums } from "@/drizzle/seeds";
-import { getAlbumPath } from "@/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+import { allAlbums } from "@/drizzle/seeds";
+import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Albums",

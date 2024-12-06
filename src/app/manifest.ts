@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+
 import tailwindConfig from "@/../tailwind.config";
 
 export default function manifest(): MetadataRoute.Manifest {

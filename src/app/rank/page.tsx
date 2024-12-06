@@ -1,12 +1,14 @@
+import { eq } from "drizzle-orm";
+import { Metadata } from "next";
+import Link from "next/link";
+
+import { MediaPlayers } from "@/components/MediaPlayers";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { getShowTitle } from "@/utils";
-import { eq } from "drizzle-orm";
-import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
-import { Metadata } from "next";
+
 import { getRandomPairForCurrentUser } from "./getRandomPair";
-import Link from "next/link";
-import { MediaPlayers } from "@/components/MediaPlayers";
+import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 
 export const metadata: Metadata = {
   title: "Rank Songs",

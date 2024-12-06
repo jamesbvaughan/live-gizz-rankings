@@ -1,8 +1,9 @@
+import { auth } from "@clerk/nextjs/server";
+import { eq } from "drizzle-orm";
+
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
 import { seedPerformances, seedSongs } from "@/drizzle/seeds";
-import { auth } from "@clerk/nextjs/server";
-import { eq } from "drizzle-orm";
 
 function generateAllPotentialPairs() {
   const pairs: Record<string, [string, string][]> = {};

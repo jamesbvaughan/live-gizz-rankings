@@ -1,5 +1,11 @@
-import { db } from "@/drizzle/db";
+import { desc, eq } from "drizzle-orm";
+import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+
+import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import {
   getAlbumPath,
@@ -9,11 +15,6 @@ import {
   getSongById,
   getSongBySlug,
 } from "@/utils";
-import { desc, eq } from "drizzle-orm";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { Suspense } from "react";
 
 type Params = { songSlug: string };
 type Props = { params: Promise<Params> };

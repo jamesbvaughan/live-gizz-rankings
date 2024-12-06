@@ -1,15 +1,16 @@
-import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import BackgroundCanvas from "./BackgroundCanvas";
-
-import { Header } from "./Header";
-import { Footer } from "./Footer";
 
 import tailwindConfig from "@/../tailwind.config";
+
+import BackgroundCanvas from "./BackgroundCanvas";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export const metadata: Metadata = {
   title: {

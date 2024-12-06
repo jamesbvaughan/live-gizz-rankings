@@ -1,7 +1,8 @@
-import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
-import { getAlbumPath, getSongPath } from "@/utils";
 import { Metadata } from "next";
 import Link from "next/link";
+
+import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
+import { getAlbumPath, getSongPath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Songs",

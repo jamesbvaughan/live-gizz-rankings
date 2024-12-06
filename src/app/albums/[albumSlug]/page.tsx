@@ -1,9 +1,10 @@
-import Image from "next/image";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { getAlbumBySlug, getSongPath } from "@/utils";
-import { allAlbums, allSongs } from "@/drizzle/seeds";
 import { notFound } from "next/navigation";
+
+import { allAlbums, allSongs } from "@/drizzle/seeds";
+import { getAlbumBySlug, getSongPath } from "@/utils";
 
 type Params = { albumSlug: string };
 type Props = { params: Promise<Params> };

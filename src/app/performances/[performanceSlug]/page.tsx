@@ -1,3 +1,7 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
 import { MediaPlayers } from "@/components/MediaPlayers";
 import { allPerformances } from "@/drizzle/seeds";
 import {
@@ -9,9 +13,6 @@ import {
   getSongById,
   getSongPath,
 } from "@/utils";
-import { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 
 type Params = { performanceSlug: string };
 type Props = { params: Promise<Params> };
