@@ -5,7 +5,7 @@ export function Footer() {
 
       <div className="text-center text-muted">
         made by{" "}
-        <a href="https://jamesbvaughan.com" className="hover:text-red">
+        <a href="https://jamesbvaughan.com" className="no-underline">
           james
         </a>
       </div>

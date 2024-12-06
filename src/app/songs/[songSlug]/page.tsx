@@ -52,7 +52,10 @@ async function RankedPerformances({ songId }: { songId: string }) {
           <li key={performance.id} className="flex">
             <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
 
-            <Link href={performancePath} className="flex shrink-0 space-x-4">
+            <Link
+              href={performancePath}
+              className="flex shrink-0 space-x-4 no-underline"
+            >
               <div className="aspect-square w-24 bg-background">
                 {show.imageUrl ? (
                   <Image
@@ -97,7 +100,7 @@ export default async function Song({ params }: Props) {
       </Suspense>
 
       <div>
-        <Link href={albumPath} className="hover:text-red">
+        <Link href={albumPath} className="no-underline">
           Back to album
         </Link>
       </div>

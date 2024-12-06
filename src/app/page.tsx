@@ -5,7 +5,7 @@ function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
   return (
     <Link
       href={href}
-      className="block h-24 w-64 content-center border-2 border-foreground text-center text-xl hover:bg-foreground hover:text-background"
+      className="block h-24 w-64 content-center border-2 border-foreground text-center text-xl no-underline hover:bg-foreground hover:text-background"
     >
       {children}
     </Link>
@@ -49,7 +49,7 @@ export default function Home() {
 
         <div>
           <a
-            className="font-bold hover:text-red"
+            className="font-bold no-underline"
             href="https://kglw.net/jams/artist/1"
             target="_blank"
             rel="noopener"
@@ -59,12 +59,7 @@ export default function Home() {
           <span className="text-muted">
             - A list of particularly notable live versions of songs, curated by
             the{" "}
-            <a
-              href="https://kglw.net"
-              target="_blank"
-              rel="noopener"
-              className="underline hover:text-red"
-            >
+            <a href="https://kglw.net" target="_blank" rel="noopener">
               KGLW.net
             </a>{" "}
             team.
@@ -73,7 +68,7 @@ export default function Home() {
 
         <div>
           <a
-            className="font-bold hover:text-red"
+            className="font-bold no-underline"
             href="https://tapes.kglw.net/notables/curated/"
             target="_blank"
             rel="noopener"
@@ -83,12 +78,7 @@ export default function Home() {
           <span className="text-muted">
             - A curated subset of the above list, only containing versions with
             recordings available to listen to on{" "}
-            <a
-              className="underline hover:text-red"
-              href="https://tapes.kglw.net/"
-              target="blank"
-              rel="noopener"
-            >
+            <a href="https://tapes.kglw.net/" target="blank" rel="noopener">
               Gizz Tapes
             </a>
             .
@@ -107,7 +97,6 @@ export default function Home() {
               href="https://en.wikipedia.org/wiki/Elo_rating_system"
               target="_blank"
               rel="noopener"
-              className="underline hover:text-red"
             >
               Elo rating system
             </a>{" "}
@@ -141,10 +130,8 @@ export default function Home() {
             <p>
               If there&apos;s a specific song or performance that you&apos;d
               like to nominate, please{" "}
-              <a href="mailto:james@jamesbvaughan.com" className="underline">
-                let me know
-              </a>{" "}
-              and I&apos;ll add it!
+              <a href="mailto:james@jamesbvaughan.com">let me know</a> and
+              I&apos;ll add it!
             </p>
           </A>
         </QnA>

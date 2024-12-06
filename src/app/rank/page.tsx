@@ -46,15 +46,9 @@ export default async function Rank() {
         </p>
         <p>
           You can{" "}
-          <Link href="/albums" className="underline">
-            browse all the rankings by album here
-          </Link>{" "}
-          or{" "}
-          <a href="mailto:james@jamesbvaughan.com" className="underline">
-            email me
-          </a>{" "}
-          if there are more songs or performances that you&apos;d like to see
-          added here.
+          <Link href="/albums">browse all the rankings by album here</Link> or{" "}
+          <a href="mailto:james@jamesbvaughan.com">email me</a> if there are
+          more songs or performances that you&apos;d like to see added here.
         </p>
       </div>
     );

@@ -21,7 +21,7 @@ function PerformanceLink({ performanceId }: { performanceId: string }) {
   const showTitle = getShowTitle(show);
 
   return (
-    <Link href={performancePath} className="font-bold hover:text-red">
+    <Link href={performancePath} className="font-bold">
       {showTitle}
     </Link>
   );

@@ -56,11 +56,11 @@ export default async function PerformancePage({ params }: Props) {
   return (
     <div className="space-y-4">
       <h2 className="text-4xl">
-        <Link href={getSongPath(song)} className="hover:text-red">
+        <Link href={getSongPath(song)} className="no-underline">
           {song.title}
         </Link>{" "}
         -{" "}
-        <Link href={getShowPath(show)} className="hover:text-red">
+        <Link href={getShowPath(show)} className="no-underline">
           {getShowTitle(show)}
         </Link>
       </h2>

@@ -48,7 +48,7 @@ export default async function Album({ params }: Props) {
               const songPath = getSongPath(song);
               return (
                 <li key={song.id}>
-                  <Link href={songPath} className="hover:text-red">
+                  <Link href={songPath} className="no-underline">
                     {song.title}
                   </Link>
                 </li>
@@ -66,7 +66,7 @@ export default async function Album({ params }: Props) {
         />
       </div>
 
-      <Link href="/albums" className="hover:text-red">
+      <Link href="/albums" className="no-underline">
         Back to albums
       </Link>
     </div>

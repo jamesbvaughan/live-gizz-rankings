@@ -6,7 +6,7 @@ import { AccountButtons } from "./AccountButtons";
 
 function HeaderMenuLink({ href, title }: { href: string; title: string }) {
   return (
-    <Link href={href} className="hover:text-red">
+    <Link href={href} className="no-underline">
       {title}
     </Link>
   );

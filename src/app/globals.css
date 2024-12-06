@@ -6,4 +6,8 @@
   #sign-in-button-wrapper button {
     @apply hover:text-red;
   }
+
+  a {
+    @apply underline underline-offset-2 hover:text-red;
+  }
 }

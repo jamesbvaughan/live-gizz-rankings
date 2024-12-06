@@ -32,7 +32,7 @@ export default async function Songs() {
 
                 return (
                   <div key={song.id} className="flex items-end space-x-2">
-                    <Link href={songPath} className="text-lg hover:text-red">
+                    <Link href={songPath} className="text-lg no-underline">
                       {song.title}
                     </Link>
 

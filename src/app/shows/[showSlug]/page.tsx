@@ -40,7 +40,7 @@ async function ShowPerformances({ show }: { show: Show }) {
           <li key={performance.id}>
             <Link
               href={performancePath}
-              className="text-2xl hover:text-red sm:text-4xl"
+              className="text-2xl no-underline sm:text-4xl"
             >
               {performance.song.title}
             </Link>
@@ -82,7 +82,7 @@ export default async function ShowPage({ params }: Props) {
       </Suspense>
 
       <div>
-        <Link href="/shows" className="hover:text-red">
+        <Link href="/shows" className="no-underline">
           Back to all shows
         </Link>
       </div>
