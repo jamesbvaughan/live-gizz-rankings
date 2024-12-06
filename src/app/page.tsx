@@ -3,9 +3,14 @@ import { PropsWithChildren } from "react";
 
 import { NominationForm } from "./NominationForm";
 
-function LinkButton({ href, children }: PropsWithChildren<{ href: string }>) {
+function LinkButton({
+  href,
+  children,
+  prefetch = true,
+}: PropsWithChildren<{ href: string; prefetch?: boolean }>) {
   return (
     <Link
+      prefetch={prefetch}
       href={href}
       className="block h-24 w-64 content-center border-2 border-foreground text-center text-xl no-underline hover:bg-foreground hover:text-background"
     >
@@ -41,7 +46,9 @@ export default function Home() {
         </p>
 
         <div className="flex flex-col items-center justify-around gap-4 sm:flex-row">
-          <LinkButton href="/rank">rank some performances</LinkButton>
+          <LinkButton href="/rank" prefetch={false}>
+            rank some performances
+          </LinkButton>
           <LinkButton href="/albums">browse rankings by album</LinkButton>
         </div>
       </div>
