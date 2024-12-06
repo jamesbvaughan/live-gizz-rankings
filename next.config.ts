@@ -2,8 +2,6 @@ import bundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
-import { cspHeaderValue } from "./cspHeader";
-
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
