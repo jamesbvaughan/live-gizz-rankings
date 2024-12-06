@@ -39,12 +39,10 @@ async function ShowPerformances({ show }: { show: Show }) {
 
         return (
           <li key={performance.id}>
-            <Link
-              href={performancePath}
-              className="text-2xl no-underline sm:text-4xl"
-            >
+            <Link href={performancePath} className="text-2xl no-underline">
               {performance.song.title}
             </Link>
+
             <div className="text-muted">
               ({Math.round(performance.eloRating)})
             </div>
@@ -78,9 +76,34 @@ export default async function ShowPage({ params }: Props) {
         />
       ) : null}
 
-      <Suspense fallback="Loading performances...">
-        <ShowPerformances show={show} />
-      </Suspense>
+      <div className="space-y-4">
+        <h3 className="text-3xl">Performances from this show with rankings</h3>
+
+        <Suspense fallback="Loading performances...">
+          <ShowPerformances show={show} />
+        </Suspense>
+      </div>
+
+      <div className="space-y-4">
+        <h3 className="text-3xl">Listen to this show</h3>
+
+        <div>
+          <a href={`https://tapes.kglw.net/${show.date}/`}>
+            Listen to this show on Gizz Tapes
+          </a>
+
+          {show.bandcampAlbumId && (
+            <>
+              {" "}
+              or on Bandcamp:
+              <iframe
+                style={{ border: 0, marginTop: 8, width: "100%", height: 472 }}
+                src={`https://bandcamp.com/EmbeddedPlayer/album=${show.bandcampAlbumId}/size=large/bgcol=333333/linkcol=e32c14/artwork=none/transparent=true/`}
+              />
+            </>
+          )}
+        </div>
+      </div>
 
       <div>
         <Link href="/shows" className="no-underline">
