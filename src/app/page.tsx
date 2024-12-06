@@ -150,8 +150,9 @@ export default function Home() {
         <h2 className="text-3xl">Nominate a performance</h2>
 
         <p>
-          Is this site missing one of your favorite performances? Nominate it
-          for inclusion here!
+          Is this site missing one of your favorite performances? Use this form
+          to nominate it for inclusion, or browse existing nominations{" "}
+          <Link href="/nominations">here</Link>.
         </p>
 
         <NominationForm />
