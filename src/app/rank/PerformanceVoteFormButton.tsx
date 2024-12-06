@@ -6,18 +6,16 @@ import { useActionState, useState } from "react";
 
 import { vote } from "@/actions/vote";
 import { Performance, Show } from "@/drizzle/schema";
-import { getShowTitle } from "@/utils";
+import { getShowById, getShowTitle } from "@/utils";
 
 export function PerformanceFormButtons({
   performanceA,
   performanceB,
 }: {
-  performanceA: Performance & { show: Show };
-  performanceB: Performance & { show: Show };
+  performanceA: Performance;
+  performanceB: Performance;
 }) {
-  const [selectedPerformance, setSelectedPerformance] = useState<
-    (Performance & { show: Show }) | null
-  >(null);
+  const [selectedShow, setSelectedShow] = useState<Show | null>(null);
   const [_state, submitVote, isPending] = useActionState(vote, null);
 
   return (
@@ -27,8 +25,9 @@ export function PerformanceFormButtons({
     >
       <fieldset className="grid grid-cols-2 gap-2">
         {[performanceA, performanceB].map((performance) => {
-          const performanceTitle = getShowTitle(performance.show);
-          const coverImageUrl = performance.show.imageUrl;
+          const show = getShowById(performance.showId)!;
+          const performanceTitle = getShowTitle(show);
+
           return (
             <div key={performance.id}>
               <input
@@ -39,9 +38,9 @@ export function PerformanceFormButtons({
                 name="winnerId"
                 id={performance.id}
                 value={performance.id}
-                checked={selectedPerformance === performance}
+                checked={selectedShow === show}
                 onChange={() => {
-                  setSelectedPerformance(performance);
+                  setSelectedShow(show);
                 }}
               />
               <div className="border-8 border-transparent peer-checked:border-red">
@@ -49,8 +48,8 @@ export function PerformanceFormButtons({
                   htmlFor={performance.id}
                   className="flex aspect-square w-full cursor-pointer items-center justify-center bg-muted-2 bg-cover text-center text-2xl hover:invert sm:text-4xl"
                   style={{
-                    backgroundImage: coverImageUrl
-                      ? `url(${coverImageUrl})`
+                    backgroundImage: show.imageUrl
+                      ? `url(${show.imageUrl})`
                       : undefined,
                     textShadow: "1px 1px 10px black",
                   }}
@@ -69,7 +68,7 @@ export function PerformanceFormButtons({
       <input type="hidden" name="performanceIdB" value={performanceB.id} />
 
       <div className="flex h-24 items-center justify-center">
-        {selectedPerformance ? (
+        {selectedShow ? (
           <button
             type="submit"
             className="border-2 border-foreground px-6 py-4 hover:bg-foreground hover:text-background"
@@ -77,7 +76,7 @@ export function PerformanceFormButtons({
             {isPending ? (
               "submitting vote..."
             ) : (
-              <>submit vote for {getShowTitle(selectedPerformance.show)}</>
+              <>submit vote for {getShowTitle(selectedShow)}</>
             )}
           </button>
         ) : (

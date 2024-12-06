@@ -6,7 +6,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import { db } from "@/drizzle/db";
-import { performances, Show } from "@/drizzle/schema";
+import { performances } from "@/drizzle/schema";
+import { allPerformances, allSongs } from "@/drizzle/seeds";
 import { getPerformancePath, getShowBySlug, getShowTitle } from "@/utils";
 
 type Params = { showSlug: string };
@@ -26,31 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function ShowPerformances({ show }: { show: Show }) {
-  const showPerformances = await db.query.performances.findMany({
-    where: eq(performances.showId, show.id),
-    with: { song: true },
+async function PerformanceElo({ performanceId }: { performanceId: string }) {
+  const performance = await db.query.performances.findFirst({
+    where: eq(performances.id, performanceId),
   });
 
-  return (
-    <ol className="space-y-4">
-      {showPerformances.map((performance) => {
-        const performancePath = getPerformancePath(performance);
-
-        return (
-          <li key={performance.id}>
-            <Link href={performancePath} className="text-2xl no-underline">
-              {performance.song.title}
-            </Link>
-
-            <div className="text-muted">
-              ({Math.round(performance.eloRating)})
-            </div>
-          </li>
-        );
-      })}
-    </ol>
-  );
+  return <span>({Math.round(performance!.eloRating)})</span>;
 }
 
 export default async function ShowPage({ params }: Props) {
@@ -59,6 +41,10 @@ export default async function ShowPage({ params }: Props) {
   if (!show) {
     notFound();
   }
+
+  const showPerformances = allPerformances.filter(
+    (performance) => performance.showId === show.id,
+  );
 
   const showTitle = getShowTitle(show);
 
@@ -79,9 +65,35 @@ export default async function ShowPage({ params }: Props) {
       <div className="space-y-4">
         <h3 className="text-3xl">Performances from this show with rankings</h3>
 
-        <Suspense fallback="Loading performances...">
-          <ShowPerformances show={show} />
-        </Suspense>
+        {showPerformances.length > 0 ? (
+          <ol className="space-y-4">
+            {showPerformances.map((performance) => {
+              const performancePath = getPerformancePath(performance);
+              const song = allSongs.find(
+                (song) => song.id === performance.songId,
+              )!;
+
+              return (
+                <li key={performance.id}>
+                  <Link
+                    href={performancePath}
+                    className="text-2xl no-underline"
+                  >
+                    {song.title}
+                  </Link>
+
+                  <div className="text-muted">
+                    <Suspense fallback="Loading Elo score...">
+                      <PerformanceElo performanceId={performance.id} />
+                    </Suspense>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        ) : (
+          <p>No performances from this show have been submitted yet.</p>
+        )}
       </div>
 
       <div className="space-y-4">

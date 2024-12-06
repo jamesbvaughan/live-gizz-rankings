@@ -1,11 +1,13 @@
-import { eq } from "drizzle-orm";
 import { Metadata } from "next";
 import Link from "next/link";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
-import { db } from "@/drizzle/db";
-import { performances } from "@/drizzle/schema";
-import { getShowTitle } from "@/utils";
+import {
+  getPerformanceById,
+  getShowById,
+  getShowTitle,
+  getSongById,
+} from "@/utils";
 
 import { getRandomPairForCurrentUser } from "./getRandomPair";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
@@ -13,27 +15,6 @@ import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
 export const metadata: Metadata = {
   title: "Rank Songs",
 };
-
-async function getPerformanceById(performanceId: string) {
-  const performance = await db.query.performances.findFirst({
-    where: eq(performances.id, performanceId),
-    with: { show: true, song: true },
-  });
-  if (!performance) {
-    throw new Error("Performance not found");
-  }
-  return performance;
-}
-
-async function getSongById(songId: string) {
-  const song = await db.query.songs.findFirst({
-    where: eq(performances.id, songId),
-  });
-  if (!song) {
-    throw new Error("Song not found");
-  }
-  return song;
-}
 
 export default async function Rank() {
   const pair = await getRandomPairForCurrentUser();
@@ -56,9 +37,9 @@ export default async function Rank() {
     );
   }
 
-  const performanceA = await getPerformanceById(pair[0]);
-  const performanceB = await getPerformanceById(pair[1]);
-  const song = await getSongById(performanceA.songId);
+  const performanceA = getPerformanceById(pair[0])!;
+  const performanceB = getPerformanceById(pair[1])!;
+  const song = getSongById(performanceA.songId)!;
 
   const performances = [performanceA, performanceB];
 
@@ -76,7 +57,8 @@ export default async function Rank() {
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
         {performances.map((performance) => {
-          const showTitle = getShowTitle(performance.show);
+          const show = getShowById(performance.showId)!;
+          const showTitle = getShowTitle(show);
 
           return (
             <div key={performance.id} className="space-y-4">
@@ -84,7 +66,7 @@ export default async function Rank() {
                 Listen to {song.title} at {showTitle}
               </h3>
 
-              <MediaPlayers performance={performance} show={performance.show} />
+              <MediaPlayers performance={performance} show={show} />
             </div>
           );
         })}
