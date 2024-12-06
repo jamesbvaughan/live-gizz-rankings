@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { AccountButtons } from "./AccountButtons";
 import lgrHandwritten from "./lgr-handwritten.png";
 
 function HeaderMenuLink({ href, title }: { href: string; title: string }) {
@@ -14,28 +13,20 @@ function HeaderMenuLink({ href, title }: { href: string; title: string }) {
 
 function HeaderMenu() {
   return (
-    <div className="flex min-h-7 items-center space-x-4 text-muted">
-      <Link
-        href="/rank"
-        className="no-underline"
-        // Prefetching this page causes an error on production because the page
-        // redirects to the clerk login page.
-        // I _think_ this could be fixed on Clerk's end since the error is a
-        // CORS thing, but I'm not certain.
-        prefetch={false}
-      >
-        Vote
-      </Link>
-
-      <div className="h-6 border-l border-muted-2" />
-
+    <div className="flex items-center space-x-4 text-muted">
       <HeaderMenuLink href="/songs" title="Songs" />
       <HeaderMenuLink href="/albums" title="Albums" />
       <HeaderMenuLink href="/shows" title="Shows" />
 
-      <div className="h-6 border-l border-muted-2" />
-
-      <AccountButtons />
+      <Link
+        href="/rank"
+        className="border-2 border-muted px-2 py-1 no-underline hover:border-foreground hover:text-foreground"
+        // Prefetching this page causes an error on production because the page
+        // redirects to the clerk login page.
+        prefetch={false}
+      >
+        Vote
+      </Link>
     </div>
   );
 }
