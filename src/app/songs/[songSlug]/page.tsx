@@ -7,6 +7,7 @@ import { Suspense } from "react";
 
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
+import { allSongs } from "@/drizzle/seeds";
 import {
   getAlbumPath,
   getPerformancePath,
@@ -30,6 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: song.title,
   };
 }
+
+export const experimental_ppr = true;
+
+export function generateStaticParams(): Params[] {
+  return allSongs.map((song) => ({
+    songSlug: song.slug,
+  }));
+}
+
+export const dynamicParams = false;
 
 async function RankedPerformances({ songId }: { songId: string }) {
   const song = getSongById(songId);
