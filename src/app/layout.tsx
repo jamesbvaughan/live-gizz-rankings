@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   },
   description,
   openGraph: {
-    url: "https://livegizzrankings.com",
     siteName: title,
     description,
   },
