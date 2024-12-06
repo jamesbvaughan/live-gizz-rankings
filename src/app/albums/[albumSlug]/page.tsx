@@ -60,7 +60,7 @@ export default async function Album({ params }: Props) {
 
         <Image
           src={album.imageUrl}
-          alt={album.title}
+          alt={`Album cover for ${album.title}`}
           className="aspect-square w-full"
           width={500}
           height={500}

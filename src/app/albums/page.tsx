@@ -22,7 +22,7 @@ export default async function Albums() {
             <Link key={album.id} href={albumPath} className="no-underline">
               <Image
                 src={album.imageUrl}
-                alt={album.title}
+                alt={`Album cover for ${album.title}`}
                 className="aspect-square w-full"
                 width={500}
                 height={500}

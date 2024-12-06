@@ -71,7 +71,7 @@ export default async function ShowPage({ params }: Props) {
       {show.imageUrl ? (
         <Image
           src={show.imageUrl}
-          alt={showTitle}
+          alt={`Album cover for ${showTitle}`}
           className="aspect-square w-full"
           width={500}
           height={500}
