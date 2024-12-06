@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:analyze": "ANALYZE=true yarn run build",
     "build:vercel": "yarn db:push && yarn db:seed && next build",
     "db:push": "drizzle-kit push",
     "db:seed": "yarn validate-seeds && tsx src/drizzle/seed.ts",
@@ -18,6 +19,7 @@
     "@clerk/nextjs": "^6.5.1",
     "@clerk/themes": "^2.1.48",
     "@neondatabase/serverless": "^0.10.3",
+    "@next/bundle-analyzer": "^15.0.4",
     "@next/env": "^15.0.4",
     "@next/third-parties": "^15.0.4",
     "@sentry/nextjs": "^8.42.0",
