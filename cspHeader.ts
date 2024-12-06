@@ -31,7 +31,16 @@ const connectSources = [
   "https://related-molly-28.accounts.dev",
 ];
 
-const frameSources = ["https://bandcamp.com", "https://open.spotify.com"];
+const frameSources = [
+  // Bandcamp embeds
+  "https://bandcamp.com",
+
+  // Spotify embeds
+  "https://open.spotify.com",
+
+  // Vercel toolbar
+  "https://vercel.live",
+];
 
 const imageSources = [
   // For the YouTube embed
