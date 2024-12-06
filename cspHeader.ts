@@ -23,12 +23,18 @@ const scriptSources = [
 
   // Vercel toolbar
   "https://js.sentry-cdn.com",
+
+  // Cloudflare Analytics
+  "https://static.cloudflareinsights.com",
 ];
 
 const connectSources = [
   // Dev auth
   "https://related-molly-28.clerk.accounts.dev",
   "https://related-molly-28.accounts.dev",
+
+  // Prod auth
+  "https://clerk.livegizzrankings.com",
 ];
 
 const frameSources = [
