@@ -80,7 +80,10 @@ export function PerformanceFormButtons({
             )}
           </button>
         ) : (
-          <div>choose a performance above to vote for</div>
+          <div>
+            choose a performance above to vote for, or refresh the page to skip
+            this pair
+          </div>
         )}
       </div>
     </Form>
