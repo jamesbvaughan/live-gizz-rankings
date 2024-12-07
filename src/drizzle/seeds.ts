@@ -931,6 +931,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Hot Water
+  {
+    id: "81387e59-8ce6-4dd8-97b1-7367db88884c",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.vegas24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "665703727",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Hot Wax
   {
     id: "a3820b34-318b-4ec5-8c16-97e78d696e9e",
