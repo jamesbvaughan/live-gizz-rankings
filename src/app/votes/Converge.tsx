@@ -1,7 +1,7 @@
 export function Converge() {
   return (
     <>
-      <span className="peer underline decoration-muted-2 decoration-dotted underline-offset-2">
+      <span className="peer underline decoration-muted decoration-dotted underline-offset-2">
         converge
       </span>
 
