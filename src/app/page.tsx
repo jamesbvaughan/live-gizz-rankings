@@ -31,7 +31,7 @@ export default function Home() {
           </p>
 
           <p>
-            Use the links at the top ofthis page to browse the ranked
+            Use the links at the top of this page to browse the ranked
             performances by song, album, or show.
           </p>
 
