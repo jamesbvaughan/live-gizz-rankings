@@ -958,6 +958,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: 4534,
   },
+  {
+    id: "3a16195d-92bc-4116-9623-488e2e4d0c3f",
+    songId: seedSongs.herAndI.id,
+    showId: seedShows.brisbaneAcoustic21.id,
+    spotifyTrackId: "6SMEHR4OoddHYdq6hNk0La",
+    bandcampTrackId: "2448379173",
+    youtubeVideoId: "vfWdWU5J2zc",
+    youtubeVideoStartTime: 4215,
+  },
 
   // ====================================================
   // Hot Water
