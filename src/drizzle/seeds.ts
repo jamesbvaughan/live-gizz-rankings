@@ -190,6 +190,12 @@ export const seedSongs = {
 
   // ====================================================
   // I'm In Your Mind Fuzz
+  hotWater: {
+    id: "7a0ac425-58be-4373-8f14-78905db4a081",
+    slug: "hot-water",
+    title: "Hot Water",
+    albumId: seedAlbums.mindFuzz.id,
+  },
   slowJam1: {
     id: "d8206c9b-096f-4c9b-a477-ec36ed88de72",
     slug: "slow-jam-1",
