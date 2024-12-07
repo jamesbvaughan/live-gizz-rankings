@@ -126,6 +126,9 @@ const frameSources = [
   // Spotify embeds
   "https://open.spotify.com",
 
+  // YouTube embeds
+  "https://www.youtube-nocookie.com",
+
   // Vercel toolbar
   "https://vercel.live",
 ];
