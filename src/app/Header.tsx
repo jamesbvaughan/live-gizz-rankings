@@ -17,6 +17,7 @@ function HeaderMenu() {
       </Link>
 
       <Link
+        prefetch={false}
         href="/rank"
         className="border-2 border-muted px-2 py-1 no-underline hover:border-foreground hover:text-foreground"
       >

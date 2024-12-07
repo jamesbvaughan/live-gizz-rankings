@@ -44,6 +44,7 @@ export default function Home() {
 
         <div className="flex justify-around">
           <Link
+            prefetch={false}
             href="/rank"
             className="block border-2 border-foreground px-6 py-6 text-2xl no-underline hover:bg-foreground hover:text-background"
           >
