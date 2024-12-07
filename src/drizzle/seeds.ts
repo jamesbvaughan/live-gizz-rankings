@@ -1324,6 +1324,15 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 4736,
   },
+  {
+    id: "ddd7b7df-f204-46a9-b64d-71d9a2e16edd",
+    songId: seedSongs.slowJam1.id,
+    showId: seedShows.brisbaneAcoustic21.id,
+    spotifyTrackId: "30ATzhYMbrytqs5ASCuT0e",
+    bandcampTrackId: "4291219970",
+    youtubeVideoId: "vfWdWU5J2zc",
+    youtubeVideoStartTime: 4838,
+  },
 
   // ====================================================
   // Supercell
