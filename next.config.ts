@@ -85,6 +85,7 @@ export default withBundleAnalyzer(
 const scriptSources = [
   // For the YouTube embed
   "https://cdn.jsdelivr.net",
+  "https://youtube.com",
 
   // Prod auth
   "https://clerk.livegizzrankings.com",
