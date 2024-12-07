@@ -280,6 +280,15 @@ export const seedSongs = {
   },
 
   // ====================================================
+  // Gumboot Soup
+  theWheel: {
+    id: "20fc1b2b-6838-422a-bf6f-9edff1b74a2f",
+    slug: "the-wheel",
+    title: "The Wheel",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+
+  // ====================================================
   // Fishing For Fishies
   plasticBoogie: {
     id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
