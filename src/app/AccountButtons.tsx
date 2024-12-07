@@ -1,36 +1,27 @@
 "use client";
 
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useAuth } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
 
 export function AccountButtons() {
-  return (
-    <div className="flex items-center">
-      <ClerkLoaded>
-        <SignedOut>
-          <div id="sign-in-button-wrapper">
-            <SignInButton mode="modal">
-              <button className="hover:text-red">sign in</button>
-            </SignInButton>
-          </div>
-        </SignedOut>
+  const { isSignedIn, isLoaded } = useAuth();
+  const [isClient, setIsClient] = useState(false);
 
-        <SignedIn>
-          <SignOutButton>
-            <button className="hover:text-red">sign out</button>
-          </SignOutButton>
-        </SignedIn>
-      </ClerkLoaded>
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-      <ClerkLoading>
-        <div className="cursor-wait text-muted-2">Sign in</div>
-      </ClerkLoading>
-    </div>
+  if (!isClient || !isLoaded) {
+    return <div className="cursor-wait text-muted-2">sign in</div>;
+  }
+
+  return isSignedIn ? (
+    <SignOutButton>
+      <button className="hover:text-red">sign out</button>
+    </SignOutButton>
+  ) : (
+    <SignInButton mode="modal">
+      <button className="hover:text-red">sign in</button>
+    </SignInButton>
   );
 }
