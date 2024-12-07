@@ -157,7 +157,7 @@ const cspHeader = `
   frame-src 'self' ${frameSources.join(" ")};
   img-src 'self' data: ${imageSources.join(" ")};
   font-src 'self';
-  object-src 'none';
+  object-src 'self' data:;
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
