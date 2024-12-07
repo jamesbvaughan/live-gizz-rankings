@@ -11,6 +11,8 @@ import {
   getSongById,
 } from "@/utils";
 
+import { Converge } from "./Converge";
+
 export const metadata: Metadata = {
   title: "Votes",
 };
@@ -67,7 +69,7 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
       <p>
         This ratio indicates how often voters choose the left vs the right
         performance from the voting page. That order is generated randomly on
-        each page load, so this <i>should</i> converge on 1.00.
+        each page load, so this <i>should</i> <Converge /> on 1.00.
       </p>
       <p>
         If this number is far from 1.00, then that indicates a bias toward one
