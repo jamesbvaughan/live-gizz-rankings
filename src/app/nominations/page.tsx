@@ -37,7 +37,7 @@ export default async function NominationsPage() {
                     </Link>
                   </span>
                 ) : (
-                  <span>Added!</span>
+                  <span>{nomination.message}</span>
                 )}
               </div>
 
