@@ -47,7 +47,13 @@ export default function BackgroundCanvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const offscreenCanvas = canvas.transferControlToOffscreen();
+    let offscreenCanvas: OffscreenCanvas;
+    try {
+      offscreenCanvas = canvas.transferControlToOffscreen();
+    } catch (error) {
+      reportError(error);
+      return undefined;
+    }
     const ctx = offscreenCanvas.getContext("2d")!;
 
     const vertices: Array<{ x: number; y: number }> = [];
