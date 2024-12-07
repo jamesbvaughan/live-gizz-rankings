@@ -492,6 +492,14 @@ export const seedShows = {
     imageUrl: null,
     bandcampAlbumId: null,
   },
+  lowlands23: {
+    id: "58a8f68b-0f95-4a3a-963b-9740a68b8729",
+    slug: "lowlands-2023",
+    location: "Lowlands",
+    date: "2023-08-19",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
 
   // ====================================================
   // U.S. Tour 2024 pt. 1
