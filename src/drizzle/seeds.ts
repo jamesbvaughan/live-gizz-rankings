@@ -709,6 +709,18 @@ export const allShows = Object.values(seedShows) as Show[];
 // Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances = [
   // ====================================================
+  // Am I in Heaven?
+  {
+    id: "5d570fbd-057b-43f4-a2ac-6de6721f7c43",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "4apHMkcnHlTDUe2w1wMOEd",
+    bandcampTrackId: "2965584288",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 10331,
+  },
+
+  // ====================================================
   // Billabong Valley
   {
     id: "1ef77fac-6429-4b08-b567-7bfec3cd35c0",
