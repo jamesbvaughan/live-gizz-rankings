@@ -1252,6 +1252,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "e9277f79-25a6-4dc6-94e7-5766619ac36e",
+    songId: seedSongs.sense.id,
+    showId: seedShows.brisbaneAcoustic21.id,
+    spotifyTrackId: "0g73eR5bm6Zhch31kK4cbD",
+    bandcampTrackId: "167476441",
+    youtubeVideoId: "vfWdWU5J2zc",
+    youtubeVideoStartTime: 5484,
+  },
 
   // ====================================================
   // Shanghai
