@@ -90,6 +90,13 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a4206546710_16.jpg",
     bandcampAlbumId: "1255749163",
   },
+  gumbootSoup: {
+    title: "Gumboot Soup",
+    slug: "gumboot-soup",
+    id: "08816b5c-5e1a-4aca-b07c-0a1b1008fabe",
+    imageUrl: "https://f4.bcbits.com/img/a1481325267_16.jpg",
+    bandcampAlbumId: "2728208210",
+  },
   fff: {
     title: "Fishing For Fishies",
     slug: "fishing-for-fishies",
