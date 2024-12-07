@@ -11,6 +11,7 @@ import tailwindConfig from "@/../tailwind.config";
 import BackgroundCanvas from "./BackgroundCanvas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { SentryUserManager } from "./SentryUserManager";
 
 const title = "Live Gizz Rankings";
 const description = "Find the best live version of King Gizzard songs";
@@ -52,6 +53,8 @@ export default function RootLayout({
 
             <Footer />
           </div>
+
+          <SentryUserManager />
 
           {/* Vercel analytics */}
           <Analytics />
