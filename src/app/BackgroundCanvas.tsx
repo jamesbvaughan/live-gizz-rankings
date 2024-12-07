@@ -44,16 +44,19 @@ function drawNonagon(
 
 export default function BackgroundCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const offscreenCanvasRef = useRef<OffscreenCanvas>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    let offscreenCanvas: OffscreenCanvas;
-    try {
-      offscreenCanvas = canvas.transferControlToOffscreen();
-    } catch (error) {
-      reportError(error);
-      return undefined;
+    if (!offscreenCanvasRef.current) {
+      try {
+        offscreenCanvasRef.current = canvas.transferControlToOffscreen();
+      } catch (error) {
+        reportError(error);
+        return undefined;
+      }
     }
+    const offscreenCanvas = offscreenCanvasRef.current;
     const ctx = offscreenCanvas.getContext("2d")!;
 
     const vertices: Array<{ x: number; y: number }> = [];
