@@ -21,9 +21,9 @@ function A({ children }: PropsWithChildren) {
 
 export default function Home() {
   return (
-    <div className="space-y-12 text-xl">
-      <div className="space-y-8">
-        <div className="space-y-4">
+    <div className="space-y-12">
+      <div className="space-y-6">
+        <div className="space-y-4 text-lg">
           <p>
             The purpose of this site is to identify what the fan community
             believes to be King Gizzard &amp; The Lizard Wizard&apos;s best live
@@ -36,19 +36,20 @@ export default function Home() {
           </p>
 
           <p>
-            This is still a work-in-progress! The most helpful thing that you
-            can do is go and vote on some performances.
+            This is still a work-in-progress! If you&apos;d like to help out,
+            the most helpful thing that you can do is go and vote on some
+            performances.
           </p>
         </div>
-      </div>
 
-      <div className="flex justify-around">
-        <Link
-          href="/rank"
-          className="block content-center border-2 border-foreground px-6 py-6 text-center text-2xl no-underline hover:bg-foreground hover:text-background"
-        >
-          vote on some performances
-        </Link>
+        <div className="flex justify-around">
+          <Link
+            href="/rank"
+            className="block border-2 border-foreground px-6 py-6 text-2xl no-underline hover:bg-foreground hover:text-background"
+          >
+            vote on some performances
+          </Link>
+        </div>
       </div>
 
       <div className="space-y-4 text-lg">

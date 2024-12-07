@@ -16,17 +16,18 @@ export function NominationForm() {
             type="text"
             minLength={4}
             required
-            className="peer flex-grow border-2 border-muted bg-transparent p-2 text-base focus:border-foreground"
+            disabled={isPending}
+            className="peer flex-grow border-2 border-muted bg-transparent p-2 text-base placeholder:text-muted-2 focus:border-foreground focus:ring-0 disabled:text-muted"
             name="message"
             placeholder="ex: Magma at The Gorge, The River at Red Rocks '22, etc."
           />
 
           <button
             type="submit"
-            className="border-2 border-foreground p-2 text-base hover:enabled:bg-foreground hover:enabled:text-background disabled:border-muted peer-invalid:pointer-events-none peer-invalid:border-muted"
+            className="block w-[114px] shrink-0 select-none border-2 border-foreground p-2 text-base disabled:border-muted disabled:text-muted hover:peer-valid:enabled:bg-foreground hover:peer-valid:enabled:text-background peer-invalid:border-muted peer-invalid:text-muted"
             disabled={isPending}
           >
-            Submit
+            {isPending ? "Submitting..." : "Submit"}
           </button>
         </div>
       </Form>
