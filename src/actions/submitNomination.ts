@@ -25,7 +25,9 @@ export async function submitNomination(
     return { success: false, userError: "The message is invalid" };
   }
 
-  if (message.length === 0) {
+  const trimmedMessage = message.trim();
+
+  if (trimmedMessage.length === 0) {
     return { success: false, userError: "The message is empty" };
   }
 
@@ -34,7 +36,7 @@ export async function submitNomination(
   try {
     await db.insert(nominations).values({
       userId,
-      message,
+      message: trimmedMessage,
     });
   } catch (error) {
     console.error(`Failed to submit nomination: ${(error as Error).message}`);
@@ -43,6 +45,6 @@ export async function submitNomination(
 
   revalidatePath("/nominations");
 
-  console.log(`Nomination submitted: ${message}`);
+  console.log(`Nomination submitted: ${trimmedMessage}`);
   return { success: true };
 }
