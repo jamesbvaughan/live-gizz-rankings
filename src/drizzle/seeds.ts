@@ -1396,6 +1396,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // The Wheel
+  {
+    id: "60315c89-e69d-4fa9-8648-ffd6f0a981a3",
+    songId: seedSongs.theWheel.id,
+    showId: seedShows.brisbaneAcoustic21.id,
+    spotifyTrackId: "1v2DuIzD2PUddyvtM4dO5t",
+    bandcampTrackId: "2923773487",
+    youtubeVideoId: "vfWdWU5J2zc",
+    youtubeVideoStartTime: 1454,
+  },
+
+  // ====================================================
   // Witchcraft
   {
     id: "51482dd3-f28e-470d-89ab-7f7f902137ef",
