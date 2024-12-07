@@ -1277,6 +1277,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "91aa7c66-cf3b-47ab-8e56-0f3acc4138ef",
+    songId: seedSongs.slowJam1.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "527IuelBinknzZJ8H1Wazv",
+    bandcampTrackId: "2779145289",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 4736,
+  },
 
   // ====================================================
   // Supercell
