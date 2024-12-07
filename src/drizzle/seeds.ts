@@ -196,6 +196,12 @@ export const seedSongs = {
     title: "Hot Water",
     albumId: seedAlbums.mindFuzz.id,
   },
+  amIInHeaven: {
+    id: "14c20df5-ff64-40b7-b410-aa2aa8daab83",
+    slug: "am-i-in-heaven",
+    title: "Am I in Heaven?",
+    albumId: seedAlbums.mindFuzz.id,
+  },
   slowJam1: {
     id: "d8206c9b-096f-4c9b-a477-ec36ed88de72",
     slug: "slow-jam-1",
