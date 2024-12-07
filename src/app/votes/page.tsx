@@ -12,6 +12,7 @@ import {
 } from "@/utils";
 
 import { Converge } from "./Converge";
+import { LeftRightChart } from "./LeftRightChart";
 
 export const metadata: Metadata = {
   title: "Votes",
@@ -64,13 +65,16 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-4xl">Left/Right ratio: {ratio.toFixed(2)}</h2>
+      <h2 className="text-4xl">Left/right ratio: {ratio.toFixed(2)}</h2>
 
       <p>
         This ratio indicates how often voters choose the left vs the right
         performance from the voting page. That order is generated randomly on
         each page load, so this <i>should</i> <Converge /> on 1.00.
       </p>
+
+      <LeftRightChart votes={votes} />
+
       <p>
         If this number is far from 1.00, then that indicates a bias toward one
         side or the other and that we should change the design of that page.

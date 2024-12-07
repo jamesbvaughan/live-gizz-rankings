@@ -24,10 +24,12 @@
     "@next/third-parties": "^15.0.4",
     "@sentry/nextjs": "^8.42.0",
     "@vercel/analytics": "^1.4.1",
+    "chart.js": "^4.4.7",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.36.4",
     "next": "^15.0.4-canary.45",
     "react": "19.0.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "19.0.0",
     "zod": "^3.23.8",
     "zod-form-data": "^2.0.2"
