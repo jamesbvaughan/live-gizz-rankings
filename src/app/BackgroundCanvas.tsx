@@ -100,7 +100,11 @@ export default function BackgroundCanvas() {
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    const frame = requestAnimationFrame(animate);
+    const frame = requestAnimationFrame((timestamp) => {
+      animate(timestamp);
+      canvas.classList.add("opacity-15");
+      canvas.classList.remove("opacity-0");
+    });
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
@@ -108,5 +112,10 @@ export default function BackgroundCanvas() {
     };
   }, []);
 
-  return <canvas className="fixed z-[-1] opacity-15" ref={canvasRef} />;
+  return (
+    <canvas
+      className="fixed z-[-1] opacity-0 transition-opacity duration-[5s] ease-in-out"
+      ref={canvasRef}
+    />
+  );
 }
