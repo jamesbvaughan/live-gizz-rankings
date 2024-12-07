@@ -1067,6 +1067,15 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 2561,
   },
+  {
+    id: "1b8cbc10-945a-41b6-8beb-a65318d52751",
+    songId: seedSongs.magma.id,
+    showId: seedShows.lowlands23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "y8Wawh9X7GM",
+    youtubeVideoStartTime: 2902,
+  },
 
   // ====================================================
   // Mirage City
