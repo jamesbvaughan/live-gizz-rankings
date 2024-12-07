@@ -150,8 +150,8 @@ export default function Home() {
 
         <p>
           Is this site missing one of your favorite performances? Use this form
-          to nominate it for inclusion, or browse existing nominations{" "}
-          <Link href="/nominations">here</Link>.
+          to nominate it for inclusion, or{" "}
+          <Link href="/nominations">browse existing nominations</Link>.
         </p>
 
         <NominationForm />
