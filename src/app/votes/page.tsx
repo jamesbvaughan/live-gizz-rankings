@@ -88,13 +88,17 @@ function VotesList({ votes }: { votes: Vote[] }) {
     <div className="space-y-4">
       <h2 className="text-4xl">All votes</h2>
 
-      <div>{votes.length} total</div>
+      <details>
+        <summary className="select-none">
+          {votes.length} total (click to view)
+        </summary>
 
-      <ol className="list-disc space-y-2 pl-4">
-        {sortedVotes.map((vote) => (
-          <VoteListItem key={vote.id} vote={vote} />
-        ))}
-      </ol>
+        <ol className="mt-4 list-disc space-y-2 pl-4">
+          {sortedVotes.map((vote) => (
+            <VoteListItem key={vote.id} vote={vote} />
+          ))}
+        </ol>
+      </details>
     </div>
   );
 }
