@@ -10,6 +10,7 @@ import { performances, votes } from "../drizzle/schema";
 import {
   getPerformanceTitle,
   getShowById,
+  getShowPath,
   getSongById,
   getSongPath,
 } from "../utils";
@@ -111,8 +112,12 @@ export async function vote(
   });
 
   const song = getSongById(performanceA.songId)!;
-  const songPath = getSongPath(song);
+  const songPath = getSongPath(performanceA.songId);
   revalidatePath(songPath);
+  const showAPath = getShowPath(performanceA.showId);
+  revalidatePath(showAPath);
+  const showBPath = getShowPath(performanceB.showId);
+  revalidatePath(showBPath);
   revalidatePath(`/songs`);
   revalidatePath(`/votes`);
 
