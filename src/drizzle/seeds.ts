@@ -433,6 +433,17 @@ export const seedShows = {
   },
 
   // ====================================================
+  // 2021 Princess Theatre Residency
+  brisbaneAcoustic21: {
+    id: "81c86246-d8e8-4023-9be9-c72042ffdefe",
+    slug: "brisbane-acoustic-2021",
+    location: "Brisbane",
+    date: "2021-12-19",
+    imageUrl: "https://f4.bcbits.com/img/a2213415853_16.jpg",
+    bandcampAlbumId: "1173053054",
+  },
+
+  // ====================================================
   // World Tour 2022
   mexicoCity22: {
     id: "8c4b2700-ed44-4a14-8d08-93f6c7a0b5a3",
