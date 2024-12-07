@@ -21,7 +21,7 @@ export function LeftRightChart({ votes }: { votes: Vote[] }) {
   const cumulativeAverages: number[] = [];
   let runningSum = 0;
   votes.forEach((vote, index) => {
-    runningSum += vote.winnerId === vote.performance1Id ? 0 : 2;
+    runningSum += vote.winnerId === vote.performance1Id ? 2 : 0;
     cumulativeAverages.push(runningSum / (index + 1));
   });
 
@@ -60,8 +60,8 @@ export function LeftRightChart({ votes }: { votes: Vote[] }) {
               text: "Left/right ratio",
               color: tailwindConfig.theme.extend.colors.muted,
             },
-            min: 0,
-            max: 2,
+            min: 0.5,
+            max: 1.5,
           },
         },
       }}
