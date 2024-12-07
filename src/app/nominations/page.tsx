@@ -1,8 +1,10 @@
 import { desc } from "drizzle-orm";
 import { Metadata } from "next";
+import Link from "next/link";
 
 import { db } from "@/drizzle/db";
 import { nominations } from "@/drizzle/schema";
+import { getPerformancePath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Nominations",
@@ -26,7 +28,19 @@ export default async function NominationsPage() {
         {allNominations.map((nomination) => {
           return (
             <li key={nomination.id}>
-              <div>{nomination.message}</div>
+              <div>
+                {nomination.performanceId ? (
+                  <span>
+                    <del>{nomination.message}</del> -{" "}
+                    <Link href={getPerformancePath(nomination.performanceId)}>
+                      Added!
+                    </Link>
+                  </span>
+                ) : (
+                  <span>Added!</span>
+                )}
+              </div>
+
               <div className="text-sm text-muted">
                 {nomination.createdAt.toLocaleString()} - submitted by{" "}
                 {nomination.userId ?? "an anonymouse user"}
