@@ -11,6 +11,7 @@ export function SentryUserManager() {
     Sentry.setUser({
       id: user?.id,
       email: user?.primaryEmailAddress?.emailAddress,
+      username: user?.username ?? undefined,
       ip_address: "{{auto}}",
     });
   }, [user]);
