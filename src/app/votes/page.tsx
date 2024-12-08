@@ -79,6 +79,29 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
         If this number is far from 1.00, then that indicates a bias toward one
         side or the other and that we should change the design of that page.
       </p>
+
+      <hr className="border-muted-2" />
+
+      <div className="space-y-2">
+        <p>
+          <b>2024-12-07 update</b>: As of now, there are 583 votes and the ratio
+          is 1:1.27, which seems to indicate a clear bias being introduced by
+          the candidate ordering.
+        </p>
+        <p>
+          My intial theory was that recency bias is at play here: if a voter
+          listens to both performances, they&apos;ll probably start with the one
+          on the left, then the one on the right, and then they&apos;ll prefer
+          the more recent one.
+        </p>
+        <p>
+          But after digging deeper, I found an issue with my
+          performance-pair-generation logic: I was choosing performances
+          randomly, but for any <i>specific</i> pair of songs, thier order
+          relative to each other would always be the same. Not good! I&apos;ve
+          now corrected this.
+        </p>
+      </div>
     </div>
   );
 }
