@@ -111,6 +111,13 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a0402916090_16.jpg",
     bandcampAlbumId: "3925296262",
   },
+  kg: {
+    title: "K.G.",
+    slug: "kg",
+    id: "0c1f66d2-4ebc-499d-9bd7-c1ea34e4fbc0",
+    imageUrl: "https://f4.bcbits.com/img/a3546319741_16.jpg",
+    bandcampAlbumId: "927421026",
+  },
   bf3k: {
     title: "Butterfly 3000",
     slug: "butterfly-3000",
@@ -310,6 +317,15 @@ export const seedSongs = {
     slug: "hell",
     title: "Hell",
     albumId: seedAlbums.itrn.id,
+  },
+
+  // ====================================================
+  // K.G.
+  intrasport: {
+    id: "027fbc3c-620c-41f0-b734-f3d00262b41a",
+    slug: "intrasport",
+    title: "Intrasport",
+    albumId: seedAlbums.kg.id,
   },
 
   // ====================================================
@@ -825,6 +841,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Chang'e
+  {
+    id: "05eb878b-c3c6-4893-bfd9-a9df069b2bf8",
+    songId: seedSongs["chang-e"].id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "278065324",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Converge
   {
     id: "3d1cb14d-3f71-4250-8d89-087824b5cbca",
@@ -885,6 +913,18 @@ export const seedPerformances = [
     bandcampTrackId: "1178632036",
     youtubeVideoId: "6JS4Uq8X6X8",
     youtubeVideoStartTime: 6350,
+  },
+
+  // ====================================================
+  // Extinction
+  {
+    id: "b1ebd650-a2b1-4f35-bdf6-0cdb4342e45c",
+    songId: seedSongs.extinction.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "4289851773",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -967,6 +1007,18 @@ export const seedPerformances = [
     showId: seedShows.austin24.id,
     spotifyTrackId: null,
     bandcampTrackId: "3138958661",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Gilgamesh
+  {
+    id: "f54af3ef-e912-4587-957a-5b41301be2b4",
+    songId: seedSongs.gilgamesh.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1783165953",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
@@ -1068,6 +1120,18 @@ export const seedPerformances = [
     bandcampTrackId: "1768274572",
     youtubeVideoId: "I5S-AMdP4bs",
     youtubeVideoStartTime: 2523,
+  },
+
+  // ====================================================
+  // Intrasport
+  {
+    id: "33fce7c9-7b67-4f7a-97db-9297087ef168",
+    songId: seedSongs.intrasport.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1638313612",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -1360,6 +1424,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Set
+  {
+    id: "e92049af-3014-4edd-a73f-c1a667aa2d7d",
+    songId: seedSongs.set.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "271536485",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Shanghai
   {
     id: "fd1c988c-fe8b-4374-b6a1-8c609c2e7b05",
@@ -1400,6 +1476,15 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 7711,
   },
+  {
+    id: "a61e5308-5764-4b18-a143-ac6fe682c16a",
+    songId: seedSongs.theSilverCord.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1372070779",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Slow Jam 1
@@ -1439,6 +1524,30 @@ export const seedPerformances = [
     showId: seedShows.abq24.id,
     spotifyTrackId: null,
     bandcampTrackId: "3435936842",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Swan Song
+  {
+    id: "29019546-f6a8-4566-b06b-00674aa54bb5",
+    songId: seedSongs.swanSong.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "2835416438",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Theia
+  {
+    id: "6aa65ebb-7fd9-49f2-a86c-0c6ba5474daa",
+    songId: seedSongs.theia.id,
+    showId: seedShows.sf24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1241463968",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
