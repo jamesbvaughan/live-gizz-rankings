@@ -1157,6 +1157,16 @@ export const seedPerformances = [
     youtubeVideoId: "y8Wawh9X7GM",
     youtubeVideoStartTime: 2902,
   },
+  {
+    id: "82dfe820-5cb6-420b-9ce8-85cc04bfa963",
+    songId: seedSongs.magma.id,
+    showId: seedShows.sd24.id,
+    spotifyTrackId: "7MgSUNITPjPLztiCJQaTx2",
+    bandcampTrackId: "2810991010",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 6172,
+  },
 
   // ====================================================
   // Mirage City
