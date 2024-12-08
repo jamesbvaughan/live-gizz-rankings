@@ -15,7 +15,13 @@ function generateAllPotentialPairs() {
     );
     for (let i = 0; i < performances.length; i++) {
       for (let j = i + 1; j < performances.length; j++) {
-        pairs[song.id].push([performances[i].id, performances[j].id]);
+        const flip = Math.random() < 0.5;
+        const firstIndex = flip ? i : j;
+        const secondIndex = flip ? j : i;
+        pairs[song.id].push([
+          performances[firstIndex].id,
+          performances[secondIndex].id,
+        ]);
       }
     }
   }
