@@ -686,6 +686,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a2511383545_16.jpg",
     bandcampAlbumId: "2620217443",
   },
+  sf24: {
+    id: "0755f77f-3f36-498e-99b0-5f71228076a8",
+    slug: "san-francisco-2024",
+    location: "San Francisco",
+    date: "2024-11-06",
+    imageUrl: "https://f4.bcbits.com/img/a2123423689_16.jpg",
+    bandcampAlbumId: "783019413",
+  },
   vegas24: {
     id: "06c550a5-028e-438c-b8a7-6ede67b3737f",
     slug: "las-vegas-2024",
