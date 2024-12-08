@@ -1391,6 +1391,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "78c726c4-0ad5-403d-8643-2f8c52c36761",
+    songId: seedSongs.thisThing.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "2kF04KqHmzniiUYjPHqYxF",
+    bandcampTrackId: "223327753",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 4258,
+  },
 
   // ====================================================
   // Trapdoor
