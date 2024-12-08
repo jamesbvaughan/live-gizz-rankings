@@ -1,4 +1,4 @@
-# Live Gizz Rankings!
+# Live Gizz Rankings
 
 ![CI](https://github.com/jamesbvaughan/live-gizz-rankings/actions/workflows/ci.yaml/badge.svg?branch=main)
 
@@ -7,13 +7,20 @@ performances of King Gizzard & The Lizard Wizard songs.
 
 Check it out at [livegizzrankings.com](https://livegizzrankings.com)!
 
-## Development
+## Contributing
 
-This is a fairly straightforward Next.js 15 app.
+### Vote!
 
-After cloning, ask me for the values to populate your `.env` file, then run
-`yarn install` to install the dependencies and then `yarn dev` to start the dev
-server.
+The most helpful way you can contribute is to [go vote on some
+performances](https://livegizzrankings.com/rank).
+
+### Development
+
+This is a fairly straightforward [Next.js 15](https://nextjs.org/docs) app.
+
+After cloning and populating your `.env` file (see
+[`.env.example`](/.env.example) for instructions), run `yarn install` to install
+the dependencies and then `yarn dev` to start the dev server.
 
 ## Dashboards
 
