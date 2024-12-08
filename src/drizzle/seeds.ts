@@ -405,10 +405,46 @@ export const seedSongs = {
 
   // ====================================================
   // The Silver Cord
+  theia: {
+    id: "cadd1e1b-db88-439b-be3a-7dc402075636",
+    slug: "theia",
+    title: "Theia",
+    albumId: seedAlbums.tsc.id,
+  },
   theSilverCord: {
     id: "c7633144-0d11-45a6-ac88-ee089b7e9605",
     slug: "the-silver-cord",
     title: "The Silver Cord",
+    albumId: seedAlbums.tsc.id,
+  },
+  set: {
+    id: "d28b90db-4e89-48da-ace5-d311e82c550e",
+    slug: "set",
+    title: "Set",
+    albumId: seedAlbums.tsc.id,
+  },
+  "chang-e": {
+    id: "92052f74-b55f-404f-be92-4f68440db27f",
+    slug: "chang-e",
+    title: "Chang'e",
+    albumId: seedAlbums.tsc.id,
+  },
+  gilgamesh: {
+    id: "42ba1e70-c9cd-49b9-aa02-ab2e3e403e4c",
+    slug: "gilgamesh",
+    title: "Gilgamesh",
+    albumId: seedAlbums.tsc.id,
+  },
+  swanSong: {
+    id: "159f483a-85d1-4480-a4c6-3526f579e34f",
+    slug: "swan-song",
+    title: "Swan Song",
+    albumId: seedAlbums.tsc.id,
+  },
+  extinction: {
+    id: "5bd9512b-9dca-43c3-b6d1-2cda9221a7bb",
+    slug: "extinction",
+    title: "Extinction",
     albumId: seedAlbums.tsc.id,
   },
 
