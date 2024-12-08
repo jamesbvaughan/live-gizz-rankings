@@ -19,7 +19,7 @@ const uuids = new Set<string>();
       fail("Empty slug");
     }
     if (slug.toLowerCase() !== slug) {
-      fail("Invalid slug");
+      fail(`Invalid slug: ${slug}`);
     }
 
     if (uuids.has(id)) {
