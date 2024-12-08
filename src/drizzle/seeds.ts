@@ -1205,6 +1205,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "0da5df10-79cf-441e-9360-f27fbbf91c6a",
+    songId: seedSongs.plasticBoogie.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "7wGoZzMySSBKdzW3yPUH7M",
+    bandcampTrackId: "889442387",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 4001,
+  },
 
   // ====================================================
   // The River
