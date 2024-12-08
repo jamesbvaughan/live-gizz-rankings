@@ -297,6 +297,12 @@ export const seedSongs = {
 
   // ====================================================
   // Fishing For Fishies
+  boogiemanSam: {
+    id: "a9a6572e-e1a3-4557-ab1e-388fc4db3b49",
+    slug: "booogieman-sam",
+    title: "Boogieman Sam",
+    albumId: seedAlbums.fff.id,
+  },
   plasticBoogie: {
     id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
     slug: "plastic-boogie",
@@ -370,6 +376,12 @@ export const seedSongs = {
     id: "717f22ee-9458-4bca-8dbf-e7940b1e4d96",
     slug: "magma",
     title: "Magma",
+    albumId: seedAlbums.iceDeath.id,
+  },
+  ironLung: {
+    id: "15a32d56-c560-4017-9e49-e000b644a55b",
+    slug: "iron-lung",
+    title: "Iron Lung",
     albumId: seedAlbums.iceDeath.id,
   },
 
@@ -626,6 +638,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a0274986703_16.jpg",
     bandcampAlbumId: "1304619880",
   },
+  philadelphia24: {
+    id: "3924bba7-a859-4ce0-808c-2eacdf93b4bf",
+    slug: "philadelphia-2024",
+    location: "Philadelphia",
+    date: "2024-08-27",
+    imageUrl: "https://f4.bcbits.com/img/a2253820167_16.jpg",
+    bandcampAlbumId: "1839675933",
+  },
   minneapolis24: {
     id: "04489d98-d04c-4980-bd62-b9f04807eb9f",
     slug: "minneapolis-2024",
@@ -665,6 +685,14 @@ export const seedShows = {
     date: "2024-09-11",
     imageUrl: "https://f4.bcbits.com/img/a1151612533_10.jpg",
     bandcampAlbumId: "2716193401",
+  },
+  vancouver24: {
+    id: "d5147b82-c83b-448c-9d7f-9b2113da8cf7",
+    slug: "vancouver-2024",
+    location: "Vancouver",
+    date: "2024-09-12",
+    imageUrl: "https://f4.bcbits.com/img/a2167864021_16.jpg",
+    bandcampAlbumId: "4272985994",
   },
   gorge24: {
     id: "69af662b-164e-499e-a459-e9cb903aae97",
@@ -826,6 +854,18 @@ export const seedPerformances = [
     bandcampTrackId: "565249783",
     youtubeVideoId: "cTO9U8nG280",
     youtubeVideoStartTime: 7426,
+  },
+
+  // ====================================================
+  // Boogieman Sam
+  {
+    id: "89132b5b-586b-43f6-acb4-bf34dfdd76a2",
+    songId: seedSongs.boogiemanSam.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: "7mtHKdO2k3VNLzIPI3owpW",
+    bandcampTrackId: "3582186128",
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 8834,
   },
 
   // ====================================================
@@ -1022,6 +1062,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "f54af3ef-e912-4587-957a-5b41301be2b4",
+    songId: seedSongs.gilgamesh.id,
+    showId: seedShows.philadelphia24.id,
+    spotifyTrackId: "62xMl2wTG7LApBDUSmY8bT",
+    bandcampTrackId: "997148133",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Grim Reaper
@@ -1144,6 +1193,19 @@ export const seedPerformances = [
     bandcampTrackId: "1493100647",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Iron Lung
+  {
+    id: "7e37c8c6-b012-4e44-9c34-b818196ca969",
+    songId: seedSongs.ironLung.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: "1Ew7GQLKq35mXLhTuLJCPt",
+    bandcampTrackId: "3549935599",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 7739,
   },
 
   // ====================================================
@@ -1434,6 +1496,33 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "a726ddb2-bf4c-46cf-9ae6-50231c7721be",
+    songId: seedSongs.set.id,
+    showId: seedShows.philadelphia24.id,
+    spotifyTrackId: "2fIuul4dCUCsdcEloTjddi",
+    bandcampTrackId: "4253009852",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "a69fbe98-ad7c-42a3-8dd8-6aef970fee29",
+    songId: seedSongs.set.id,
+    showId: seedShows.vancouver24.id,
+    spotifyTrackId: "6ffySoNOrDmlmkz5XqnLxh",
+    bandcampTrackId: "1598222411",
+    youtubeVideoId: "5Y4bYCp4KAo",
+    youtubeVideoStartTime: 5007,
+  },
+  {
+    id: "220dcb95-112c-4e1d-b589-80c05b28d7b2",
+    songId: seedSongs.set.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: "5mIo2nlud7zau8ZL6rrJvT",
+    bandcampTrackId: "642096012",
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 5497,
+  },
 
   // ====================================================
   // Shanghai
@@ -1538,6 +1627,15 @@ export const seedPerformances = [
     bandcampTrackId: "2835416438",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "b357dcc4-67c5-407b-8187-eb76f18809ba",
+    songId: seedSongs.swanSong.id,
+    showId: seedShows.vancouver24.id,
+    spotifyTrackId: "2eUlisJM1PBXcH3DsjzH7f",
+    bandcampTrackId: "135516790",
+    youtubeVideoId: "5Y4bYCp4KAo",
+    youtubeVideoStartTime: 4354,
   },
 
   // ====================================================
