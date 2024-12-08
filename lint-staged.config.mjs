@@ -1,5 +1,4 @@
 const lintStagedConfig = {
-  // TODO: Target specific files here so that these can run faster
   "*.ts,*.tsx,*.mjs": [
     "node_modules/.bin/next lint --fix",
     `node_modules/.bin/prettier --write`,
