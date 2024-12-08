@@ -746,6 +746,15 @@ export const seedPerformances = [
     youtubeVideoId: "B7kGqj915YY",
     youtubeVideoStartTime: 10331,
   },
+  {
+    id: "a6c2ec9c-2b8c-4370-b793-26b279cafeca",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "3CDfMtMJUaPswlRu7Xl5LA",
+    bandcampTrackId: "3232854137",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 7877,
+  },
 
   // ====================================================
   // Billabong Valley
