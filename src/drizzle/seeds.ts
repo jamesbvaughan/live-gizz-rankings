@@ -146,6 +146,13 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
   },
+  laminatedDenim: {
+    title: "Laminated Denim",
+    slug: "laminate-denim",
+    id: "7ceb3610-4aac-41cb-9a2f-4b6633dfad9b",
+    imageUrl: "https://f4.bcbits.com/img/a3665205369_16.jpg",
+    bandcampAlbumId: "177111450",
+  },
   petro: {
     title:
       "PetroDragonic Apocalypse; or, Dawn of Eternal Night: An Annihilation of Planet Earth and the Beginning of Merciless Damnation",
@@ -405,6 +412,15 @@ export const seedSongs = {
     slug: "iron-lung",
     title: "Iron Lung",
     albumId: seedAlbums.iceDeath.id,
+  },
+
+  // ====================================================
+  // Laminated Denim
+  hypertension: {
+    id: "5765ec19-0e59-479c-a62c-a019ac73ce28",
+    slug: "hypertension",
+    title: "Hyperstension",
+    albumId: seedAlbums.laminatedDenim.id,
   },
 
   // ====================================================
