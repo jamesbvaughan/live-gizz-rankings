@@ -936,6 +936,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Cut Throat Boogie
+  {
+    id: "a43decb1-7771-4b5f-8d05-8440be41b555",
+    songId: seedSongs.cutThroatBoogie.id,
+    showId: seedShows.stanford24.id,
+    spotifyTrackId: "20PcKcHkgivTptgNvmnheh",
+    bandcampTrackId: "3435777254",
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 3584,
+  },
+
+  // ====================================================
   // Daily Blues
   {
     id: "73a0f8b6-5dd9-4c92-802c-afc27cc50e69",
