@@ -1489,6 +1489,15 @@ export const seedPerformances = [
     youtubeVideoId: "myIjlvrfdfY",
     youtubeVideoStartTime: 1545,
   },
+  {
+    id: "57a076c6-56af-475b-990d-bc1ce7486c22",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.philadelphia24.id,
+    spotifyTrackId: "6uiZ1reb9WmZatrpvwd8I3",
+    bandcampTrackId: "3315017465",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: 1545,
+  },
 
   // ====================================================
   // Robot Stop
