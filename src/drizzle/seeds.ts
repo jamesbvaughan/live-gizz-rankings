@@ -401,6 +401,12 @@ export const seedSongs = {
 
   // ====================================================
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
+  iceV: {
+    id: "ae36e961-6db2-4c3b-8f8d-d08ecb671543",
+    slug: "ice-v",
+    title: "Ice V",
+    albumId: seedAlbums.iceDeath.id,
+  },
   magma: {
     id: "717f22ee-9458-4bca-8dbf-e7940b1e4d96",
     slug: "magma",
