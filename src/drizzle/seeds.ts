@@ -1729,6 +1729,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "a7506a8d-137c-4fb4-a09f-2ac187aef32a",
+    songId: seedSongs.trapdoor.id,
+    showId: seedShows.stanford24.id,
+    spotifyTrackId: "4IaGYcDQvQtQajFzqmTskO",
+    bandcampTrackId: "3741246414",
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 4013,
+  },
 
   // ====================================================
   // The Wheel
