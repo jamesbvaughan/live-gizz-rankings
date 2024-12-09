@@ -920,6 +920,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Daily Blues
+  {
+    id: "73a0f8b6-5dd9-4c92-802c-afc27cc50e69",
+    songId: seedSongs.dailyBlues.id,
+    showId: seedShows.stanford24.id,
+    spotifyTrackId: "2EGCyXQNKqlLwZ2Llz5uVu",
+    bandcampTrackId: "1985523665",
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 3093,
+  },
+
+  // ====================================================
   // Dragon
   {
     id: "21fed194-6093-4628-bffd-cde4644e9ff2",
