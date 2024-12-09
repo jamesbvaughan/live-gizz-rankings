@@ -1268,6 +1268,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Ice V
+  {
+    id: "cb486f33-24dc-4309-b90c-722bf13ad8c4",
+    songId: seedSongs.iceV.id,
+    showId: seedShows.rr23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Q1W5YLf4WQM",
+    youtubeVideoStartTime: 3510,
+  },
+
+  // ====================================================
   // Intrasport
   {
     id: "33fce7c9-7b67-4f7a-97db-9297087ef168",
