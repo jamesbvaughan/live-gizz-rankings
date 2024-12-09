@@ -496,6 +496,12 @@ export const seedSongs = {
     title: "Le Risque",
     albumId: seedAlbums.b741.id,
   },
+  dailyBlues: {
+    id: "4da6d803-c03e-4d29-9f43-f9042b1cabcd",
+    slug: "daily-blues",
+    title: "Daily Blues",
+    albumId: seedAlbums.b741.id,
+  },
 } as const satisfies Record<string, Omit<Song, "createdAt">>;
 export const allSongs = Object.values(seedSongs) as Song[];
 
