@@ -174,6 +174,15 @@ export const allAlbums = Object.values(seedAlbums) as Album[];
 // Ordered by album release date and position on album
 export const seedSongs = {
   // ====================================================
+  // 12 Bar Bruise
+  cutThroatBoogie: {
+    id: "b72be442-0339-42ea-be23-249c4207428e",
+    slug: "cut-throat-boogie",
+    title: "Cut Throat Boogie",
+    albumId: seedAlbums.tbb.id,
+  },
+
+  // ====================================================
   // Float Along - Fill Your Lungs
   headOn: {
     id: "556e6f5e-9099-4351-9c7e-0edb17e76b73",
