@@ -1250,6 +1250,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Hypertension
+  {
+    id: "1047527d-2065-47b3-8ba6-cd4ad11ba441",
+    songId: seedSongs.hypertension.id,
+    showId: seedShows.rr23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Q1W5YLf4WQM",
+    youtubeVideoStartTime: 2750,
+  },
+
+  // ====================================================
   // Intrasport
   {
     id: "33fce7c9-7b67-4f7a-97db-9297087ef168",
