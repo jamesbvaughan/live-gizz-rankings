@@ -1467,6 +1467,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Presumptuous
+  {
+    id: "45583f38-cf12-44a8-b481-ef8b68501e40",
+    songId: seedSongs.presumptuous.id,
+    showId: seedShows.rr23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Q1W5YLf4WQM",
+    youtubeVideoStartTime: 2453,
+  },
+
+  // ====================================================
   // The River
   {
     id: "6805ba25-34c0-4cbf-a6f9-76bb927f4b99",
