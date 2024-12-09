@@ -702,6 +702,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a2253820167_16.jpg",
     bandcampAlbumId: "1839675933",
   },
+  richmond24: {
+    id: "b9acb3f0-a406-44be-8fb5-26aedf47ee61",
+    slug: "richmond-2024",
+    location: "Richmond",
+    date: "2024-08-28",
+    imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
+    bandcampAlbumId: "1275144158",
+  },
   minneapolis24: {
     id: "04489d98-d04c-4980-bd62-b9f04807eb9f",
     slug: "minneapolis-2024",
