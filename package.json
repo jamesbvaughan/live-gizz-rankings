@@ -16,7 +16,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.5.1",
+    "@clerk/nextjs": "^6.8.0",
     "@clerk/themes": "^2.1.48",
     "@neondatabase/serverless": "^0.10.3",
     "@next/bundle-analyzer": "^15.0.4",
