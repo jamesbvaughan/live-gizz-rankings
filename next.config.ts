@@ -128,6 +128,7 @@ const frameSources = [
   "https://open.spotify.com",
 
   // YouTube embeds
+  "https://www.youtube.com",
   "https://www.youtube-nocookie.com",
 
   // Vercel toolbar
