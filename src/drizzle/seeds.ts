@@ -34,6 +34,13 @@ import { Album, Performance, Show, Song } from "./schema";
 
 // Ordered by release date
 export const seedAlbums = {
+  tbb: {
+    title: "12 Bar Bruise",
+    slug: "12-bar-bruise",
+    id: "5bc6a134-a0dc-4184-9b64-3f7bdd003a92",
+    imageUrl: "https://f4.bcbits.com/img/a3529909906_16.jpg",
+    bandcampAlbumId: "2765388374",
+  },
   fafyl: {
     title: "Float Along - Fill Your Lungs",
     slug: "float-along-fill-your-lungs",
