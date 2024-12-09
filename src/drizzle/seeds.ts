@@ -299,6 +299,12 @@ export const seedSongs = {
     title: "Robot Stop",
     albumId: seedAlbums.nonagon.id,
   },
+  evilDeathRoll: {
+    id: "6eb610e1-1391-4ad3-ad61-5770fcfc02b8",
+    slug: "evil-death-roll",
+    title: "Evil Death Roll",
+    albumId: seedAlbums.nonagon.id,
+  },
 
   // ====================================================
   // Sketches of Brunswick East
