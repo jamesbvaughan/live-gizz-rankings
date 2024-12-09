@@ -1139,6 +1139,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "6c4d9fa0-1350-4634-be96-8872a508fc2c",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.remlinger23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "IausBvkbLAI",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Head On/Pill
