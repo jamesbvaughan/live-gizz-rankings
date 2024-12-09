@@ -1045,6 +1045,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Evil Death Roll
+  {
+    id: "da45bb97-4cba-4707-aa52-75e9753bc8df",
+    songId: seedSongs.evilDeathRoll.id,
+    showId: seedShows.richmond24.id,
+    spotifyTrackId: "3GCRWbq1SHMiG1R5nP4qlG",
+    bandcampTrackId: "3990766241",
+    youtubeVideoId: "5JEkTEktukg",
+    youtubeVideoStartTime: 2649,
+  },
+
+  // ====================================================
   // Extinction
   {
     id: "b1ebd650-a2b1-4f35-bdf6-0cdb4342e45c",
