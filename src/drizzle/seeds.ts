@@ -954,6 +954,15 @@ export const seedPerformances = [
     youtubeVideoId: "cTO9U8nG280",
     youtubeVideoStartTime: 7426,
   },
+  {
+    id: "fd088ca6-789c-4f10-a5b8-5dd7b5022c0a",
+    songId: seedSongs.billabongValley.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1jTNAjve26gQT0wABxGpsQ",
+    bandcampTrackId: "3750259867",
+    youtubeVideoId: "EIKGNBeKKok",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Boogieman Sam
