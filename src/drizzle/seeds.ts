@@ -992,6 +992,15 @@ export const seedPerformances = [
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 8834,
   },
+  {
+    id: "210d39f6-e43b-4792-84ac-4ac5c85ee8b5",
+    songId: seedSongs.boogiemanSam.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "5dXrhzKkFeSVmv7Xcg7WOK",
+    bandcampTrackId: "1399854240",
+    youtubeVideoId: "_adQLXQDRgo",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Book
