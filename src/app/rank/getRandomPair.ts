@@ -46,6 +46,12 @@ async function getUserPairs() {
   return userPairs;
 }
 
+/**
+ * Whether or not to filter to pairs that the user has not already voted on.
+ *
+ * This is a debug flag that's useful in development if your dev user has voted
+ * on all the pairs already.
+ */
 const SHOW_ALL_PAIRS = false;
 
 export async function getRandomPairForCurrentUser() {
