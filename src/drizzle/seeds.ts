@@ -1825,6 +1825,16 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 4258,
   },
+  {
+    id: "7bb0b440-b757-42f3-8f9b-b6de095da69b",
+    songId: seedSongs.thisThing.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1504612395",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 1875,
+  },
 
   // ====================================================
   // Trapdoor
