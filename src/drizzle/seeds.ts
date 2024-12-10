@@ -392,6 +392,12 @@ export const seedSongs = {
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
+  ambergris: {
+    id: "1c34fd6f-6389-48ed-a482-a8f5ed51ec3d",
+    slug: "ambergris",
+    title: "Ambergris",
+    albumId: seedAlbums.og.id,
+  },
   theGrimReaper: {
     id: "99018b73-3191-49d3-a792-de9ea16b4a0e",
     slug: "the-grim-reaper",
