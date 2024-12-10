@@ -933,6 +933,15 @@ export const seedPerformances = [
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 2758,
   },
+  {
+    id: "e36e5956-e314-4df7-ada0-a7c4dcf15e26",
+    songId: seedSongs.ambergris.id,
+    showId: seedShows.detroit24.id,
+    spotifyTrackId: "1FEFtaZkVji9ayAB3AWDVc",
+    bandcampTrackId: "3779485085",
+    youtubeVideoId: "TbVDmWNbYFs",
+    youtubeVideoStartTime: 1380,
+  },
 
   // ====================================================
   // Billabong Valley
