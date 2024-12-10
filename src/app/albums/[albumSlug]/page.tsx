@@ -11,7 +11,6 @@ import { allAlbums, allSongs } from "@/drizzle/seeds";
 import {
   getAlbumBySlug,
   getPerformancePath,
-  getPerformanceTitle,
   getShowById,
   getShowTitle,
   getSongPath,
