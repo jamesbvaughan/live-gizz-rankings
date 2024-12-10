@@ -41,7 +41,7 @@ export default async function NominationsPage() {
                 )}
               </div>
 
-              <div className="text-muted text-sm">
+              <div className="text-sm text-muted">
                 {nomination.createdAt.toLocaleString()} - submitted by{" "}
                 {nomination.userId ?? "an anonymouse visitor"}
               </div>
