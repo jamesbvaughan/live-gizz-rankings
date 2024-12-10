@@ -1,32 +1,34 @@
 // =============================================================================
 //
-//                             ABOUT THIS FILE
+//                                ABOUT THIS FILE
 //
-//  This was originally just meant to be for some test data to use during
-//  development, with the actual data being managed in the site's UI and with a
-//  database as the source of truth.
+//  This was originally just intended to be test data to use during development,
+//  with the _actual_ data being managed in the site's UI and with a database as
+//  the source of truth.
 //
-//  But after using this file for a while, I realized that the scale of data
-//  I'll be dealing with for this site isn't _that_ big, and that it could be
-//  easier to just maintain this text file than to build a whole UI for
+//  But after using this file for a while, I realized that the scale of the data
+//  I'll be dealing with here isn't really _that_ big, and it could be easier to
+//  just maintain this text file than to build a whole UI for
 //  submitting and managing data in the database.
 //
 //
-//                             HOW TO ADD DATA
+//                                HOW TO ADD DATA
 //
-//  You can add entries to any of the data sets here. For each new item,
-//  generate a random UUIDv4 via whatever method you like. (An easy option is to
-//  go to https://duck.com/?q=uuid and copy the generated UUID from there.)
+//  You can add new entries to any of the data sets here. For each new item, you
+//  will need to generate a random UUIDv4 via whatever method you like. (An easy
+//  option is to go to https://duck.com/?q=uuid and copy the generated UUID from
+//  there.)
 //
-//  I've taken the image URLs from Bandcamp. At some point, I should probably
-//  start hosting those here so that Next.js can optimize their delivery.
+//  I've taken the image URLs from Bandcamp album pages. For those shows that do
+//  not have official albums on Bandcamp, I either cropped squares from the show
+//  poster or leave the show with no image.
 //
-//  You can find the Spotify/Bandcamp/Youtube IDs by going to the relevant
-//  service, generating an embedd snippet for the song of interest, and finding
-//  the IDs in the generated HTML.
+//  You can find the Spotify/Bandcamp/YouTube IDs by going to the relevant video
+//  or song on that service, generating an iframe embedd snippet, and finding an
+//  ID in the generated HTML.
 //
-//  After making a change or addition, run `yarn validate-seeds` to check for
-//  any errors, like missing or duplicate IDs.
+//  After making a change or addition, run `bun validate-seeds` to check for any
+//  errors, like missing or duplicate IDs.
 //
 // =============================================================================
 
