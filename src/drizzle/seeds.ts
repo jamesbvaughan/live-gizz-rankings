@@ -587,6 +587,14 @@ export const seedShows = {
 
   // ====================================================
   // World Tour 2022
+  slo22: {
+    id: "cfbee1cf-66d6-4cf7-b539-ab1a56d4656f",
+    slug: "slo-2022",
+    location: "San Luis Obispo",
+    date: "2022-04-24",
+    imageUrl: "/showCovers/slo22.webp",
+    bandcampAlbumId: null,
+  },
   mexicoCity22: {
     id: "8c4b2700-ed44-4a14-8d08-93f6c7a0b5a3",
     slug: "mexico-city-2022",
@@ -1057,6 +1065,15 @@ export const seedPerformances = [
     bandcampTrackId: "3435777254",
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 3584,
+  },
+  {
+    id: "424261b5-7c5b-40cf-a494-2128e74f84ff",
+    songId: seedSongs.cutThroatBoogie.id,
+    showId: seedShows.slo22.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "_SXpEZS3vlU",
+    youtubeVideoStartTime: 1540,
   },
 
   // ====================================================
