@@ -16,8 +16,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.5.1",
-    "@clerk/themes": "^2.1.48",
+    "@clerk/nextjs": "^6.8.2",
+    "@clerk/themes": "^2.1.54",
     "@neondatabase/serverless": "^0.10.3",
     "@next/bundle-analyzer": "^15.0.4",
     "@next/env": "^15.0.4",
@@ -41,7 +41,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "drizzle-kit": "^0.28.1",
+    "drizzle-kit": "^0.29.1",
     "eslint": "^9",
     "eslint-config-next": "15.0.3",
     "eslint-plugin-drizzle": "^0.2.3",
