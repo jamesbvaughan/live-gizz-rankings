@@ -684,6 +684,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a1001399634_16.jpg",
     bandcampAlbumId: "2637870866",
   },
+  detroit24: {
+    id: "3bccdb81-d010-47e8-a9f8-4eb87f3f4066",
+    slug: "detroit-2024",
+    location: "Detroit",
+    date: "2024-08-23",
+    imageUrl: "https://f4.bcbits.com/img/a0824108206_16.jpg",
+    bandcampAlbumId: "1675633392",
+  },
   cleveland24: {
     id: "491b11cb-b085-4081-a6d0-a9070532b82d",
     slug: "cleveland-2024",
