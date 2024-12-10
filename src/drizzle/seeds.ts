@@ -611,6 +611,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a3180996672_16.jpg",
     bandcampAlbumId: "2418689883",
   },
+  philadelphia22: {
+    id: "f5ab804d-be48-4de5-b096-ceb33f1551fd",
+    slug: "philadelphia-2022",
+    location: "Philadelphia",
+    date: "2022-10-22",
+    imageUrl: "/showCovers/philadelphia22.webp",
+    bandcampAlbumId: null,
+  },
 
   // ====================================================
   // U.S. Residency Tour 2023
@@ -962,6 +970,15 @@ export const seedPerformances = [
     bandcampTrackId: "3750259867",
     youtubeVideoId: "EIKGNBeKKok",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "de547ac7-d849-4e31-9e33-f7487510bcfb",
+    songId: seedSongs.billabongValley.id,
+    showId: seedShows.philadelphia22.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "zPJQJY6vY8E",
+    youtubeVideoStartTime: 366,
   },
 
   // ====================================================
