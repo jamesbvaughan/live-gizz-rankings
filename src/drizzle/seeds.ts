@@ -915,6 +915,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Ambergris
+  {
+    id: "10c868e6-9ecb-4432-b581-6aaa7d5be028",
+    songId: seedSongs.ambergris.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "7AHs3sdl65nBpPuluawqej",
+    bandcampTrackId: "4220132234",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 2758,
+  },
+
+  // ====================================================
   // Billabong Valley
   {
     id: "1ef77fac-6429-4b08-b567-7bfec3cd35c0",
