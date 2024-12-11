@@ -36,9 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
 
+  const showTitle = getShowTitle(show);
   const title = `${song.title} - ${getShowTitle(show)}`;
 
-  return { title };
+  return {
+    title,
+    description: `Listen to King Gizzard & The Lizard Wizard's performance of ${song.title} from ${showTitle} on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.`,
+  };
 }
 
 export default async function PerformancePage({ params }: Props) {

@@ -16,6 +16,8 @@ import { LeftRightChart } from "./LeftRightChart";
 
 export const metadata: Metadata = {
   title: "Votes",
+  description:
+    "Browse all of the votes on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.",
 };
 
 function PerformanceLink({ performanceId }: { performanceId: string }) {
