@@ -99,6 +99,13 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a4206546710_16.jpg",
     bandcampAlbumId: "1255749163",
   },
+  poly: {
+    title: "Polygonwanaland",
+    slug: "polygonwanaland",
+    id: "03c0b2d8-626c-4c1c-b0f9-5c730477caab",
+    imageUrl: "https://f4.bcbits.com/img/a1550557789_16.jpg",
+    bandcampAlbumId: "1017207616",
+  },
   gumbootSoup: {
     title: "Gumboot Soup",
     slug: "gumboot-soup",
@@ -315,6 +322,27 @@ export const seedSongs = {
     slug: "the-book",
     title: "The Book",
     albumId: seedAlbums.sketches.id,
+  },
+  silhouette: {
+    id: "84be6b7d-8ef2-4a77-ad41-f6c8ab98e682",
+    slug: "you-can-be-your-silhouette",
+    title: "You Can Be Your Silhouette",
+    albumId: seedAlbums.sketches.id,
+  },
+
+  // ====================================================
+  // Polygonwanaland
+  crumblingCastle: {
+    id: "46b73130-6997-466f-b570-4d4528913f9c",
+    slug: "crumbling-castle",
+    title: "Crumbling Castle",
+    albumId: seedAlbums.poly.id,
+  },
+  fourthColor: {
+    id: "cbf2a357-406a-46df-b6cb-639b06282cef",
+    slug: "the-fourth-color",
+    title: "The Fourth Color",
+    albumId: seedAlbums.poly.id,
   },
 
   // ====================================================
@@ -686,6 +714,14 @@ export const seedShows = {
 
   // ====================================================
   // U.S. Tour 2024 pt. 1
+  dc24: {
+    id: "1aba10fe-3d4e-49c4-ae47-f30a2b7e0e1b",
+    slug: "dc-2024",
+    location: "D.C.",
+    date: "2024-08-15",
+    imageUrl: "https://f4.bcbits.com/img/a1586375238_16.jpg",
+    bandcampAlbumId: "2799349219",
+  },
   nyc24: {
     id: "4023c755-247d-4b29-86ec-7b1203e93bdf",
     slug: "nyc-2024",
@@ -741,6 +777,14 @@ export const seedShows = {
     date: "2024-08-28",
     imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
     bandcampAlbumId: "1275144158",
+  },
+  chicago24: {
+    id: "6556aa55-88d3-43f8-bfdd-f348352ae1d0",
+    slug: "chicago-2024",
+    location: "Chicago",
+    date: "2024-09-01",
+    imageUrl: "https://f4.bcbits.com/img/a1788111107_16.jpg",
+    bandcampAlbumId: "4294151713",
   },
   minneapolis24: {
     id: "04489d98-d04c-4980-bd62-b9f04807eb9f",
@@ -817,6 +861,14 @@ export const seedShows = {
     date: "2024-11-02",
     imageUrl: "https://f4.bcbits.com/img/a3464482652_16.jpg",
     bandcampAlbumId: "3483464958",
+  },
+  pasoRobles24: {
+    id: "372c1f0a-f676-46a3-9f21-34fdf02c30c5",
+    slug: "paso-robles-2024",
+    location: "Paso Robles",
+    date: "2024-11-03",
+    imageUrl: "https://f4.bcbits.com/img/a3550028268_16.jpg",
+    bandcampAlbumId: "3875461640",
   },
   stanford24: {
     id: "935dd6ed-2153-4e4b-8bea-1d75825b8fe4",
@@ -1058,6 +1110,36 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Crumbling Castle
+  {
+    id: "bd2569a5-b70d-43ae-aa28-34db3421f144",
+    songId: seedSongs.crumblingCastle.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: "4VZFO7VSTMZf6iRihhAYcz",
+    bandcampTrackId: "2573628437",
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 3478,
+  },
+  {
+    id: "1963354d-9206-4977-bb41-86a7598c862b",
+    songId: seedSongs.crumblingCastle.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "4bt50bapKr2izkPkz4FhQN",
+    bandcampTrackId: "86304134",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 4708,
+  },
+  {
+    id: "dd8effae-2e1b-45f0-8349-9aa24cb07141",
+    songId: seedSongs.crumblingCastle.id,
+    showId: seedShows.dc24.id,
+    spotifyTrackId: "5BBpOYNquWXiVLnWz8x4ik",
+    bandcampTrackId: "2063357108",
+    youtubeVideoId: "8nvhFvcPBhk",
+    youtubeVideoStartTime: 5384,
+  },
+
+  // ====================================================
   // Cut Throat Boogie
   {
     id: "a43decb1-7771-4b5f-8d05-8440be41b555",
@@ -1221,6 +1303,37 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // The Fourth Color
+  {
+    id: "60e973d9-4bad-46d9-80dd-06b3deac66bb",
+    songId: seedSongs.fourthColor.id,
+    showId: seedShows.phoenix24.id,
+    spotifyTrackId: "2xuyYm9t1h6Cw3YilBwWtB",
+    bandcampTrackId: "3751367707",
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 4229,
+  },
+  {
+    id: "465d7226-1b75-4c74-94d8-f93e5c934c2a",
+    songId: seedSongs.fourthColor.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "0XzG3ySqoJ12YnglafEE4F",
+    bandcampTrackId: "1013679244",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 5235,
+  },
+  {
+    id: "2f0bbd46-5dcb-4a35-b37c-8178f0bcb495",
+    songId: seedSongs.fourthColor.id,
+    showId: seedShows.dc24.id,
+    spotifyTrackId: "3bVycqgrruM1iIzjbdoK2c",
+    bandcampTrackId: "3168659177",
+    youtubeVideoId: "8nvhFvcPBhk",
+    youtubeVideoStartTime: 6062,
+  },
+
+  // ====================================================
   // Gila Monster
   {
     id: "acc7c935-9a69-4a72-9d72-8bf1030e97bf",
@@ -1348,6 +1461,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "7c182bf8-ed56-497f-95a4-200d021b974e",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.remlinger23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "V_aZri_exK0",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Hot Wax
@@ -1381,6 +1503,15 @@ export const seedPerformances = [
     youtubeVideoId: "Q1W5YLf4WQM",
     youtubeVideoStartTime: 2750,
   },
+  {
+    id: "05a9bf44-f826-4075-aee8-80d2e8da8ce3",
+    songId: seedSongs.hypertension.id,
+    showId: seedShows.pasoRobles24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "239389408",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Ice V
@@ -1392,6 +1523,15 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "Q1W5YLf4WQM",
     youtubeVideoStartTime: 3510,
+  },
+  {
+    id: "0338d9d5-414e-4ccb-b26e-ee3d5940d9dd",
+    songId: seedSongs.iceV.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "4MdeA12hIVuMi8rlpwISrc",
+    bandcampTrackId: "2435021333",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 3312,
   },
 
   // ====================================================
@@ -1492,6 +1632,15 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "EaU-3FY1JXM",
     youtubeVideoStartTime: 1137,
+  },
+  {
+    id: "3dec08fa-382d-4c90-bfb5-e7a1089c6dd5",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.stAugustine24.id,
+    spotifyTrackId: null,
+    bandcampTrackId: "1263693826",
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 7714,
   },
 
   // ====================================================
@@ -2016,6 +2165,18 @@ export const seedPerformances = [
     bandcampTrackId: "2109737640",
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 3294,
+  },
+
+  // ====================================================
+  // You Can Be Your Silhouette
+  {
+    id: "7d323db7-2c52-4e54-acd6-8478a145b1b2",
+    songId: seedSongs.silhouette.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "6YGP20J0hkPqMrUvjZblSP",
+    bandcampTrackId: "379756500",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 3105,
   },
 ] as const satisfies Omit<
   Performance,
