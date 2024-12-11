@@ -54,12 +54,22 @@ async function getUserPairs() {
  */
 const SHOW_ALL_PAIRS = false;
 
+/**
+ * Every potential pair of performances.
+ */
+const allPairs = generateAllPotentialPairs();
+
 export async function getRandomPairForCurrentUser() {
-  const allPairs = generateAllPotentialPairs();
+  // Get all of the pairs of performances that the current user has already
+  // voted on.
   const userPairs = await getUserPairs();
 
-  const unvotedPairs: [string, string][] = [];
+  console.log("allPairs songs.length", Object.keys(allPairs).length);
+  console.log("userPairs.length", userPairs.length);
 
+  // Build up a record of every pair of performances that the current user has
+  // not already voted on.
+  const unvotedPairs: Record<string, [string, string][]> = {};
   for (const songId of Object.keys(allPairs)) {
     for (const pair of allPairs[songId]) {
       const userHasVoted = userPairs.some(
@@ -70,15 +80,24 @@ export async function getRandomPairForCurrentUser() {
             userPair.performance2Id === pair[0]),
       );
       if (!userHasVoted || SHOW_ALL_PAIRS) {
-        unvotedPairs.push(pair);
+        unvotedPairs[songId] ??= [];
+        unvotedPairs[songId].push(pair);
       }
     }
   }
 
-  if (unvotedPairs.length === 0) {
+  const songIds = Object.keys(unvotedPairs);
+
+  if (songIds.length === 0) {
+    console.log("NONE");
     return null;
   }
 
-  const pairIndex = Math.floor(Math.random() * unvotedPairs.length);
-  return unvotedPairs[pairIndex]!;
+  // Choose a random song for the user to vote on.
+  const songId = songIds[Math.floor(Math.random() * songIds.length)];
+  const unvotedPairsForSong = unvotedPairs[songId];
+
+  // Choose a random pair of performances of that song for the user to vote on.
+  const pairIndex = Math.floor(Math.random() * unvotedPairsForSong.length);
+  return unvotedPairsForSong[pairIndex]!;
 }
