@@ -7,6 +7,7 @@ import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Albums",
+  description: `Browse all of King Gizzard & The Lizard Wizard's albums on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.`,
 };
 
 export default async function Albums() {

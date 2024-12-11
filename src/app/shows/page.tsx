@@ -8,6 +8,7 @@ import { getShowPath, getShowTitle } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Shows",
+  description: `Browse all of King Gizzard & The Lizard Wizard's live shows on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.`,
 };
 
 const showsByYear: Record<string, Show[]> = {};
