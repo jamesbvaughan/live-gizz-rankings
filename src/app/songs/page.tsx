@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import pluralize from "pluralize";
 
 import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
 import { getAlbumPath, getSongPath } from "@/utils";
@@ -38,7 +39,8 @@ export default async function Songs() {
                     </Link>
 
                     <div className="text-muted">
-                      {songPerformances.length} performances ranked
+                      {pluralize("performance", songPerformances.length, true)}{" "}
+                      ranked
                     </div>
                   </div>
                 );
