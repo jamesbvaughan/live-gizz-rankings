@@ -52,11 +52,31 @@ async function BestPerformanceForSong({ song }: { song: Song }) {
   const show = getShowById(performance.showId)!;
   const showTitle = getShowTitle(show);
   const performancePath = getPerformancePath(performance);
+  const imageSize = 50;
 
   return (
     <li>
-      <Link href={performancePath} className="no-underline">
-        {song.title} - {showTitle}
+      <Link
+        href={performancePath}
+        className="flex items-center space-x-2 text-xl no-underline"
+      >
+        <div
+          style={{ width: imageSize, height: imageSize }}
+          className="bg-muted-2"
+        >
+          {show.imageUrl && (
+            <Image
+              src={show.imageUrl}
+              alt=""
+              width={imageSize}
+              height={imageSize}
+            />
+          )}
+        </div>
+
+        <div>
+          {song.title} - {showTitle}
+        </div>
       </Link>
     </li>
   );
@@ -106,7 +126,7 @@ export default async function Album({ params }: Props) {
         <p>These are the top-rated performances of the songs on this album.</p>
 
         <Suspense fallback={<p>Loading best performances...</p>}>
-          <ul>
+          <ul className="space-y-2">
             {songs.map((song) => {
               return <BestPerformanceForSong song={song} key={song.id} />;
             })}
