@@ -9,28 +9,30 @@ console.log("Checking seed data validity...");
 
 // Ensure that UUIDs and slugs are valid and unique
 const uuids = new Set<string>();
-[seedAlbums, seedSongs, seedShows].forEach((seed) => {
+[seedAlbums, seedSongs, seedShows, seedPerformances].forEach((seed) => {
   const slugs = new Set<string>();
-  for (const [_, { id, slug }] of Object.entries(seed)) {
-    if (id.length !== 36) {
+  for (const [_, item] of Object.entries(seed)) {
+    if (item.id.length !== 36) {
       fail("Invalid UUID");
     }
-    if (slug.length === 0) {
-      fail("Empty slug");
-    }
-    if (slug.toLowerCase() !== slug) {
-      fail(`Invalid slug: ${slug}`);
-    }
 
-    if (uuids.has(id)) {
-      fail(`Duplicate UUID: ${id}`);
+    if (uuids.has(item.id)) {
+      fail(`Duplicate UUID: ${item.id}`);
     }
-    uuids.add(id);
+    uuids.add(item.id);
 
-    if (slugs.has(slug)) {
-      fail(`Duplicate slug: ${slug}`);
+    if ("slug" in item) {
+      if (item.slug.length === 0) {
+        fail("Empty slug");
+      }
+      if (item.slug.toLowerCase() !== item.slug) {
+        fail(`Invalid slug: ${item.slug}`);
+      }
+      if (slugs.has(item.slug)) {
+        fail(`Duplicate slug: ${item.slug}`);
+      }
+      slugs.add(item.slug);
     }
-    slugs.add(slug);
   }
 });
 
