@@ -24,8 +24,8 @@
 //  poster or leave the show with no image.
 //
 //  You can find the Spotify/Bandcamp/YouTube IDs by going to the relevant video
-//  or song on that service, generating an iframe embedd snippet, and finding an
-//  ID in the generated HTML.
+//  or song on that service, generating an iframe snippet, and finding the ID in
+//  the generated HTML.
 //
 //  After making a change or addition, run `bun validate-seeds` to check for any
 //  errors, like missing or duplicate IDs.
@@ -100,8 +100,8 @@ export const seedAlbums = {
     bandcampAlbumId: "1255749163",
   },
   poly: {
-    title: "Polygonwanaland",
-    slug: "polygonwanaland",
+    title: "Polygondwanaland",
+    slug: "polygondwanaland",
     id: "03c0b2d8-626c-4c1c-b0f9-5c730477caab",
     imageUrl: "https://f4.bcbits.com/img/a1550557789_16.jpg",
     bandcampAlbumId: "1017207616",
@@ -331,7 +331,7 @@ export const seedSongs = {
   },
 
   // ====================================================
-  // Polygonwanaland
+  // Polygondwanaland
   crumblingCastle: {
     id: "46b73130-6997-466f-b570-4d4528913f9c",
     slug: "crumbling-castle",
@@ -467,7 +467,7 @@ export const seedSongs = {
   hypertension: {
     id: "5765ec19-0e59-479c-a62c-a019ac73ce28",
     slug: "hypertension",
-    title: "Hyperstension",
+    title: "Hypertension",
     albumId: seedAlbums.laminatedDenim.id,
   },
 
