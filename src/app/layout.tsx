@@ -14,7 +14,8 @@ import { Header } from "./Header";
 import { SentryUserManager } from "./SentryUserManager";
 
 const title = "Live Gizz Rankings";
-const description = "Find the best live version of King Gizzard songs";
+const description =
+  "Find the best live version of King Gizzard songs. Vote on your favorites and browse rankings based on the community's votes.";
 
 export const metadata: Metadata = {
   title: {
