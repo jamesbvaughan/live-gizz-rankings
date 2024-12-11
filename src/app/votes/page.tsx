@@ -69,15 +69,15 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
 
       <p>
         This ratio indicates how often voters choose the left vs the right
-        performance from the voting page. That order is generated randomly on
-        each page load, so this <i>should</i> <Converge /> on 1.00.
+        performance from the voting page. This <i>should</i> <Converge /> on
+        1.00.
       </p>
 
       <LeftRightChart votes={votes} />
 
       <p>
         If this number is far from 1.00, then that indicates a bias toward one
-        side or the other and that we should change the design of that page.
+        side or the other.
       </p>
 
       <hr className="border-muted-2" />
@@ -86,20 +86,32 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
         <p>
           <b>2024-12-07 update</b>: As of now, there are 583 votes and the ratio
           is 1:1.27, which seems to indicate a clear bias being introduced by
-          the candidate ordering.
+          something.
         </p>
+
+        <p>These are my current theories:</p>
+
+        <ul className="ml-6 list-disc">
+          <li>
+            <b>Recency bias</b>: if a voter listens to both performances,
+            they&apos;ll probably start with the one on the left, then the one
+            on the right, and then they&apos;ll prefer the more recent one.
+          </li>
+          <li>
+            <p>
+              <b>Non-ramdom performance ordering</b>: I found a flaw in my
+              performance selection logic: I was choosing pairs randomly
+              randomly, but for any <i>specific</i> pair of performances, their
+              order relative to each other would always be the same
+              (specifically, they&apos;d be in the order that they were added to
+              the database). Not good! I&apos;ve now corrected this.
+            </p>
+          </li>
+        </ul>
+
         <p>
-          My intial theory was that recency bias is at play here: if a voter
-          listens to both performances, they&apos;ll probably start with the one
-          on the left, then the one on the right, and then they&apos;ll prefer
-          the more recent one.
-        </p>
-        <p>
-          But after digging deeper, I found an issue with my
-          performance-pair-generation logic: I was choosing performances
-          randomly, but for any <i>specific</i> pair of songs, thier order
-          relative to each other would always be the same. Not good! I&apos;ve
-          now corrected this.
+          Either or both of these could be contributors to the unexpected ratio
+          here.
         </p>
       </div>
     </div>
