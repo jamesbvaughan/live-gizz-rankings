@@ -48,25 +48,36 @@ export default async function PerformancePage({ params }: Props) {
     notFound();
   }
 
-  const show = getShowById(performance.showId);
-  const song = getSongById(performance.songId);
-  if (!song || !show) {
-    notFound();
-  }
+  const show = getShowById(performance.showId)!;
+  const showPath = getShowPath(show);
+  const showTitle = getShowTitle(show);
+
+  const song = getSongById(performance.songId)!;
+  const songPath = getSongPath(song);
 
   return (
     <div className="space-y-4">
       <h2 className="text-4xl">
-        <Link href={getSongPath(song)} className="no-underline">
+        <Link href={songPath} className="no-underline">
           {song.title}
         </Link>{" "}
         -{" "}
-        <Link href={getShowPath(show)} className="no-underline">
-          {getShowTitle(show)}
+        <Link href={showPath} className="no-underline">
+          {showTitle}
         </Link>
       </h2>
 
       <MediaPlayers performance={performance} show={show} />
+
+      <div className="flex flex-col space-y-2">
+        <Link href={songPath} className="inline-block no-underline">
+          See all performances of {song.title}
+        </Link>
+
+        <Link href={showPath} className="inline-block no-underline">
+          See all performances at {showTitle}
+        </Link>
+      </div>
     </div>
   );
 }
