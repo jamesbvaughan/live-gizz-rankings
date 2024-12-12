@@ -730,6 +730,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a4160066698_16.jpg",
     bandcampAlbumId: "3530855413",
   },
+  boston24: {
+    id: "dd72f78a-23c4-46fc-a82a-6befe9eac3e7",
+    slug: "boston-2024",
+    location: "Boston",
+    date: "2024-08-19",
+    imageUrl: "https://f4.bcbits.com/img/a4053913678_16.jpg",
+    bandcampAlbumId: "2151609245",
+  },
   maine24: {
     id: "212bb7b3-2ed9-4270-bf35-7026716a36b6",
     slug: "maine-2024",
@@ -785,6 +793,14 @@ export const seedShows = {
     date: "2024-08-28",
     imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
     bandcampAlbumId: "1275144158",
+  },
+  asheville24: {
+    id: "704abe4c-3cb2-4391-9a81-a5dcb1fd3a44",
+    slug: "asheville-2024",
+    location: "Asheville",
+    date: "2024-08-30",
+    imageUrl: "https://f4.bcbits.com/img/a2066920903_16.jpg",
+    bandcampAlbumId: "817110471",
   },
   nashville24: {
     id: "f4b93c00-1998-4c3d-b625-f55d2e6b426c",
@@ -1372,6 +1388,24 @@ export const seedPerformances = [
     bandcampTrackId: "1130482149",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "64aa4180-f27f-4838-84a9-2b3ca353468b",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.asheville24.id,
+    spotifyTrackId: "7ylIt7l96UDf51ABjmsekx",
+    bandcampTrackId: "3415507546",
+    youtubeVideoId: "cEvtbHcCyic",
+    youtubeVideoStartTime: 7669,
+  },
+  {
+    id: "ca71e8c6-a329-40bd-badd-d931e999eeb1",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.boston24.id,
+    spotifyTrackId: "1azeSSMuRm3OodDGX9McPm",
+    bandcampTrackId: "1849464637",
+    youtubeVideoId: "wbtTEgC6quI",
+    youtubeVideoStartTime: 8023,
   },
 
   // ====================================================
