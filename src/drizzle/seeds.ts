@@ -778,6 +778,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
     bandcampAlbumId: "1275144158",
   },
+  nashville24: {
+    id: "f4b93c00-1998-4c3d-b625-f55d2e6b426c",
+    slug: "nashville-2024",
+    location: "Nashville",
+    date: "2024-08-31",
+    imageUrl: "https://f4.bcbits.com/img/a0545000465_16.jpg",
+    bandcampAlbumId: "3239781259",
+  },
   chicago24: {
     id: "6556aa55-88d3-43f8-bfdd-f348352ae1d0",
     slug: "chicago-2024",
@@ -1263,6 +1271,15 @@ export const seedPerformances = [
     bandcampTrackId: "3990766241",
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 2649,
+  },
+  {
+    id: "acf09987-c3b1-4fee-bb11-b28e6c0dee3d",
+    songId: seedSongs.evilDeathRoll.id,
+    showId: seedShows.nashville24.id,
+    spotifyTrackId: "2UfPjIs1iwQD9xUxUUXiWH",
+    bandcampTrackId: "699192381",
+    youtubeVideoId: "8RbhqJHZPtM",
+    youtubeVideoStartTime: 448,
   },
 
   // ====================================================
