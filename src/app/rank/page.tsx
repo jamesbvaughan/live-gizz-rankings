@@ -62,7 +62,7 @@ export default async function Rank() {
 
           return (
             <div key={performance.id} className="space-y-4">
-              <h3 className="text-xl">
+              <h3 className="min-h-14 text-xl">
                 Listen to {song.title} at {showTitle}
               </h3>
 
