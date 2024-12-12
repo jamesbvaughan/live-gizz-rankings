@@ -1522,6 +1522,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "875fec17-93b4-46d3-9987-c6bd38bf014f",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "7DAteH8MxYwmkjF3mKUP0m",
+    bandcampTrackId: "107876226",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 11046,
+  },
 
   // ====================================================
   // Hell
