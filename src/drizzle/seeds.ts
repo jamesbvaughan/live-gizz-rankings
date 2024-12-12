@@ -2142,6 +2142,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "4e33fb7a-3409-41dd-9830-63cc4847e13a",
+    songId: seedSongs.supercell.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "2dxt2xtxg4L2x4JrfrMKgG",
+    bandcampTrackId: "3167137517",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 5408,
+  },
 
   // ====================================================
   // Swan Song
