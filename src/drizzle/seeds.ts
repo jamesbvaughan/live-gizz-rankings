@@ -730,6 +730,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a4160066698_16.jpg",
     bandcampAlbumId: "3530855413",
   },
+  boston24: {
+    id: "dd72f78a-23c4-46fc-a82a-6befe9eac3e7",
+    slug: "boston-2024",
+    location: "Boston",
+    date: "2024-08-19",
+    imageUrl: "https://f4.bcbits.com/img/a4053913678_16.jpg",
+    bandcampAlbumId: "2151609245",
+  },
   maine24: {
     id: "212bb7b3-2ed9-4270-bf35-7026716a36b6",
     slug: "maine-2024",
@@ -737,6 +745,14 @@ export const seedShows = {
     date: "2024-08-20",
     imageUrl: "https://f4.bcbits.com/img/a1001399634_16.jpg",
     bandcampAlbumId: "2637870866",
+  },
+  toronto24: {
+    id: "4b31bce2-5b79-4ea6-91ea-97b7d0a47aae",
+    slug: "toronto-2024",
+    location: "Toronto",
+    date: "2024-08-21",
+    imageUrl: "https://f4.bcbits.com/img/a1394424151_16.jpg",
+    bandcampAlbumId: "3363110237",
   },
   detroit24: {
     id: "3bccdb81-d010-47e8-a9f8-4eb87f3f4066",
@@ -777,6 +793,22 @@ export const seedShows = {
     date: "2024-08-28",
     imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
     bandcampAlbumId: "1275144158",
+  },
+  asheville24: {
+    id: "704abe4c-3cb2-4391-9a81-a5dcb1fd3a44",
+    slug: "asheville-2024",
+    location: "Asheville",
+    date: "2024-08-30",
+    imageUrl: "https://f4.bcbits.com/img/a2066920903_16.jpg",
+    bandcampAlbumId: "817110471",
+  },
+  nashville24: {
+    id: "f4b93c00-1998-4c3d-b625-f55d2e6b426c",
+    slug: "nashville-2024",
+    location: "Nashville",
+    date: "2024-08-31",
+    imageUrl: "https://f4.bcbits.com/img/a0545000465_16.jpg",
+    bandcampAlbumId: "3239781259",
   },
   chicago24: {
     id: "6556aa55-88d3-43f8-bfdd-f348352ae1d0",
@@ -991,6 +1023,25 @@ export const seedPerformances = [
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 7877,
   },
+  {
+    id: "e6ad9fe9-41e3-4fee-a64c-4fbecdce7bc0",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "1LktfcaDPEcwW4U9PwiMFf",
+    bandcampTrackId: "1999983751",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 7480,
+  },
+  {
+    id: "79763acc-ec84-4030-87ba-764c543b112f",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: "3tcsCvX0Br5MqJPSLd3fvb",
+    bandcampTrackId: "1508924947",
+    // TODO: Replace with the official video when it's released
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 2311,
+  },
 
   // ====================================================
   // Ambergris
@@ -1087,6 +1138,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "74b00cda-535e-42f6-95d5-fefbfe960550",
+    songId: seedSongs["chang-e"].id,
+    showId: seedShows.sd24.id,
+    spotifyTrackId: "6BHy9HIvCWqkol1FBJf5RV",
+    bandcampTrackId: "2549790930",
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 1544,
+  },
 
   // ====================================================
   // Converge
@@ -1172,6 +1233,15 @@ export const seedPerformances = [
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 3093,
   },
+  {
+    id: "85c66ac7-4fcc-4612-a4b7-8d8d229812aa",
+    songId: seedSongs.dailyBlues.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "0eLeLG3qMQ8WdDuBsVXzmt",
+    bandcampTrackId: "3250859522",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 777,
+  },
 
   // ====================================================
   // Dragon
@@ -1226,6 +1296,15 @@ export const seedPerformances = [
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 2649,
   },
+  {
+    id: "acf09987-c3b1-4fee-bb11-b28e6c0dee3d",
+    songId: seedSongs.evilDeathRoll.id,
+    showId: seedShows.nashville24.id,
+    spotifyTrackId: "2UfPjIs1iwQD9xUxUUXiWH",
+    bandcampTrackId: "699192381",
+    youtubeVideoId: "8RbhqJHZPtM",
+    youtubeVideoStartTime: 448,
+  },
 
   // ====================================================
   // Extinction
@@ -1237,6 +1316,15 @@ export const seedPerformances = [
     bandcampTrackId: "4289851773",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "939ea57c-a335-4a66-a561-202340897c8a",
+    songId: seedSongs.extinction.id,
+    showId: seedShows.toronto24.id,
+    spotifyTrackId: "1AgAYagzMpKvyYCSl9E2mo",
+    bandcampTrackId: "3336316183",
+    youtubeVideoId: "8sXbseUS6rM",
+    youtubeVideoStartTime: 6543,
   },
 
   // ====================================================
@@ -1300,6 +1388,24 @@ export const seedPerformances = [
     bandcampTrackId: "1130482149",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "64aa4180-f27f-4838-84a9-2b3ca353468b",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.asheville24.id,
+    spotifyTrackId: "7ylIt7l96UDf51ABjmsekx",
+    bandcampTrackId: "3415507546",
+    youtubeVideoId: "cEvtbHcCyic",
+    youtubeVideoStartTime: 7669,
+  },
+  {
+    id: "ca71e8c6-a329-40bd-badd-d931e999eeb1",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.boston24.id,
+    spotifyTrackId: "1azeSSMuRm3OodDGX9McPm",
+    bandcampTrackId: "1849464637",
+    youtubeVideoId: "wbtTEgC6quI",
+    youtubeVideoStartTime: 8023,
   },
 
   // ====================================================
@@ -1416,6 +1522,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "875fec17-93b4-46d3-9987-c6bd38bf014f",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "7DAteH8MxYwmkjF3mKUP0m",
+    bandcampTrackId: "107876226",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 11046,
+  },
 
   // ====================================================
   // Hell
@@ -1469,6 +1584,15 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "V_aZri_exK0",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "113e94b1-fa5d-4331-8009-769405c2a97f",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "135tSNwdwC2l3OQFyNrFzC",
+    bandcampTrackId: "2417251743",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 5935,
   },
 
   // ====================================================
@@ -1569,6 +1693,15 @@ export const seedPerformances = [
     // TODO: Replace this with the official video once it's up
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 7739,
+  },
+  {
+    id: "588c3fb5-1785-4d51-9d94-a6d6eac869c5",
+    songId: seedSongs.ironLung.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "0wakm6DGHPsexgbI8CU3N5",
+    bandcampTrackId: "283654820",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 8104,
   },
 
   // ====================================================
@@ -2009,6 +2142,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "4e33fb7a-3409-41dd-9830-63cc4847e13a",
+    songId: seedSongs.supercell.id,
+    showId: seedShows.cleveland24.id,
+    spotifyTrackId: "2dxt2xtxg4L2x4JrfrMKgG",
+    bandcampTrackId: "3167137517",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 5408,
+  },
 
   // ====================================================
   // Swan Song
@@ -2041,6 +2183,15 @@ export const seedPerformances = [
     bandcampTrackId: "1241463968",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "2bfac39c-5bf9-4927-b07e-01f734fe647a",
+    songId: seedSongs.theia.id,
+    showId: seedShows.richmond24.id,
+    spotifyTrackId: "3p5xWza33QxYVxksxRvWia",
+    bandcampTrackId: "3519548606",
+    youtubeVideoId: "5JEkTEktukg",
+    youtubeVideoStartTime: 1534,
   },
 
   // ====================================================
