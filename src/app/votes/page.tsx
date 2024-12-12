@@ -101,7 +101,7 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
           </li>
           <li>
             <p>
-              <b>Non-ramdom performance ordering</b>: I found a flaw in my
+              <b>Non-random performance ordering</b>: I found a flaw in my
               performance selection logic: I was choosing pairs randomly
               randomly, but for any <i>specific</i> pair of performances, their
               order relative to each other would always be the same
