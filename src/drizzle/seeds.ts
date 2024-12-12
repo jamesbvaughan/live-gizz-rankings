@@ -1106,6 +1106,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "74b00cda-535e-42f6-95d5-fefbfe960550",
+    songId: seedSongs["chang-e"].id,
+    showId: seedShows.sd24.id,
+    spotifyTrackId: "6BHy9HIvCWqkol1FBJf5RV",
+    bandcampTrackId: "2549790930",
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 1544,
+  },
 
   // ====================================================
   // Converge
