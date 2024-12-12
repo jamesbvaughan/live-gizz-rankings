@@ -1201,6 +1201,15 @@ export const seedPerformances = [
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 3093,
   },
+  {
+    id: "85c66ac7-4fcc-4612-a4b7-8d8d229812aa",
+    songId: seedSongs.dailyBlues.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "0eLeLG3qMQ8WdDuBsVXzmt",
+    bandcampTrackId: "3250859522",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 777,
+  },
 
   // ====================================================
   // Dragon
