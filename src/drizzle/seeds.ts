@@ -1489,6 +1489,15 @@ export const seedPerformances = [
     youtubeVideoId: "V_aZri_exK0",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "113e94b1-fa5d-4331-8009-769405c2a97f",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "135tSNwdwC2l3OQFyNrFzC",
+    bandcampTrackId: "2417251743",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 5935,
+  },
 
   // ====================================================
   // Hot Wax
