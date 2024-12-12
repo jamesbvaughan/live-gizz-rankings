@@ -1694,6 +1694,15 @@ export const seedPerformances = [
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 7739,
   },
+  {
+    id: "588c3fb5-1785-4d51-9d94-a6d6eac869c5",
+    songId: seedSongs.ironLung.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "0wakm6DGHPsexgbI8CU3N5",
+    bandcampTrackId: "283654820",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 8104,
+  },
 
   // ====================================================
   // Le Risque
