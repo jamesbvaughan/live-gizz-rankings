@@ -738,6 +738,14 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a1001399634_16.jpg",
     bandcampAlbumId: "2637870866",
   },
+  toronto24: {
+    id: "4b31bce2-5b79-4ea6-91ea-97b7d0a47aae",
+    slug: "toronto-2024",
+    location: "Toronto",
+    date: "2024-08-21",
+    imageUrl: "https://f4.bcbits.com/img/a1394424151_16.jpg",
+    bandcampAlbumId: "3363110237",
+  },
   detroit24: {
     id: "3bccdb81-d010-47e8-a9f8-4eb87f3f4066",
     slug: "detroit-2024",
@@ -1292,6 +1300,15 @@ export const seedPerformances = [
     bandcampTrackId: "4289851773",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "939ea57c-a335-4a66-a561-202340897c8a",
+    songId: seedSongs.extinction.id,
+    showId: seedShows.toronto24.id,
+    spotifyTrackId: "1AgAYagzMpKvyYCSl9E2mo",
+    bandcampTrackId: "3336316183",
+    youtubeVideoId: "8sXbseUS6rM",
+    youtubeVideoStartTime: 6543,
   },
 
   // ====================================================
