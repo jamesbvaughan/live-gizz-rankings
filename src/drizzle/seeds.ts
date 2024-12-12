@@ -2184,6 +2184,15 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "2bfac39c-5bf9-4927-b07e-01f734fe647a",
+    songId: seedSongs.theia.id,
+    showId: seedShows.richmond24.id,
+    spotifyTrackId: "3p5xWza33QxYVxksxRvWia",
+    bandcampTrackId: "3519548606",
+    youtubeVideoId: "5JEkTEktukg",
+    youtubeVideoStartTime: 1534,
+  },
 
   // ====================================================
   // This Thing
