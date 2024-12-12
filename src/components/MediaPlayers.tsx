@@ -75,6 +75,14 @@ export function MediaPlayers({
       {performance.spotifyTrackId && (
         <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
       )}
+
+      <a
+        href={`https://tapes.kglw.net/${show.date}/`}
+        target="_blank"
+        rel="noopener"
+      >
+        Listen on Gizz Tapes
+      </a>
     </div>
   );
 }
