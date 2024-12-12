@@ -991,6 +991,25 @@ export const seedPerformances = [
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 7877,
   },
+  {
+    id: "e6ad9fe9-41e3-4fee-a64c-4fbecdce7bc0",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "1LktfcaDPEcwW4U9PwiMFf",
+    bandcampTrackId: "1999983751",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 7480,
+  },
+  {
+    id: "79763acc-ec84-4030-87ba-764c543b112f",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: "3tcsCvX0Br5MqJPSLd3fvb",
+    bandcampTrackId: "1508924947",
+    // TODO: Replace with the official video when it's released
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 2311,
+  },
 
   // ====================================================
   // Ambergris
