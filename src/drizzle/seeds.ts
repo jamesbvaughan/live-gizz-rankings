@@ -1724,6 +1724,16 @@ export const seedPerformances = [
     youtubeVideoId: "_AZ9z62b8dU",
     youtubeVideoStartTime: 3745,
   },
+  {
+    id: "55bb995e-a9b9-4187-a9d4-050c953574de",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.nola24.id,
+    spotifyTrackId: "5PPS1zHkxfT2h0IVFNm9NK",
+    bandcampTrackId: "2720617361",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "KbgIW1SNq64",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Let Me Mend the Past
