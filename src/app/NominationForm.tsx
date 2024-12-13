@@ -17,14 +17,14 @@ export function NominationForm() {
             minLength={4}
             required
             disabled={isPending}
-            className="peer flex-grow border-2 border-muted bg-transparent p-2 text-base placeholder:text-muted-2 focus:border-foreground focus:ring-0 disabled:text-muted"
+            className="peer border-muted placeholder:text-muted-2 focus:border-foreground disabled:text-muted grow border-2 bg-transparent p-2 text-base focus:ring-0"
             name="message"
             placeholder="ex: Magma at The Gorge, The River at Red Rocks '22, etc."
           />
 
           <button
             type="submit"
-            className="block w-[114px] shrink-0 select-none border-2 border-foreground p-2 text-base disabled:border-muted disabled:text-muted hover:peer-valid:enabled:bg-foreground hover:peer-valid:enabled:text-background peer-invalid:border-muted peer-invalid:text-muted"
+            className="border-foreground disabled:border-muted disabled:text-muted enabled:peer-valid:hover:bg-foreground enabled:peer-valid:hover:text-background peer-invalid:border-muted peer-invalid:text-muted block w-[114px] shrink-0 border-2 p-2 text-base select-none"
             disabled={isPending}
           >
             {isPending ? "Submitting..." : "Submit"}
