@@ -1102,6 +1102,7 @@ export const seedPerformances = [
     showId: seedShows.phoenix24.id,
     spotifyTrackId: "7mtHKdO2k3VNLzIPI3owpW",
     bandcampTrackId: "3582186128",
+    // TODO: Replace with actual video once it's up
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 8834,
   },
@@ -2076,6 +2077,7 @@ export const seedPerformances = [
     showId: seedShows.phoenix24.id,
     spotifyTrackId: "5mIo2nlud7zau8ZL6rrJvT",
     bandcampTrackId: "642096012",
+    // TODO: Replace with actual video once it's up
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 5497,
   },
@@ -2232,10 +2234,11 @@ export const seedPerformances = [
     id: "099acbaf-af1a-4fe4-9c6e-7898d4cfdd00",
     songId: seedSongs.thisThing.id,
     showId: seedShows.phoenix24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "3flmztXhdxCfRmqx3mIK4B",
     bandcampTrackId: "1260515879",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 3068,
   },
   {
     id: "78c726c4-0ad5-403d-8643-2f8c52c36761",
