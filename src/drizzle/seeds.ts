@@ -1557,6 +1557,16 @@ export const seedPerformances = [
     youtubeVideoId: "iO94a7oTK5k",
     youtubeVideoStartTime: 994,
   },
+  {
+    id: "27a65a61-ec48-43e6-bd07-af580eb0e27a",
+    songId: seedSongs.hell.id,
+    showId: seedShows.miami24.id,
+    spotifyTrackId: "7bg6mrAocsIrYGGyHgTjzd",
+    bandcampTrackId: "1413798820",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "_OgT1yyq0DM",
+    youtubeVideoStartTime: 6942,
+  },
 
   // ====================================================
   // Her and I (Slow Jam 2)
