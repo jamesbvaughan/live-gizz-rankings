@@ -40,3 +40,11 @@ yarn-error.log*
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Vale
+.github/styles/*
+!.github/styles/config/
+.github/styles/config/*
+!.github/styles/config/vocabularies/
+.github/styles/config/vocabularies/*
+!.github/styles/config/vocabularies/custom

@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/jamesbvaughan/live-gizz-rankings/actions/workflows/ci.yaml/badge.svg?branch=main)
 
-This is a small web app for crowdsourcing rankings for the best live
+This is a small web app for crowd-sourcing rankings for the best live
 performances of King Gizzard & The Lizard Wizard songs.
 
 Check it out at [livegizzrankings.com](https://livegizzrankings.com)!
@@ -16,11 +16,12 @@ The most helpful way you can contribute is to
 
 ### Development
 
-This is a fairly straightforward [Next.js 15](https://nextjs.org/docs) app.
+This is a [Next.js 15](https://nextjs.org/docs) app and sticks to Next.js
+conventions as much as possible.
 
 After cloning and populating your `.env` file (see
 [`.env.example`](/.env.example) for instructions), run `bun install` to install
-the dependencies and then `bun dev` to start the dev server.
+the dependencies and then `bun dev` to start the development server.
 
 ## Dashboards
 

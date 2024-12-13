@@ -37,3 +37,13 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - run: bun run tsc
+
+  vale:
+    name: Vale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: errata-ai/vale-action@v2.1.1
+        with:
+          files: '["README.md", "src"]'
+          fail_on_error: true
