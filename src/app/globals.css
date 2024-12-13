@@ -6,4 +6,7 @@
   a {
     @apply underline underline-offset-2 hover:text-red;
   }
+  footer a {
+    @apply no-underline;
+  }
 }
