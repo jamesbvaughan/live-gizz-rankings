@@ -1342,10 +1342,11 @@ export const seedPerformances = [
     id: "3cc50612-b3bf-4d7d-a04e-02c1647e2f3e",
     songId: seedSongs.fieldOfVision.id,
     showId: seedShows.abq24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "5Gl0mcrGuFZyA2l9sK7dB1",
     bandcampTrackId: "3432281975",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 5016,
   },
 
   // ====================================================
@@ -1827,10 +1828,11 @@ export const seedPerformances = [
     id: "49ed74ad-8967-4382-8e78-4b2dc9994120",
     songId: seedSongs.magma.id,
     showId: seedShows.abq24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "3gdSrCBt5LXg9iaEf4TVAq",
     bandcampTrackId: "3544009407",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 5230,
   },
   {
     id: "238ec52c-dfa5-419e-ab33-8f6f7ff1dd3e",
@@ -1876,10 +1878,11 @@ export const seedPerformances = [
     id: "ab36e296-a0a9-4553-9c7e-8efec595c58b",
     songId: seedSongs.mirageCity.id,
     showId: seedShows.abq24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "2e2iiT2QWNtGVATUx5DlJR",
     bandcampTrackId: "804204545",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 3174,
   },
 
   // ====================================================
@@ -2165,10 +2168,11 @@ export const seedPerformances = [
     id: "fd75230f-fa9d-4226-ac9d-9ba6d6256e61",
     songId: seedSongs.supercell.id,
     showId: seedShows.abq24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "4b8P4JGcJc0exfPQhaVsY4",
     bandcampTrackId: "3435936842",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 1553,
   },
   {
     id: "4e33fb7a-3409-41dd-9830-63cc4847e13a",
