@@ -1384,10 +1384,11 @@ export const seedPerformances = [
     id: "a12280bf-6c20-4768-9d42-d98c4d5e799d",
     songId: seedSongs.fafyl.id,
     showId: seedShows.miami24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "14hBBm6DOg7jIxPhdabaZH",
     bandcampTrackId: "1130482149",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "_OgT1yyq0DM",
+    youtubeVideoStartTime: 3297,
   },
   {
     id: "64aa4180-f27f-4838-84a9-2b3ca353468b",
