@@ -1456,10 +1456,11 @@ export const seedPerformances = [
     id: "ce6b7332-bfb3-4da1-a22c-0af4e956f178",
     songId: seedSongs.gilaMonster.id,
     showId: seedShows.austin24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "0PKBGtRft47XwsgvwW3g3V",
     bandcampTrackId: "3138958661",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 10373,
   },
 
   // ====================================================
@@ -1520,10 +1521,11 @@ export const seedPerformances = [
     id: "ddad346f-80c8-4b2d-ac0a-e884d6e8abf6",
     songId: seedSongs.headOn.id,
     showId: seedShows.austin24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "4QPvCYWCUIzFfNukrXjrRg",
     bandcampTrackId: "3941477526",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 1191,
   },
   {
     id: "875fec17-93b4-46d3-9987-c6bd38bf014f",
