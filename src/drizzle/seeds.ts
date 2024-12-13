@@ -2039,8 +2039,9 @@ export const seedPerformances = [
     showId: seedShows.sd24.id,
     spotifyTrackId: "1h7phi5cC4rev9hi6RQhVA",
     bandcampTrackId: "548760256",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 2541,
   },
   {
     id: "e9277f79-25a6-4dc6-94e7-5766619ac36e",
@@ -2316,10 +2317,11 @@ export const seedPerformances = [
     id: "51482dd3-f28e-470d-89ab-7f7f902137ef",
     songId: seedSongs.witchcraft.id,
     showId: seedShows.sd24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "5KpligWqrUyuk3prKY42zk",
     bandcampTrackId: "2575113191",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 1220,
   },
   {
     id: "a2894ae5-3616-442f-ab87-2481ecb4ce5d",
