@@ -1134,10 +1134,11 @@ export const seedPerformances = [
     id: "05eb878b-c3c6-4893-bfd9-a9df069b2bf8",
     songId: seedSongs["chang-e"].id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "7EFTd29CbsVH3muUEsdfQ0",
     bandcampTrackId: "278065324",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 4389,
   },
   {
     id: "74b00cda-535e-42f6-95d5-fefbfe960550",
@@ -1313,10 +1314,11 @@ export const seedPerformances = [
     id: "b1ebd650-a2b1-4f35-bdf6-0cdb4342e45c",
     songId: seedSongs.extinction.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "2xsPkYYoYAcxw25vfMcVSb",
     bandcampTrackId: "4289851773",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 6453,
   },
   {
     id: "939ea57c-a335-4a66-a561-202340897c8a",
@@ -1471,10 +1473,11 @@ export const seedPerformances = [
     id: "f54af3ef-e912-4587-957a-5b41301be2b4",
     songId: seedSongs.gilgamesh.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "4qRRij4NzySaXClGUsqGKn",
     bandcampTrackId: "1783165953",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 5013,
   },
   {
     id: "6ec36f6f-c3fc-42f4-9a8a-35ccf094fcc3",
@@ -1683,10 +1686,11 @@ export const seedPerformances = [
     id: "33fce7c9-7b67-4f7a-97db-9297087ef168",
     songId: seedSongs.intrasport.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "4gmaWdNa8NU9jDffYF7vc3",
     bandcampTrackId: "1638313612",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 7420,
   },
 
   // ====================================================
@@ -2051,10 +2055,11 @@ export const seedPerformances = [
     id: "e92049af-3014-4edd-a73f-c1a667aa2d7d",
     songId: seedSongs.set.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "76mod5pxrtc26R1JQZC4Og",
     bandcampTrackId: "271536485",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 3365,
   },
   {
     id: "a726ddb2-bf4c-46cf-9ae6-50231c7721be",
@@ -2132,10 +2137,11 @@ export const seedPerformances = [
     id: "a61e5308-5764-4b18-a143-ac6fe682c16a",
     songId: seedSongs.theSilverCord.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "00LJOsl7TsLUgvhpSsXuWC",
     bandcampTrackId: "1372070779",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 2355,
   },
 
   // ====================================================
@@ -2196,10 +2202,11 @@ export const seedPerformances = [
     id: "29019546-f6a8-4566-b06b-00674aa54bb5",
     songId: seedSongs.swanSong.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "4g00jaXMeFbINsVl3hcQzd",
     bandcampTrackId: "2835416438",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 5573,
   },
   {
     id: "b357dcc4-67c5-407b-8187-eb76f18809ba",
@@ -2217,10 +2224,11 @@ export const seedPerformances = [
     id: "6aa65ebb-7fd9-49f2-a86c-0c6ba5474daa",
     songId: seedSongs.theia.id,
     showId: seedShows.sf24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "1b1a259Ga3GBQRs2gg9gdY",
     bandcampTrackId: "1241463968",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "zV8pTD4dfAY",
+    youtubeVideoStartTime: 1335,
   },
   {
     id: "2bfac39c-5bf9-4927-b07e-01f734fe647a",
