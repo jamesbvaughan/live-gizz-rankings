@@ -27,7 +27,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  pageExtensions: ["mdx", "tsx"],
 };
 
 const withBundleAnalyzer = bundleAnalyzer({
