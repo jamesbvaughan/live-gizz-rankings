@@ -1372,10 +1372,11 @@ export const seedPerformances = [
     id: "bde784d7-5d75-42cb-9faf-892604c95314",
     songId: seedSongs.flamethrower.id,
     showId: seedShows.stAugustine24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "1l6SVXpBH2reua0b9BbMBB",
     bandcampTrackId: "307643811",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 5366,
   },
 
   // ====================================================
@@ -1790,8 +1791,9 @@ export const seedPerformances = [
     id: "3dec08fa-382d-4c90-bfb5-e7a1089c6dd5",
     songId: seedSongs.magentaMountain.id,
     showId: seedShows.stAugustine24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "0vV2hSlqzfUZcbsqlhwn5E",
     bandcampTrackId: "1263693826",
+    // TODO: Replace with actual video once it's up
     youtubeVideoId: "GOypQkCShfw",
     youtubeVideoStartTime: 7714,
   },
