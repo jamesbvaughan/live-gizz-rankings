@@ -10,3 +10,9 @@
     @apply no-underline;
   }
 }
+
+@layer utilities {
+  ::selection {
+    @apply bg-red/40;
+  }
+}

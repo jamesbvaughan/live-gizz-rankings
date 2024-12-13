@@ -30,11 +30,7 @@ export async function generateMetadata({ params }: Props) {
     notFound();
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-  } = post.metadata;
+  const { title, publishedAt: publishedTime, description } = post.metadata;
 
   return {
     title,
@@ -63,11 +59,12 @@ export default async function BlogPostPage({ params }: Props) {
   const { default: MDXContent } = await evaluate(post.content, runtime);
 
   const date = new Date(post.metadata.publishedAt);
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
+  const formattedDate = new Intl.DateTimeFormat(undefined, {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   }).format(date);
 
   return (
