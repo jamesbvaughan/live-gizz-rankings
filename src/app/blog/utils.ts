@@ -1,4 +1,4 @@
-// Much of this was intitially copied from one of Next.js's examples:
+// Much of this was initially copied from one of Next.js's examples:
 // https://github.com/vercel/examples/blob/main/solutions/blog/app/blog/utils.ts
 
 import fs from "fs";
