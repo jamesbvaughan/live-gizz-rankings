@@ -1666,6 +1666,7 @@ export const seedPerformances = [
     showId: seedShows.houston24.id,
     spotifyTrackId: "1ng7rYR7dGq5ONDqdVmlkY",
     bandcampTrackId: "759959676",
+    // TODO: Replace with actual video once it's up
     youtubeVideoId: "GRxg_EYCsDI",
     youtubeVideoStartTime: 2659,
   },
@@ -1814,10 +1815,11 @@ export const seedPerformances = [
     id: "01303513-e76e-453c-97fc-8c560e72127d",
     songId: seedSongs.magma.id,
     showId: seedShows.houston24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "0QP7AUg7WXgw01AbBc68eZ",
     bandcampTrackId: "3380072931",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with actual video once it's up
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 4260,
   },
   {
     id: "49ed74ad-8967-4382-8e78-4b2dc9994120",
