@@ -67,7 +67,7 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-4xl">Left/right ratio: {ratio.toFixed(2)}</h2>
+      <h2 className="text-4xl">Left/right ratio: {ratio.toFixed(2)}:1</h2>
 
       <p>
         This ratio indicates how often voters choose the left vs the right
@@ -78,7 +78,7 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
       <LeftRightChart votes={votes} />
 
       <p>
-        If this number is far from 1.00, then that indicates a bias toward one
+        If this ratio is far from 1:1, then that indicates a bias toward one
         side or the other.
       </p>
 
@@ -87,7 +87,7 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
       <div className="space-y-2">
         <p>
           <b>2024-12-07 update</b>: As of now, there are 583 votes and the ratio
-          is 1:1.27, which seems to indicate a clear bias being introduced by
+          is 1.27:1, which seems to indicate a clear bias being introduced by
           something.
         </p>
 
@@ -95,18 +95,22 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
 
         <ul className="ml-6 list-disc">
           <li>
-            <b>Recency bias</b>: if a voter listens to both performances,
+            <b>Primacy bias</b>: If a voter listens to both performances,
             they&apos;ll probably start with the one on the left, then the one
-            on the right, and then they&apos;ll prefer the more recent one.
+            on the right, and then the primacy bias will make them favor the
+            first one they listened to. I do not have a theory for why primacy
+            bias would be stronger than recency bias here though.
           </li>
           <li>
             <p>
               <b>Non-random performance ordering</b>: I found a flaw in my
               performance selection logic: I was choosing pairs randomly
               randomly, but for any <i>specific</i> pair of performances, their
-              order relative to each other would always be the same
-              (specifically, they&apos;d be in the order that they were added to
-              the database). Not good! I&apos;ve now corrected this.
+              order relative to each other would always be the same.
+              Specifically, they&apos;d be in the order that they were added to
+              the database, and I initially seeded the database with what I
+              believed to be the best performances. I&apos;ve now corrected
+              this, and the performance order on the vote page is randomized.
             </p>
           </li>
         </ul>
