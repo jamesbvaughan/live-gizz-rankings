@@ -1657,6 +1657,15 @@ export const seedPerformances = [
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 3312,
   },
+  {
+    id: "9b3fc2a7-e1a9-4758-90c7-f6159977bbe8",
+    songId: seedSongs.iceV.id,
+    showId: seedShows.houston24.id,
+    spotifyTrackId: "1ng7rYR7dGq5ONDqdVmlkY",
+    bandcampTrackId: "759959676",
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 2659,
+  },
 
   // ====================================================
   // Intrasport
