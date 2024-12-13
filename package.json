@@ -13,6 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
+    "vale": "vale readme.md src/",
     "prepare": "husky"
   },
   "dependencies": {
