@@ -1489,10 +1489,11 @@ export const seedPerformances = [
     id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
     songId: seedSongs.theGrimReaper.id,
     showId: seedShows.nola24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "53p19h1evWNDuQ9i5Cv1Wo",
     bandcampTrackId: "2579325509",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "FET0riVKZa0",
+    youtubeVideoStartTime: 4687,
   },
   {
     id: "2304ff6d-2f92-43b1-b447-568dc96f4fdd",
@@ -2096,10 +2097,11 @@ export const seedPerformances = [
     id: "f9b66434-1cf6-4fcc-9549-852e3ee53b10",
     songId: seedSongs.shanghai.id,
     showId: seedShows.nola24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "0GjamSaGdCIFxpspXpgjtn",
     bandcampTrackId: "1794158865",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "FET0riVKZa0",
+    youtubeVideoStartTime: 6047,
   },
 
   // ====================================================
@@ -2253,10 +2255,11 @@ export const seedPerformances = [
     id: "8f921cb1-2296-4181-83db-9366a633c44c",
     songId: seedSongs.trapdoor.id,
     showId: seedShows.nola24.id,
-    spotifyTrackId: null,
+    spotifyTrackId: "06MiAVR2uZ0W1gzrnIPjp1",
     bandcampTrackId: "2759753713",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "FET0riVKZa0",
+    youtubeVideoStartTime: 7481,
   },
   {
     id: "a7506a8d-137c-4fb4-a09f-2ac187aef32a",
