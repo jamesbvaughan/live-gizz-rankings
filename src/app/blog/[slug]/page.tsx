@@ -13,6 +13,8 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamicParams = false;
+
 interface Params {
   slug: string;
 }
@@ -75,7 +77,9 @@ export default async function BlogPostPage({ params }: Props) {
           Blog
         </Link>
 
-        <h1 className="text-5xl font-semibold">{post.metadata.title}</h1>
+        <h1 className="text-4xl font-semibold sm:text-5xl">
+          {post.metadata.title}
+        </h1>
 
         <time className="inline-block italic text-muted">{formattedDate}</time>
       </div>

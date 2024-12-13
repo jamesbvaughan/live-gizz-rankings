@@ -47,10 +47,10 @@ export default function RootLayout({
         <body className="overflow-y-scroll bg-background text-foreground">
           <BackgroundCanvas />
 
-          <div className="mx-auto max-w-[720px] space-y-6 px-4 pb-10 pt-6 sm:space-y-10">
+          <div className="mx-auto max-w-[720px] px-4 pb-10 pt-6">
             <Header />
 
-            <main>{children}</main>
+            <main className="mb-12 mt-6">{children}</main>
 
             <Footer />
           </div>
