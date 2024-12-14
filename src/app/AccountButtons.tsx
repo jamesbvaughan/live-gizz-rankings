@@ -17,7 +17,6 @@ export function AccountButtons() {
   }
 
   const isAdmin = user?.publicMetadata.isAdmin;
-  console.log(user);
 
   return isSignedIn ? (
     <div className="flex flex-col items-end space-y-2">

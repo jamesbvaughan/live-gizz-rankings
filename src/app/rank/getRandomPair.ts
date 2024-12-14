@@ -64,9 +64,6 @@ export async function getRandomPairForCurrentUser() {
   // voted on.
   const userPairs = await getUserPairs();
 
-  console.log("allPairs songs.length", Object.keys(allPairs).length);
-  console.log("userPairs.length", userPairs.length);
-
   // Build up a record of every pair of performances that the current user has
   // not already voted on.
   const unvotedPairs: Record<string, [string, string][]> = {};
@@ -89,7 +86,6 @@ export async function getRandomPairForCurrentUser() {
   const songIds = Object.keys(unvotedPairs);
 
   if (songIds.length === 0) {
-    console.log("NONE");
     return null;
   }
 
