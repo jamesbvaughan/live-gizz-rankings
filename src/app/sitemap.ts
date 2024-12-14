@@ -13,6 +13,8 @@ import {
   getSongPath,
 } from "@/utils";
 
+import { getBlogPosts } from "./blog/utils";
+
 const baseUrl = "https://livegizzrankings.com";
 
 function getSitemapEntryForPath(path: string) {
@@ -24,11 +26,14 @@ function makeSitemapEntriesForPaths(paths: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const blogPosts = getBlogPosts();
+
   return makeSitemapEntriesForPaths([
     "/",
     "/albums",
     "/songs",
     "/shows",
+    "/blog",
 
     // TODO: Maybe add this page in the future
     // "/performances",
@@ -37,5 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...allSongs.map((song) => getSongPath(song)),
     ...allShows.map((show) => getShowPath(show)),
     ...allPerformances.map((performance) => getPerformancePath(performance)),
+    ...blogPosts.map((post) => `/blog/${post.slug}`),
   ]);
 }
