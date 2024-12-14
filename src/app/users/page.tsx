@@ -26,6 +26,7 @@ export default async function UsersPage() {
           <tr>
             <th className="p-4">User ID</th>
             <th className="p-4">Votes</th>
+            <th className="p-4">L:R</th>
             <th className="p-4">Nominations</th>
           </tr>
         </thead>
@@ -36,10 +37,20 @@ export default async function UsersPage() {
               (nomination) => nomination.userId === userId,
             );
 
+            const leftVotes = userVotes!.filter(
+              (vote) => vote.winnerId === vote.performance1Id,
+            );
+            const rightVotes = userVotes!.filter(
+              (vote) => vote.winnerId === vote.performance2Id,
+            );
+
             return (
               <tr key={userId}>
                 <td className="p-2">{userId}</td>
                 <td className="p-2">{userVotes!.length}</td>
+                <td className="p-2">
+                  {leftVotes.length}:{rightVotes.length}
+                </td>
                 <td className="p-2">{nominations.length}</td>
               </tr>
             );
