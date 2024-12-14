@@ -77,6 +77,7 @@ export function MediaPlayers({
       )}
 
       <a
+        className="inline-block"
         href={`https://tapes.kglw.net/${show.date}/`}
         target="_blank"
         rel="noopener"

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { PageContent, PageTitle } from "@/components/ui";
 import { allAlbums } from "@/drizzle/seeds";
 import { getAlbumPath } from "@/utils";
 
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
 
 export default async function Albums() {
   return (
-    <div className="space-y-8">
-      <h2 className="text-4xl">Albums with ranked performances</h2>
+    <>
+      <PageTitle>Albums with ranked performances</PageTitle>
 
-      <div className="grid grid-cols-2 gap-4">
+      <PageContent className="grid grid-cols-2 gap-4">
         {allAlbums.map((album, index) => {
           const albumPath = getAlbumPath(album);
 
@@ -33,7 +34,7 @@ export default async function Albums() {
             </Link>
           );
         })}
-      </div>
-    </div>
+      </PageContent>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { PageContent, PageTitle, PageType } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { allSongs } from "@/drizzle/seeds";
@@ -104,18 +105,22 @@ export default async function Song({ params }: Props) {
   const albumPath = getAlbumPath(song.albumId);
 
   return (
-    <div className="space-y-8">
-      <h2 className="text-4xl sm:text-6xl">{song.title}</h2>
+    <>
+      <PageType>Song</PageType>
 
-      <Suspense fallback="Loading performances...">
-        <RankedPerformances songId={song.id} />
-      </Suspense>
+      <PageTitle>{song.title}</PageTitle>
 
-      <div>
-        <Link href={albumPath} className="no-underline">
-          Back to album
-        </Link>
-      </div>
-    </div>
+      <PageContent className="space-y-8">
+        <Suspense fallback="Loading performances...">
+          <RankedPerformances songId={song.id} />
+        </Suspense>
+
+        <div>
+          <Link href={albumPath} className="no-underline">
+            Back to album
+          </Link>
+        </div>
+      </PageContent>
+    </>
   );
 }

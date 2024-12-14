@@ -1,0 +1,68 @@
+import { desc, eq } from "drizzle-orm";
+import Image from "next/image";
+import Link from "next/link";
+import pluralize from "pluralize";
+import { Suspense } from "react";
+
+import { db } from "@/drizzle/db";
+import { performances, Song } from "@/drizzle/schema";
+import { allPerformances } from "@/drizzle/seeds";
+import {
+  getPerformancePath,
+  getShowById,
+  getShowTitle,
+  getSongPath,
+} from "@/utils";
+
+async function TopPerformance({ song }: { song: Song }) {
+  const performance = await db.query.performances.findFirst({
+    where: eq(performances.songId, song.id),
+    orderBy: desc(performances.eloRating),
+  });
+  const show = getShowById(performance!.showId)!;
+  const showTitle = getShowTitle(show);
+  const performancePath = getPerformancePath(performance!);
+
+  return (
+    <Link
+      href={performancePath}
+      className="flex space-x-2 text-muted no-underline"
+    >
+      <div>Top: {showTitle}</div>
+
+      {show.imageUrl ? (
+        <Image
+          className="shrink-0"
+          src={show.imageUrl}
+          alt={showTitle}
+          width={24}
+          height={24}
+        />
+      ) : null}
+    </Link>
+  );
+}
+
+export function SongRow({ song }: { song: Song }) {
+  const songPerformances = allPerformances.filter(
+    (performance) => performance.songId === song.id,
+  );
+
+  const songPath = getSongPath(song);
+
+  return (
+    <div>
+      <Link href={songPath} className="text-lg no-underline">
+        {song.title}
+      </Link>
+
+      <div className="flex justify-between text-muted">
+        {pluralize("performance", songPerformances.length, true)}
+
+        <Suspense fallback="Loading top performance...">
+          <TopPerformance song={song} />
+        </Suspense>
+      </div>
+    </div>
+  );
+}
