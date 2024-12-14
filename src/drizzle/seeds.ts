@@ -1381,6 +1381,15 @@ export const seedPerformances = [
     youtubeVideoId: "6JS4Uq8X6X8",
     youtubeVideoStartTime: 6350,
   },
+  {
+    id: "dbb62683-8778-40e7-b2a9-4559c121e9da",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.remlinger23.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "jB7yQpU3fCw",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Evil Death Roll
@@ -1634,6 +1643,15 @@ export const seedPerformances = [
     youtubeVideoId: "IausBvkbLAI",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "8ae535ad-7954-4e1d-aeb8-21af22223642",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.arkansas24.id,
+    spotifyTrackId: "177IogsNo6sffdA6a4yX8v",
+    bandcampTrackId: "844662673",
+    youtubeVideoId: "5K02tvEbEp4",
+    youtubeVideoStartTime: 5848,
+  },
 
   // ====================================================
   // Head On/Pill
@@ -1779,8 +1797,9 @@ export const seedPerformances = [
     showId: seedShows.pasoRobles24.id,
     spotifyTrackId: null,
     bandcampTrackId: "239389408",
-    youtubeVideoId: null,
-    youtubeVideoStartTime: null,
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 2083,
   },
 
   // ====================================================
