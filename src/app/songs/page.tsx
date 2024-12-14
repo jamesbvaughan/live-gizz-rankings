@@ -1,54 +1,61 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import pluralize from "pluralize";
 
-import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
-import { getAlbumPath, getSongPath } from "@/utils";
+import { SongRow } from "@/components/SongRow";
+import { PageContent, PageTitle } from "@/components/ui";
+import { allAlbums, allSongs } from "@/drizzle/seeds";
+import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Songs",
 };
 
-export default async function Songs() {
+export default function Songs() {
   return (
-    <div className="space-y-6">
-      <h2 className="text-4xl">All songs with ranked performances</h2>
+    <>
+      <PageTitle>All songs</PageTitle>
 
-      {allAlbums.map((album) => {
-        const albumSongs = allSongs.filter((song) => song.albumId === album.id);
-        const albumPath = getAlbumPath(album);
+      <PageContent>
+        <p>
+          All the songs that have ranked performances, along with their top
+          ranked performances
+        </p>
 
-        return (
-          <div key={album.id} className="space-y-2">
-            <Link href={albumPath} className="text-2xl no-underline">
-              {album.title}
-            </Link>
+        <div className="mt-6 space-y-8">
+          {allAlbums.map((album) => {
+            const albumSongs = allSongs.filter(
+              (song) => song.albumId === album.id,
+            );
+            const albumPath = getAlbumPath(album);
 
-            <div className="space-y-1">
-              {albumSongs.map((song) => {
-                const songPerformances = allPerformances.filter(
-                  (performance) => performance.songId === song.id,
-                );
+            return (
+              <div key={album.id} className="space-y-4">
+                <Link
+                  href={albumPath}
+                  className="flex items-start space-x-2 text-2xl no-underline"
+                >
+                  <Image
+                    className="shrink-0"
+                    src={album.imageUrl}
+                    alt={album.title}
+                    width={50}
+                    height={50}
+                  />
 
-                const songPath = getSongPath(song);
+                  <div>{album.title}</div>
+                </Link>
 
-                return (
-                  <div key={song.id} className="flex items-end space-x-2">
-                    <Link href={songPath} className="text-lg no-underline">
-                      {song.title}
-                    </Link>
-
-                    <div className="text-muted">
-                      {pluralize("performance", songPerformances.length, true)}{" "}
-                      ranked
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
-    </div>
+                <div className="space-y-2">
+                  {albumSongs.map((song) => {
+                    return <SongRow key={song.id} song={song} />;
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </PageContent>
+    </>
   );
 }

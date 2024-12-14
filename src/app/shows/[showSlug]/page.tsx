@@ -5,10 +5,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { PageContent, PageTitle, PageType } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { allPerformances, allShows, allSongs } from "@/drizzle/seeds";
-import { getPerformancePath, getShowBySlug, getShowTitle } from "@/utils";
+import {
+  getAlbumById,
+  getPerformancePath,
+  getShowBySlug,
+  getShowTitle,
+} from "@/utils";
 
 type Params = { showSlug: string };
 type Props = { params: Promise<Params> };
@@ -60,79 +66,103 @@ export default async function ShowPage({ params }: Props) {
   const showTitle = getShowTitle(show);
 
   return (
-    <div className="space-y-8">
-      <h2 className="text-4xl sm:text-6xl">{showTitle}</h2>
+    <>
+      <PageType>Show</PageType>
 
-      {show.imageUrl ? (
-        <Image
-          src={show.imageUrl}
-          alt={`Album cover for ${showTitle}`}
-          className="aspect-square w-full"
-          width={500}
-          height={500}
-        />
-      ) : null}
+      <PageTitle>{showTitle}</PageTitle>
 
-      <div className="space-y-4">
-        <h3 className="text-3xl">Performances from this show with rankings</h3>
+      <PageContent className="space-y-8">
+        {show.imageUrl ? (
+          <Image
+            src={show.imageUrl}
+            alt={`Album cover for ${showTitle}`}
+            className="aspect-square w-full"
+            width={500}
+            height={500}
+          />
+        ) : null}
 
-        {showPerformances.length > 0 ? (
-          <ol className="space-y-4">
-            {showPerformances.map((performance) => {
-              const performancePath = getPerformancePath(performance);
-              const song = allSongs.find(
-                (song) => song.id === performance.songId,
-              )!;
+        <div className="space-y-4">
+          <h3 className="text-3xl">
+            Performances from this show with rankings
+          </h3>
 
-              return (
-                <li key={performance.id}>
-                  <Link
-                    href={performancePath}
-                    className="text-2xl no-underline"
+          {showPerformances.length > 0 ? (
+            <ol className="space-y-4">
+              {showPerformances.map((performance) => {
+                const performancePath = getPerformancePath(performance);
+                const song = allSongs.find(
+                  (song) => song.id === performance.songId,
+                )!;
+                const album = getAlbumById(song.albumId)!;
+
+                return (
+                  <li
+                    key={performance.id}
+                    className="flex items-center space-x-2"
                   >
-                    {song.title}
-                  </Link>
+                    <Image
+                      src={album.imageUrl}
+                      alt={album.title}
+                      width={48}
+                      height={48}
+                    />
 
-                  <div className="text-muted">
-                    <Suspense fallback="Loading Elo score...">
-                      <PerformanceElo performanceId={performance.id} />
-                    </Suspense>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        ) : (
-          <p>No performances from this show have been submitted yet.</p>
-        )}
-      </div>
+                    <div>
+                      <Link
+                        href={performancePath}
+                        className="text-2xl no-underline"
+                      >
+                        {song.title}
+                      </Link>
 
-      <div className="space-y-4">
-        <h3 className="text-3xl">Listen to this show</h3>
-
-        <div>
-          <a href={`https://tapes.kglw.net/${show.date}/`}>
-            Listen to this show on Gizz Tapes
-          </a>
-
-          {show.bandcampAlbumId && (
-            <>
-              {" "}
-              or on Bandcamp:
-              <iframe
-                style={{ border: 0, marginTop: 8, width: "100%", height: 472 }}
-                src={`https://bandcamp.com/EmbeddedPlayer/album=${show.bandcampAlbumId}/size=large/bgcol=333333/linkcol=e32c14/artwork=none/transparent=true/`}
-              />
-            </>
+                      <div className="text-muted">
+                        <Suspense fallback="Loading Elo score...">
+                          <PerformanceElo performanceId={performance.id} />
+                        </Suspense>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          ) : (
+            <p>No performances from this show have been submitted yet.</p>
           )}
         </div>
-      </div>
 
-      <div>
-        <Link href="/shows" className="no-underline">
-          Back to all shows
-        </Link>
-      </div>
-    </div>
+        <div className="space-y-4">
+          <h3 className="text-3xl">Listen to this show</h3>
+
+          <div>
+            <a href={`https://tapes.kglw.net/${show.date}/`}>
+              Listen to this show on Gizz Tapes
+            </a>
+
+            {show.bandcampAlbumId && (
+              <>
+                {" "}
+                or on Bandcamp:
+                <iframe
+                  style={{
+                    border: 0,
+                    marginTop: 8,
+                    width: "100%",
+                    height: 472,
+                  }}
+                  src={`https://bandcamp.com/EmbeddedPlayer/album=${show.bandcampAlbumId}/size=large/bgcol=333333/linkcol=e32c14/artwork=none/transparent=true/`}
+                />
+              </>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <Link href="/shows" className="no-underline">
+            Back to all shows
+          </Link>
+        </div>
+      </PageContent>
+    </>
   );
 }
