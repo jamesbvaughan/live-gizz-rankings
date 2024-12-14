@@ -8,6 +8,7 @@ import { zfd } from "zod-form-data";
 import { db } from "../drizzle/db";
 import { performances, votes } from "../drizzle/schema";
 import {
+  getAlbumPath,
   getPerformanceTitle,
   getShowById,
   getShowPath,
@@ -114,10 +115,16 @@ export async function vote(
   const song = getSongById(performanceA.songId)!;
   const songPath = getSongPath(performanceA.songId);
   revalidatePath(songPath);
+
   const showAPath = getShowPath(performanceA.showId);
   revalidatePath(showAPath);
+
   const showBPath = getShowPath(performanceB.showId);
   revalidatePath(showBPath);
+
+  const albumPath = getAlbumPath(song.albumId);
+  revalidatePath(albumPath);
+
   revalidatePath(`/songs`);
   revalidatePath(`/votes`);
 
