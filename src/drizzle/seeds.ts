@@ -416,6 +416,12 @@ export const seedSongs = {
 
   // ====================================================
   // K.G.
+  strawsInTheWind: {
+    id: "962270a4-42d6-4eab-bae9-c6b7ff3b2750",
+    slug: "straws-in-the-wind",
+    title: "Straws In The Wind",
+    albumId: seedAlbums.kg.id,
+  },
   intrasport: {
     id: "027fbc3c-620c-41f0-b734-f3d00262b41a",
     slug: "intrasport",
@@ -1725,6 +1731,15 @@ export const seedPerformances = [
     youtubeVideoId: "8M8T3mFdPNQ",
     youtubeVideoStartTime: 5935,
   },
+  {
+    id: "e79d8ec7-b9dc-4ee7-ae60-fc4a3ca25fb9",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "3bkxHdeIBwEaOT1WySlqqs",
+    bandcampTrackId: "1347540828",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 441,
+  },
 
   // ====================================================
   // Hot Wax
@@ -2376,6 +2391,18 @@ export const seedPerformances = [
     bandcampTrackId: "4291219970",
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 4838,
+  },
+
+  // ====================================================
+  // Straws In The Wind
+  {
+    id: "991e759e-6b13-44fa-8e9f-b2dffa3ec017",
+    songId: seedSongs.strawsInTheWind.id,
+    showId: seedShows.nyc24.id,
+    spotifyTrackId: "1HKkgQZmUkYhQMYsJm9sh8",
+    bandcampTrackId: "2661898645",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 7244,
   },
 
   // ====================================================
