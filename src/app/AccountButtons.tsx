@@ -1,10 +1,11 @@
 "use client";
 
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useClerk, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function AccountButtons() {
+  const clerk = useClerk();
   const { isSignedIn, isLoaded, user } = useUser();
   const [isClient, setIsClient] = useState(false);
 
@@ -20,9 +21,20 @@ export function AccountButtons() {
 
   return isSignedIn ? (
     <div className="flex flex-col items-end space-y-2">
-      <SignOutButton>
-        <button className="hover:text-red">sign out</button>
-      </SignOutButton>
+      <div className="flex flex-col items-end">
+        <button
+          className="hover:text-red"
+          onClick={() => {
+            clerk.openUserProfile();
+          }}
+        >
+          account
+        </button>
+
+        <SignOutButton>
+          <button className="hover:text-red">sign out</button>
+        </SignOutButton>
+      </div>
 
       {isAdmin ? (
         <>
