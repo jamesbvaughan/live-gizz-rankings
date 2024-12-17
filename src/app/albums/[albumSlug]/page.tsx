@@ -43,11 +43,23 @@ export default async function Album({ params }: Props) {
     .filter((song) => song.albumId === album.id)
     .sort((a, b) => a.albumPosition - b.albumPosition);
 
+  const releaseDate = new Date(album.releaseDate);
+  const formattedReleaseDate = new Intl.DateTimeFormat(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(releaseDate);
+
   return (
     <>
       <PageType>Album</PageType>
 
       <PageTitle>{album.title}</PageTitle>
+
+      <div className="mt-2 text-muted">
+        Released on <time>{formattedReleaseDate}</time>
+      </div>
 
       <PageContent className="space-y-8">
         <Image
