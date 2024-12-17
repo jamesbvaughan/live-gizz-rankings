@@ -1,4 +1,11 @@
-import { seedAlbums, seedPerformances, seedShows, seedSongs } from "./seeds";
+import {
+  allAlbums,
+  allSongs,
+  seedAlbums,
+  seedPerformances,
+  seedShows,
+  seedSongs,
+} from "./seeds";
 
 function fail(message: string): never {
   console.log(message);
@@ -35,6 +42,25 @@ const uuids = new Set<string>();
     }
   }
 });
+
+// Ensure that release dates are unique
+const releaseDates = new Set<string>();
+for (const album of allAlbums) {
+  if (releaseDates.has(album.releaseDate)) {
+    fail(`Duplicate release date: ${album.releaseDate}`);
+  }
+  releaseDates.add(album.releaseDate);
+}
+
+// Ensure that song album positions are unique
+const albumPositions = new Set<string>();
+for (const song of allSongs) {
+  const key = song.albumId + song.albumPosition;
+  if (albumPositions.has(key)) {
+    fail(`Duplicate album position: ${key}`);
+  }
+  albumPositions.add(key);
+}
 
 // Ensure that media IDs, image URLs, and show dates are unique
 const mediaIds = new Set<string>();

@@ -55,23 +55,27 @@ export function SongRow({ song }: { song: Song }) {
   const songPath = getSongPath(song);
 
   return (
-    <div>
-      <Link href={songPath} className="text-lg no-underline">
-        {song.title}
-      </Link>
+    <div className="flex items-baseline space-x-1">
+      <div className="w-6 text-right text-muted">{song.albumPosition}.</div>
 
-      <div className="flex justify-between text-muted">
-        {songPerformances.length === 0 ? (
-          <>No performances submitted yet</>
-        ) : (
-          <>
-            {pluralize("performance", songPerformances.length, true)}
+      <div className="grow">
+        <Link href={songPath} className="text-lg no-underline">
+          {song.title}
+        </Link>
 
-            <Suspense fallback="Loading top performance...">
-              <TopPerformance song={song} />
-            </Suspense>
-          </>
-        )}
+        <div className="flex justify-between text-muted">
+          {songPerformances.length === 0 ? (
+            <>No performances submitted yet</>
+          ) : (
+            <>
+              {pluralize("performance", songPerformances.length, true)}
+
+              <Suspense fallback="Loading top performance...">
+                <TopPerformance song={song} />
+              </Suspense>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

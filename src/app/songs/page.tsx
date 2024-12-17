@@ -24,9 +24,10 @@ export default function Songs() {
 
         <div className="mt-6 space-y-8">
           {allAlbums.map((album) => {
-            const albumSongs = allSongs.filter(
-              (song) => song.albumId === album.id,
-            );
+            const albumSongs = allSongs
+              .filter((song) => song.albumId === album.id)
+              .sort((a, b) => a.albumPosition - b.albumPosition);
+
             const albumPath = getAlbumPath(album);
 
             return (
