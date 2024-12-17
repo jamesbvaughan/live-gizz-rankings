@@ -19,9 +19,13 @@ async function TopPerformance({ song }: { song: Song }) {
     where: eq(performances.songId, song.id),
     orderBy: desc(performances.eloRating),
   });
-  const show = getShowById(performance!.showId)!;
+  if (performance == null) {
+    return null;
+  }
+
+  const show = getShowById(performance.showId)!;
   const showTitle = getShowTitle(show);
-  const performancePath = getPerformancePath(performance!);
+  const performancePath = getPerformancePath(performance);
 
   return (
     <Link
@@ -57,11 +61,17 @@ export function SongRow({ song }: { song: Song }) {
       </Link>
 
       <div className="flex justify-between text-muted">
-        {pluralize("performance", songPerformances.length, true)}
+        {songPerformances.length === 0 ? (
+          <>No performances submitted yet</>
+        ) : (
+          <>
+            {pluralize("performance", songPerformances.length, true)}
 
-        <Suspense fallback="Loading top performance...">
-          <TopPerformance song={song} />
-        </Suspense>
+            <Suspense fallback="Loading top performance...">
+              <TopPerformance song={song} />
+            </Suspense>
+          </>
+        )}
       </div>
     </div>
   );

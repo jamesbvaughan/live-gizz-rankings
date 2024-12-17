@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import { PageContent, PageTitle, PageType } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
-import { allSongs } from "@/drizzle/seeds";
+import { allPerformances, allSongs } from "@/drizzle/seeds";
 import {
   getAlbumPath,
   getPerformancePath,
@@ -102,6 +102,10 @@ export default async function Song({ params }: Props) {
     notFound();
   }
 
+  const performances = allPerformances.filter(
+    (performance) => performance.songId === song.id,
+  );
+
   const albumPath = getAlbumPath(song.albumId);
 
   return (
@@ -111,9 +115,16 @@ export default async function Song({ params }: Props) {
       <PageTitle>{song.title}</PageTitle>
 
       <PageContent className="space-y-8">
-        <Suspense fallback="Loading performances...">
-          <RankedPerformances songId={song.id} />
-        </Suspense>
+        {performances.length === 0 ? (
+          <p>
+            No performances of {song.title} have been nominated yet.
+            {/* TODO: Add a link to the nomination page once it exists */}
+          </p>
+        ) : (
+          <Suspense fallback="Loading performances...">
+            <RankedPerformances songId={song.id} />
+          </Suspense>
+        )}
 
         <div>
           <Link href={albumPath} className="no-underline">
