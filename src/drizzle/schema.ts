@@ -28,6 +28,7 @@ export const showsRelations = relations(shows, ({ many }) => ({
 
 export const albums = pgTable("albums", {
   id: uuid("id").primaryKey().defaultRandom(),
+  releaseDate: date("release_date").notNull(),
   slug: text("slug").unique().notNull(),
   title: text("title").notNull().unique(),
   imageUrl: text("image_url").notNull(),
@@ -48,6 +49,7 @@ export const songs = pgTable("songs", {
   albumId: uuid("album_id")
     .references(() => albums.id)
     .notNull(),
+  albumPosition: integer("album_position").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

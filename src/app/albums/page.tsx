@@ -12,12 +12,17 @@ export const metadata: Metadata = {
 };
 
 export default async function Albums() {
+  const sortedAlbums = [...allAlbums].sort(
+    (a, b) =>
+      new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime(),
+  );
+
   return (
     <>
       <PageTitle>Albums with ranked performances</PageTitle>
 
       <PageContent className="grid grid-cols-2 gap-4">
-        {allAlbums.map((album, index) => {
+        {sortedAlbums.map((album, index) => {
           const albumPath = getAlbumPath(album);
 
           return (

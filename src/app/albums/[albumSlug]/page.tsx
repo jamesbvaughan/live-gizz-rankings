@@ -39,7 +39,9 @@ export default async function Album({ params }: Props) {
     notFound();
   }
 
-  const songs = allSongs.filter((song) => song.albumId === album.id);
+  const songs = allSongs
+    .filter((song) => song.albumId === album.id)
+    .sort((a, b) => a.albumPosition - b.albumPosition);
 
   return (
     <>

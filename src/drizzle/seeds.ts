@@ -39,6 +39,7 @@ export const seedAlbums = {
   tbb: {
     title: "12 Bar Bruise",
     slug: "12-bar-bruise",
+    releaseDate: "2012-09-07",
     id: "5bc6a134-a0dc-4184-9b64-3f7bdd003a92",
     imageUrl: "https://f4.bcbits.com/img/a3529909906_16.jpg",
     bandcampAlbumId: "2765388374",
@@ -46,6 +47,7 @@ export const seedAlbums = {
   fafyl: {
     title: "Float Along - Fill Your Lungs",
     slug: "float-along-fill-your-lungs",
+    releaseDate: "2013-09-27",
     id: "55154b57-7925-408c-af21-c94fe06b3d62",
     imageUrl: "https://f4.bcbits.com/img/a3907213656_16.jpg",
     bandcampAlbumId: "1510489151",
@@ -53,6 +55,7 @@ export const seedAlbums = {
   oddments: {
     title: "Oddments",
     slug: "oddments",
+    releaseDate: "2014-03-07",
     id: "7f1d12b4-d57a-42e8-9aae-57082cab5633",
     imageUrl: "https://f4.bcbits.com/img/a0348996479_16.jpg",
     bandcampAlbumId: "3657754108",
@@ -60,6 +63,7 @@ export const seedAlbums = {
   mindFuzz: {
     title: "I'm In Your Mind Fuzz",
     slug: "im-in-your-mind-fuzz",
+    releaseDate: "2014-10-31",
     id: "29ae645d-1487-4963-9605-25a24904c205",
     imageUrl: "https://f4.bcbits.com/img/a3937834400_16.jpg",
     bandcampAlbumId: "3101239241",
@@ -67,6 +71,7 @@ export const seedAlbums = {
   quarters: {
     title: "Quarters",
     slug: "quarters",
+    releaseDate: "2015-05-12",
     id: "5ba9fb14-390a-4f14-a141-21b6fb66adac",
     imageUrl: "https://f4.bcbits.com/img/a3796441552_16.jpg",
     bandcampAlbumId: "1306577560",
@@ -74,6 +79,7 @@ export const seedAlbums = {
   pmdb: {
     title: "Paper Mâché Dream Balloon",
     slug: "paper-mache-dream-balloon",
+    releaseDate: "2015-11-13",
     id: "1d5545eb-e953-41a7-be6d-a3dbb9f5d8e7",
     imageUrl: "https://f4.bcbits.com/img/a2280704800_16.jpg",
     bandcampAlbumId: "1762740948",
@@ -81,6 +87,7 @@ export const seedAlbums = {
   nonagon: {
     title: "Nonagon Infinity",
     slug: "nonagon-infinity",
+    releaseDate: "2016-04-29",
     id: "8a1332c8-c7d2-481c-9551-afa8bab79bd6",
     imageUrl: "https://f4.bcbits.com/img/a1566708845_16.jpg",
     bandcampAlbumId: "87057479",
@@ -88,6 +95,7 @@ export const seedAlbums = {
   fmb: {
     title: "Flying Microtonal Banana",
     slug: "flying-microtonal-banana",
+    releaseDate: "2017-02-24",
     id: "003314d7-fe25-4742-8b47-cb52f7966bc2",
     imageUrl: "https://f4.bcbits.com/img/a2731568276_16.jpg",
     bandcampAlbumId: "114372498",
@@ -95,6 +103,7 @@ export const seedAlbums = {
   sketches: {
     title: "Sketches of Brunswick East",
     slug: "sketches-of-brunswick-east",
+    releaseDate: "2017-08-18",
     id: "a8fcce86-fab9-44d1-b3c2-1c6b1297ab2e",
     imageUrl: "https://f4.bcbits.com/img/a4206546710_16.jpg",
     bandcampAlbumId: "1255749163",
@@ -102,6 +111,7 @@ export const seedAlbums = {
   poly: {
     title: "Polygondwanaland",
     slug: "polygondwanaland",
+    releaseDate: "2017-11-17",
     id: "03c0b2d8-626c-4c1c-b0f9-5c730477caab",
     imageUrl: "https://f4.bcbits.com/img/a1550557789_16.jpg",
     bandcampAlbumId: "1017207616",
@@ -109,6 +119,7 @@ export const seedAlbums = {
   gumbootSoup: {
     title: "Gumboot Soup",
     slug: "gumboot-soup",
+    releaseDate: "2017-12-31",
     id: "08816b5c-5e1a-4aca-b07c-0a1b1008fabe",
     imageUrl: "https://f4.bcbits.com/img/a1481325267_16.jpg",
     bandcampAlbumId: "2728208210",
@@ -116,6 +127,7 @@ export const seedAlbums = {
   fff: {
     title: "Fishing For Fishies",
     slug: "fishing-for-fishies",
+    releaseDate: "2019-04-26",
     id: "bc67b3f7-af1d-443f-9d28-1c99f6d4aa60",
     imageUrl: "https://f4.bcbits.com/img/a0470322543_16.jpg",
     bandcampAlbumId: "1507780262",
@@ -123,6 +135,7 @@ export const seedAlbums = {
   itrn: {
     title: "Infest the Rats' Nest",
     slug: "infest-the-rats-nest",
+    releaseDate: "2019-08-16",
     id: "e889bd13-f73f-40fc-8ea9-17a6c3e9ad26",
     imageUrl: "https://f4.bcbits.com/img/a0402916090_16.jpg",
     bandcampAlbumId: "3925296262",
@@ -130,6 +143,7 @@ export const seedAlbums = {
   kg: {
     title: "K.G.",
     slug: "kg",
+    releaseDate: "2020-11-20",
     id: "0c1f66d2-4ebc-499d-9bd7-c1ea34e4fbc0",
     imageUrl: "https://f4.bcbits.com/img/a3546319741_16.jpg",
     bandcampAlbumId: "927421026",
@@ -137,6 +151,7 @@ export const seedAlbums = {
   bf3k: {
     title: "Butterfly 3000",
     slug: "butterfly-3000",
+    releaseDate: "2021-06-11",
     id: "40fdce93-4438-4700-8721-9fade20341a0",
     imageUrl: "https://f4.bcbits.com/img/a3009849752_16.jpg",
     bandcampAlbumId: "3244133050",
@@ -144,6 +159,7 @@ export const seedAlbums = {
   og: {
     title: "Omnium Gatherum",
     slug: "omnium-gatherum",
+    releaseDate: "2022-04-22",
     id: "560b0194-19ae-4bc9-aa24-0c2340596af7",
     imageUrl: "https://f4.bcbits.com/img/a2638998972_16.jpg",
     bandcampAlbumId: "129981996",
@@ -151,6 +167,7 @@ export const seedAlbums = {
   iceDeath: {
     title: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
     slug: "ice-death-planets-lungs-mushrooms-and-lava",
+    releaseDate: "2022-07-10",
     id: "46f925f1-dd7f-4966-8c02-3562e32f22b5",
     imageUrl: "https://f4.bcbits.com/img/a3317842641_16.jpg",
     bandcampAlbumId: "980855912",
@@ -158,6 +175,7 @@ export const seedAlbums = {
   laminatedDenim: {
     title: "Laminated Denim",
     slug: "laminate-denim",
+    releaseDate: "2022-10-12",
     id: "7ceb3610-4aac-41cb-9a2f-4b6633dfad9b",
     imageUrl: "https://f4.bcbits.com/img/a3665205369_16.jpg",
     bandcampAlbumId: "177111450",
@@ -166,6 +184,7 @@ export const seedAlbums = {
     title:
       "PetroDragonic Apocalypse; or, Dawn of Eternal Night: An Annihilation of Planet Earth and the Beginning of Merciless Damnation",
     slug: "petro",
+    releaseDate: "2023-06-16",
     id: "f43bb6f3-6b08-4687-a39e-a4f379325f93",
     imageUrl: "https://f4.bcbits.com/img/a2805471381_16.jpg",
     bandcampAlbumId: "3699259806",
@@ -173,6 +192,7 @@ export const seedAlbums = {
   tsc: {
     title: "The Silver Cord",
     slug: "the-silver-cord",
+    releaseDate: "2023-10-27",
     id: "e212c176-b78f-4b0b-93a0-651ca99591e2",
     imageUrl: "https://f4.bcbits.com/img/a0297097933_16.jpg",
     bandcampAlbumId: "2151949833",
@@ -180,6 +200,7 @@ export const seedAlbums = {
   b741: {
     title: "Flight b741",
     slug: "flight-b741",
+    releaseDate: "2024-08-09",
     id: "3e106926-3ea8-4742-87b4-7ea809799370",
     imageUrl: "https://f4.bcbits.com/img/a3548545002_16.jpg",
     bandcampAlbumId: "104852051",
@@ -193,6 +214,7 @@ export const seedSongs = {
   // 12 Bar Bruise
   cutThroatBoogie: {
     id: "b72be442-0339-42ea-be23-249c4207428e",
+    albumPosition: 4,
     slug: "cut-throat-boogie",
     title: "Cut Throat Boogie",
     albumId: seedAlbums.tbb.id,
@@ -202,18 +224,21 @@ export const seedSongs = {
   // Float Along - Fill Your Lungs
   headOn: {
     id: "556e6f5e-9099-4351-9c7e-0edb17e76b73",
+    albumPosition: 1,
     slug: "head-on-pill",
     title: "Head On/Pill",
     albumId: seedAlbums.fafyl.id,
   },
   letMeMendThePast: {
     id: "fa5d8f49-6cee-40f7-b4ea-e68de744035e",
+    albumPosition: 5,
     slug: "let-me-mend-the-past",
     title: "Let Me Mend the Past",
     albumId: seedAlbums.fafyl.id,
   },
   fafyl: {
     id: "4a0aac05-3060-4750-9eb0-fd6a058fbfc1",
+    albumPosition: 8,
     slug: "float-along-fill-your-lungs",
     title: "Float Along - Fill Your Lungs",
     albumId: seedAlbums.fafyl.id,
@@ -223,20 +248,23 @@ export const seedSongs = {
   // Oddments
   vegemite: {
     id: "917d455e-421c-4099-8765-9fa8876501b6",
+    albumPosition: 3,
     slug: "vegemite",
     title: "Vegemite",
     albumId: seedAlbums.oddments.id,
   },
-  hotWax: {
-    id: "57430f87-f009-4094-8c66-e08b8041bbc3",
-    slug: "hot-wax",
-    title: "Hot Wax",
-    albumId: seedAlbums.oddments.id,
-  },
   workThisTime: {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
+    albumPosition: 5,
     slug: "work-this-time",
     title: "Work This Time",
+    albumId: seedAlbums.oddments.id,
+  },
+  hotWax: {
+    id: "57430f87-f009-4094-8c66-e08b8041bbc3",
+    albumPosition: 8,
+    slug: "hot-wax",
+    title: "Hot Wax",
     albumId: seedAlbums.oddments.id,
   },
 
@@ -244,24 +272,28 @@ export const seedSongs = {
   // I'm In Your Mind Fuzz
   hotWater: {
     id: "7a0ac425-58be-4373-8f14-78905db4a081",
+    albumPosition: 6,
     slug: "hot-water",
     title: "Hot Water",
     albumId: seedAlbums.mindFuzz.id,
   },
   amIInHeaven: {
     id: "14c20df5-ff64-40b7-b410-aa2aa8daab83",
+    albumPosition: 7,
     slug: "am-i-in-heaven",
     title: "Am I in Heaven?",
     albumId: seedAlbums.mindFuzz.id,
   },
   slowJam1: {
     id: "d8206c9b-096f-4c9b-a477-ec36ed88de72",
+    albumPosition: 8,
     slug: "slow-jam-1",
     title: "Slow Jam 1",
     albumId: seedAlbums.mindFuzz.id,
   },
   herAndI: {
     id: "a0d4e6aa-e5d8-4402-82ef-27918958dafd",
+    albumPosition: 10,
     slug: "her-and-i-slow-jam-2",
     title: "Her and I (Slow Jam 2)",
     albumId: seedAlbums.mindFuzz.id,
@@ -271,6 +303,7 @@ export const seedSongs = {
   // Quarters
   theRiver: {
     id: "5855d6aa-2dd1-4f82-a2d8-44b4e663eb87",
+    albumPosition: 1,
     slug: "the-river",
     title: "The River",
     albumId: seedAlbums.quarters.id,
@@ -280,105 +313,121 @@ export const seedSongs = {
   // Paper Mâché Dream Balloon
   sense: {
     id: "d916bb15-6c5d-4d16-8224-4a4d30bd09b7",
+    albumPosition: 1,
     slug: "sense",
     title: "Sense",
     albumId: seedAlbums.pmdb.id,
   },
   trapdoor: {
     id: "7e5a8135-fab6-4dce-b54e-b784d94a7258",
+    albumPosition: 5,
     slug: "trapdoor",
     title: "Trapdoor",
     albumId: seedAlbums.pmdb.id,
   },
   theBitterBoogie: {
     id: "c613a961-1a79-491b-a567-995e018ba74d",
+    albumPosition: 7,
     slug: "the-bitter-boogie",
     title: "The Bitter Boogie",
     albumId: seedAlbums.pmdb.id,
   },
 
   // ====================================================
-  // Flying Microtonal Banana
-  openWater: {
-    id: "b2906883-cc2a-4bd6-96c4-6c728b60dd54",
-    slug: "open-water",
-    title: "Open Water",
-    albumId: seedAlbums.fmb.id,
-  },
-  billabongValley: {
-    id: "26a34912-4213-4d6b-b9db-9c8098cc636b",
-    slug: "billabong-valley",
-    title: "Billabong Valley",
-    albumId: seedAlbums.fmb.id,
-  },
-
-  // ====================================================
   // Nonagon Infinity
   robotStop: {
     id: "047f1192-9893-4776-882f-d76542a71943",
+    albumPosition: 1,
     slug: "robot-stop",
     title: "Robot Stop",
     albumId: seedAlbums.nonagon.id,
   },
   bigFigWasp: {
     id: "9c4c49aa-9a0b-40c1-9873-d30db334eb4a",
+    albumPosition: 2,
     slug: "big-fig-wasp",
     title: "Big Fig Wasp",
     albumId: seedAlbums.nonagon.id,
   },
   gammaKnife: {
     id: "ae61473d-3e8d-4b83-b48e-2025c9c1b9a0",
+    albumPosition: 3,
     slug: "gamma-knife",
     title: "Gamma Knife",
     albumId: seedAlbums.nonagon.id,
   },
   peopleVultures: {
     id: "8bce52d7-bb5e-43fa-8a20-e3660e206f7a",
+    albumPosition: 4,
     slug: "people-vultures",
     title: "People Vultures",
     albumId: seedAlbums.nonagon.id,
   },
   mrBeat: {
     id: "8ec206bb-f1e7-45ed-90a7-c05233fb6de6",
+    albumPosition: 5,
     slug: "mr-beat",
     title: "Mr. Beat",
     albumId: seedAlbums.nonagon.id,
   },
   evilDeathRoll: {
     id: "6eb610e1-1391-4ad3-ad61-5770fcfc02b8",
+    albumPosition: 6,
     slug: "evil-death-roll",
     title: "Evil Death Roll",
     albumId: seedAlbums.nonagon.id,
   },
   invisibleFace: {
     id: "214d2f6a-86f7-4825-b0e1-f4b7b5b2d298",
+    albumPosition: 7,
     slug: "invisible-face",
     title: "Invisible Face",
     albumId: seedAlbums.nonagon.id,
   },
   wahWah: {
     id: "f57a85a9-37bb-4a09-acbe-c9b595f03792",
+    albumPosition: 8,
     slug: "wah-wah",
     title: "Wah Wah",
     albumId: seedAlbums.nonagon.id,
   },
   roadTrain: {
     id: "d659a3f1-f66e-4583-9d52-655ea5441cb7",
+    albumPosition: 9,
     slug: "road-train",
     title: "Road Train",
     albumId: seedAlbums.nonagon.id,
   },
 
   // ====================================================
+  // Flying Microtonal Banana
+  openWater: {
+    id: "b2906883-cc2a-4bd6-96c4-6c728b60dd54",
+    albumPosition: 3,
+    slug: "open-water",
+    title: "Open Water",
+    albumId: seedAlbums.fmb.id,
+  },
+  billabongValley: {
+    id: "26a34912-4213-4d6b-b9db-9c8098cc636b",
+    albumPosition: 5,
+    slug: "billabong-valley",
+    title: "Billabong Valley",
+    albumId: seedAlbums.fmb.id,
+  },
+
+  // ====================================================
   // Sketches of Brunswick East
   theBook: {
     id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
+    albumPosition: 9,
     slug: "the-book",
     title: "The Book",
     albumId: seedAlbums.sketches.id,
   },
   silhouette: {
     id: "84be6b7d-8ef2-4a77-ad41-f6c8ab98e682",
+    albumPosition: 12,
     slug: "you-can-be-your-silhouette",
     title: "You Can Be Your Silhouette",
     albumId: seedAlbums.sketches.id,
@@ -388,12 +437,14 @@ export const seedSongs = {
   // Polygondwanaland
   crumblingCastle: {
     id: "46b73130-6997-466f-b570-4d4528913f9c",
+    albumPosition: 1,
     slug: "crumbling-castle",
     title: "Crumbling Castle",
     albumId: seedAlbums.poly.id,
   },
   fourthColor: {
     id: "cbf2a357-406a-46df-b6cb-639b06282cef",
+    albumPosition: 10,
     slug: "the-fourth-color",
     title: "The Fourth Color",
     albumId: seedAlbums.poly.id,
@@ -403,12 +454,14 @@ export const seedSongs = {
   // Gumboot Soup
   muddyWater: {
     id: "37476f9c-0e46-4ba6-9fb6-727cb904f567",
+    albumPosition: 4,
     slug: "muddy-water",
     title: "Muddy Water",
     albumId: seedAlbums.gumbootSoup.id,
   },
   theWheel: {
     id: "20fc1b2b-6838-422a-bf6f-9edff1b74a2f",
+    albumPosition: 11,
     slug: "the-wheel",
     title: "The Wheel",
     albumId: seedAlbums.gumbootSoup.id,
@@ -418,18 +471,21 @@ export const seedSongs = {
   // Fishing For Fishies
   boogiemanSam: {
     id: "a9a6572e-e1a3-4557-ab1e-388fc4db3b49",
+    albumPosition: 2,
     slug: "booogieman-sam",
     title: "Boogieman Sam",
     albumId: seedAlbums.fff.id,
   },
   plasticBoogie: {
     id: "f49713e5-5ddd-4142-b2ef-22dbf7dbb9d7",
+    albumPosition: 4,
     slug: "plastic-boogie",
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
   },
   thisThing: {
     id: "f4a714ed-0de5-43d3-a92c-14cf1c201c15",
+    albumPosition: 7,
     slug: "this-thing",
     title: "This Thing",
     albumId: seedAlbums.fff.id,
@@ -439,24 +495,28 @@ export const seedSongs = {
   // Infest the Rats' Nest
   planetB: {
     id: "29fd0103-5c22-4210-9b19-4b59866ff3ae",
+    albumPosition: 1,
     slug: "planet-b",
     title: "Planet B",
     albumId: seedAlbums.itrn.id,
   },
   venusian1: {
     id: "3fcc4acd-aab0-4bbe-81b2-59f4150b24da",
+    albumPosition: 5,
     slug: "venusian-1",
     title: "Venusian 1",
     albumId: seedAlbums.itrn.id,
   },
   perihelion: {
     id: "620be584-d629-4a52-8c71-f2e612a6cd06",
+    albumPosition: 6,
     slug: "perihelion",
     title: "Perihelion",
     albumId: seedAlbums.itrn.id,
   },
   hell: {
     id: "babd0c51-56c4-4b07-91ce-c734e797e876",
+    albumPosition: 9,
     slug: "hell",
     title: "Hell",
     albumId: seedAlbums.itrn.id,
@@ -466,12 +526,14 @@ export const seedSongs = {
   // K.G.
   strawsInTheWind: {
     id: "962270a4-42d6-4eab-bae9-c6b7ff3b2750",
+    albumPosition: 4,
     slug: "straws-in-the-wind",
     title: "Straws In The Wind",
     albumId: seedAlbums.kg.id,
   },
   intrasport: {
     id: "027fbc3c-620c-41f0-b734-f3d00262b41a",
+    albumPosition: 7,
     slug: "intrasport",
     title: "Intrasport",
     albumId: seedAlbums.kg.id,
@@ -481,12 +543,14 @@ export const seedSongs = {
   // Butterfly 3000
   shanghai: {
     id: "f927bc2e-d505-4cd6-8357-f3d73ded4403",
+    albumPosition: 2,
     slug: "shanghai",
     title: "Shanghai",
     albumId: seedAlbums.bf3k.id,
   },
   interiorPeople: {
     id: "96f2555a-796d-4dd1-8bfa-52c007a55190",
+    albumPosition: 5,
     slug: "interior-people",
     title: "Interior People",
     albumId: seedAlbums.bf3k.id,
@@ -496,30 +560,35 @@ export const seedSongs = {
   // Omnium Gatherum
   theDrippingTap: {
     id: "ae4a1559-f995-4ba0-bb49-6c1e34e196b3",
+    albumPosition: 1,
     slug: "the-dripping-tap",
     title: "The Dripping Tap",
     albumId: seedAlbums.og.id,
   },
   magentaMountain: {
     id: "9100f1b2-0e74-40bb-a945-0f59b54fff6d",
+    albumPosition: 2,
     slug: "magenta-mountain",
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
   ambergris: {
     id: "1c34fd6f-6389-48ed-a482-a8f5ed51ec3d",
+    albumPosition: 5,
     slug: "ambergris",
     title: "Ambergris",
     albumId: seedAlbums.og.id,
   },
   theGrimReaper: {
     id: "99018b73-3191-49d3-a792-de9ea16b4a0e",
+    albumPosition: 11,
     slug: "the-grim-reaper",
     title: "The Grim Reaper",
     albumId: seedAlbums.og.id,
   },
   presumptuous: {
     id: "aff6b78b-28a5-4993-b538-ad203b5fba86",
+    albumPosition: 12,
     slug: "presumptuous",
     title: "Presumptuous",
     albumId: seedAlbums.og.id,
@@ -529,18 +598,21 @@ export const seedSongs = {
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
   iceV: {
     id: "ae36e961-6db2-4c3b-8f8d-d08ecb671543",
+    albumPosition: 2,
     slug: "ice-v",
     title: "Ice V",
     albumId: seedAlbums.iceDeath.id,
   },
   magma: {
     id: "717f22ee-9458-4bca-8dbf-e7940b1e4d96",
+    albumPosition: 3,
     slug: "magma",
     title: "Magma",
     albumId: seedAlbums.iceDeath.id,
   },
   ironLung: {
     id: "15a32d56-c560-4017-9e49-e000b644a55b",
+    albumPosition: 6,
     slug: "iron-lung",
     title: "Iron Lung",
     albumId: seedAlbums.iceDeath.id,
@@ -550,6 +622,7 @@ export const seedSongs = {
   // Laminated Denim
   hypertension: {
     id: "5765ec19-0e59-479c-a62c-a019ac73ce28",
+    albumPosition: 2,
     slug: "hypertension",
     title: "Hypertension",
     albumId: seedAlbums.laminatedDenim.id,
@@ -560,42 +633,49 @@ export const seedSongs = {
   // An Annihilation of Planet Earth and the Beginning of Merciless Damnation
   motorSpirit: {
     id: "7a076db2-b2b7-4cea-a0cb-2abdaf36c7a1",
+    albumPosition: 1,
     slug: "motor-spirit",
     title: "Motor Spirit",
     albumId: seedAlbums.petro.id,
   },
   supercell: {
     id: "eb1c3c7a-c735-4013-8408-64be214d6a39",
+    albumPosition: 2,
     slug: "supercell",
     title: "Supercell",
     albumId: seedAlbums.petro.id,
   },
   converge: {
     id: "8879d2b7-57e3-4e38-bc0c-250f3b5fb288",
+    albumPosition: 3,
     slug: "converge",
     title: "Converge",
     albumId: seedAlbums.petro.id,
   },
   witchcraft: {
     id: "e5e33a88-2ae2-4c49-914b-837d01aa088c",
+    albumPosition: 4,
     slug: "witchcraft",
     title: "Witchcraft",
     albumId: seedAlbums.petro.id,
   },
   gilaMonster: {
     id: "259d79c1-2e33-478f-b670-4e64d416c6f2",
+    albumPosition: 5,
     slug: "gila-monster",
     title: "Gila Monster",
     albumId: seedAlbums.petro.id,
   },
   dragon: {
     id: "615908d3-72ae-4034-8d28-59cdf0341967",
+    albumPosition: 6,
     slug: "dragon",
     title: "Dragon",
     albumId: seedAlbums.petro.id,
   },
   flamethrower: {
     id: "20a76786-5937-4b04-bcaa-37916a9edced",
+    albumPosition: 7,
     slug: "flamethrower",
     title: "Flamethrower",
     albumId: seedAlbums.petro.id,
@@ -605,42 +685,49 @@ export const seedSongs = {
   // The Silver Cord
   theia: {
     id: "cadd1e1b-db88-439b-be3a-7dc402075636",
+    albumPosition: 1,
     slug: "theia",
     title: "Theia",
     albumId: seedAlbums.tsc.id,
   },
   theSilverCord: {
     id: "c7633144-0d11-45a6-ac88-ee089b7e9605",
+    albumPosition: 2,
     slug: "the-silver-cord",
     title: "The Silver Cord",
     albumId: seedAlbums.tsc.id,
   },
   set: {
     id: "d28b90db-4e89-48da-ace5-d311e82c550e",
+    albumPosition: 3,
     slug: "set",
     title: "Set",
     albumId: seedAlbums.tsc.id,
   },
   "chang-e": {
     id: "92052f74-b55f-404f-be92-4f68440db27f",
+    albumPosition: 4,
     slug: "chang-e",
     title: "Chang'e",
     albumId: seedAlbums.tsc.id,
   },
   gilgamesh: {
     id: "42ba1e70-c9cd-49b9-aa02-ab2e3e403e4c",
+    albumPosition: 5,
     slug: "gilgamesh",
     title: "Gilgamesh",
     albumId: seedAlbums.tsc.id,
   },
   swanSong: {
     id: "159f483a-85d1-4480-a4c6-3526f579e34f",
+    albumPosition: 6,
     slug: "swan-song",
     title: "Swan Song",
     albumId: seedAlbums.tsc.id,
   },
   extinction: {
     id: "5bd9512b-9dca-43c3-b6d1-2cda9221a7bb",
+    albumPosition: 7,
     slug: "extinction",
     title: "Extinction",
     albumId: seedAlbums.tsc.id,
@@ -650,24 +737,28 @@ export const seedSongs = {
   // Flight b741
   mirageCity: {
     id: "c842a0d7-2f49-4a2d-8f05-4f2f19aae3e9",
+    albumPosition: 1,
     slug: "mirage-city",
     title: "Mirage City",
     albumId: seedAlbums.b741.id,
   },
   fieldOfVision: {
     id: "89b0330f-92a1-4df9-b3a9-539fabb5ab8a",
+    albumPosition: 4,
     slug: "field-of-vision",
     title: "Field of Vision",
     albumId: seedAlbums.b741.id,
   },
   leRisque: {
     id: "98521dd4-8ca6-48e2-b7ed-05e3bc765711",
+    albumPosition: 6,
     slug: "le-risque",
     title: "Le Risque",
     albumId: seedAlbums.b741.id,
   },
   dailyBlues: {
     id: "4da6d803-c03e-4d29-9f43-f9042b1cabcd",
+    albumPosition: 10,
     slug: "daily-blues",
     title: "Daily Blues",
     albumId: seedAlbums.b741.id,
