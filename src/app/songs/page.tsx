@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { SongRow } from "@/components/SongRow";
 import { PageContent, PageTitle } from "@/components/ui";
-import { allAlbums, allSongs } from "@/drizzle/seeds";
+import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
 import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
@@ -48,6 +48,13 @@ export default function Songs() {
 
                 <div className="space-y-2">
                   {albumSongs.map((song) => {
+                    const performances = allPerformances.filter(
+                      (performance) => performance.songId === song.id,
+                    );
+                    if (performances.length === 0) {
+                      return null;
+                    }
+
                     return <SongRow key={song.id} song={song} />;
                   })}
                 </div>

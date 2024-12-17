@@ -320,10 +320,52 @@ export const seedSongs = {
     title: "Robot Stop",
     albumId: seedAlbums.nonagon.id,
   },
+  bigFigWasp: {
+    id: "9c4c49aa-9a0b-40c1-9873-d30db334eb4a",
+    slug: "big-fig-wasp",
+    title: "Big Fig Wasp",
+    albumId: seedAlbums.nonagon.id,
+  },
+  gammaKnife: {
+    id: "ae61473d-3e8d-4b83-b48e-2025c9c1b9a0",
+    slug: "gamma-knife",
+    title: "Gamma Knife",
+    albumId: seedAlbums.nonagon.id,
+  },
+  peopleVultures: {
+    id: "8bce52d7-bb5e-43fa-8a20-e3660e206f7a",
+    slug: "people-vultures",
+    title: "People Vultures",
+    albumId: seedAlbums.nonagon.id,
+  },
+  mrBeat: {
+    id: "8ec206bb-f1e7-45ed-90a7-c05233fb6de6",
+    slug: "mr-beat",
+    title: "Mr. Beat",
+    albumId: seedAlbums.nonagon.id,
+  },
   evilDeathRoll: {
     id: "6eb610e1-1391-4ad3-ad61-5770fcfc02b8",
     slug: "evil-death-roll",
     title: "Evil Death Roll",
+    albumId: seedAlbums.nonagon.id,
+  },
+  invisibleFace: {
+    id: "214d2f6a-86f7-4825-b0e1-f4b7b5b2d298",
+    slug: "invisible-face",
+    title: "Invisible Face",
+    albumId: seedAlbums.nonagon.id,
+  },
+  wahWah: {
+    id: "f57a85a9-37bb-4a09-acbe-c9b595f03792",
+    slug: "wah-wah",
+    title: "Wah Wah",
+    albumId: seedAlbums.nonagon.id,
+  },
+  roadTrain: {
+    id: "d659a3f1-f66e-4583-9d52-655ea5441cb7",
+    slug: "road-train",
+    title: "Road Train",
     albumId: seedAlbums.nonagon.id,
   },
 
@@ -395,6 +437,12 @@ export const seedSongs = {
 
   // ====================================================
   // Infest the Rats' Nest
+  planetB: {
+    id: "29fd0103-5c22-4210-9b19-4b59866ff3ae",
+    slug: "planet-b",
+    title: "Planet B",
+    albumId: seedAlbums.itrn.id,
+  },
   venusian1: {
     id: "3fcc4acd-aab0-4bbe-81b2-59f4150b24da",
     slug: "venusian-1",
@@ -1109,6 +1157,18 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Big Fig Wasp
+  {
+    id: "a982b6aa-590b-4efa-9f2a-5ebd37b6ea7d",
+    songId: seedSongs.bigFigWasp.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "33mREAnThJjq2irj1KNLFn",
+    bandcampTrackId: "2902387279",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 912,
+  },
+
+  // ====================================================
   // Billabong Valley
   {
     id: "1ef77fac-6429-4b08-b567-7bfec3cd35c0",
@@ -1566,6 +1626,27 @@ export const seedPerformances = [
     bandcampTrackId: "3168659177",
     youtubeVideoId: "8nvhFvcPBhk",
     youtubeVideoStartTime: 6062,
+  },
+
+  // ====================================================
+  // Gamma Knife
+  {
+    id: "80817c8d-5b34-4bc8-828c-b3ba3bc26ddb",
+    songId: seedSongs.gammaKnife.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "1TF0vRogzNHgXIG0yfXzqv",
+    bandcampTrackId: "1349833954",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 1186,
+  },
+  {
+    id: "e31723ef-f1bb-4612-b56d-8a394330faac",
+    songId: seedSongs.gammaKnife.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "12g33R5FFm8FT0qogTcfCb",
+    bandcampTrackId: "3686848957",
+    youtubeVideoId: "lb7vWhUHEFg",
+    youtubeVideoStartTime: 441,
   },
 
   // ====================================================
@@ -2098,6 +2179,27 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Mr. Beat
+  {
+    id: "476e52a8-71c6-4a26-8bf5-77f64dcd325f",
+    songId: seedSongs.mrBeat.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "2s1WrQcyiW8O3qgJCL0Bh0",
+    bandcampTrackId: "266717703",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 1883,
+  },
+  {
+    id: "3beb72ce-091e-43c6-97ee-af364a6ece35",
+    songId: seedSongs.mrBeat.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "63wXCcSzMOh6i0z4N6Ih2p",
+    bandcampTrackId: "4007654120",
+    youtubeVideoId: "lb7vWhUHEFg",
+    youtubeVideoStartTime: 1089,
+  },
+
+  // ====================================================
   // Muddy Water
   {
     id: "f58deed0-7745-4463-a4fd-743a9a29f929",
@@ -2122,6 +2224,27 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // People-Vultures
+  {
+    id: "bf25ea97-d04a-4ecb-bfb3-33b1f303bd1a",
+    songId: seedSongs.peopleVultures.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "3JM0qy4i62mYEODCY5hchU",
+    bandcampTrackId: "2505063591",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 1472,
+  },
+  {
+    id: "aeb32b74-e21b-441c-8079-5057d27a3452",
+    songId: seedSongs.peopleVultures.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1011Xkn7sEsRerVaJy2jaT",
+    bandcampTrackId: "649182598",
+    youtubeVideoId: "lb7vWhUHEFg",
+    youtubeVideoStartTime: 738,
+  },
+
+  // ====================================================
   // Perihelion
   {
     id: "d3ae2d6f-c52a-444a-b223-05319147bc71",
@@ -2140,6 +2263,38 @@ export const seedPerformances = [
     bandcampTrackId: "1537742992",
     youtubeVideoId: "8RbhqJHZPtM",
     youtubeVideoStartTime: 5901,
+  },
+
+  // ====================================================
+  // Planet B
+  {
+    id: "457f6dc2-aca4-48b2-8a5b-bff275572893",
+    songId: seedSongs.planetB.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "5tdmcl6cSOiYFol0TF1kZ4",
+    bandcampTrackId: "2913682568",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 5102,
+  },
+  {
+    id: "4f326369-7322-497e-b69e-70cd642cd3c7",
+    songId: seedSongs.planetB.id,
+    showId: seedShows.atlanta24.id,
+    spotifyTrackId: "1Y9fpjKct6i57PWOSTnYPM",
+    bandcampTrackId: "3717346947",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 2205,
+  },
+  {
+    id: "dfd7a177-f295-4501-b114-5fde626c08da",
+    songId: seedSongs.planetB.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: "0R6JLDzOcJjgGuSBpBQCgi",
+    bandcampTrackId: "2638712147",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 660,
   },
 
   // ====================================================
@@ -2225,6 +2380,24 @@ export const seedPerformances = [
     youtubeVideoId: "TbTBVZuTq4k",
     youtubeVideoStartTime: 65,
   },
+  {
+    id: "23ca74ee-1da7-4c03-90b4-06f6d914c7da",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1Wf2oyRQxqFiojyQlSO1ch",
+    bandcampTrackId: "241588137",
+    youtubeVideoId: "lb7vWhUHEFg",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "b2c20632-5248-4888-a56a-2a8966ce49b7",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.chicago24.id,
+    spotifyTrackId: "1vMpMkaUMoSaTKmuBwcVwh",
+    bandcampTrackId: "1015337476",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 365,
+  },
 
   // ====================================================
   // Sense
@@ -2305,6 +2478,16 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 5497,
+  },
+  {
+    id: "c4a02493-c81f-4a5d-b0d8-ed99e6122711",
+    songId: seedSongs.set.id,
+    showId: seedShows.stAugustine24.id,
+    spotifyTrackId: "6crXOj29bpsm7BLPTRAtyJ",
+    bandcampTrackId: "42188022",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 6985,
   },
 
   // ====================================================
