@@ -188,6 +188,14 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a3665205369_16.jpg",
     bandcampAlbumId: "177111450",
   },
+  changes: {
+    title: "Changes",
+    slug: "changes",
+    releaseDate: "2022-10-28",
+    id: "957eae4b-eec8-45de-abcc-8902cda88fd3",
+    imageUrl: "https://f4.bcbits.com/img/a1890146474_16.jpg",
+    bandcampAlbumId: "2202545504",
+  },
   petro: {
     title:
       "PetroDragonic Apocalypse; or, Dawn of Eternal Night: An Annihilation of Planet Earth and the Beginning of Merciless Damnation",
@@ -651,6 +659,16 @@ export const seedSongs = {
     slug: "hypertension",
     title: "Hypertension",
     albumId: seedAlbums.laminatedDenim.id,
+  },
+
+  // ====================================================
+  // Changes
+  gondii: {
+    id: "a2737d99-cecd-49c5-bdce-163057a28263",
+    albumPosition: 5,
+    slug: "gondii",
+    title: "Gondii",
+    albumId: seedAlbums.changes.id,
   },
 
   // ====================================================
@@ -1818,6 +1836,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Gondii
+  {
+    id: "7c7d108c-da40-45b4-85ff-0b92870d6538",
+    songId: seedSongs.gondii.id,
+    showId: seedShows.stanford24.id,
+    spotifyTrackId: "6VTIxaMspdTcDZqAT7awTn",
+    bandcampTrackId: "3830352276",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 4543,
+  },
+
+  // ====================================================
   // The Grim Reaper
   {
     id: "0243fc07-1469-4376-9dc8-cd7314d3dc71",
@@ -1878,6 +1909,15 @@ export const seedPerformances = [
     bandcampTrackId: "107876226",
     youtubeVideoId: "koQvZI4ewGg",
     youtubeVideoStartTime: 11046,
+  },
+  {
+    id: "e699c3bf-8b77-40ea-a6fc-3497d834179b",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.milwaukee19.id,
+    spotifyTrackId: "0r8msV2yUtP4ra3BxGzzL6",
+    bandcampTrackId: "3332150060",
+    youtubeVideoId: "KN5n7ErGusg",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -2288,6 +2328,15 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "oYfmVYBymCM",
     youtubeVideoStartTime: 3174,
+  },
+  {
+    id: "096a152f-c570-478a-aa80-71b6d702ddef",
+    songId: seedSongs.mirageCity.id,
+    showId: seedShows.richmond24.id,
+    spotifyTrackId: "2VQ9wsoZjCxWdAQ3d2rIgQ",
+    bandcampTrackId: "1305004156",
+    youtubeVideoId: "5JEkTEktukg",
+    youtubeVideoStartTime: 4912,
   },
 
   // ====================================================
