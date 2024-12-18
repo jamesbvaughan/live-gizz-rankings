@@ -100,6 +100,14 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a2731568276_16.jpg",
     bandcampAlbumId: "114372498",
   },
+  motu: {
+    title: "Murder of the Universe",
+    slug: "murder-of-the-universe",
+    releaseDate: "2017-06-23",
+    id: "45419e68-2701-4221-8c6d-ee29f66523de",
+    imageUrl: "https://f4.bcbits.com/img/a3406870115_16.jpg",
+    bandcampAlbumId: "1787442871",
+  },
   sketches: {
     title: "Sketches of Brunswick East",
     slug: "sketches-of-brunswick-east",
@@ -246,6 +254,13 @@ export const seedSongs = {
 
   // ====================================================
   // Oddments
+  stressin: {
+    id: "ec5f8e95-a9c8-4a79-b16f-5ac56be4c5ba",
+    albumPosition: 2,
+    slug: "stressin",
+    title: "Stressin'",
+    albumId: seedAlbums.oddments.id,
+  },
   vegemite: {
     id: "917d455e-421c-4099-8765-9fa8876501b6",
     albumPosition: 3,
@@ -414,6 +429,16 @@ export const seedSongs = {
     slug: "billabong-valley",
     title: "Billabong Valley",
     albumId: seedAlbums.fmb.id,
+  },
+
+  // ====================================================
+  // Murder of the Universe
+  motu: {
+    id: "3bed1339-307c-48eb-b17e-ba582f0c00b6",
+    albumPosition: 21,
+    slug: "murder-of-the-universe",
+    title: "Murder of the Universe",
+    albumId: seedAlbums.motu.id,
   },
 
   // ====================================================
@@ -769,7 +794,15 @@ export const allSongs = Object.values(seedSongs) as Song[];
 // Ordered by show date
 export const seedShows = {
   // ====================================================
-  // Europe Tour 2019
+  // World Tour 2019
+  milwaukee19: {
+    id: "ccb86577-5c06-4180-8ff1-781c7c41e8d0",
+    slug: "milwaukee-2019",
+    location: "Milwaukee",
+    date: "2019-08-23",
+    imageUrl: "https://f4.bcbits.com/img/a2134759453_16.jpg",
+    bandcampAlbumId: "2354695487",
+  },
   madrid19: {
     id: "11597d9b-21e7-43b7-b681-cd22a31c5a90",
     slug: "madrid-2019",
@@ -2312,6 +2345,28 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Murder of the Universe
+  {
+    id: "a76c363e-2199-40d7-be98-44d86e718bad",
+    songId: seedSongs.motu.id,
+    showId: seedShows.vegas24.id,
+    spotifyTrackId: "7DGJRQEpT7n1cahNKPk0d3",
+    bandcampTrackId: "2471235386",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "hxebzoQTkvA",
+    youtubeVideoStartTime: 2602,
+  },
+  {
+    id: "c1d6f740-1ddd-4d14-bf86-51b43893cb95",
+    songId: seedSongs.motu.id,
+    showId: seedShows.milwaukee19.id,
+    spotifyTrackId: "5kKVdDixphTPwGMcrdHndu",
+    bandcampTrackId: "3606943763",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Open Water
   {
     id: "eca3f420-ca48-4e40-bcd5-c7d9f2274d66",
@@ -2705,6 +2760,27 @@ export const seedPerformances = [
     bandcampTrackId: "2661898645",
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 7244,
+  },
+
+  // ====================================================
+  // Stressin'
+  {
+    id: "05a57b06-978a-46c0-933a-2720998459b7",
+    songId: seedSongs.stressin.id,
+    showId: seedShows.rr24.id,
+    spotifyTrackId: "3erbXMNp59K0oInn4iOtbc",
+    bandcampTrackId: "3695294320",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 5442,
+  },
+  {
+    id: "f6bf4190-6380-469c-b9a5-701081ee0487",
+    songId: seedSongs.stressin.id,
+    showId: seedShows.brisbaneAcoustic21.id,
+    spotifyTrackId: "2HH8lJrkVfACOc9KfmoLdm",
+    bandcampTrackId: "1595669529",
+    youtubeVideoId: "vfWdWU5J2zc",
+    youtubeVideoStartTime: 5261,
   },
 
   // ====================================================
