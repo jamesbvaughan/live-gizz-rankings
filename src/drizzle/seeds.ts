@@ -1834,6 +1834,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "aafc4d23-7009-4b34-aa3c-500a7ef5363e",
+    songId: seedSongs.gilgamesh.id,
+    showId: seedShows.atlanta24.id,
+    spotifyTrackId: "4VjZ5TXs6Vs4utgnUZ41wx",
+    bandcampTrackId: "857629155",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 7814,
+  },
 
   // ====================================================
   // Gondii
@@ -3078,6 +3088,15 @@ export const seedPerformances = [
     bandcampTrackId: "379756500",
     youtubeVideoId: "8M8T3mFdPNQ",
     youtubeVideoStartTime: 3105,
+  },
+  {
+    id: "dfed6e52-5eae-4565-8f89-5d4c386ab531",
+    songId: seedSongs.silhouette.id,
+    showId: seedShows.detroit24.id,
+    spotifyTrackId: "3hM6LUI9nEaGj1quKNbnVF",
+    bandcampTrackId: "3733101087",
+    youtubeVideoId: "TbVDmWNbYFs",
+    youtubeVideoStartTime: 3165,
   },
 ] as const satisfies Omit<
   Performance,
