@@ -1339,6 +1339,15 @@ export const seedPerformances = [
     youtubeVideoId: "zPJQJY6vY8E",
     youtubeVideoStartTime: 366,
   },
+  {
+    id: "6c438e86-997c-4b38-8b04-e9cf070af844",
+    songId: seedSongs.billabongValley.id,
+    showId: seedShows.detroit24.id,
+    spotifyTrackId: "4FD4yOZmJG8EkCwQTlYcjm",
+    bandcampTrackId: "1978119430",
+    youtubeVideoId: "TbVDmWNbYFs",
+    youtubeVideoStartTime: 7142,
+  },
 
   // ====================================================
   // The Bitter Boogie
@@ -1590,6 +1599,15 @@ export const seedPerformances = [
     spotifyTrackId: null,
     bandcampTrackId: null,
     youtubeVideoId: "jB7yQpU3fCw",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "579cb937-6c67-447f-9d7c-9a25634d07d1",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "4uRjHD6rFsGuo7mbaDF7aO",
+    bandcampTrackId: "2831038979",
+    youtubeVideoId: "YG4Aosi0GYs",
     youtubeVideoStartTime: null,
   },
 
@@ -2915,6 +2933,15 @@ export const seedPerformances = [
     bandcampTrackId: "3519548606",
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 1534,
+  },
+  {
+    id: "e443dfd8-1998-45b8-b52d-b7fb7ea8792b",
+    songId: seedSongs.theia.id,
+    showId: seedShows.detroit24.id,
+    spotifyTrackId: "1t8GDKmeKFMHnWsFERJqZx",
+    bandcampTrackId: "3352149423",
+    youtubeVideoId: "TbVDmWNbYFs",
+    youtubeVideoStartTime: 471,
   },
 
   // ====================================================
