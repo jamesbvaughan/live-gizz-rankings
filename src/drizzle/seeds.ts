@@ -441,6 +441,48 @@ export const seedSongs = {
 
   // ====================================================
   // Murder of the Universe
+  aNewWorld: {
+    id: "ec659f44-f428-4175-b190-40458c24fee7",
+    albumPosition: 1,
+    slug: "a-new-world",
+    title: "A New World",
+    albumId: seedAlbums.motu.id,
+  },
+  alteredBeastI: {
+    id: "da09da99-231c-444e-ab5b-752656705d0f",
+    albumPosition: 2,
+    slug: "altered-beast-i",
+    title: "Altered Beast I",
+    albumId: seedAlbums.motu.id,
+  },
+  alterMeI: {
+    id: "b876df42-8446-4a1c-9461-38f5d39b8829",
+    albumPosition: 3,
+    slug: "alter-me-i",
+    title: "Alter Me I",
+    albumId: seedAlbums.motu.id,
+  },
+  alteredBeastII: {
+    id: "b38abf6c-e6c3-4fae-b861-ebf4e1900738",
+    albumPosition: 4,
+    slug: "altered-beast-ii",
+    title: "Altered Beast II",
+    albumId: seedAlbums.motu.id,
+  },
+  alterMeII: {
+    id: "cc5c347e-1281-4fb3-9759-17a3b0c9cc0e",
+    albumPosition: 5,
+    slug: "alter-me-ii",
+    title: "Alter Me II",
+    albumId: seedAlbums.motu.id,
+  },
+  alteredBeastIII: {
+    id: "05691ee6-b19d-4dad-a7b7-5fd8eda5e783",
+    albumPosition: 6,
+    slug: "altered-beast-iii",
+    title: "Altered Beast III",
+    albumId: seedAlbums.motu.id,
+  },
   motu: {
     id: "3bed1339-307c-48eb-b17e-ba582f0c00b6",
     albumPosition: 21,
@@ -1237,6 +1279,81 @@ export const allShows = Object.values(seedShows) as Show[];
 
 // Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances = [
+  // ===========================================================================
+  // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+  // ====================================================
+  // A New World
+  {
+    id: "a51e3a2c-b7ac-405f-b529-75c0b66dd3b5",
+    songId: seedSongs.aNewWorld.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "15TIaZdiqaXI26z6Zy3pQq",
+    bandcampTrackId: "2626401851",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Alter Me I
+  {
+    id: "c7437a1d-74fb-4136-a037-1ad382db36e0",
+    songId: seedSongs.alterMeI.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "4c955Fv2ad2ar4Dv1yhOz4",
+    bandcampTrackId: "779484551",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 211,
+  },
+
+  // ====================================================
+  // Alter Me II
+  {
+    id: "095a01ac-da7a-43fe-99d6-223fd26d5269",
+    songId: seedSongs.alterMeII.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "5N9S69TuzO5o9lGnnTZN8Y",
+    bandcampTrackId: "3702813776",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 539,
+  },
+
+  // ====================================================
+  // Altered Beast I
+  {
+    id: "205fc1ed-476b-4e6e-b3ec-e266261a4813",
+    songId: seedSongs.alteredBeastI.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "1umAO0aamdVSo1BaVEvwCD",
+    bandcampTrackId: "2383808222",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 70,
+  },
+
+  // ====================================================
+  // Altered Beast II
+  {
+    id: "707ecd97-afe5-48ca-a3f4-ae0dd273b1fb",
+    songId: seedSongs.alteredBeastII.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "55u4BEVcvhuPfbHZz0kQB2",
+    bandcampTrackId: "2314142736",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 265,
+  },
+
+  // ====================================================
+  // Altered Beast III
+  {
+    id: "ea2449b7-f2bf-4c35-a800-18de06af22d5",
+    songId: seedSongs.alteredBeastIII.id,
+    showId: seedShows.rr22.id,
+    spotifyTrackId: "3Ez0Px0CYOEv2FFnmokwDm",
+    bandcampTrackId: "3828515964",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 592,
+  },
+
   // ====================================================
   // Am I in Heaven?
   {
@@ -1297,6 +1414,9 @@ export const seedPerformances = [
     youtubeVideoId: "TbVDmWNbYFs",
     youtubeVideoStartTime: 1380,
   },
+
+  // ===========================================================================
+  // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
   // ====================================================
   // Big Fig Wasp
@@ -1395,6 +1515,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 2168,
   },
 
+  // ===========================================================================
+  // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
   // ====================================================
   // Chang'e
   {
@@ -1490,6 +1613,9 @@ export const seedPerformances = [
     youtubeVideoId: "_SXpEZS3vlU",
     youtubeVideoStartTime: 1540,
   },
+
+  // ===========================================================================
+  // DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
   // ====================================================
   // Daily Blues
@@ -1611,6 +1737,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: null,
   },
 
+  // ===========================================================================
+  // EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
   // ====================================================
   // Evil Death Roll
   {
@@ -1662,6 +1791,9 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 8589,
   },
+
+  // ===========================================================================
+  // FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
   // ====================================================
   // Field of Vision
@@ -1787,6 +1919,9 @@ export const seedPerformances = [
     youtubeVideoId: "8nvhFvcPBhk",
     youtubeVideoStartTime: 6062,
   },
+
+  // ===========================================================================
+  // GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 
   // ====================================================
   // Gamma Knife
@@ -1916,6 +2051,9 @@ export const seedPerformances = [
     youtubeVideoId: "5K02tvEbEp4",
     youtubeVideoStartTime: 5848,
   },
+
+  // ===========================================================================
+  // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
   // ====================================================
   // Head On/Pill
@@ -2075,6 +2213,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 2083,
   },
 
+  // ===========================================================================
+  // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
   // ====================================================
   // Ice V
   {
@@ -2163,6 +2304,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 5498,
   },
 
+  // ===========================================================================
+  // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+
   // ====================================================
   // Le Risque
   {
@@ -2233,6 +2377,9 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 5754,
   },
+
+  // ===========================================================================
+  // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
   // ====================================================
   // Magenta Mountain
@@ -2443,6 +2590,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: null,
   },
 
+  // ===========================================================================
+  // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
   // ====================================================
   // Open Water
   {
@@ -2454,6 +2604,9 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 2139,
   },
+
+  // ===========================================================================
+  // PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
 
   // ====================================================
   // People-Vultures
@@ -2562,6 +2715,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 2453,
   },
 
+  // ===========================================================================
+  // RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
   // ====================================================
   // The River
   {
@@ -2630,6 +2786,9 @@ export const seedPerformances = [
     youtubeVideoId: "koQvZI4ewGg",
     youtubeVideoStartTime: 365,
   },
+
+  // ===========================================================================
+  // SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
   // ====================================================
   // Sense
@@ -2913,6 +3072,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 6466,
   },
 
+  // ===========================================================================
+  // TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
   // ====================================================
   // Theia
   {
@@ -2999,6 +3161,9 @@ export const seedPerformances = [
     youtubeVideoStartTime: 4013,
   },
 
+  // ===========================================================================
+  // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
   // ====================================================
   // Vegemite
   {
@@ -3022,6 +3187,9 @@ export const seedPerformances = [
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 9908,
   },
+
+  // ===========================================================================
+  // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
   // ====================================================
   // The Wheel
@@ -3104,6 +3272,9 @@ export const seedPerformances = [
     youtubeVideoId: "5K02tvEbEp4",
     youtubeVideoStartTime: 4840,
   },
+
+  // ===========================================================================
+  // YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 
   // ====================================================
   // You Can Be Your Silhouette
