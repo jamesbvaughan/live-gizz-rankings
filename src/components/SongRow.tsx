@@ -65,12 +65,19 @@ export function SongRow({ song }: { song: Song }) {
 
         <div className="flex justify-between text-muted">
           {songPerformances.length === 0 ? (
-            <>No performances submitted yet</>
+            <span>
+              No performances submitted yet -{" "}
+              <Link href="/nominate">nominate one</Link>!
+            </span>
           ) : (
             <>
               {pluralize("performance", songPerformances.length, true)}
 
-              <Suspense fallback="Loading top performance...">
+              <Suspense
+                fallback={
+                  <span className="text-right">Loading top performance...</span>
+                }
+              >
                 <TopPerformance song={song} />
               </Suspense>
             </>
