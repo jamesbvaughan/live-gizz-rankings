@@ -17,39 +17,50 @@ export function AccountButtons() {
     return <div className="cursor-wait text-muted-2">sign in</div>;
   }
 
-  const isAdmin = user?.publicMetadata.isAdmin;
+  if (!isSignedIn) {
+    return (
+      <SignInButton mode="modal">
+        <button className="hover:text-red">sign in</button>
+      </SignInButton>
+    );
+  }
 
-  return isSignedIn ? (
+  const isAdmin = user.publicMetadata.isAdmin;
+  const username = user.username ?? user.primaryEmailAddress?.emailAddress;
+
+  return (
     <div className="flex flex-col items-end space-y-2">
-      <div className="flex flex-col items-end">
-        <button
-          className="hover:text-red"
-          onClick={() => {
-            clerk.openUserProfile();
-          }}
-        >
-          account
-        </button>
+      <div>{username ? `signed in as ${username}` : "signed in"}</div>
 
-        <SignOutButton>
-          <button className="hover:text-red">sign out</button>
-        </SignOutButton>
+      <hr className="w-full border-muted-2" />
+
+      <div className="flex flex-col items-end space-y-2">
+        <div className="flex flex-col items-end">
+          <button
+            className="hover:text-red"
+            onClick={() => {
+              clerk.openUserProfile();
+            }}
+          >
+            account
+          </button>
+
+          <SignOutButton>
+            <button className="hover:text-red">sign out</button>
+          </SignOutButton>
+        </div>
+
+        {isAdmin ? (
+          <>
+            <hr className="w-full border-muted-2" />
+
+            <div className="flex flex-col">
+              <Link href="/users">users</Link>
+              <Link href="/votes">votes</Link>
+            </div>
+          </>
+        ) : null}
       </div>
-
-      {isAdmin ? (
-        <>
-          <hr className="w-full border-muted-2" />
-
-          <div className="flex flex-col">
-            <Link href="/users">users</Link>
-            <Link href="/votes">votes</Link>
-          </div>
-        </>
-      ) : null}
     </div>
-  ) : (
-    <SignInButton mode="modal">
-      <button className="hover:text-red">sign in</button>
-    </SignInButton>
   );
 }

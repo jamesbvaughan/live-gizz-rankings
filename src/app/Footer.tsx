@@ -16,8 +16,16 @@ export function Footer() {
           <hr className="border-muted-2" />
 
           <div className="flex flex-col">
+            <Link href="/about" className="inline-block">
+              about
+            </Link>
+
             <Link href="/blog" className="inline-block">
               blog
+            </Link>
+
+            <Link href="/nominate" className="inline-block">
+              nominate a performance
             </Link>
 
             <a
