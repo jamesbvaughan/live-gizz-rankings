@@ -34,6 +34,10 @@
 
 import { Album, Performance, Show, Song } from "./schema";
 
+// =============================================================================
+// ================================ ALBUMS =====================================
+// =============================================================================
+
 // Ordered by release date
 export const seedAlbums = {
   tbb: {
@@ -223,6 +227,10 @@ export const seedAlbums = {
   },
 } as const satisfies Record<string, Omit<Album, "createdAt">>;
 export const allAlbums = Object.values(seedAlbums) as Album[];
+
+// =============================================================================
+// ================================= SONGS =====================================
+// =============================================================================
 
 // Ordered by album release date and position on album
 export const seedSongs = {
@@ -647,6 +655,13 @@ export const seedSongs = {
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
+  gaia: {
+    id: "96ec69a2-701b-4eb6-85f2-5631c24f81f8",
+    albumPosition: 4,
+    slug: "gaia",
+    title: "Gaia",
+    albumId: seedAlbums.og.id,
+  },
   ambergris: {
     id: "1c34fd6f-6389-48ed-a482-a8f5ed51ec3d",
     albumPosition: 5,
@@ -705,6 +720,13 @@ export const seedSongs = {
 
   // ====================================================
   // Changes
+  change: {
+    id: "8e9e04f6-fc88-4846-a5df-977bba3f36c9",
+    albumPosition: 1,
+    slug: "change",
+    title: "Change",
+    albumId: seedAlbums.changes.id,
+  },
   gondii: {
     id: "a2737d99-cecd-49c5-bdce-163057a28263",
     albumPosition: 5,
@@ -851,8 +873,23 @@ export const seedSongs = {
 } as const satisfies Record<string, Omit<Song, "createdAt">>;
 export const allSongs = Object.values(seedSongs) as Song[];
 
+// =============================================================================
+// ================================= SHOWS =====================================
+// =============================================================================
+
 // Ordered by show date
 export const seedShows = {
+  // ====================================================
+  // 2016 Tour
+  sf16: {
+    id: "959fc957-a47f-4618-a0ea-91a57e17c55e",
+    slug: "san-francisco-2016",
+    location: "San Francisco",
+    date: "2016-05-25",
+    imageUrl: "https://f4.bcbits.com/img/a3583868136_16.jpg",
+    bandcampAlbumId: "1532371660",
+  },
+
   // ====================================================
   // World Tour 2019
   milwaukee19: {
@@ -908,6 +945,14 @@ export const seedShows = {
     date: "2022-06-17",
     imageUrl: "https://f4.bcbits.com/img/a3553224286_16.jpg",
     bandcampAlbumId: "1363173846",
+  },
+  berkeley22: {
+    id: "cb025e04-05bb-4569-8797-9d58d35e21ee",
+    slug: "berkeley-2022",
+    location: "Berkeley",
+    date: "2022-10-02",
+    imageUrl: "/showCovers/berkeley22.webp",
+    bandcampAlbumId: null,
   },
   rr22: {
     id: "ca4d9095-cb3a-46d9-8dd8-3fdc7b15a7b6",
@@ -1277,6 +1322,10 @@ export const seedShows = {
 } as const satisfies Record<string, Omit<Show, "createdAt">>;
 export const allShows = Object.values(seedShows) as Show[];
 
+// =============================================================================
+// ============================= PERFROMANCES ==================================
+// =============================================================================
+
 // Ordered alphabetically by song title, not ordered with songs
 export const seedPerformances = [
   // ===========================================================================
@@ -1514,6 +1563,15 @@ export const seedPerformances = [
     youtubeVideoId: "FGOsQiPCpEA",
     youtubeVideoStartTime: 2168,
   },
+  {
+    id: "e47fffc2-ef46-4f44-afec-54470d28b51e",
+    songId: seedSongs.theBook.id,
+    showId: seedShows.kentucky24.id,
+    spotifyTrackId: "02JxfUFbl46f6WGe1LO4HZ",
+    bandcampTrackId: "1519673542",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 1289,
+  },
 
   // ===========================================================================
   // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
@@ -1539,6 +1597,18 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "GR1A0l4c_5g",
     youtubeVideoStartTime: 1544,
+  },
+
+  // ====================================================
+  // Change
+  {
+    id: "b1d53112-e714-4358-ae8d-0e38fb156ad9",
+    songId: seedSongs.change.id,
+    showId: seedShows.boston24.id,
+    spotifyTrackId: "0Jxt0CZ73HrFLg1qYPi5kf",
+    bandcampTrackId: "1400988868",
+    youtubeVideoId: "wbtTEgC6quI",
+    youtubeVideoStartTime: 1007,
   },
 
   // ====================================================
@@ -1919,9 +1989,30 @@ export const seedPerformances = [
     youtubeVideoId: "8nvhFvcPBhk",
     youtubeVideoStartTime: 6062,
   },
+  {
+    id: "98348b28-27c9-4248-bc99-86f626bf7753",
+    songId: seedSongs.fourthColor.id,
+    showId: seedShows.oregon24.id,
+    spotifyTrackId: "4Ug6sDkv1I6qgHC7TK1sqB",
+    bandcampTrackId: "2171285118",
+    youtubeVideoId: "k69DG8aZ6mw",
+    youtubeVideoStartTime: 3353,
+  },
 
   // ===========================================================================
   // GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+
+  // ====================================================
+  // Gaia
+  {
+    id: "1ab6bd24-53f8-41d0-a80d-48361edbfd2e",
+    songId: seedSongs.gaia.id,
+    showId: seedShows.berkeley22.id,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "2NAHIqGKMOk",
+    youtubeVideoStartTime: 344,
+  },
 
   // ====================================================
   // Gamma Knife
@@ -2010,6 +2101,15 @@ export const seedPerformances = [
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 4543,
   },
+  {
+    id: "b2f54c9e-11f8-4c2f-bde1-74a93118c0c5",
+    songId: seedSongs.gondii.id,
+    showId: seedShows.boston24.id,
+    spotifyTrackId: "6v7me3Xyzdjk4FDOfR0Wo6",
+    bandcampTrackId: "3927576718",
+    youtubeVideoId: "wbtTEgC6quI",
+    youtubeVideoStartTime: 334,
+  },
 
   // ====================================================
   // The Grim Reaper
@@ -2050,6 +2150,15 @@ export const seedPerformances = [
     bandcampTrackId: "844662673",
     youtubeVideoId: "5K02tvEbEp4",
     youtubeVideoStartTime: 5848,
+  },
+  {
+    id: "c05c4a70-444f-4045-ae20-7fa79769b66c",
+    songId: seedSongs.theGrimReaper.id,
+    showId: seedShows.boston24.id,
+    spotifyTrackId: "3PUtPXOu8n0Hm8DYwM2EVC",
+    bandcampTrackId: "4183087458",
+    youtubeVideoId: "wbtTEgC6quI",
+    youtubeVideoStartTime: 2190,
   },
 
   // ===========================================================================
@@ -2702,6 +2811,15 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 4001,
   },
+  {
+    id: "d866b25e-3b09-4d79-9eb7-1eca1e31200f",
+    songId: seedSongs.plasticBoogie.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "2Jy8P6a1PWg6hkSzt0h9TG",
+    bandcampTrackId: "2141508110",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 7343,
+  },
 
   // ====================================================
   // Presumptuous
@@ -2755,6 +2873,15 @@ export const seedPerformances = [
     bandcampTrackId: "3315017465",
     youtubeVideoId: null,
     youtubeVideoStartTime: 1545,
+  },
+  {
+    id: "57a119e1-f10b-4fb1-96ee-a3ab0f40eef9",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.sf16.id,
+    spotifyTrackId: "7nRVkOfpUF4rduH5Tg4uxj",
+    bandcampTrackId: "3325139739",
+    youtubeVideoId: "n98Je4AJbu8",
+    youtubeVideoStartTime: 2363,
   },
 
   // ====================================================
@@ -3223,6 +3350,15 @@ export const seedPerformances = [
     bandcampTrackId: "1450224668",
     youtubeVideoId: "k69DG8aZ6mw",
     youtubeVideoStartTime: 5000,
+  },
+  {
+    id: "2f543bcd-95a0-49f2-96d4-247f3e4d2920",
+    songId: seedSongs.witchcraft.id,
+    showId: seedShows.asheville24.id,
+    spotifyTrackId: "0znFFeq0W5odmQra0V3jJI",
+    bandcampTrackId: "1089444983",
+    youtubeVideoId: "cEvtbHcCyic",
+    youtubeVideoStartTime: 4986,
   },
 
   // ====================================================
