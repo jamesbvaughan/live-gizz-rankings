@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import DOMPurify from "isomorphic-dompurify";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ import {
   PageType,
 } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { performances } from "@/drizzle/schema";
+import { performances, Show } from "@/drizzle/schema";
 import { allPerformances, allShows, allSongs } from "@/drizzle/seeds";
 import {
   getAlbumById,
@@ -48,6 +49,46 @@ export function generateStaticParams(): Params[] {
 }
 
 export const dynamicParams = false;
+
+async function GizzTapesNote({ show }: { show: Show }) {
+  const gizzTapesShowId = show.date;
+
+  let note;
+  try {
+    const response = await fetch(
+      `https://tapes.kglw.net/api/v1/shows/${gizzTapesShowId}.json`,
+    );
+    const data = await response.json();
+    note = data.notes;
+  } catch (error) {
+    const showTitle = getShowTitle(show);
+    console.error(
+      `No Gizz Tapes notes found for ${showTitle}:`,
+      (error as Error).message,
+    );
+    return <div>No Gizz Tapes notes for this show.</div>;
+  }
+
+  const htmlWithLineBreaks = note.replace(/\n/g, "<br>");
+
+  // Sanitize the modified HTML string
+  const sanitizedHtml = DOMPurify.sanitize(htmlWithLineBreaks);
+
+  return (
+    <div className="space-y-2">
+      <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+
+      <a
+        href={`https://tapes.kglw.net/${gizzTapesShowId}/`}
+        className="inline-block text-muted"
+        target="_blank"
+        rel="noopener"
+      >
+        Read more on Gizz Tapes
+      </a>
+    </div>
+  );
+}
 
 async function PerformanceElo({ performanceId }: { performanceId: string }) {
   const performance = await db.query.performances.findFirst({
@@ -170,6 +211,14 @@ export default async function ShowPage({ params }: Props) {
               </>
             )}
           </div>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-3xl">Gizz Tapes show notes</h3>
+
+          <Suspense fallback="Loading note from Gizz Tapes...">
+            <GizzTapesNote show={show} />
+          </Suspense>
         </div>
 
         <div>
