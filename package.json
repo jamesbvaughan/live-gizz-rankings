@@ -29,6 +29,7 @@
     "chart.js": "^4.4.7",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.38.2",
+    "isomorphic-dompurify": "^2.19.0",
     "next": "canary",
     "pluralize": "^8.0.0",
     "react": "19.0.0",
