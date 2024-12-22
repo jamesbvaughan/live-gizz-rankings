@@ -30,12 +30,12 @@ export function AccountButtons() {
 
   return (
     <div className="flex flex-col items-end space-y-2">
-      <div>{username ? `signed in as ${username}` : "signed in"}</div>
+      <div className="">{username || "signed in"}</div>
 
       <hr className="w-full border-muted-2" />
 
       <div className="flex flex-col items-end space-y-2">
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end space-y-1">
           <button
             className="hover:text-red"
             onClick={() => {
@@ -54,7 +54,7 @@ export function AccountButtons() {
           <>
             <hr className="w-full border-muted-2" />
 
-            <div className="flex flex-col">
+            <div className="flex flex-col space-y-1">
               <Link href="/users">users</Link>
               <Link href="/votes">votes</Link>
             </div>

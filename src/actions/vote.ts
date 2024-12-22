@@ -125,6 +125,7 @@ export async function vote(
   const albumPath = getAlbumPath(song.albumId);
   revalidatePath(albumPath);
 
+  revalidatePath(`/`);
   revalidatePath(`/songs`);
   revalidatePath(`/votes`);
 

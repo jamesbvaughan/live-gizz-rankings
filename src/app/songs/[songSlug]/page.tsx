@@ -5,11 +5,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-import { PageContent, PageTitle, PageType } from "@/components/ui";
+import {
+  PageContent,
+  PageSubtitle,
+  PageTitle,
+  PageType,
+} from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { allPerformances, allSongs } from "@/drizzle/seeds";
 import {
+  getAlbumById,
   getAlbumPath,
   getPerformancePath,
   getShowById,
@@ -106,6 +112,7 @@ export default async function Song({ params }: Props) {
     (performance) => performance.songId === song.id,
   );
 
+  const album = getAlbumById(song.albumId)!;
   const albumPath = getAlbumPath(song.albumId);
 
   return (
@@ -113,6 +120,13 @@ export default async function Song({ params }: Props) {
       <PageType>Song</PageType>
 
       <PageTitle>{song.title}</PageTitle>
+
+      <PageSubtitle>
+        Track {song.albumPosition} on{" "}
+        <Link href={albumPath} className="no-underline">
+          {album.title}
+        </Link>
+      </PageSubtitle>
 
       <PageContent className="space-y-8">
         {performances.length === 0 ? (
@@ -125,6 +139,11 @@ export default async function Song({ params }: Props) {
             <RankedPerformances songId={song.id} />
           </Suspense>
         )}
+
+        <p className="text-muted">
+          Is your favorite performance missing?{" "}
+          <Link href="/nominate">Nominate it here</Link>.
+        </p>
 
         <div>
           <Link href={albumPath} className="no-underline">

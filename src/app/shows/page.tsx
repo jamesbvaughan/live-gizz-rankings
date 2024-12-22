@@ -21,11 +21,11 @@ for (const show of allShows) {
 }
 
 const sortedShowsByYear = Object.entries(showsByYear).sort(
-  ([yearA], [yearB]) => parseInt(yearA) - parseInt(yearB),
+  ([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA),
 );
 
 for (const [_year, shows] of sortedShowsByYear) {
-  shows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  shows.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export default async function ShowsPage() {
@@ -33,7 +33,7 @@ export default async function ShowsPage() {
     <>
       <PageTitle>Shows with ranked performances</PageTitle>
 
-      <PageContent>
+      <PageContent className="space-y-8">
         {sortedShowsByYear.map(([year, shows]) => {
           return (
             <div key={year} className="space-y-4">
@@ -63,7 +63,7 @@ export default async function ShowsPage() {
                         ) : null}
                       </div>
 
-                      <div className="text-lg">{showTitle}</div>
+                      <div className="text-lg font-semibold">{showTitle}</div>
                     </Link>
                   );
                 })}

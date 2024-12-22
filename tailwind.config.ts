@@ -20,5 +20,5 @@ export default {
       },
     },
   },
-  plugins: [formsPlugin, typographyPlugin],
+  plugins: [formsPlugin({ strategy: "class" }), typographyPlugin],
 } satisfies Config;

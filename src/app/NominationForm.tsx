@@ -17,7 +17,7 @@ export function NominationForm() {
             minLength={4}
             required
             disabled={isPending}
-            className="peer flex-grow border-2 border-muted bg-transparent p-2 text-base placeholder:text-muted-2 focus:border-foreground focus:ring-0 disabled:text-muted"
+            className="peer form-input flex-grow border-2 border-muted bg-transparent p-2 text-base placeholder:text-muted-2 focus:border-foreground focus:ring-0 disabled:text-muted"
             name="message"
             placeholder="ex: Magma at The Gorge, The River at Red Rocks '22, etc."
           />

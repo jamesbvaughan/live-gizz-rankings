@@ -30,7 +30,7 @@ async function TopPerformance({ song }: { song: Song }) {
   return (
     <Link
       href={performancePath}
-      className="flex space-x-2 text-muted no-underline"
+      className="flex items-start space-x-2 text-right text-muted no-underline"
     >
       <div>Top: {showTitle}</div>
 
@@ -63,7 +63,7 @@ export function SongRow({ song }: { song: Song }) {
           {song.title}
         </Link>
 
-        <div className="flex justify-between text-muted">
+        <div className="flex justify-between space-x-2 text-muted">
           {songPerformances.length === 0 ? (
             <span>
               No performances submitted yet -{" "}
@@ -71,7 +71,9 @@ export function SongRow({ song }: { song: Song }) {
             </span>
           ) : (
             <>
-              {pluralize("performance", songPerformances.length, true)}
+              <div className="shrink-0">
+                {pluralize("performance", songPerformances.length, true)}
+              </div>
 
               <Suspense
                 fallback={

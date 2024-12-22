@@ -491,6 +491,13 @@ export const seedSongs = {
     title: "Altered Beast III",
     albumId: seedAlbums.motu.id,
   },
+  lordOfLightning: {
+    id: "3dea7dc9-0738-4803-80cc-3dadd872a867",
+    albumPosition: 12,
+    slug: "lord-of-lightning",
+    title: "Lord of Lightning",
+    albumId: seedAlbums.motu.id,
+  },
   motu: {
     id: "3bed1339-307c-48eb-b17e-ba582f0c00b6",
     albumPosition: 21,
@@ -2321,6 +2328,15 @@ export const seedPerformances = [
     youtubeVideoId: "qvBMzzDtgHE",
     youtubeVideoStartTime: 2083,
   },
+  {
+    id: "d561320a-eb4e-46ba-9638-1f7d09f0f7fc",
+    songId: seedSongs.hypertension.id,
+    showId: seedShows.minneapolis24.id,
+    spotifyTrackId: "75SSmjzxmVqmHpxs7VFE0t",
+    bandcampTrackId: "4271826293",
+    youtubeVideoId: "qY7iyjHdBUM",
+    youtubeVideoStartTime: 3219,
+  },
 
   // ===========================================================================
   // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
@@ -2485,6 +2501,18 @@ export const seedPerformances = [
     bandcampTrackId: "860012551",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 5754,
+  },
+
+  // ====================================================
+  // Lord of Lightning
+  {
+    id: "18b36ef7-d14d-4e96-b57f-5edce155f495",
+    songId: seedSongs.lordOfLightning.id,
+    showId: seedShows.la24.id,
+    spotifyTrackId: "2QjX4soIrUSMcWsUgGg93x",
+    bandcampTrackId: "2935316849",
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 9899,
   },
 
   // ===========================================================================

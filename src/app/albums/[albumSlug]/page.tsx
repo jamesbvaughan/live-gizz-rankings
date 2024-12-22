@@ -4,7 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SongRow } from "@/components/SongRow";
-import { PageContent, PageTitle, PageType } from "@/components/ui";
+import {
+  PageContent,
+  PageSubtitle,
+  PageTitle,
+  PageType,
+} from "@/components/ui";
 import { allAlbums, allSongs } from "@/drizzle/seeds";
 import { getAlbumBySlug } from "@/utils";
 
@@ -57,9 +62,9 @@ export default async function Album({ params }: Props) {
 
       <PageTitle>{album.title}</PageTitle>
 
-      <div className="mt-2 text-muted">
+      <PageSubtitle>
         Released on <time>{formattedReleaseDate}</time>
-      </div>
+      </PageSubtitle>
 
       <PageContent className="space-y-8">
         <Image
