@@ -58,7 +58,7 @@ export async function RecentVotes() {
 
         return (
           <div key={vote.id} className="flex items-start space-x-2">
-            <Link href={winnerPath}>
+            <Link href={winnerPath} className="shrink-0">
               <Image
                 src={winner.show.imageUrl ?? ""}
                 alt={winnerTitle}
@@ -68,7 +68,7 @@ export async function RecentVotes() {
             </Link>
 
             <div>
-              <div className="text-lg">
+              <div className="text-lg leading-6">
                 <Link href={songPath} className="font-bold no-underline">
                   {vote.winner.song.title}
                 </Link>{" "}

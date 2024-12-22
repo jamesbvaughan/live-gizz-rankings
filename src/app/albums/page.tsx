@@ -20,7 +20,7 @@ export default async function Albums() {
 
   return (
     <>
-      <PageTitle>Albums with ranked performances</PageTitle>
+      <PageTitle>Albums</PageTitle>
 
       <PageContent className="space-y-8">
         {albumsByYear.map(([year, albums]) => {

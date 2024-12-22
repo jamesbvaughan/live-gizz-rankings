@@ -9,6 +9,10 @@ export function PageTitle({ children }: PropsWithChildren) {
   return <h1 className="text-4xl font-semibold">{children}</h1>;
 }
 
+export function PageSubtitle({ children }: PropsWithChildren) {
+  return <p className="mt-2 text-muted">{children}</p>;
+}
+
 export function PageContent({
   children,
   className,

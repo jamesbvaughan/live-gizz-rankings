@@ -5,7 +5,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-import { PageContent, PageTitle, PageType } from "@/components/ui";
+import {
+  PageContent,
+  PageSubtitle,
+  PageTitle,
+  PageType,
+} from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { allPerformances, allShows, allSongs } from "@/drizzle/seeds";
@@ -65,11 +70,21 @@ export default async function ShowPage({ params }: Props) {
 
   const showTitle = getShowTitle(show);
 
+  const formattedDate = new Intl.DateTimeFormat(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(show.date));
+
   return (
     <>
       <PageType>Show</PageType>
 
       <PageTitle>{showTitle}</PageTitle>
+
+      <PageSubtitle>{formattedDate}</PageSubtitle>
 
       <PageContent className="space-y-8">
         {show.imageUrl ? (
