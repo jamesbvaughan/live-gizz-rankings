@@ -77,6 +77,7 @@ export const performances = pgTable(
       .references(() => shows.id),
     spotifyTrackId: text("spotify_track_id").unique(),
     bandcampTrackId: text("bandcamp_track_id").unique(),
+    showPosition: integer("show_position").notNull(),
     youtubeVideoId: text("youtube_video_id"),
     youtubeVideoStartTime: integer("youtube_video_start_time"),
     eloRating: real("elo_rating").notNull().default(DEFAULT_ELO_RATING),
