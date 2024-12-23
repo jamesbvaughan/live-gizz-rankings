@@ -105,9 +105,12 @@ export default async function ShowPage({ params }: Props) {
     notFound();
   }
 
-  const showPerformances = allPerformances.filter(
-    (performance) => performance.showId === show.id,
-  );
+  const showPerformances = allPerformances
+    .filter((performance) => performance.showId === show.id)
+    .sort(
+      (performanceA, performanceB) =>
+        performanceA.showPosition - performanceB.showPosition,
+    );
 
   const showTitle = getShowTitle(show);
 

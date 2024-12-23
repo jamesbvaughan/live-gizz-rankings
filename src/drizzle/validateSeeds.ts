@@ -1,5 +1,6 @@
 import {
   allAlbums,
+  allPerformances,
   allSongs,
   seedAlbums,
   seedPerformances,
@@ -60,6 +61,16 @@ for (const song of allSongs) {
     fail(`Duplicate album position: ${key}`);
   }
   albumPositions.add(key);
+}
+
+// Ensure that performance show positions are unique
+const showPositions = new Set<string>();
+for (const performance of allPerformances) {
+  const key = performance.showId + performance.showPosition;
+  if (showPositions.has(key)) {
+    fail(`Duplicate show position: ${key}`);
+  }
+  showPositions.add(key);
 }
 
 // Ensure that media IDs, image URLs, and show dates are unique
