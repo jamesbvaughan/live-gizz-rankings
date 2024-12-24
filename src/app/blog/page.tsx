@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { PageContent, PageTitle } from "@/components/ui";
+
 import { getBlogPosts } from "./utils";
 
 function BlogPosts() {
@@ -32,10 +34,12 @@ function BlogPosts() {
 
 export default function BlogPage() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-4xl font-semibold">Blog</h1>
+    <>
+      <PageTitle>Blog</PageTitle>
 
-      <BlogPosts />
-    </div>
+      <PageContent>
+        <BlogPosts />
+      </PageContent>
+    </>
   );
 }
