@@ -109,8 +109,9 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
               order relative to each other would always be the same.
               Specifically, they&apos;d be in the order that they were added to
               the database, and I initially seeded the database with what I
-              believed to be the best performances. I&apos;ve now corrected
-              this, and the performance order on the vote page is randomized.
+              believed to be the best performances. I&apos;ve now corrected this
+              (the vertical line on the chart indicates when I deployed the
+              fix), and the performance order on the vote page is randomized.
             </p>
           </li>
         </ul>
