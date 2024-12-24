@@ -1578,6 +1578,17 @@ export const seedPerformances = [
     youtubeVideoId: "MVzLz_q8xAg",
     youtubeVideoStartTime: 7004,
   },
+  {
+    id: "ff648bfd-f043-4e2c-ae2b-024207f63950",
+    songId: seedSongs.antarctica.id,
+    showId: seedShows.austin24.id,
+    showPosition: 3,
+    spotifyTrackId: "7w9O1cX4xOirFbm5mfKnlr",
+    bandcampTrackId: "2931317360",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 3066,
+  },
 
   // ===========================================================================
   // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
@@ -2510,6 +2521,16 @@ export const seedPerformances = [
     bandcampTrackId: "3686475146",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 4020,
+  },
+  {
+    id: "0f3275cb-37a3-4d25-b2c9-3b62b6e9c301",
+    songId: seedSongs.hogCallingContest.id,
+    showId: seedShows.stAugustine24.id,
+    showPosition: 8,
+    spotifyTrackId: "5ecLMjKSjbWg7KTHIAiEWV",
+    bandcampTrackId: "1609009299",
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 4717,
   },
 
   // ====================================================
