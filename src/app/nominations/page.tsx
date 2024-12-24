@@ -20,7 +20,7 @@ export default async function NominationsPage() {
     <>
       <PageTitle>Performance nominations</PageTitle>
 
-      <PageContent>
+      <PageContent className="space-y-6">
         <p>
           These are user-submitted nominations for performances to add to the
           database.
