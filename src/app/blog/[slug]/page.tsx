@@ -3,6 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import * as runtime from "react/jsx-runtime";
 
+import {
+  PageContent,
+  PageSubtitle,
+  PageTitle,
+  PageType,
+} from "@/components/ui";
+
 import { getBlogPosts } from "../utils";
 
 export async function generateStaticParams() {
@@ -68,22 +75,20 @@ export default async function BlogPostPage({ params }: Props) {
   }).format(date);
 
   return (
-    <section className="space-y-8">
-      <div className="space-y-2">
-        <Link href="/blog" className="font-bold text-muted no-underline">
+    <>
+      <PageType>
+        <Link href="/blog" className="no-underline">
           Blog
         </Link>
+      </PageType>
 
-        <h1 className="text-4xl font-semibold sm:text-5xl">
-          {post.metadata.title}
-        </h1>
+      <PageTitle>{post.metadata.title}</PageTitle>
 
-        <time className="inline-block italic text-muted">{formattedDate}</time>
-      </div>
+      <PageSubtitle>{formattedDate}</PageSubtitle>
 
-      <article className="prose prose-xl prose-stone prose-invert leading-6">
+      <PageContent className="prose prose-xl prose-stone prose-invert leading-6">
         <MDXContent />
-      </article>
-    </section>
+      </PageContent>
+    </>
   );
 }

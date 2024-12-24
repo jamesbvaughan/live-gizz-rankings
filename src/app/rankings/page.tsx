@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 
+import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { getPerformanceTitle } from "@/utils";
 
@@ -13,20 +14,22 @@ export default async function Rankings() {
   });
 
   return (
-    <div>
-      <h2>All rankings</h2>
+    <>
+      <PageTitle>All rankings</PageTitle>
 
-      {performances.map((performance) => {
-        const performanceTitle = getPerformanceTitle(
-          performance.song,
-          performance.show,
-        );
-        return (
-          <div key={performance.id}>
-            {performanceTitle} ({performance.eloRating})
-          </div>
-        );
-      })}
-    </div>
+      <PageContent>
+        {performances.map((performance) => {
+          const performanceTitle = getPerformanceTitle(
+            performance.song,
+            performance.show,
+          );
+          return (
+            <div key={performance.id}>
+              {performanceTitle} ({performance.eloRating})
+            </div>
+          );
+        })}
+      </PageContent>
+    </>
   );
 }

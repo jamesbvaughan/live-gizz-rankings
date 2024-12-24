@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { Vote } from "@/drizzle/schema";
 import {
@@ -131,21 +132,17 @@ function VotesList({ votes }: { votes: Vote[] }) {
   );
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-4xl">All votes</h2>
+    <details>
+      <summary className="select-none">
+        {votes.length} total (click to view)
+      </summary>
 
-      <details>
-        <summary className="select-none">
-          {votes.length} total (click to view)
-        </summary>
-
-        <ol className="mt-4 list-disc space-y-2 pl-4">
-          {sortedVotes.map((vote) => (
-            <VoteListItem key={vote.id} vote={vote} />
-          ))}
-        </ol>
-      </details>
-    </div>
+      <ol className="mt-4 list-disc space-y-2 pl-4">
+        {sortedVotes.map((vote) => (
+          <VoteListItem key={vote.id} vote={vote} />
+        ))}
+      </ol>
+    </details>
   );
 }
 
@@ -153,9 +150,13 @@ export default async function Votes() {
   const votes = await db.query.votes.findMany();
 
   return (
-    <div className="space-y-6">
-      <VotesList votes={votes} />
-      <LeftRightStats votes={votes} />
-    </div>
+    <>
+      <PageTitle>All votes</PageTitle>
+
+      <PageContent className="space-y-6">
+        <VotesList votes={votes} />
+        <LeftRightStats votes={votes} />
+      </PageContent>
+    </>
   );
 }
