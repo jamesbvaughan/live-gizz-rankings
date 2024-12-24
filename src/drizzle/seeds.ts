@@ -446,6 +446,13 @@ export const seedSongs = {
     title: "Billabong Valley",
     albumId: seedAlbums.fmb.id,
   },
+  nuclearFusion: {
+    id: "cbebf078-8eeb-40a7-b893-53b70877db0b",
+    albumPosition: 8,
+    slug: "nuclear-fusion",
+    title: "Nuclear Fusion",
+    albumId: seedAlbums.fmb.id,
+  },
 
   // ====================================================
   // Murder of the Universe
@@ -597,6 +604,13 @@ export const seedSongs = {
     title: "Planet B",
     albumId: seedAlbums.itrn.id,
   },
+  superbug: {
+    id: "a03b54e1-154c-498b-87c4-ac5513352ded",
+    albumPosition: 4,
+    slug: "superbug",
+    title: "Superbug",
+    albumId: seedAlbums.itrn.id,
+  },
   venusian1: {
     id: "3fcc4acd-aab0-4bbe-81b2-59f4150b24da",
     albumPosition: 5,
@@ -739,6 +753,13 @@ export const seedSongs = {
     albumPosition: 1,
     slug: "change",
     title: "Change",
+    albumId: seedAlbums.changes.id,
+  },
+  astroturf: {
+    id: "b9cc7829-00b0-4421-a3fd-a3a004890ca2",
+    albumPosition: 3,
+    slug: "astroturf",
+    title: "Astroturf",
     albumId: seedAlbums.changes.id,
   },
   gondii: {
@@ -1588,6 +1609,19 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "hD6SW7Nmj-U",
     youtubeVideoStartTime: 3066,
+  },
+
+  // ====================================================
+  // Astroturf
+  {
+    id: "f462f5fb-49ca-492a-be86-d61bb2593948",
+    songId: seedSongs.astroturf.id,
+    showId: seedShows.stl24.id,
+    showPosition: 10,
+    spotifyTrackId: "2pYNSFxr72brFrLbh3EDxB",
+    bandcampTrackId: "3408292117",
+    youtubeVideoId: "FGOsQiPCpEA",
+    youtubeVideoStartTime: 3815,
   },
 
   // ===========================================================================
@@ -2698,6 +2732,17 @@ export const seedPerformances = [
     youtubeVideoId: "hxebzoQTkvA",
     youtubeVideoStartTime: 4944,
   },
+  {
+    id: "9d4b2f82-0232-4840-b790-f8c2a1dc7bcd",
+    songId: seedSongs.interiorPeople.id,
+    showId: seedShows.stanford24.id,
+    showPosition: 13,
+    spotifyTrackId: "4C99lo25pP55YQdyD4ty3g",
+    bandcampTrackId: "1693349993",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 5245,
+  },
 
   // ====================================================
   // Iron Lung
@@ -3082,6 +3127,22 @@ export const seedPerformances = [
   },
 
   // ===========================================================================
+  // NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+
+  // ====================================================
+  // Nuclear Fusion
+  {
+    id: "9b9b5b82-8cc6-4e08-a8ed-bec026befd63",
+    songId: seedSongs.nuclearFusion.id,
+    showId: seedShows.vancouver24.id,
+    showPosition: 3,
+    spotifyTrackId: "6InMu3HVEQWLdxC0dEycAk",
+    bandcampTrackId: "1553354825",
+    youtubeVideoId: "5Y4bYCp4KAo",
+    youtubeVideoStartTime: 1127,
+  },
+
+  // ===========================================================================
   // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
   // ====================================================
@@ -3255,6 +3316,16 @@ export const seedPerformances = [
     // TODO: replace this with the official video once it's up
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 6401,
+  },
+  {
+    id: "abe83deb-e0f4-491e-8f05-ad935c2f9cae",
+    songId: seedSongs.rawFeel.id,
+    showId: seedShows.cleveland24.id,
+    showPosition: 4,
+    spotifyTrackId: "1T1z3WsWpGTKeX8AG3hkGd",
+    bandcampTrackId: "2118356148",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 2103,
   },
 
   // ====================================================
@@ -3587,6 +3658,17 @@ export const seedPerformances = [
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 7244,
   },
+  {
+    id: "11f7ad5a-ca3c-49a7-bdfc-d5f467ab29aa",
+    songId: seedSongs.strawsInTheWind.id,
+    showId: seedShows.stAugustine24.id,
+    showPosition: 3,
+    spotifyTrackId: "6p7ra7BV35Ma8c0PQ5T1Cy",
+    bandcampTrackId: "3426092291",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 1957,
+  },
 
   // ====================================================
   // Stressin'
@@ -3609,6 +3691,20 @@ export const seedPerformances = [
     bandcampTrackId: "1595669529",
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 5261,
+  },
+
+  // ====================================================
+  // Superbug
+  {
+    id: "f365c8f3-5d50-44f5-8d01-5b40f7e79ebd",
+    songId: seedSongs.superbug.id,
+    showId: seedShows.stanford24.id,
+    showPosition: 1,
+    spotifyTrackId: "2QRA7WNZHSAcmkARtnIBaz",
+    bandcampTrackId: "3813036084",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 997,
   },
 
   // ====================================================
@@ -3896,6 +3992,16 @@ export const seedPerformances = [
     bandcampTrackId: "2467438",
     youtubeVideoId: "5K02tvEbEp4",
     youtubeVideoStartTime: 4840,
+  },
+  {
+    id: "c0968683-41d1-4027-b7f8-c7058287705a",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.kentucky24.id,
+    showPosition: 19,
+    spotifyTrackId: "39dhdAzGwbqEmrAGrpVxVm",
+    bandcampTrackId: "2642857633",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 7593,
   },
 
   // ===========================================================================
