@@ -957,6 +957,17 @@ export const allSongs = Object.values(seedSongs) as Song[];
 // Ordered by show date
 export const seedShows = {
   // ====================================================
+  // 2013 Tour
+  northcote13: {
+    id: "86907172-176f-4930-8017-20e1b044d142",
+    slug: "northcote-2013",
+    location: "Melbourne",
+    date: "2013-08-29",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
+
+  // ====================================================
   // 2016 Tour
   sf16: {
     id: "959fc957-a47f-4618-a0ea-91a57e17c55e",
@@ -2217,6 +2228,16 @@ export const seedPerformances = [
     youtubeVideoId: "yxbaVl6K15A",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "d201d63f-67a3-433e-ba44-0afdc0436399",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.northcote13.id,
+    showPosition: 8,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "I8LbMgQVJLs",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Fourth Color
@@ -3382,6 +3403,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Road Train
+  {
+    id: "63be647c-3eec-47ed-81c5-993ca1fee602",
+    songId: seedSongs.roadTrain.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 10,
+    spotifyTrackId: "0UHwGaAdWAvB5oKQ52jK65",
+    bandcampTrackId: "1699786441",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 4214,
+  },
+
+  // ====================================================
   // Robot Stop
   {
     id: "f8c20b2c-c004-47ab-8604-7c9dcfd9d0c7",
@@ -3412,6 +3446,46 @@ export const seedPerformances = [
     bandcampTrackId: "1015337476",
     youtubeVideoId: "koQvZI4ewGg",
     youtubeVideoStartTime: 365,
+  },
+  {
+    id: "a21742d2-4731-4c89-b3e8-0ccee247704c",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.la24.id,
+    showPosition: 18,
+    spotifyTrackId: "1sTea6LOPl4AixkYVSnBbb",
+    bandcampTrackId: "3490112201",
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 8415,
+  },
+  {
+    id: "577a3034-5a2f-46f8-8b9b-1348bfda6165",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.nyc24.id,
+    showPosition: 27,
+    spotifyTrackId: "3rGT7eZun2LUnjTsBOjtXe",
+    bandcampTrackId: "242184053",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 1169,
+  },
+  {
+    id: "c1e5c06f-44f5-425e-b29b-1d810fdef142",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.toronto24.id,
+    showPosition: 12,
+    spotifyTrackId: "5BwWOTMOrdXEYamcGjQ6p3",
+    bandcampTrackId: "2824437744",
+    youtubeVideoId: "8sXbseUS6rM",
+    youtubeVideoStartTime: 5541,
+  },
+  {
+    id: "3d34ee16-0b8c-41c7-af39-395c645bc7d9",
+    songId: seedSongs.robotStop.id,
+    showId: seedShows.sf16.id,
+    showPosition: 1,
+    spotifyTrackId: "2MXFqlNn9I3cQKUAc5zlJg",
+    bandcampTrackId: "2929535638",
+    youtubeVideoId: "n98Je4AJbu8",
+    youtubeVideoStartTime: 73,
   },
 
   // ===========================================================================
