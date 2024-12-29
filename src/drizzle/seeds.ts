@@ -2186,6 +2186,41 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Flight b741
+  {
+    id: "ab4239be-7de4-431d-a8e0-2a19ac24344f",
+    songId: seedSongs.flightb741.id,
+    showId: seedShows.atlanta24.id,
+    showPosition: 9,
+    spotifyTrackId: "1xpLoY0Gy3eDigtQkuqCa9",
+    bandcampTrackId: "1266570339",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 4986,
+  },
+  {
+    id: "4394c96f-7297-4a9c-86af-b55ef13aa9f1",
+    songId: seedSongs.flightb741.id,
+    showId: seedShows.sd24.id,
+    showPosition: 9,
+    spotifyTrackId: "2QRLRAp1uNybtdlLL5J4Hg",
+    bandcampTrackId: "1107634605",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "GR1A0l4c_5g",
+    youtubeVideoStartTime: 3941,
+  },
+  {
+    id: "861aa66b-315d-4f0d-97b0-83bcaeda7618",
+    songId: seedSongs.flightb741.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 11,
+    spotifyTrackId: "6QRMF59X7eGbFHWQPKnlGw",
+    bandcampTrackId: "100095822",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 4462,
+  },
+
+  // ====================================================
   // Float Along - Fill Your Lungs
   {
     id: "a12280bf-6c20-4768-9d42-d98c4d5e799d",
