@@ -95,7 +95,7 @@ export default function NominatePage() {
 
           <div>
             <a
-              className="font-bold no-underline"
+              className="font-bold"
               href="https://kglw.net/jams/artist/1"
               target="_blank"
               rel="noopener"
@@ -114,7 +114,7 @@ export default function NominatePage() {
 
           <div>
             <a
-              className="font-bold no-underline"
+              className="font-bold"
               href="https://tapes.kglw.net/notables/curated/"
               target="_blank"
               rel="noopener"
@@ -126,6 +126,48 @@ export default function NominatePage() {
               with recordings available to listen to on{" "}
               <a href="https://tapes.kglw.net/" target="blank" rel="noopener">
                 Gizz Tapes
+              </a>
+              .
+            </span>
+          </div>
+
+          <div>
+            <span className="font-bold">
+              The Best of Gizz &apos;24 (
+              <a
+                href="https://open.spotify.com/playlist/1NjPzQwuRoV6n8GAkCPrKZ"
+                target="_blank"
+                rel="noopener"
+              >
+                Spotify
+              </a>
+              ,{" "}
+              <a
+                href="https://music.youtube.com/playlist?list=PLqqsox9wp19vSEho7nBZEpNUY9XTReInM"
+                target="_blank"
+                rel="noopener"
+              >
+                YouTube
+              </a>
+              )
+            </span>{" "}
+            <span className="text-muted">
+              - The best performances of the 2024 U.S. tour, as voted on by fans
+              on{" "}
+              <a
+                href="https://www.reddit.com/r/KGATLW/"
+                target="_blank"
+                rel="noopener"
+              >
+                /r/KGATLW
+              </a>
+              , compiled by{" "}
+              <a
+                href="https://www.reddit.com/r/KGATLW/comments/1hppp77/best_of_gizz_24/"
+                target="_blank"
+                rel="noopener"
+              >
+                /u/Particular_Lie6809
               </a>
               .
             </span>
