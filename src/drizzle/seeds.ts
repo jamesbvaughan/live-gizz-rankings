@@ -3181,6 +3181,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "f3c3288f-c2c4-4817-b47b-1d3800fc8ae4",
+    songId: seedSongs.motu.id,
+    showId: seedShows.nyc24.id,
+    showPosition: 48,
+    spotifyTrackId: "3mP5Fl9n1zieVeMpLtmyRd",
+    bandcampTrackId: "1413295876",
+    youtubeVideoId: "B7kGqj915YY",
+    youtubeVideoStartTime: 9908,
+  },
 
   // ===========================================================================
   // NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN

@@ -35,7 +35,11 @@ function PerformanceLink({ performanceId }: { performanceId: string }) {
 }
 
 function VoteListItem({ vote }: { vote: Vote }) {
-  const performance = getPerformanceById(vote.winnerId)!;
+  const performance = getPerformanceById(vote.winnerId);
+  if (!performance) {
+    throw new Error(`Unable to find performance with ID ${vote.winnerId}`);
+  }
+
   const song = getSongById(performance.songId)!;
   const losingPerformanceId =
     vote.winnerId === vote.performance1Id
