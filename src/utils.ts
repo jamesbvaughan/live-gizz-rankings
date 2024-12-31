@@ -67,8 +67,14 @@ export function getPerformancePath(
 ): string {
   const performance =
     typeof performanceOrPerformanceId === "string"
-      ? getPerformanceById(performanceOrPerformanceId)!
+      ? getPerformanceById(performanceOrPerformanceId)
       : performanceOrPerformanceId;
+  if (!performance) {
+    throw new Error(
+      `Unable to find performance with ID ${performanceOrPerformanceId}`,
+    );
+  }
+
   const slug = getPerformanceSlug(performance);
   return `/performances/${slug}`;
 }
