@@ -1109,6 +1109,14 @@ export const seedShows = {
     imageUrl: "/showCovers/remlinger23.webp",
     bandcampAlbumId: null,
   },
+  hollywoodBowl23: {
+    id: "cb9a091f-d5e3-42b1-84ce-d9a5e72a7ff6",
+    slug: "hollywood-bowl-2023",
+    location: "Hollywood Bowl",
+    date: "2023-06-21",
+    imageUrl: "/showCovers/hollywoodBowl23.webp",
+    bandcampAlbumId: null,
+  },
 
   // ====================================================
   // Europe & UK Tour 2023
@@ -3694,6 +3702,16 @@ export const seedPerformances = [
     // TODO: Replace this with the official video once it's up
     youtubeVideoId: "hD6SW7Nmj-U",
     youtubeVideoStartTime: 8187,
+  },
+  {
+    id: "b1098215-2682-45cb-aa76-67d1fab394bd",
+    songId: seedSongs.shanghai.id,
+    showId: seedShows.hollywoodBowl23.id,
+    showPosition: 19,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "XMAkcpI8fyQ",
+    youtubeVideoStartTime: 6210,
   },
 
   // ====================================================
