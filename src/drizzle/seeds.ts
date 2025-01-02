@@ -604,6 +604,20 @@ export const seedSongs = {
     title: "Planet B",
     albumId: seedAlbums.itrn.id,
   },
+  marsForTheRich: {
+    id: "ef3d92e2-207d-4456-aff0-5399294c474d",
+    albumPosition: 2,
+    slug: "mars-for-the-rich",
+    title: "March for the Rich",
+    albumId: seedAlbums.itrn.id,
+  },
+  organFarmer: {
+    id: "c05da847-aee7-4354-815d-cbca6b8617b3",
+    albumPosition: 3,
+    slug: "organ-farmer",
+    title: "Organ Farmer",
+    albumId: seedAlbums.itrn.id,
+  },
   superbug: {
     id: "a03b54e1-154c-498b-87c4-ac5513352ded",
     albumPosition: 4,
@@ -623,6 +637,20 @@ export const seedSongs = {
     albumPosition: 6,
     slug: "perihelion",
     title: "Perihelion",
+    albumId: seedAlbums.itrn.id,
+  },
+  venusian2: {
+    id: "81617b99-9ff5-43d7-9730-e96cb34e97c3",
+    albumPosition: 7,
+    slug: "venusian-2",
+    title: "Venusion 2",
+    albumId: seedAlbums.itrn.id,
+  },
+  selfImmolate: {
+    id: "c6ef1672-f434-4257-a329-08a67a37686f",
+    albumPosition: 8,
+    slug: "self-immolate",
+    title: "Self-Immolate",
     albumId: seedAlbums.itrn.id,
   },
   hell: {
@@ -3084,6 +3112,20 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Mars for the Rich
+  {
+    id: "02318b94-f3ff-4359-8c2c-2fbd58d0c6cf",
+    songId: seedSongs.marsForTheRich.id,
+    showId: seedShows.austin24.id,
+    showPosition: 17,
+    spotifyTrackId: "0AswhHGgSjBwL23A9h96I0",
+    bandcampTrackId: "1731941150",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 9365,
+  },
+
+  // ====================================================
   // Mirage City
   {
     id: "ab36e296-a0a9-4553-9c7e-8efec595c58b",
@@ -3230,6 +3272,19 @@ export const seedPerformances = [
     bandcampTrackId: "1325552537",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 2139,
+  },
+
+  // ====================================================
+  // Organ Farmer
+  {
+    id: "0c90dda1-0981-4b5e-b6ed-bede12129023",
+    songId: seedSongs.organFarmer.id,
+    showId: seedShows.oregon24.id,
+    showPosition: 9,
+    spotifyTrackId: "5ErxNrd2UbNsDJnRGmbkkv",
+    bandcampTrackId: "745732241",
+    youtubeVideoId: "k69DG8aZ6mw",
+    youtubeVideoStartTime: 4413,
   },
 
   // ===========================================================================
@@ -3556,6 +3611,20 @@ export const seedPerformances = [
     // TODO: replace this with the official video once it's up
     youtubeVideoId: "GRxg_EYCsDI",
     youtubeVideoStartTime: 2061,
+  },
+
+  // ====================================================
+  // Self-Immolate
+  {
+    id: "9d2f54d5-30af-4427-8eb8-d3cb4ecb90b0",
+    songId: seedSongs.selfImmolate.id,
+    showId: seedShows.nola24.id,
+    showPosition: 5,
+    spotifyTrackId: "7r3Uq6JsJgVpzGGQ3SoEKC",
+    bandcampTrackId: "655411777",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "FET0riVKZa0",
+    youtubeVideoStartTime: 3056,
   },
 
   // ====================================================
@@ -4026,6 +4095,19 @@ export const seedPerformances = [
     bandcampTrackId: "1745381553",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 9908,
+  },
+
+  // ====================================================
+  // Venusian 2
+  {
+    id: "6fcc8998-7a73-4517-8d1e-8ae111283db1",
+    songId: seedSongs.venusian2.id,
+    showId: seedShows.nyc24.id,
+    showPosition: 16,
+    spotifyTrackId: "52j0VfpluOyDnj7kpZvH75",
+    bandcampTrackId: "3434463931",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 6161,
   },
 
   // ===========================================================================
