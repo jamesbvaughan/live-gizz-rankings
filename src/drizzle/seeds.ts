@@ -236,11 +236,25 @@ export const allAlbums = Object.values(seedAlbums) as Album[];
 export const seedSongs = {
   // ====================================================
   // 12 Bar Bruise
+  elbow: {
+    id: "da1448b1-fec3-448b-9b6c-ed19b8c37a48",
+    albumPosition: 1,
+    slug: "elbow",
+    title: "Elbow",
+    albumId: seedAlbums.tbb.id,
+  },
   cutThroatBoogie: {
     id: "b72be442-0339-42ea-be23-249c4207428e",
     albumPosition: 4,
     slug: "cut-throat-boogie",
     title: "Cut Throat Boogie",
+    albumId: seedAlbums.tbb.id,
+  },
+  seaOfTrees: {
+    id: "43d67e96-d504-43a1-bcc3-7f25ac648e81",
+    albumPosition: 11,
+    slug: "sea-of-trees",
+    title: "Sea of Trees",
     albumId: seedAlbums.tbb.id,
   },
 
@@ -363,6 +377,13 @@ export const seedSongs = {
     title: "The Bitter Boogie",
     albumId: seedAlbums.pmdb.id,
   },
+  mostOfWhatILike: {
+    id: "e15852a6-5f13-410e-95af-f85f3d698350",
+    albumPosition: 11,
+    slug: "most-of-what-i-like",
+    title: "Most Of What I Like",
+    albumId: seedAlbums.pmdb.id,
+  },
 
   // ====================================================
   // Nonagon Infinity
@@ -432,11 +453,32 @@ export const seedSongs = {
 
   // ====================================================
   // Flying Microtonal Banana
+  rattlesnake: {
+    id: "4dc62f80-ad92-4f8d-8e66-bbe29d3e41a1",
+    albumPosition: 1,
+    slug: "rattlesnake",
+    title: "Rattlesnake",
+    albumId: seedAlbums.fmb.id,
+  },
+  melting: {
+    id: "ad82ad12-8d25-4738-b55a-2620d9cb0e7a",
+    albumPosition: 2,
+    slug: "melting",
+    title: "Melting",
+    albumId: seedAlbums.fmb.id,
+  },
   openWater: {
     id: "b2906883-cc2a-4bd6-96c4-6c728b60dd54",
     albumPosition: 3,
     slug: "open-water",
     title: "Open Water",
+    albumId: seedAlbums.fmb.id,
+  },
+  sleepDrifter: {
+    id: "f65410dd-18bf-4bd0-8323-2f48ca376ae4",
+    albumPosition: 4,
+    slug: "sleep-drifter",
+    title: "Sleep Drifter",
     albumId: seedAlbums.fmb.id,
   },
   billabongValley: {
@@ -446,11 +488,32 @@ export const seedSongs = {
     title: "Billabong Valley",
     albumId: seedAlbums.fmb.id,
   },
+  anoxia: {
+    id: "fe1b296d-e29c-4876-b4c4-57c6b02c6510",
+    albumPosition: 6,
+    slug: "anoxia",
+    title: "Anoxia",
+    albumId: seedAlbums.fmb.id,
+  },
+  doomCity: {
+    id: "e27000c7-6d64-4103-8174-e0abfab2f1e6",
+    albumPosition: 7,
+    slug: "doom-city",
+    title: "Doom City",
+    albumId: seedAlbums.fmb.id,
+  },
   nuclearFusion: {
     id: "cbebf078-8eeb-40a7-b893-53b70877db0b",
     albumPosition: 8,
     slug: "nuclear-fusion",
     title: "Nuclear Fusion",
+    albumId: seedAlbums.fmb.id,
+  },
+  flyingMicrotonalBanana: {
+    id: "5a5887aa-fc91-4fbe-bd52-e3405accc12e",
+    albumPosition: 9,
+    slug: "flyin-microtonal-banana",
+    title: "Flying Microtonal Banana",
     albumId: seedAlbums.fmb.id,
   },
 
@@ -537,6 +600,13 @@ export const seedSongs = {
     albumPosition: 1,
     slug: "crumbling-castle",
     title: "Crumbling Castle",
+    albumId: seedAlbums.poly.id,
+  },
+  tetrachromacy: {
+    id: "f6b0a28f-fa34-49c2-a597-e637ee13852e",
+    albumPosition: 8,
+    slug: "tetrachromacy",
+    title: "Tetrachromacy",
     albumId: seedAlbums.poly.id,
   },
   fourthColor: {
@@ -1007,6 +1077,17 @@ export const seedShows = {
   },
 
   // ====================================================
+  // 2018 Tour
+  kexp18: {
+    id: "fd001d84-9b97-4525-ac2b-6f9cfece6136",
+    slug: "kexp-2018",
+    location: "San Francisco",
+    date: "2018-06-06",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
+
+  // ====================================================
   // World Tour 2019
   adelaide19: {
     id: "3c665da1-5458-4b1e-bcae-ab063e72385f",
@@ -1023,6 +1104,14 @@ export const seedShows = {
     date: "2019-08-23",
     imageUrl: "https://f4.bcbits.com/img/a2134759453_16.jpg",
     bandcampAlbumId: "2354695487",
+  },
+  manchester19: {
+    id: "01575133-ff92-4668-99d4-b1b62a9f29eb",
+    slug: "manchester-2019",
+    location: "Manchester",
+    date: "2019-10-03",
+    imageUrl: null,
+    bandcampAlbumId: null,
   },
   brussels19: {
     id: "493db3ef-ee80-4e12-acc2-6fb046b79408",
@@ -1042,6 +1131,17 @@ export const seedShows = {
   },
 
   // ====================================================
+  // Micro Tour 2021
+  sydney21: {
+    id: "95a0d2a2-4147-44b5-9f4c-ef871a13bf62",
+    slug: "sydney-2021",
+    location: "Sydney",
+    date: "2021-04-22",
+    imageUrl: "https://www.youtube.com/watch?v=3BQyGlBv44I",
+    bandcampAlbumId: "2609270300",
+  },
+
+  // ====================================================
   // 2021 Princess Theatre Residency
   brisbaneAcoustic21: {
     id: "81c86246-d8e8-4023-9be9-c72042ffdefe",
@@ -1054,6 +1154,14 @@ export const seedShows = {
 
   // ====================================================
   // World Tour 2022
+  pomona22: {
+    id: "24f4df1a-7921-4ab0-a618-0479d4a8b2d7",
+    slug: "pomona-2022",
+    location: "Pomona",
+    date: "2022-04-12",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
   slo22: {
     id: "cfbee1cf-66d6-4cf7-b539-ab1a56d4656f",
     slug: "slo-2022",
@@ -1600,6 +1708,16 @@ export const seedPerformances = [
     youtubeVideoId: "iO94a7oTK5k",
     youtubeVideoStartTime: 2311,
   },
+  {
+    id: "b5f73c66-68af-47b4-8abf-397e9c34a37e",
+    songId: seedSongs.amIInHeaven.id,
+    showId: seedShows.berkeley22.id,
+    showPosition: 26,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Ambergris
@@ -1622,6 +1740,19 @@ export const seedPerformances = [
     bandcampTrackId: "3779485085",
     youtubeVideoId: "TbVDmWNbYFs",
     youtubeVideoStartTime: 1380,
+  },
+
+  // ====================================================
+  // Anoxia
+  {
+    id: "97583472-9258-4082-91c8-514f9f4618d3",
+    songId: seedSongs.anoxia.id,
+    showId: seedShows.remlinger23.id,
+    showPosition: 34,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Rs_lVg2yIKI",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -1656,6 +1787,17 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "hD6SW7Nmj-U",
     youtubeVideoStartTime: 3066,
+  },
+  {
+    id: "c5c585bc-112a-44e0-bb5b-76f7f9e70a2d",
+    songId: seedSongs.antarctica.id,
+    showId: seedShows.pasoRobles24.id,
+    showPosition: 6,
+    spotifyTrackId: "",
+    bandcampTrackId: "3096333718",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 3237,
   },
 
   // ====================================================
@@ -1799,6 +1941,16 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 1289,
   },
+  {
+    id: "bb6f3f64-741d-4707-b7f9-4f09ba1e47f0",
+    songId: seedSongs.theBook.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 9,
+    spotifyTrackId: "0sMcDlt7ugGffvHBAY5ztI",
+    bandcampTrackId: "1963628346",
+    youtubeVideoId: "3BQyGlBv44I",
+    youtubeVideoStartTime: null,
+  },
 
   // ===========================================================================
   // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
@@ -1905,6 +2057,16 @@ export const seedPerformances = [
     bandcampTrackId: "2063357108",
     youtubeVideoId: "8nvhFvcPBhk",
     youtubeVideoStartTime: 5384,
+  },
+  {
+    id: "73c0b13a-687a-47b6-851e-dff648c43797",
+    songId: seedSongs.crumblingCastle.id,
+    showId: seedShows.rr22.id,
+    showPosition: 74,
+    spotifyTrackId: "3w96naqe1SBI88qnFVRplL",
+    bandcampTrackId: "3182199629",
+    youtubeVideoId: "rpgDJWGLk4E",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -2098,9 +2260,42 @@ export const seedPerformances = [
     youtubeVideoId: "YG4Aosi0GYs",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "2e346c92-df89-42de-85e0-98a79681e991",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.bonnaroo22.id,
+    showPosition: 11,
+    spotifyTrackId: "155jyYkFKTI9FsC5K2q0Ly",
+    bandcampTrackId: "693325385",
+    youtubeVideoId: "TbTBVZuTq4k",
+    youtubeVideoStartTime: 3755,
+  },
+  {
+    id: "91f67fea-667a-4206-aba4-5595c87545c9",
+    songId: seedSongs.theDrippingTap.id,
+    showId: seedShows.houston24.id,
+    showPosition: 9,
+    spotifyTrackId: "01cW4evwwnsKfxuSUJSxaX",
+    bandcampTrackId: "3325456291",
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 4955,
+  },
 
   // ===========================================================================
   // EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+  // ====================================================
+  // Elbow
+  {
+    id: "d2805553-6990-4c49-bbe0-22d4acb48eb1",
+    songId: seedSongs.elbow.id,
+    showId: seedShows.rr24.id,
+    showPosition: 6,
+    spotifyTrackId: "78D9DJ5GtanDV4bnb5Be3K",
+    bandcampTrackId: "3754985166",
+    youtubeVideoId: "_AZ9z62b8dU",
+    youtubeVideoStartTime: 2471,
+  },
 
   // ====================================================
   // Evil Death Roll
@@ -2627,6 +2822,26 @@ export const seedPerformances = [
     youtubeVideoId: "4pItq9cRDzo",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "6e06eaf3-e3a2-4dc5-b885-ef364c9c8f42",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.sf16.id,
+    showPosition: 13,
+    spotifyTrackId: "5i7A2n0XdJBd08yZ0zhtuQ",
+    bandcampTrackId: "2280943585",
+    youtubeVideoId: "n98Je4AJbu8",
+    youtubeVideoStartTime: 3512,
+  },
+  {
+    id: "e053bbdb-6a91-45fe-89f8-67f551067880",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 13,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "yD4Uf-lPhek",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Hell
@@ -2674,6 +2889,26 @@ export const seedPerformances = [
     bandcampTrackId: "2448379173",
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 4215,
+  },
+  {
+    id: "df220ae8-f713-4250-93ca-29e901303f2a",
+    songId: seedSongs.herAndI.id,
+    showId: seedShows.rr22.id,
+    showPosition: 72,
+    spotifyTrackId: "66OrXAnD4i9Cpv6rV1rTyp",
+    bandcampTrackId: "1735422173",
+    youtubeVideoId: "_xtmhWlvI2Q",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "6f207c8e-6188-4914-a83e-1e018382117c",
+    songId: seedSongs.herAndI.id,
+    showId: seedShows.remlinger23.id,
+    showPosition: 39,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "qi64uChq2us",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3190,6 +3425,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Most Of What I Like
+  {
+    id: "2cab4d81-d00a-48a3-980c-450e9a11cd5c",
+    songId: seedSongs.mostOfWhatILike.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 14,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "4LeGZbTr12A",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Motor Spirit
   {
     id: "bed7020d-dd44-4399-a0fb-ebe07b9bbda4",
@@ -3312,6 +3560,17 @@ export const seedPerformances = [
     bandcampTrackId: "1325552537",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 2139,
+  },
+  {
+    id: "45a91a9e-73a2-44eb-848c-31800c7e21c6",
+    songId: seedSongs.openWater.id,
+    showId: seedShows.okc24.id,
+    showPosition: 6,
+    spotifyTrackId: null,
+    bandcampTrackId: "594955589",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "TsK-U1PhmSc",
+    youtubeVideoStartTime: 3252,
   },
 
   // ====================================================
@@ -3474,6 +3733,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Rattlesnake
+  {
+    id: "98128358-ec88-4032-8023-e4b4e6ec3c8c",
+    songId: seedSongs.rattlesnake.id,
+    showId: seedShows.rr22.id,
+    showPosition: 14,
+    spotifyTrackId: "3DFiNEyPyEUUWaP1Brcziw",
+    bandcampTrackId: "1649372383",
+    youtubeVideoId: "6rElf-KwwZA",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Raw Feel
   {
     id: "2c729067-310a-4493-be50-0fddaa756f28",
@@ -3549,6 +3821,16 @@ export const seedPerformances = [
     youtubeVideoId: "n98Je4AJbu8",
     youtubeVideoStartTime: 2363,
   },
+  {
+    id: "2a7fde15-f39a-4272-a4ae-3bf8e8ff7838",
+    songId: seedSongs.theRiver.id,
+    showId: seedShows.slo22.id,
+    showPosition: 7,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "-3RcmhL80Rw",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Road Train
@@ -3561,6 +3843,16 @@ export const seedPerformances = [
     bandcampTrackId: "1699786441",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 4214,
+  },
+  {
+    id: "b2acbacd-4fc4-459c-9342-55f835cde028",
+    songId: seedSongs.roadTrain.id,
+    showId: seedShows.manchester19.id,
+    showPosition: 18,
+    spotifyTrackId: "5viIdctHHmTSHA6tUpbKMR",
+    bandcampTrackId: "601949921",
+    youtubeVideoId: "0zgCs2r6Y30",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3654,6 +3946,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Sea of Trees
+  {
+    id: "5cbf8ea4-401c-4beb-b6f0-d52d0b03ca88",
+    songId: seedSongs.seaOfTrees.id,
+    showId: seedShows.pomona22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "jMSvOtHaiw0",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Self-Immolate
   {
     id: "9d2f54d5-30af-4427-8eb8-d3cb4ecb90b0",
@@ -3710,6 +4015,16 @@ export const seedPerformances = [
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 5484,
   },
+  {
+    id: "7b95d378-4335-45cb-8b25-906b46e2655f",
+    songId: seedSongs.sense.id,
+    showId: seedShows.remlinger23.id,
+    showPosition: 8,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "CLxJ6ltVjHU",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Set
@@ -3765,6 +4080,17 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "GOypQkCShfw",
     youtubeVideoStartTime: 6985,
+  },
+  {
+    id: "2b6a067f-66e1-4ff8-a116-de3504cb2458",
+    songId: seedSongs.set.id,
+    showId: seedShows.pasoRobles24.id,
+    showPosition: 11,
+    spotifyTrackId: null,
+    bandcampTrackId: "3087280228",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 5318,
   },
 
   // ====================================================
@@ -4015,6 +4341,19 @@ export const seedPerformances = [
   // TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 
   // ====================================================
+  // Tetrachromacy
+  {
+    id: "efc30cee-0b7c-457c-90ac-fadd1a9a0ebe",
+    songId: seedSongs.tetrachromacy.id,
+    showId: seedShows.rr24.id,
+    showPosition: 23,
+    spotifyTrackId: "159OyzDH7VPMqbHANtaDqB",
+    bandcampTrackId: "451540334",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 2166,
+  },
+
+  // ====================================================
   // Theia
   {
     id: "6aa65ebb-7fd9-49f2-a86c-0c6ba5474daa",
@@ -4149,6 +4488,16 @@ export const seedPerformances = [
     youtubeVideoId: "KTTNMU5juFo",
     youtubeVideoStartTime: 6161,
   },
+  {
+    id: "755536d4-3dcf-452d-b544-c56b691e2479",
+    songId: seedSongs.venusian2.id,
+    showId: seedShows.rr22.id,
+    showPosition: 79,
+    spotifyTrackId: "4R9MbQ4clGbFbqxhxkZONm",
+    bandcampTrackId: "1571152522",
+    youtubeVideoId: "usVDLzYnke8",
+    youtubeVideoStartTime: 194,
+  },
 
   // ===========================================================================
   // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -4164,6 +4513,16 @@ export const seedPerformances = [
     bandcampTrackId: "2923773487",
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 1454,
+  },
+  {
+    id: "1120a71f-d78e-4802-9ca6-6edc692d5568",
+    songId: seedSongs.theWheel.id,
+    showId: seedShows.kexp18.id,
+    showPosition: 6,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "DzLAZ9by5qY",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
