@@ -4052,6 +4052,27 @@ export const seedPerformances = [
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 5498,
   },
+  {
+    id: "01b7bfd0-4490-4f5f-a419-03dcd264594a",
+    songId: seedSongs.ironLung.id,
+    showId: seedShows.vancouver24.id,
+    showPosition: 16,
+    spotifyTrackId: "0NeyvPB2s75vQN5YQhccnw",
+    bandcampTrackId: "3222792966",
+    youtubeVideoId: "5Y4bYCp4KAo",
+    youtubeVideoStartTime: 7208,
+  },
+  {
+    id: "9baabb5c-c4cf-4dfe-803a-425aa13daa85",
+    songId: seedSongs.ironLung.id,
+    showId: seedShows.atlanta24.id,
+    showPosition: 10,
+    spotifyTrackId: "3CBFudNxasgP701shWVj6r",
+    bandcampTrackId: "1156560602",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 5222,
+  },
 
   // ===========================================================================
   // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
