@@ -1081,7 +1081,7 @@ export const seedShows = {
   kexp18: {
     id: "fd001d84-9b97-4525-ac2b-6f9cfece6136",
     slug: "kexp-2018",
-    location: "San Francisco",
+    location: "KEXP",
     date: "2018-06-06",
     imageUrl: null,
     bandcampAlbumId: null,
