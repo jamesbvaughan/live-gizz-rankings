@@ -2,3 +2,5 @@ Gizz
 Vercel
 Spotify
 subreddit
+Dependabot
+const

@@ -20,6 +20,10 @@ function SiteButtons() {
           blog
         </Link>
 
+        <Link href="/changelog" className="inline-block">
+          changelog
+        </Link>
+
         <Link href="/nominate" className="inline-block">
           nominate
         </Link>

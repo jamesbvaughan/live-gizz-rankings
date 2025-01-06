@@ -16,7 +16,7 @@ export default async function UsersPage() {
   }
 
   const isAdmin = user.publicMetadata.isAdmin;
-  if (isAdmin) {
+  if (!isAdmin) {
     forbidden();
   }
 
