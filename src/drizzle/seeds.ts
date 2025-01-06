@@ -4054,6 +4054,22 @@ export const seedPerformances = [
   },
 
   // ===========================================================================
+  // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+
+  // ====================================================
+  // K.G.L.W. (Outro)
+  {
+    id: "9242cade-5481-4f5d-a1a4-16cf7d51b957",
+    songId: seedSongs.kglwOutro.id,
+    showId: seedShows.nyc24.id,
+    showPosition: 25,
+    spotifyTrackId: "7LcjBvvT5miXfbzvn6KX2n",
+    bandcampTrackId: "3865033953",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 10553,
+  },
+
+  // ===========================================================================
   // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 
   // ====================================================
@@ -4651,6 +4667,16 @@ export const seedPerformances = [
     bandcampTrackId: "1649372383",
     youtubeVideoId: "6rElf-KwwZA",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "b66832d8-b937-4666-b230-792c778027f8",
+    songId: seedSongs.rattlesnake.id,
+    showId: seedShows.nyc24.id,
+    showPosition: 24,
+    spotifyTrackId: "1Ku7VKCngt8sQtKa2Q37Iw",
+    bandcampTrackId: "1233614569",
+    youtubeVideoId: "KTTNMU5juFo",
+    youtubeVideoStartTime: 9658,
   },
 
   // ====================================================
