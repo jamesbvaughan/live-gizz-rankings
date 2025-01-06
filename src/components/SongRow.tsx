@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { db } from "@/drizzle/db";
 import { performances, Song } from "@/drizzle/schema";
 import { allPerformances } from "@/drizzle/seeds";
+import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getPerformancePath,
   getShowById,
@@ -65,10 +66,14 @@ export function SongRow({ song }: { song: Song }) {
 
         <div className="flex justify-between space-x-2 text-muted">
           {songPerformances.length === 0 ? (
-            <span>
-              No performances submitted yet -{" "}
-              <Link href="/nominate">nominate one</Link>!
-            </span>
+            songsNeverPlayedLive.includes(song.title) ? (
+              <span>They haven&apos;t played this live yet!</span>
+            ) : (
+              <span>
+                No performances submitted yet -{" "}
+                <Link href="/nominate">nominate one</Link>!
+              </span>
+            )
           ) : (
             <>
               <div className="shrink-0">

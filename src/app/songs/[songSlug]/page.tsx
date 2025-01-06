@@ -14,6 +14,7 @@ import {
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
 import { allPerformances, allSongs } from "@/drizzle/seeds";
+import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getAlbumById,
   getAlbumPath,
@@ -115,6 +116,8 @@ export default async function Song({ params }: Props) {
   const album = getAlbumById(song.albumId)!;
   const albumPath = getAlbumPath(song.albumId);
 
+  const neverBeenPlayedLive = songsNeverPlayedLive.includes(song.title);
+
   return (
     <>
       <PageType>Song</PageType>
@@ -130,20 +133,26 @@ export default async function Song({ params }: Props) {
 
       <PageContent className="space-y-8">
         {performances.length === 0 ? (
-          <p>
-            No performances of {song.title} have been nominated yet.
-            {/* TODO: Add a link to the nomination page once it exists */}
-          </p>
+          neverBeenPlayedLive ? (
+            <p>They haven&apos;t played this live yet!</p>
+          ) : (
+            <p>
+              No performances of {song.title} have been nominated yet.
+              {/* TODO: Add a link to the nomination page once it exists */}
+            </p>
+          )
         ) : (
           <Suspense fallback="Loading performances...">
             <RankedPerformances songId={song.id} />
           </Suspense>
         )}
 
-        <p className="text-muted">
-          Is your favorite performance missing?{" "}
-          <Link href="/nominate">Nominate it here</Link>.
-        </p>
+        {!neverBeenPlayedLive && (
+          <p className="text-muted">
+            Is your favorite performance missing?{" "}
+            <Link href="/nominate">Nominate it here</Link>.
+          </p>
+        )}
 
         <div>
           <Link href={albumPath} className="no-underline">
