@@ -1,4 +1,5 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
+import createMDX from "@next/mdx";
 import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
@@ -7,6 +8,7 @@ const nextConfig: NextConfig = {
     ppr: true,
     authInterrupts: true,
   },
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   images: {
     remotePatterns: [
       {
@@ -29,6 +31,8 @@ const nextConfig: NextConfig = {
     ];
   },
 };
+
+const withMDX = createMDX({});
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -74,7 +78,9 @@ const sentryConfig: SentryBuildOptions = {
   automaticVercelMonitors: true,
 };
 
-export default withBundleAnalyzer(withSentryConfig(nextConfig, sentryConfig));
+export default withBundleAnalyzer(
+  withSentryConfig(withMDX(nextConfig), sentryConfig),
+);
 
 // The following sections define the Content Security Policy (CSP) header for
 // the app.
