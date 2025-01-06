@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { EloScore } from "@/components/EloScore";
 import {
   PageContent,
   PageSubtitle,
@@ -72,10 +73,7 @@ async function RankedPerformances({ songId }: { songId: string }) {
           <li key={performance.id} className="flex">
             <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
 
-            <Link
-              href={performancePath}
-              className="flex shrink-0 space-x-4 no-underline"
-            >
+            <div className="flex shrink-0 space-x-4">
               <div className="aspect-square w-24 bg-background">
                 {show.imageUrl ? (
                   <Image
@@ -88,13 +86,16 @@ async function RankedPerformances({ songId }: { songId: string }) {
               </div>
 
               <div>
-                <div className="text-2xl sm:text-4xl">{showTitle}</div>
+                <Link
+                  href={performancePath}
+                  className="text-2xl no-underline sm:text-4xl"
+                >
+                  {showTitle}
+                </Link>
 
-                <div className="text-muted">
-                  ({Math.round(performance.eloRating)})
-                </div>
+                <EloScore score={performance.eloRating} />
               </div>
-            </Link>
+            </div>
           </li>
         );
       })}

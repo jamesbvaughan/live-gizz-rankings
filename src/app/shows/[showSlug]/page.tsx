@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { EloScore } from "@/components/EloScore";
 import {
   PageContent,
   PageSubtitle,
@@ -95,7 +96,7 @@ async function PerformanceElo({ performanceId }: { performanceId: string }) {
     where: eq(performances.id, performanceId),
   });
 
-  return <span>({Math.round(performance!.eloRating)})</span>;
+  return <EloScore score={performance!.eloRating} />;
 }
 
 export default async function ShowPage({ params }: Props) {
