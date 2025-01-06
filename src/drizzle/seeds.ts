@@ -3971,6 +3971,17 @@ export const seedPerformances = [
     youtubeVideoId: "FET0riVKZa0",
     youtubeVideoStartTime: 3056,
   },
+  {
+    id: "054a770e-8720-4a33-9ef6-0064b2d438d2",
+    songId: seedSongs.selfImmolate.id,
+    showId: seedShows.abq24.id,
+    showPosition: 1,
+    spotifyTrackId: "5wnkXg1y3TYirPnVCtx4F2",
+    bandcampTrackId: "340712780",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 1111,
+  },
 
   // ====================================================
   // Sense
