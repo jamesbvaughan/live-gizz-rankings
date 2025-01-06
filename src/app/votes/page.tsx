@@ -126,6 +126,17 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
           here.
         </p>
       </div>
+
+      <hr className="border-muted-2" />
+
+      <div className="space-y-2">
+        <p>
+          <b>2025-01-05 update</b>: The fix I mentioned in that last update
+          seems to have helped. Counting just the votes since then, the ratio is
+          1.037:1, which is <i>probably</i> within a reasonanble margin of
+          error.
+        </p>
+      </div>
     </div>
   );
 }
