@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Album } from "@/drizzle/schema";
 import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
+import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 
 function AlbumWithMissingPerformances({
   album,
@@ -12,6 +13,11 @@ function AlbumWithMissingPerformances({
 }) {
   const songs = allSongs.filter((song) => song.albumId === album.id);
   const songsWithoutPerformances = songs.filter((song) => {
+    // Don't include songs that the band has never played live
+    if (songsNeverPlayedLive.includes(song.title)) {
+      return false;
+    }
+
     const performances = allPerformances.filter(
       (performance) => performance.songId === song.id,
     );
