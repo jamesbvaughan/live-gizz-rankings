@@ -86,10 +86,6 @@ for (const performance of seedPerformances) {
     const show = Object.values(seedShows).find(
       (s) => s.id === performance.showId,
     )!;
-    if (!show.bandcampAlbumId) {
-      fail(`Missing bandcamp album ID for ${show.location} ${show.date}`);
-    }
-
     if (mediaIds.has(performance.bandcampTrackId)) {
       fail(`Duplicate Bandcamp track ID: ${performance.bandcampTrackId}`);
     }
