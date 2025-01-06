@@ -45,7 +45,7 @@ export const albumsRelations = relations(albums, ({ many }) => ({
 export const songs = pgTable("songs", {
   id: uuid("id").primaryKey().defaultRandom(),
   slug: text("slug").unique().notNull(),
-  title: text("title").notNull().unique(),
+  title: text("title").notNull(),
   albumId: uuid("album_id")
     .references(() => albums.id)
     .notNull(),
