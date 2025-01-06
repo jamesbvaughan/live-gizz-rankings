@@ -951,6 +951,62 @@ export const seedSongs = {
 
   // ====================================================
   // Sketches of Brunswick East
+  sketchesOfBruswickEastI: {
+    id: "96ca5a82-6be2-489f-b875-bc9447e98be5",
+    albumPosition: 1,
+    slug: "sketches-of-brunswick-east-i",
+    title: "Sketches Of Brunswick East I",
+    albumId: seedAlbums.sketches.id,
+  },
+  countdown: {
+    id: "bc316fd6-c451-4c7d-b984-ab9e4b39b035",
+    albumPosition: 2,
+    slug: "countdown",
+    title: "Countdown",
+    albumId: seedAlbums.sketches.id,
+  },
+  dDay: {
+    id: "acd643e5-5293-42d0-952d-be7286e660b2",
+    albumPosition: 3,
+    slug: "d-day",
+    title: "D-Day",
+    albumId: seedAlbums.sketches.id,
+  },
+  tezeta: {
+    id: "aaecdc78-f296-4aaf-9427-f30ee33c29e4",
+    albumPosition: 4,
+    slug: "tezeta",
+    title: "Tezeta",
+    albumId: seedAlbums.sketches.id,
+  },
+  cranesPlanesMigraines: {
+    id: "a08f11ba-03a8-429c-b675-a71f7a11f1db",
+    albumPosition: 5,
+    slug: "cranes-planes-migraines",
+    title: "Cranes, Planes, Migraines",
+    albumId: seedAlbums.sketches.id,
+  },
+  theSpiderAndMe: {
+    id: "66a2c110-a364-49d8-8edc-c0eee1f9bc0f",
+    albumPosition: 6,
+    slug: "the-spider-and-me",
+    title: "The Spider And Me",
+    albumId: seedAlbums.sketches.id,
+  },
+  sketchesOfBrunswickEastII: {
+    id: "9f9d10ca-483e-4dac-b91e-d3aeaf91e61d",
+    albumPosition: 7,
+    slug: "sketches-of-brunswick-east-ii",
+    title: "Sketches Of Brunswick East II",
+    albumId: seedAlbums.sketches.id,
+  },
+  duskToDawnOnLygonStreet: {
+    id: "7a6ab1f1-5553-4164-be29-6b82b50c3533",
+    albumPosition: 8,
+    slug: "dusk-to-dawn-on-lygon-street",
+    title: "Dusk To Dawn On Lygon Street",
+    albumId: seedAlbums.sketches.id,
+  },
   theBook: {
     id: "d7f653a1-f774-4462-8ad6-dde97a0bce4f",
     albumPosition: 9,
@@ -958,11 +1014,32 @@ export const seedSongs = {
     title: "The Book",
     albumId: seedAlbums.sketches.id,
   },
+  aJourneyToShell: {
+    id: "2e21628f-0418-45ec-88f3-43d7561d1346",
+    albumPosition: 10,
+    slug: "a-journey-to-shell",
+    title: "A Journey To (S)hell",
+    albumId: seedAlbums.sketches.id,
+  },
+  rollingStoned: {
+    id: "c8c5ac74-452d-40a7-8fde-e4d4caa63ae0",
+    albumPosition: 11,
+    slug: "rolling-stoned",
+    title: "Rolling Stoned",
+    albumId: seedAlbums.sketches.id,
+  },
   silhouette: {
     id: "84be6b7d-8ef2-4a77-ad41-f6c8ab98e682",
     albumPosition: 12,
     slug: "you-can-be-your-silhouette",
     title: "You Can Be Your Silhouette",
+    albumId: seedAlbums.sketches.id,
+  },
+  sketchesOfBrunswickEastIII: {
+    id: "79209906-5cc6-4b30-b8b2-e6664e4607cf",
+    albumPosition: 13,
+    slug: "sketches-of-brunswick-east-iii",
+    title: "Sketches Of Brunswick East III",
     albumId: seedAlbums.sketches.id,
   },
 
@@ -975,11 +1052,60 @@ export const seedSongs = {
     title: "Crumbling Castle",
     albumId: seedAlbums.poly.id,
   },
+  polygondwanaland: {
+    id: "c59cbe5a-0e9f-4421-88c8-5e9ad708782a",
+    albumPosition: 2,
+    slug: "polygondwanaland",
+    title: "Polygondwanaland",
+    albumId: seedAlbums.poly.id,
+  },
+  theCastleInTheAir: {
+    id: "e9ae5d00-4f87-43ff-9a28-21c2ad82604e",
+    albumPosition: 3,
+    slug: "the-castle-in-the-air",
+    title: "The Castle In The Air",
+    albumId: seedAlbums.poly.id,
+  },
+  desertedDunesWelcomeWearyFeet: {
+    id: "6e94266e-2cdc-489e-9c10-82aee350aea0",
+    albumPosition: 4,
+    slug: "deserted-dunes-welcome-weary-feet",
+    title: "Deserted Dunes Welcome Weary Feet",
+    albumId: seedAlbums.poly.id,
+  },
+  innerCell: {
+    id: "b9fd1057-858e-4c27-bbea-eb6a3d0e00db",
+    albumPosition: 5,
+    slug: "inner-cell",
+    title: "Inner Cell",
+    albumId: seedAlbums.poly.id,
+  },
+  loyalty: {
+    id: "5aceb4cc-9b8f-4e1a-8d01-8d0bf129ec1f",
+    albumPosition: 6,
+    slug: "loyalty",
+    title: "Loaylty",
+    albumId: seedAlbums.poly.id,
+  },
+  horology: {
+    id: "005d7bee-2d21-4d4f-8535-8d7c5678f041",
+    albumPosition: 7,
+    slug: "horology",
+    title: "Horology",
+    albumId: seedAlbums.poly.id,
+  },
   tetrachromacy: {
     id: "f6b0a28f-fa34-49c2-a597-e637ee13852e",
     albumPosition: 8,
     slug: "tetrachromacy",
     title: "Tetrachromacy",
+    albumId: seedAlbums.poly.id,
+  },
+  searching: {
+    id: "94d43344-d0f3-4e8e-b45d-fb867039357f",
+    albumPosition: 9,
+    slug: "searching",
+    title: "Searching...",
     albumId: seedAlbums.poly.id,
   },
   fourthColor: {
@@ -992,11 +1118,74 @@ export const seedSongs = {
 
   // ====================================================
   // Gumboot Soup
+  beginnersLuck: {
+    id: "300516d1-2a31-4dc1-ae51-b7544f5fb698",
+    albumPosition: 1,
+    slug: "beginners-luck",
+    title: "Beginner's Luck",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  greenhouseHeatDeath: {
+    id: "6fc44241-d6b0-44b7-9eba-bdd4c08430dc",
+    albumPosition: 2,
+    slug: "greenhouse-heat-death",
+    title: "Greenhouse Heat Death",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  barefootDesert: {
+    id: "3596353d-b9fb-4b9f-a382-618320cfbfcc",
+    albumPosition: 3,
+    slug: "barefoot-desert",
+    title: "Barefoot Desert",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
   muddyWater: {
     id: "37476f9c-0e46-4ba6-9fb6-727cb904f567",
     albumPosition: 4,
     slug: "muddy-water",
     title: "Muddy Water",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  superposition: {
+    id: "30f1491f-7b7e-4981-95c7-af82b64001d4",
+    albumPosition: 5,
+    slug: "superposition",
+    title: "Superposition",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  downTheSink: {
+    id: "f3df8a93-be8f-40e0-ab26-a9960328d5a5",
+    albumPosition: 6,
+    slug: "down-the-sink",
+    title: "Down The Sink",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  theGreatChainOfBeing: {
+    id: "44719352-8a93-4462-a4b5-afac9abad8ba",
+    albumPosition: 7,
+    slug: "the-great-chain-of-being",
+    title: "The Great Chain Of Being",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  theLastOasis: {
+    id: "0a23a3d0-014c-4fad-9f46-6e37af395a32",
+    albumPosition: 8,
+    slug: "the-last-oasis",
+    title: "The Last Oasis",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  allIsKnown: {
+    id: "1e83ee0c-2f9c-4013-8eb1-00f7ff696127",
+    albumPosition: 9,
+    slug: "all-is-known",
+    title: "All Is Known",
+    albumId: seedAlbums.gumbootSoup.id,
+  },
+  imSleepinIn: {
+    id: "bd5c1d16-420e-4770-8fd1-cd2e3e2dd10f",
+    albumPosition: 10,
+    slug: "im-sleepin-in",
+    title: "I'm Sleepin' In",
     albumId: seedAlbums.gumbootSoup.id,
   },
   theWheel: {
@@ -1009,11 +1198,25 @@ export const seedSongs = {
 
   // ====================================================
   // Fishing For Fishies
+  fishingForFishies: {
+    id: "7370f606-49b2-40eb-a9eb-58b84ab5446b",
+    albumPosition: 1,
+    slug: "fishing-for-fishies",
+    title: "Fishing For Fishies",
+    albumId: seedAlbums.fff.id,
+  },
   boogiemanSam: {
     id: "a9a6572e-e1a3-4557-ab1e-388fc4db3b49",
     albumPosition: 2,
     slug: "booogieman-sam",
     title: "Boogieman Sam",
+    albumId: seedAlbums.fff.id,
+  },
+  theBirdSong: {
+    id: "55bd5fb5-0a33-4da8-bf48-b220aa816714",
+    albumPosition: 3,
+    slug: "the-bird-song",
+    title: "The Bird Song",
     albumId: seedAlbums.fff.id,
   },
   plasticBoogie: {
@@ -1023,11 +1226,32 @@ export const seedSongs = {
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
   },
+  theCruelMillenial: {
+    id: "f9551ec5-cfaf-45ea-840d-8832f60d10bb",
+    albumPosition: 5,
+    slug: "the-cruel-millenial",
+    title: "The Cruel Millenial",
+    albumId: seedAlbums.fff.id,
+  },
+  realsNotReal: {
+    id: "beadf77a-678c-4c88-b165-6e5850bfaa68",
+    albumPosition: 6,
+    slug: "reals-not-real",
+    title: "Real's Not Real",
+    albumId: seedAlbums.fff.id,
+  },
   thisThing: {
     id: "f4a714ed-0de5-43d3-a92c-14cf1c201c15",
     albumPosition: 7,
     slug: "this-thing",
     title: "This Thing",
+    albumId: seedAlbums.fff.id,
+  },
+  acarine: {
+    id: "82088978-5bf8-48d1-8c01-ffb2950a9468",
+    albumPosition: 8,
+    slug: "acarine",
+    title: "Acarine",
     albumId: seedAlbums.fff.id,
   },
   cyboogie: {
@@ -1106,11 +1330,46 @@ export const seedSongs = {
 
   // ====================================================
   // K.G.
+  kglwIntro: {
+    id: "75d9a982-57e2-4659-bdc3-4c4d6ad35ee8",
+    albumPosition: 1,
+    slug: "kglw-intro",
+    title: "K.G.L.W.",
+    albumId: seedAlbums.kg.id,
+  },
+  automation: {
+    id: "c4d3ec3e-c5df-469b-a213-2f18776f4574",
+    albumPosition: 2,
+    slug: "automation",
+    title: "Automation",
+    albumId: seedAlbums.kg.id,
+  },
+  minimumBrainSize: {
+    id: "d327fdcc-dae6-4b2e-afed-70279d18ab61",
+    albumPosition: 3,
+    slug: "minimum-brain-size",
+    title: "Minimum Brain Size",
+    albumId: seedAlbums.kg.id,
+  },
   strawsInTheWind: {
     id: "962270a4-42d6-4eab-bae9-c6b7ff3b2750",
     albumPosition: 4,
     slug: "straws-in-the-wind",
     title: "Straws In The Wind",
+    albumId: seedAlbums.kg.id,
+  },
+  someOfUs: {
+    id: "26638384-de65-41ec-acb5-cf6770bb885d",
+    albumPosition: 5,
+    slug: "some-of-us",
+    title: "Some Of Us",
+    albumId: seedAlbums.kg.id,
+  },
+  ontology: {
+    id: "f858d07d-dae5-4c5b-a379-7a1b17723a6f",
+    albumPosition: 6,
+    slug: "ontology",
+    title: "Ontology",
     albumId: seedAlbums.kg.id,
   },
   intrasport: {
@@ -1120,9 +1379,103 @@ export const seedSongs = {
     title: "Intrasport",
     albumId: seedAlbums.kg.id,
   },
+  oddlife: {
+    id: "7594b803-623d-4893-8cc4-192faa4d914d",
+    albumPosition: 8,
+    slug: "oddlife",
+    title: "Oddlife",
+    albumId: seedAlbums.kg.id,
+  },
+  honey: {
+    id: "63f563bc-5d84-493b-8e09-d39745d59597",
+    albumPosition: 9,
+    slug: "honey",
+    title: "Honey",
+    albumId: seedAlbums.kg.id,
+  },
+  theHungryWolfOfFate: {
+    id: "010c8727-06d1-4f5c-aecd-7753717fb824",
+    albumPosition: 10,
+    slug: "the-hungry-wolf-of-fate",
+    title: "The Hungry Wolf Of Fate",
+    albumId: seedAlbums.kg.id,
+  },
+
+  // ====================================================
+  // L.W.
+  ifNotNowThenWhen: {
+    id: "af273f1e-0bd4-4eb7-a3d3-17b0544e165b",
+    albumPosition: 1,
+    slug: "if-not-now-then-when",
+    title: "If Not Now, Then When?",
+    albumId: seedAlbums.lw.id,
+  },
+  one: {
+    id: "7fa2f2a2-ee65-408b-960e-c6966424314b",
+    albumPosition: 2,
+    slug: "one",
+    title: "O.N.E.",
+    albumId: seedAlbums.lw.id,
+  },
+  pleura: {
+    id: "d6804751-ab0a-4faf-b4f1-75de7e97054a",
+    albumPosition: 3,
+    slug: "pleura",
+    title: "Pleura",
+    albumId: seedAlbums.lw.id,
+  },
+  supremeAscendency: {
+    id: "9a611b8d-2feb-49ff-9411-3ba8bdca3766",
+    albumPosition: 4,
+    slug: "supreme-ascendency",
+    title: "Supreme Ascendency",
+    albumId: seedAlbums.lw.id,
+  },
+  staticElectricity: {
+    id: "61cecc4c-4582-4245-aaba-a34ae80f5e3b",
+    albumPosition: 5,
+    slug: "static-electricity",
+    title: "Static Electricity",
+    albumId: seedAlbums.lw.id,
+  },
+  eastWestLink: {
+    id: "405a4bfb-60b2-49c2-a311-3f1e6c9f1d7d",
+    albumPosition: 6,
+    slug: "east-west-link",
+    title: "EAst West Link",
+    albumId: seedAlbums.lw.id,
+  },
+  ataraxia: {
+    id: "b374aaa5-c516-4c21-83d7-a70688427282",
+    albumPosition: 7,
+    slug: "ataraxia",
+    title: "Ataraxia",
+    albumId: seedAlbums.lw.id,
+  },
+  seeMe: {
+    id: "a8441f3d-9238-4ed5-95c6-a675b6f489e6",
+    albumPosition: 8,
+    slug: "see-me",
+    title: "See Me",
+    albumId: seedAlbums.lw.id,
+  },
+  kglwOutro: {
+    id: "d052487f-b799-4a93-8720-191af54c9cac",
+    albumPosition: 9,
+    slug: "kglw-outro",
+    title: "K.G.L.W.",
+    albumId: seedAlbums.lw.id,
+  },
 
   // ====================================================
   // Butterfly 3000
+  yours: {
+    id: "c3328c2a-6529-4406-81b2-db0fc92180aa",
+    albumPosition: 1,
+    slug: "yours",
+    title: "Yours",
+    albumId: seedAlbums.bf3k.id,
+  },
   shanghai: {
     id: "f927bc2e-d505-4cd6-8357-f3d73ded4403",
     albumPosition: 2,
@@ -1130,11 +1483,60 @@ export const seedSongs = {
     title: "Shanghai",
     albumId: seedAlbums.bf3k.id,
   },
+  dreams: {
+    id: "85b5ae24-e0ee-45c6-9c52-86050f32f072",
+    albumPosition: 3,
+    slug: "dreams",
+    title: "Dreams",
+    albumId: seedAlbums.bf3k.id,
+  },
+  blueMorpho: {
+    id: "4d08c17a-ebd2-4a64-a595-2535383518bb",
+    albumPosition: 4,
+    slug: "blue-morpho",
+    title: "Blue Morpho",
+    albumId: seedAlbums.bf3k.id,
+  },
   interiorPeople: {
     id: "96f2555a-796d-4dd1-8bfa-52c007a55190",
     albumPosition: 5,
     slug: "interior-people",
     title: "Interior People",
+    albumId: seedAlbums.bf3k.id,
+  },
+  catchingSmoke: {
+    id: "39b27387-2b46-435d-b97f-93948516a0c4",
+    albumPosition: 6,
+    slug: "catching-smoke",
+    title: "Catching Smoke",
+    albumId: seedAlbums.bf3k.id,
+  },
+  twoOTwoKillerYear: {
+    id: "caf3b82c-6cbc-4033-87d0-0466c6165ae0",
+    albumPosition: 7,
+    slug: "2-02-killer-year",
+    title: "2.02 Killer Year",
+    albumId: seedAlbums.bf3k.id,
+  },
+  blackHotSoup: {
+    id: "6032d411-9fbc-4fbd-af5a-d04347a07fc3",
+    albumPosition: 8,
+    slug: "black-hot-soup",
+    title: "Black Hot Soup",
+    albumId: seedAlbums.bf3k.id,
+  },
+  yaLove: {
+    id: "8602f786-a7fe-4b4d-87ad-b73e2b667ba8",
+    albumPosition: 9,
+    slug: "ya-love",
+    title: "Ya Love",
+    albumId: seedAlbums.bf3k.id,
+  },
+  butterfly3000: {
+    id: "01db9af7-d4b9-4ae1-931b-703ca6d6f40a",
+    albumPosition: 10,
+    slug: "butterfly-3000",
+    title: "Butterfly 3000",
     albumId: seedAlbums.bf3k.id,
   },
 
@@ -1154,6 +1556,13 @@ export const seedSongs = {
     title: "Magenta Mountain",
     albumId: seedAlbums.og.id,
   },
+  kepler22b: {
+    id: "82c104ae-76ab-4bb3-a9cd-3602c2346831",
+    albumPosition: 3,
+    slug: "kepler-22b",
+    title: "Kepler-22b",
+    albumId: seedAlbums.og.id,
+  },
   gaia: {
     id: "96ec69a2-701b-4eb6-85f2-5631c24f81f8",
     albumPosition: 4,
@@ -1166,6 +1575,41 @@ export const seedSongs = {
     albumPosition: 5,
     slug: "ambergris",
     title: "Ambergris",
+    albumId: seedAlbums.og.id,
+  },
+  sadieSorceress: {
+    id: "076078ab-dd1b-469b-ac14-680c497cf503",
+    albumPosition: 6,
+    slug: "sadie-sorceress",
+    title: "Sadie Sorceress",
+    albumId: seedAlbums.og.id,
+  },
+  evilestMan: {
+    id: "d0e742d2-e852-46ba-897d-a6d5497820ad",
+    albumPosition: 7,
+    slug: "evilest-man",
+    title: "Evilest Man",
+    albumId: seedAlbums.og.id,
+  },
+  theGardenGoblin: {
+    id: "cee2fd24-6e75-4db7-8580-171bd4992767",
+    albumPosition: 8,
+    slug: "the-garden-goblin",
+    title: "The Garden Goblin",
+    albumId: seedAlbums.og.id,
+  },
+  blameItOnTheWeather: {
+    id: "68b520bd-0c75-4709-91a5-07feaf1b57dd",
+    albumPosition: 9,
+    slug: "blame-it-on-the-weather",
+    title: "Blame It On The Weather",
+    albumId: seedAlbums.og.id,
+  },
+  persistence: {
+    id: "c44d1887-b13e-487b-b545-0b13dced2fa0",
+    albumPosition: 10,
+    slug: "persistance",
+    title: "Persistence",
     albumId: seedAlbums.og.id,
   },
   theGrimReaper: {
@@ -1182,9 +1626,44 @@ export const seedSongs = {
     title: "Presumptuous",
     albumId: seedAlbums.og.id,
   },
+  predatorX: {
+    id: "0778fb7e-f1f1-4ff9-8a0c-0e3833f4f120",
+    albumPosition: 13,
+    slug: "predator-x",
+    title: "Predator X",
+    albumId: seedAlbums.og.id,
+  },
+  redSmoke: {
+    id: "9fbc3894-e2ee-42df-8fc1-8ec331ac9cd2",
+    albumPosition: 14,
+    slug: "red-smoke",
+    title: "Red Smoke",
+    albumId: seedAlbums.og.id,
+  },
+  candles: {
+    id: "e8f3aa5c-c621-484a-a95e-cad79dafdcb9",
+    albumPosition: 15,
+    slug: "candles",
+    title: "Candles",
+    albumId: seedAlbums.og.id,
+  },
+  theFuneral: {
+    id: "2ea76ba7-25e4-430d-b0aa-9ca37eae36f4",
+    albumPosition: 16,
+    slug: "the-funeral",
+    title: "The Funeral",
+    albumId: seedAlbums.og.id,
+  },
 
   // ====================================================
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
+  mycelium: {
+    id: "484a071d-8043-483a-a85a-8b8183f73326",
+    albumPosition: 1,
+    slug: "mycelium",
+    title: "Mycelium",
+    albumId: seedAlbums.iceDeath.id,
+  },
   iceV: {
     id: "ae36e961-6db2-4c3b-8f8d-d08ecb671543",
     albumPosition: 2,
@@ -1199,6 +1678,20 @@ export const seedSongs = {
     title: "Magma",
     albumId: seedAlbums.iceDeath.id,
   },
+  lava: {
+    id: "3176c13f-78fc-40bd-8c1a-31746de228e8",
+    albumPosition: 4,
+    slug: "lava",
+    title: "Lava",
+    albumId: seedAlbums.iceDeath.id,
+  },
+  hellsItch: {
+    id: "281cf9a2-be33-4eee-8f1d-c1ce5fb1c007",
+    albumPosition: 5,
+    slug: "hells-itch",
+    title: "Hell's Itch",
+    albumId: seedAlbums.iceDeath.id,
+  },
   ironLung: {
     id: "15a32d56-c560-4017-9e49-e000b644a55b",
     albumPosition: 6,
@@ -1206,9 +1699,23 @@ export const seedSongs = {
     title: "Iron Lung",
     albumId: seedAlbums.iceDeath.id,
   },
+  gliese710: {
+    id: "58dec2c7-6aee-4238-b62a-e4d90fbcd6bf",
+    albumPosition: 7,
+    slug: "gliese-710",
+    title: "Gliese 710",
+    albumId: seedAlbums.iceDeath.id,
+  },
 
   // ====================================================
   // Laminated Denim
+  theLandBeforeTimeland: {
+    id: "26528ce3-3226-464f-861b-9f51e21e6398",
+    albumPosition: 1,
+    slug: "the-land-before-timeland",
+    title: "The Land Before Timeland",
+    albumId: seedAlbums.laminatedDenim.id,
+  },
   hypertension: {
     id: "5765ec19-0e59-479c-a62c-a019ac73ce28",
     albumPosition: 2,
@@ -1226,6 +1733,13 @@ export const seedSongs = {
     title: "Change",
     albumId: seedAlbums.changes.id,
   },
+  hateDancin: {
+    id: "39da3ba1-62e6-4e8b-b785-c9efc2e2a1ca",
+    albumPosition: 2,
+    slug: "hate-dancin",
+    title: "Hate Dancin'",
+    albumId: seedAlbums.changes.id,
+  },
   astroturf: {
     id: "b9cc7829-00b0-4421-a3fd-a3a004890ca2",
     albumPosition: 3,
@@ -1233,11 +1747,32 @@ export const seedSongs = {
     title: "Astroturf",
     albumId: seedAlbums.changes.id,
   },
+  noBody: {
+    id: "9b2d99e9-31f4-42a7-84a8-f89d22530e05",
+    albumPosition: 4,
+    slug: "no-body",
+    title: "No Body",
+    albumId: seedAlbums.changes.id,
+  },
   gondii: {
     id: "a2737d99-cecd-49c5-bdce-163057a28263",
     albumPosition: 5,
     slug: "gondii",
     title: "Gondii",
+    albumId: seedAlbums.changes.id,
+  },
+  explodingSuns: {
+    id: "f0ec5bd9-0ce5-4449-a3a1-df41a5f2aecd",
+    albumPosition: 6,
+    slug: "exploding-suns",
+    title: "Exploding Suns",
+    albumId: seedAlbums.changes.id,
+  },
+  shortChange: {
+    id: "f4f841b3-2eb8-428a-82ea-ad73165ab35d",
+    albumPosition: 7,
+    slug: "short-change",
+    title: "Short Change",
     albumId: seedAlbums.changes.id,
   },
 
