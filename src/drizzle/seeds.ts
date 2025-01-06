@@ -1442,7 +1442,7 @@ export const seedSongs = {
     id: "405a4bfb-60b2-49c2-a311-3f1e6c9f1d7d",
     albumPosition: 6,
     slug: "east-west-link",
-    title: "EAst West Link",
+    title: "East West Link",
     albumId: seedAlbums.lw.id,
   },
   ataraxia: {
