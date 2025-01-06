@@ -1137,7 +1137,7 @@ export const seedShows = {
     slug: "sydney-2021",
     location: "Sydney",
     date: "2021-04-22",
-    imageUrl: "https://www.youtube.com/watch?v=3BQyGlBv44I",
+    imageUrl: "https://f4.bcbits.com/img/a0572452225_16.jpg",
     bandcampAlbumId: "2609270300",
   },
 
