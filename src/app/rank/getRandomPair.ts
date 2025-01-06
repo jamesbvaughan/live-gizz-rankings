@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
+import { unauthorized } from "next/navigation";
 
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
@@ -32,7 +33,7 @@ function generateAllPotentialPairs() {
 async function getUserPairs() {
   const { userId } = await auth();
   if (!userId) {
-    throw new Error("User not found");
+    unauthorized();
   }
 
   const userPairs = await db.query.votes.findMany({
