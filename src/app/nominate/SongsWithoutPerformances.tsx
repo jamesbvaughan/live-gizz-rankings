@@ -42,11 +42,11 @@ function AlbumWithMissingPerformances({
         <h3 className="text-xl">{album.title}</h3>
       </div>
 
-      <div>
+      <ul className="ml-4 list-disc">
         {songsWithoutPerformances.map((song) => (
-          <div key={song.id}>{song.title}</div>
+          <li key={song.id}>{song.title}</li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
