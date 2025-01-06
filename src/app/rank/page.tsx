@@ -1,5 +1,7 @@
+import { auth } from "@clerk/nextjs/server";
 import { Metadata } from "next";
 import Link from "next/link";
+import { unauthorized } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
 import {
@@ -17,6 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Rank() {
+  const { userId } = await auth();
+  if (!userId) {
+    unauthorized();
+  }
+
   const pair = await getRandomPairForCurrentUser();
   if (!pair) {
     return (

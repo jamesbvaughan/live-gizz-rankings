@@ -1,4 +1,6 @@
+import { currentUser } from "@clerk/nextjs/server";
 import { Metadata } from "next";
+import { forbidden, unauthorized } from "next/navigation";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -8,6 +10,16 @@ export const metadata: Metadata = {
 };
 
 export default async function UsersPage() {
+  const user = await currentUser();
+  if (!user) {
+    unauthorized();
+  }
+
+  const isAdmin = user.publicMetadata.isAdmin;
+  if (isAdmin) {
+    forbidden();
+  }
+
   const [allVotes, allNominations] = await Promise.all([
     db.query.votes.findMany(),
     db.query.nominations.findMany(),
