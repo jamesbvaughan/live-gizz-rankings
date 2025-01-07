@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
-import { allAlbums } from "@/drizzle/seeds";
+import { allAlbums } from "@/drizzle/data/albums";
 import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {

@@ -2,9 +2,10 @@ import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { unauthorized } from "next/navigation";
 
+import { allPerformances } from "@/drizzle/data/performances";
+import { allSongs } from "@/drizzle/data/songs";
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
-import { allPerformances, allSongs } from "@/drizzle/seeds";
 
 function generateAllPotentialPairs() {
   const pairs: Record<string, [string, string][]> = {};

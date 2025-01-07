@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
+import { allShows } from "@/drizzle/data/shows";
 import { Show } from "@/drizzle/schema";
-import { allShows } from "@/drizzle/seeds";
 import { getShowPath, getShowTitle } from "@/utils";
 
 export const metadata: Metadata = {

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
 import { PageContent, PageTitle, PageType } from "@/components/ui";
-import { allPerformances } from "@/drizzle/seeds";
+import { allPerformances } from "@/drizzle/data/performances";
 import {
   getPerformanceBySlug,
   getPerformanceSlug,

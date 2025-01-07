@@ -10,7 +10,8 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
-import { allAlbums, allSongs } from "@/drizzle/seeds";
+import { allAlbums } from "@/drizzle/data/albums";
+import { allSongs } from "@/drizzle/data/songs";
 import { getAlbumBySlug } from "@/utils";
 
 type Params = { albumSlug: string };

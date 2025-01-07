@@ -1,11 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import {
-  allAlbums,
-  allPerformances,
-  allShows,
-  allSongs,
-} from "@/drizzle/seeds";
+import { allAlbums } from "@/drizzle/data/albums";
+import { allPerformances } from "@/drizzle/data/performances";
+import { allShows } from "@/drizzle/data/shows";
+import { allSongs } from "@/drizzle/data/songs";
 import {
   getAlbumPath,
   getPerformancePath,

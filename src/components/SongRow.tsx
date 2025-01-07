@@ -4,9 +4,9 @@ import Link from "next/link";
 import pluralize from "pluralize";
 import { Suspense } from "react";
 
+import { allPerformances } from "@/drizzle/data/performances";
 import { db } from "@/drizzle/db";
 import { performances, Song } from "@/drizzle/schema";
-import { allPerformances } from "@/drizzle/seeds";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getPerformancePath,

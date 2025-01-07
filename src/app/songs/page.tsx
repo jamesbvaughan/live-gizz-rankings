@@ -4,7 +4,9 @@ import Link from "next/link";
 
 import { SongRow } from "@/components/SongRow";
 import { PageContent, PageTitle } from "@/components/ui";
-import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
+import { allAlbums } from "@/drizzle/data/albums";
+import { allPerformances } from "@/drizzle/data/performances";
+import { allSongs } from "@/drizzle/data/songs";
 import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {

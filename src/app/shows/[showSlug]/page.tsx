@@ -13,9 +13,11 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
+import { allPerformances } from "@/drizzle/data/performances";
+import { allShows } from "@/drizzle/data/shows";
+import { allSongs } from "@/drizzle/data/songs";
 import { db } from "@/drizzle/db";
 import { performances, Show } from "@/drizzle/schema";
-import { allPerformances, allShows, allSongs } from "@/drizzle/seeds";
 import {
   getAlbumById,
   getPerformancePath,
