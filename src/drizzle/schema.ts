@@ -16,6 +16,7 @@ export const shows = pgTable("shows", {
   location: text("location").notNull(),
   date: date("date").notNull().unique(),
   bandcampAlbumId: text("bandcamp_album_id").unique(),
+  youtubeVideoId: text("youtube_video_id"),
   imageUrl: text("image_url").unique(),
   createdAt: timestamp("created_at").defaultNow(),
 });
