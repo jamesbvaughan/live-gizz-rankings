@@ -1,10 +1,8 @@
+import { allAlbums } from "./drizzle/data/albums";
+import { allPerformances } from "./drizzle/data/performances";
+import { allShows } from "./drizzle/data/shows";
+import { allSongs } from "./drizzle/data/songs";
 import { Album, Performance, Show, Song } from "./drizzle/schema";
-import {
-  allAlbums,
-  allPerformances,
-  allShows,
-  allSongs,
-} from "./drizzle/seeds";
 
 // =============================================================================
 // SHOWS

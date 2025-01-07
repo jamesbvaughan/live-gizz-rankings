@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import { allAlbums } from "@/drizzle/data/albums";
+import { allPerformances } from "@/drizzle/data/performances";
+import { allSongs } from "@/drizzle/data/songs";
 import { Album } from "@/drizzle/schema";
-import { allAlbums, allPerformances, allSongs } from "@/drizzle/seeds";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 
 function AlbumWithMissingPerformances({

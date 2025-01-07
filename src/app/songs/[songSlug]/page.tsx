@@ -12,9 +12,10 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
+import { allPerformances } from "@/drizzle/data/performances";
+import { allSongs } from "@/drizzle/data/songs";
 import { db } from "@/drizzle/db";
 import { performances } from "@/drizzle/schema";
-import { allPerformances, allSongs } from "@/drizzle/seeds";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getAlbumById,
