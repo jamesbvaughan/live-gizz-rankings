@@ -4,14 +4,14 @@ import { unauthorized } from "next/navigation";
 
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
-import { seedPerformances, seedSongs } from "@/drizzle/seeds";
+import { allPerformances, allSongs } from "@/drizzle/seeds";
 
 function generateAllPotentialPairs() {
   const pairs: Record<string, [string, string][]> = {};
 
-  for (const song of Object.values(seedSongs)) {
+  for (const song of allSongs) {
     pairs[song.id] = [];
-    const performances = Object.values(seedPerformances).filter(
+    const performances = allPerformances.filter(
       (performance) => performance.songId === song.id,
     );
     for (let i = 0; i < performances.length; i++) {
@@ -58,7 +58,7 @@ const SHOW_ALL_PAIRS = false;
 /**
  * Every potential pair of performances.
  */
-const allPairs = generateAllPotentialPairs();
+export const allPairs = generateAllPotentialPairs();
 
 export async function getRandomPairForCurrentUser() {
   // Get all of the pairs of performances that the current user has already

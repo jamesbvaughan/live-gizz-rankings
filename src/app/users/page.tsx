@@ -5,6 +5,8 @@ import { forbidden, unauthorized } from "next/navigation";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 
+import { allPairs } from "../rank/getRandomPair";
+
 export const metadata: Metadata = {
   title: "Users",
 };
@@ -35,42 +37,49 @@ export default async function UsersPage() {
       <PageTitle>Users</PageTitle>
 
       <PageContent>
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th className="p-4">User ID</th>
-              <th className="p-4">Votes</th>
-              <th className="p-4">L:R</th>
-              <th className="p-4">Nominations</th>
-            </tr>
-          </thead>
+        <p>
+          There are {Object.keys(allPairs).length} pairs of performances
+          available to vote on.
+        </p>
 
-          <tbody>
-            {users.map(([userId, userVotes]) => {
-              const nominations = allNominations.filter(
-                (nomination) => nomination.userId === userId,
-              );
+        <div className="overflow-x-scroll">
+          <table className="table-auto">
+            <thead>
+              <tr>
+                <th className="p-4">User ID</th>
+                <th className="p-4">Votes</th>
+                <th className="p-4">L:R</th>
+                <th className="p-4">Nominations</th>
+              </tr>
+            </thead>
 
-              const leftVotes = userVotes!.filter(
-                (vote) => vote.winnerId === vote.performance1Id,
-              );
-              const rightVotes = userVotes!.filter(
-                (vote) => vote.winnerId === vote.performance2Id,
-              );
+            <tbody>
+              {users.map(([userId, userVotes]) => {
+                const nominations = allNominations.filter(
+                  (nomination) => nomination.userId === userId,
+                );
 
-              return (
-                <tr key={userId}>
-                  <td className="p-2">{userId}</td>
-                  <td className="p-2">{userVotes!.length}</td>
-                  <td className="p-2">
-                    {leftVotes.length}:{rightVotes.length}
-                  </td>
-                  <td className="p-2">{nominations.length}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                const leftVotes = userVotes!.filter(
+                  (vote) => vote.winnerId === vote.performance1Id,
+                );
+                const rightVotes = userVotes!.filter(
+                  (vote) => vote.winnerId === vote.performance2Id,
+                );
+
+                return (
+                  <tr key={userId}>
+                    <td className="p-2">{userId}</td>
+                    <td className="p-2">{userVotes!.length}</td>
+                    <td className="p-2">
+                      {leftVotes.length}:{rightVotes.length}
+                    </td>
+                    <td className="p-2">{nominations.length}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </PageContent>
     </>
   );
