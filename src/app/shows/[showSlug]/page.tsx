@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import { EloScore } from "@/components/EloScore";
+import { YouTubePlayer } from "@/components/MediaPlayers";
 import {
   PageContent,
   PageSubtitle,
@@ -192,6 +193,14 @@ export default async function ShowPage({ params }: Props) {
             <p>No performances from this show have been submitted yet.</p>
           )}
         </div>
+
+        {show.youtubeVideoId ? (
+          <div className="space-y-4">
+            <h3 className="text-3xl">Watch this show</h3>
+
+            <YouTubePlayer videoId={show.youtubeVideoId} startTime={null} />
+          </div>
+        ) : null}
 
         <div className="space-y-4">
           <h3 className="text-3xl">Listen to this show</h3>

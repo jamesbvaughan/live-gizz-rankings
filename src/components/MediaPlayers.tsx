@@ -34,7 +34,7 @@ function BandcampPlayer({
   );
 }
 
-function YouTubePlayer({
+export function YouTubePlayer({
   videoId,
   startTime,
 }: {

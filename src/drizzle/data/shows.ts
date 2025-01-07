@@ -9,7 +9,8 @@ export const seedShows = {
     slug: "northcote-2013",
     location: "Melbourne",
     date: "2013-08-29",
-    imageUrl: null,
+    imageUrl: "/showCovers/northcote13.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
 
@@ -21,6 +22,7 @@ export const seedShows = {
     location: "San Francisco",
     date: "2016-05-25",
     imageUrl: "https://f4.bcbits.com/img/a3583868136_16.jpg",
+    youtubeVideoId: "n98Je4AJbu8",
     bandcampAlbumId: "1532371660",
   },
 
@@ -32,6 +34,7 @@ export const seedShows = {
     location: "KEXP",
     date: "2018-06-06",
     imageUrl: null,
+    youtubeVideoId: "wxwu7FYFSek",
     bandcampAlbumId: null,
   },
 
@@ -43,6 +46,7 @@ export const seedShows = {
     location: "Adelaide",
     date: "2019-07-12",
     imageUrl: "https://f4.bcbits.com/img/a0297850511_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "1286108847",
   },
   milwaukee19: {
@@ -51,6 +55,7 @@ export const seedShows = {
     location: "Milwaukee",
     date: "2019-08-23",
     imageUrl: "https://f4.bcbits.com/img/a2134759453_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "2354695487",
   },
   manchester19: {
@@ -59,6 +64,7 @@ export const seedShows = {
     location: "Manchester",
     date: "2019-10-03",
     imageUrl: null,
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   brussels19: {
@@ -67,6 +73,7 @@ export const seedShows = {
     location: "Brussels",
     date: "2019-10-08",
     imageUrl: "https://f4.bcbits.com/img/a2684291974_16.jpg",
+    youtubeVideoId: "ZvOoM79OwpA",
     bandcampAlbumId: "1602825616",
   },
   madrid19: {
@@ -75,17 +82,28 @@ export const seedShows = {
     location: "Madrid",
     date: "2019-10-18",
     imageUrl: "https://f4.bcbits.com/img/a3650674791_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "6509641",
   },
 
   // ====================================================
   // Micro Tour 2021
+  melbourne21: {
+    id: "b1a86196-e89b-4f41-9159-3899ac1db891",
+    slug: "melbourne-2021",
+    location: "Melbourne",
+    date: "2021-02-26",
+    imageUrl: "https://f4.bcbits.com/img/a3456768963_16.jpg",
+    youtubeVideoId: "8X_LVeLFrA8",
+    bandcampAlbumId: "2002650750",
+  },
   sydney21: {
     id: "95a0d2a2-4147-44b5-9f4c-ef871a13bf62",
     slug: "sydney-2021",
     location: "Sydney",
     date: "2021-04-22",
     imageUrl: "https://f4.bcbits.com/img/a0572452225_16.jpg",
+    youtubeVideoId: "JbjZ-jZnoss",
     bandcampAlbumId: "2609270300",
   },
 
@@ -97,6 +115,7 @@ export const seedShows = {
     location: "Brisbane",
     date: "2021-12-19",
     imageUrl: "https://f4.bcbits.com/img/a2213415853_16.jpg",
+    youtubeVideoId: "vfWdWU5J2zc",
     bandcampAlbumId: "1173053054",
   },
 
@@ -108,6 +127,7 @@ export const seedShows = {
     location: "Melbourne", // Timeland
     date: "2022-04-05",
     imageUrl: null,
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   pomona22: {
@@ -116,6 +136,7 @@ export const seedShows = {
     location: "Pomona",
     date: "2022-04-12",
     imageUrl: null,
+    youtubeVideoId: "ALuRuq3Kw8k",
     bandcampAlbumId: null,
   },
   slo22: {
@@ -124,6 +145,7 @@ export const seedShows = {
     location: "San Luis Obispo",
     date: "2022-04-24",
     imageUrl: "/showCovers/slo22.webp",
+    youtubeVideoId: "-3RcmhL80Rw",
     bandcampAlbumId: null,
   },
   mexicoCity22: {
@@ -132,6 +154,9 @@ export const seedShows = {
     location: "Mexico City",
     date: "2022-05-06",
     imageUrl: "/showCovers/mexicoCity22.webp",
+    // TODO: Decide how to deal with "residency" shows, where there are multiple
+    // dates and multiple YouTube videos.
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   bonnaroo22: {
@@ -140,6 +165,7 @@ export const seedShows = {
     location: "Bonnaroo",
     date: "2022-06-17",
     imageUrl: "https://f4.bcbits.com/img/a3553224286_16.jpg",
+    youtubeVideoId: "TbTBVZuTq4k",
     bandcampAlbumId: "1363173846",
   },
   croatia22: {
@@ -148,6 +174,7 @@ export const seedShows = {
     location: "Croatia",
     date: "2022-08-02",
     imageUrl: null,
+    youtubeVideoId: "mlSoTaLw_t8",
     bandcampAlbumId: null,
   },
   berkeley22: {
@@ -156,6 +183,7 @@ export const seedShows = {
     location: "Berkeley",
     date: "2022-10-02",
     imageUrl: "/showCovers/berkeley22.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   rr22: {
@@ -164,6 +192,7 @@ export const seedShows = {
     location: "Red Rocks",
     date: "2022-10-10",
     imageUrl: "https://f4.bcbits.com/img/a3180996672_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "2418689883",
   },
   philadelphia22: {
@@ -172,6 +201,7 @@ export const seedShows = {
     location: "Philadelphia",
     date: "2022-10-22",
     imageUrl: "/showCovers/philadelphia22.webp",
+    youtubeVideoId: "zPJQJY6vY8E",
     bandcampAlbumId: null,
   },
 
@@ -183,6 +213,7 @@ export const seedShows = {
     location: "The Caverns",
     date: "2023-06-01",
     imageUrl: "/showCovers/caverns23.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   rr23: {
@@ -191,6 +222,7 @@ export const seedShows = {
     location: "Red Rocks",
     date: "2023-06-07",
     imageUrl: "/showCovers/rr23.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   chicago23: {
@@ -199,6 +231,7 @@ export const seedShows = {
     location: "Chicago",
     date: "2023-06-11",
     imageUrl: "https://f4.bcbits.com/img/a1324413369_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "3977429038",
   },
   remlinger23: {
@@ -207,6 +240,7 @@ export const seedShows = {
     location: "Remlinger Farms",
     date: "2023-06-17",
     imageUrl: "/showCovers/remlinger23.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
   hollywoodBowl23: {
@@ -215,6 +249,7 @@ export const seedShows = {
     location: "Hollywood Bowl",
     date: "2023-06-21",
     imageUrl: "/showCovers/hollywoodBowl23.webp",
+    youtubeVideoId: null,
     bandcampAlbumId: null,
   },
 
@@ -226,6 +261,7 @@ export const seedShows = {
     location: "Warsaw",
     date: "2023-03-11",
     imageUrl: "/showCovers/warsaw23.webp",
+    youtubeVideoId: "LpzCgLjOmHg",
     bandcampAlbumId: null,
   },
   palp23: {
@@ -234,6 +270,7 @@ export const seedShows = {
     location: "Palp",
     date: "2023-08-14",
     imageUrl: null,
+    youtubeVideoId: "myIjlvrfdfY",
     bandcampAlbumId: null,
   },
   lowlands23: {
@@ -242,6 +279,7 @@ export const seedShows = {
     location: "Lowlands",
     date: "2023-08-19",
     imageUrl: null,
+    youtubeVideoId: "y8Wawh9X7GM",
     bandcampAlbumId: null,
   },
 
@@ -253,6 +291,8 @@ export const seedShows = {
     location: "D.C.",
     date: "2024-08-15",
     imageUrl: "https://f4.bcbits.com/img/a1586375238_16.jpg",
+    // TODO: Replace with the official video when it's released
+    youtubeVideoId: "8nvhFvcPBhk",
     bandcampAlbumId: "2799349219",
   },
   nyc24: {
@@ -261,6 +301,7 @@ export const seedShows = {
     location: "New York City",
     date: "2024-08-16",
     imageUrl: "https://f4.bcbits.com/img/a4160066698_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "3530855413",
   },
   boston24: {
@@ -269,6 +310,7 @@ export const seedShows = {
     location: "Boston",
     date: "2024-08-19",
     imageUrl: "https://f4.bcbits.com/img/a4053913678_16.jpg",
+    youtubeVideoId: "wbtTEgC6quI",
     bandcampAlbumId: "2151609245",
   },
   maine24: {
@@ -277,6 +319,7 @@ export const seedShows = {
     location: "Maine",
     date: "2024-08-20",
     imageUrl: "https://f4.bcbits.com/img/a1001399634_16.jpg",
+    youtubeVideoId: "6JS4Uq8X6X8",
     bandcampAlbumId: "2637870866",
   },
   toronto24: {
@@ -285,6 +328,7 @@ export const seedShows = {
     location: "Toronto",
     date: "2024-08-21",
     imageUrl: "https://f4.bcbits.com/img/a1394424151_16.jpg",
+    youtubeVideoId: "8sXbseUS6rM",
     bandcampAlbumId: "3363110237",
   },
   detroit24: {
@@ -293,6 +337,7 @@ export const seedShows = {
     location: "Detroit",
     date: "2024-08-23",
     imageUrl: "https://f4.bcbits.com/img/a0824108206_16.jpg",
+    youtubeVideoId: "TbVDmWNbYFs",
     bandcampAlbumId: "1675633392",
   },
   cleveland24: {
@@ -301,6 +346,7 @@ export const seedShows = {
     location: "Cleveland",
     date: "2024-08-24",
     imageUrl: "https://f4.bcbits.com/img/a4062916790_16.jpg",
+    youtubeVideoId: "1_vJkwyLjds",
     bandcampAlbumId: "4147847254",
   },
   kentucky24: {
@@ -309,6 +355,7 @@ export const seedShows = {
     location: "Kentucky",
     date: "2024-08-25",
     imageUrl: "https://f4.bcbits.com/img/a0274986703_16.jpg",
+    youtubeVideoId: "VtezqMDh4Sc",
     bandcampAlbumId: "1304619880",
   },
   philadelphia24: {
@@ -317,6 +364,7 @@ export const seedShows = {
     location: "Philadelphia",
     date: "2024-08-27",
     imageUrl: "https://f4.bcbits.com/img/a2253820167_16.jpg",
+    youtubeVideoId: "aghi7OxEMzg",
     bandcampAlbumId: "1839675933",
   },
   richmond24: {
@@ -325,6 +373,7 @@ export const seedShows = {
     location: "Richmond",
     date: "2024-08-28",
     imageUrl: "https://f4.bcbits.com/img/a4074051612_16.jpg",
+    youtubeVideoId: "5JEkTEktukg",
     bandcampAlbumId: "1275144158",
   },
   asheville24: {
@@ -333,6 +382,7 @@ export const seedShows = {
     location: "Asheville",
     date: "2024-08-30",
     imageUrl: "https://f4.bcbits.com/img/a2066920903_16.jpg",
+    youtubeVideoId: "cEvtbHcCyic",
     bandcampAlbumId: "817110471",
   },
   nashville24: {
@@ -341,6 +391,7 @@ export const seedShows = {
     location: "Nashville",
     date: "2024-08-31",
     imageUrl: "https://f4.bcbits.com/img/a0545000465_16.jpg",
+    youtubeVideoId: "8RbhqJHZPtM",
     bandcampAlbumId: "3239781259",
   },
   chicago24: {
@@ -349,6 +400,7 @@ export const seedShows = {
     location: "Chicago",
     date: "2024-09-01",
     imageUrl: "https://f4.bcbits.com/img/a1788111107_16.jpg",
+    youtubeVideoId: "koQvZI4ewGg",
     bandcampAlbumId: "4294151713",
   },
   minneapolis24: {
@@ -357,6 +409,7 @@ export const seedShows = {
     location: "Minneapolis",
     date: "2024-09-03",
     imageUrl: "https://f4.bcbits.com/img/a2807501952_16.jpg",
+    youtubeVideoId: "qY7iyjHdBUM",
     bandcampAlbumId: "1631866248",
   },
   milwaukee24: {
@@ -365,6 +418,7 @@ export const seedShows = {
     location: "Milwaukee",
     date: "2024-09-04",
     imageUrl: "https://f4.bcbits.com/img/a0203986788_16.jpg",
+    youtubeVideoId: "cTO9U8nG280",
     bandcampAlbumId: "1407410068",
   },
   stl24: {
@@ -373,6 +427,7 @@ export const seedShows = {
     location: "St. Louis",
     date: "2024-09-05",
     imageUrl: "https://f4.bcbits.com/img/a1541766080_16.jpg",
+    youtubeVideoId: "FGOsQiPCpEA",
     bandcampAlbumId: "2447524963",
   },
   rr24: {
@@ -381,6 +436,7 @@ export const seedShows = {
     location: "Red Rocks",
     date: "2024-09-08",
     imageUrl: "https://f4.bcbits.com/img/a3263389792_16.jpg",
+    youtubeVideoId: null,
     bandcampAlbumId: "79615285",
   },
   oregon24: {
@@ -389,6 +445,7 @@ export const seedShows = {
     location: "Oregon",
     date: "2024-09-11",
     imageUrl: "https://f4.bcbits.com/img/a1151612533_10.jpg",
+    youtubeVideoId: "k69DG8aZ6mw",
     bandcampAlbumId: "2716193401",
   },
   vancouver24: {
@@ -397,6 +454,7 @@ export const seedShows = {
     location: "Vancouver",
     date: "2024-09-12",
     imageUrl: "https://f4.bcbits.com/img/a2167864021_16.jpg",
+    youtubeVideoId: "5Y4bYCp4KAo",
     bandcampAlbumId: "4272985994",
   },
   gorge24: {
@@ -405,17 +463,21 @@ export const seedShows = {
     location: "The Gorge",
     date: "2024-09-14",
     imageUrl: "https://f4.bcbits.com/img/a2893046862_16.jpg",
+    youtubeVideoId: "Tfm4okv47M4",
     bandcampAlbumId: "3746606297",
   },
 
   // ====================================================
   // U.S. Tour 2024 pt. 2
+  // TODO: Replace all these YouTube IDs with the official videos when they're
+  // released.
   la24: {
     id: "a81ef768-32b5-4fbd-8d9e-fefd3cf44411",
     slug: "los-angeles-2024",
     location: "Los Angeles",
     date: "2024-11-01",
     imageUrl: "https://f4.bcbits.com/img/a3083529929_16.jpg",
+    youtubeVideoId: "iO94a7oTK5k",
     bandcampAlbumId: "2053666447",
   },
   sd24: {
@@ -425,6 +487,7 @@ export const seedShows = {
     location: "San Diego",
     date: "2024-11-02",
     imageUrl: "https://f4.bcbits.com/img/a3464482652_16.jpg",
+    youtubeVideoId: "GR1A0l4c_5g",
     bandcampAlbumId: "3483464958",
   },
   pasoRobles24: {
@@ -433,6 +496,7 @@ export const seedShows = {
     location: "Paso Robles",
     date: "2024-11-03",
     imageUrl: "https://f4.bcbits.com/img/a3550028268_16.jpg",
+    youtubeVideoId: "qvBMzzDtgHE",
     bandcampAlbumId: "3875461640",
   },
   stanford24: {
@@ -441,6 +505,7 @@ export const seedShows = {
     location: "Stanford",
     date: "2024-11-04",
     imageUrl: "https://f4.bcbits.com/img/a2511383545_16.jpg",
+    youtubeVideoId: "ijBUyqm-nLI",
     bandcampAlbumId: "2620217443",
   },
   sf24: {
@@ -449,6 +514,7 @@ export const seedShows = {
     location: "San Francisco",
     date: "2024-11-06",
     imageUrl: "https://f4.bcbits.com/img/a2123423689_16.jpg",
+    youtubeVideoId: "zV8pTD4dfAY",
     bandcampAlbumId: "783019413",
   },
   vegas24: {
@@ -457,6 +523,7 @@ export const seedShows = {
     location: "Las Vegas",
     date: "2024-11-08",
     imageUrl: "https://f4.bcbits.com/img/a3468174213_16.jpg",
+    youtubeVideoId: "hxebzoQTkvA",
     bandcampAlbumId: "1104627077",
   },
   phoenix24: {
@@ -465,6 +532,7 @@ export const seedShows = {
     location: "Phoenix",
     date: "2024-11-09",
     imageUrl: "https://f4.bcbits.com/img/a3527600251_16.jpg",
+    youtubeVideoId: "MVzLz_q8xAg",
     bandcampAlbumId: "4200479984",
   },
   abq24: {
@@ -473,6 +541,7 @@ export const seedShows = {
     location: "Albuquerque",
     date: "2024-11-10",
     imageUrl: "https://f4.bcbits.com/img/a0496185183_16.jpg",
+    youtubeVideoId: "oYfmVYBymCM",
     bandcampAlbumId: "660285328",
   },
   okc24: {
@@ -481,6 +550,7 @@ export const seedShows = {
     location: "Oklahoma City",
     date: "2024-11-12",
     imageUrl: "https://f4.bcbits.com/img/a1910276487_16.jpg",
+    youtubeVideoId: "TsK-U1PhmSc",
     bandcampAlbumId: "2847156728",
   },
   arkansas24: {
@@ -489,6 +559,7 @@ export const seedShows = {
     location: "Arkansas",
     date: "2024-11-13",
     imageUrl: "https://f4.bcbits.com/img/a3844836167_16.jpg",
+    youtubeVideoId: "5K02tvEbEp4",
     bandcampAlbumId: "2294934601",
   },
   austin24: {
@@ -497,6 +568,7 @@ export const seedShows = {
     location: "Austin",
     date: "2024-11-15",
     imageUrl: "https://f4.bcbits.com/img/a2463924603_16.jpg",
+    youtubeVideoId: "hD6SW7Nmj-U",
     bandcampAlbumId: "719227306",
   },
   houston24: {
@@ -505,6 +577,7 @@ export const seedShows = {
     location: "Houston",
     date: "2024-11-16",
     imageUrl: "https://f4.bcbits.com/img/a3220456230_16.jpg",
+    youtubeVideoId: "GRxg_EYCsDI",
     bandcampAlbumId: "3854890243",
   },
   nola24: {
@@ -513,6 +586,7 @@ export const seedShows = {
     location: "New Orleans",
     date: "2024-11-17",
     imageUrl: "https://f4.bcbits.com/img/a2503962224_16.jpg",
+    youtubeVideoId: "FET0riVKZa0",
     bandcampAlbumId: "3455343812",
   },
   atlanta24: {
@@ -521,6 +595,7 @@ export const seedShows = {
     location: "Atlanta",
     date: "2024-11-19",
     imageUrl: "https://f4.bcbits.com/img/a2812384254_16.jpg",
+    youtubeVideoId: "I5S-AMdP4bs",
     bandcampAlbumId: "3316613276",
   },
   stAugustine24: {
@@ -529,6 +604,7 @@ export const seedShows = {
     location: "St. Augustine",
     date: "2024-11-20",
     imageUrl: "https://f4.bcbits.com/img/a1954948404_16.jpg",
+    youtubeVideoId: "GOypQkCShfw",
     bandcampAlbumId: "1834138981",
   },
   miami24: {
@@ -536,6 +612,7 @@ export const seedShows = {
     slug: "miami-2024",
     location: "Miami",
     date: "2024-11-21",
+    youtubeVideoId: "_OgT1yyq0DM",
     imageUrl: "https://f4.bcbits.com/img/a1675499924_16.jpg",
     bandcampAlbumId: "4243074642",
   },
