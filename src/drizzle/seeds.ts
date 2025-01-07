@@ -419,6 +419,13 @@ export const seedSongs = {
     title: "Vegemite",
     albumId: seedAlbums.oddments.id,
   },
+  itsGotOld: {
+    id: "ede4ff9e-b9b8-464e-b9e1-3efe95a63cbf",
+    albumPosition: 4,
+    slug: "its-got-old",
+    title: "It's Got Old",
+    albumId: seedAlbums.oddments.id,
+  },
   workThisTime: {
     id: "460537ac-78a5-4358-80d4-e60a3aa78b93",
     albumPosition: 5,
@@ -2062,6 +2069,14 @@ export const seedShows = {
 
   // ====================================================
   // World Tour 2022
+  melbourne22: {
+    id: "4fc59426-d7bf-4726-9270-d76630b7569f",
+    slug: "melbourne-2022",
+    location: "Melbourne", // Timeland
+    date: "2022-04-05",
+    imageUrl: null,
+    bandcampAlbumId: null,
+  },
   pomona22: {
     id: "24f4df1a-7921-4ab0-a618-0479d4a8b2d7",
     slug: "pomona-2022",
@@ -2093,6 +2108,14 @@ export const seedShows = {
     date: "2022-06-17",
     imageUrl: "https://f4.bcbits.com/img/a3553224286_16.jpg",
     bandcampAlbumId: "1363173846",
+  },
+  croatia22: {
+    id: "c0c2fe6d-92b8-4152-923c-e22fa18570e2",
+    slug: "croatia-2022",
+    location: "Croatia",
+    date: "2022-08-02",
+    imageUrl: null,
+    bandcampAlbumId: null,
   },
   berkeley22: {
     id: "cb025e04-05bb-4569-8797-9d58d35e21ee",
@@ -2910,6 +2933,16 @@ export const seedPerformances = [
     youtubeVideoId: "wbtTEgC6quI",
     youtubeVideoStartTime: 1007,
   },
+  {
+    id: "dcb56f51-b30a-43c5-a2c2-72ab4fe9568b",
+    songId: seedSongs.change.id,
+    showId: seedShows.remlinger23.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "lNsfeix5AnE",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Converge
@@ -3026,6 +3059,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+
+  // ====================================================
+  // D-Day
+  {
+    id: "dfdaa025-287d-4127-a6ae-9ff517dd949e",
+    songId: seedSongs.dDay.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 11,
+    spotifyTrackId: "1pBckVuhDf1RX0eezPazxX",
+    bandcampTrackId: "2932696900",
+    youtubeVideoId: "GsBAA4HWBeM",
+    youtubeVideoStartTime: 194,
+  },
 
   // ====================================================
   // Daily Blues
@@ -3486,6 +3532,16 @@ export const seedPerformances = [
     youtubeVideoId: "k69DG8aZ6mw",
     youtubeVideoStartTime: 3353,
   },
+  {
+    id: "3f0d565f-bac9-4822-9088-211324509b87",
+    songId: seedSongs.fourthColor.id,
+    showId: seedShows.atlanta24.id,
+    showPosition: 8,
+    spotifyTrackId: "4CC5iJwm7JP6dYF5YvKzqA",
+    bandcampTrackId: "2935628442",
+    youtubeVideoId: "I5S-AMdP4bs",
+    youtubeVideoStartTime: 4484,
+  },
 
   // ===========================================================================
   // GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
@@ -3544,6 +3600,30 @@ export const seedPerformances = [
     bandcampTrackId: "3686848957",
     youtubeVideoId: "lb7vWhUHEFg",
     youtubeVideoStartTime: 441,
+  },
+
+  // ====================================================
+  // Garden Goblin
+  {
+    id: "bae668a8-8add-466b-ad18-2ab8c1fa1b37",
+    songId: seedSongs.theGardenGoblin.id,
+    showId: seedShows.stanford24.id,
+    showPosition: 11,
+    spotifyTrackId: "0GJqj9Otn1WXeCeYyvOSAw",
+    bandcampTrackId: "348251097",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "ijBUyqm-nLI",
+    youtubeVideoStartTime: 4303,
+  },
+  {
+    id: "092fc37d-4488-49ad-b119-ddae4ad9a64a",
+    songId: seedSongs.theGardenGoblin.id,
+    showId: seedShows.croatia22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "mlSoTaLw_t8",
+    youtubeVideoStartTime: 3273,
   },
 
   // ====================================================
@@ -3818,6 +3898,16 @@ export const seedPerformances = [
     youtubeVideoId: "qi64uChq2us",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "2066a91a-5c8f-4866-b134-9eea509bab1c",
+    songId: seedSongs.herAndI.id,
+    showId: seedShows.slo22.id,
+    showPosition: 14,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "_SXpEZS3vlU",
+    youtubeVideoStartTime: 4745,
+  },
 
   // ====================================================
   // Hog Calling Contest
@@ -4074,6 +4164,19 @@ export const seedPerformances = [
     youtubeVideoStartTime: 5222,
   },
 
+  // ====================================================
+  // It's Got Old
+  {
+    id: "835a7314-a22f-4412-84b2-15c4525c8212",
+    songId: seedSongs.itsGotOld.id,
+    showId: seedShows.rr24.id,
+    showPosition: 25,
+    spotifyTrackId: "24U5IB6CACYv7lETYlcQ3U",
+    bandcampTrackId: "4291565874",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 2687,
+  },
+
   // ===========================================================================
   // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
 
@@ -4172,6 +4275,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Lonely Steel Sheet Flyer
+  {
+    id: "8286cc27-2447-413b-938d-689747db9ed2",
+    songId: seedSongs.lonelySteelSheetFlyer.id,
+    showId: seedShows.palp23.id,
+    showPosition: 2,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "myIjlvrfdfY",
+    youtubeVideoStartTime: 824,
+  },
+
+  // ====================================================
   // Lord of Lightning
   {
     id: "18b36ef7-d14d-4e96-b57f-5edce155f495",
@@ -4241,6 +4357,16 @@ export const seedPerformances = [
     spotifyTrackId: null,
     bandcampTrackId: null,
     youtubeVideoId: "-wGbG2vR8wc",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "aac2ef47-ecb3-495c-be60-61d91e1b7b8b",
+    songId: seedSongs.magentaMountain.id,
+    showId: seedShows.melbourne22.id,
+    showPosition: 3,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "0Gm2TudHe0s",
     youtubeVideoStartTime: null,
   },
 
@@ -4473,6 +4599,19 @@ export const seedPerformances = [
     bandcampTrackId: "1413295876",
     youtubeVideoId: "B7kGqj915YY",
     youtubeVideoStartTime: 9908,
+  },
+
+  // ====================================================
+  // Mystery Jack
+  {
+    id: "f7862278-493c-4da8-abe0-fc9546b21008",
+    songId: seedSongs.mysteryJack.id,
+    showId: seedShows.rr24.id,
+    showPosition: 26,
+    spotifyTrackId: "4ABvxnkiyLYOav5uJEjyIn",
+    bandcampTrackId: "3728338781",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 2954,
   },
 
   // ===========================================================================
@@ -4937,6 +5076,17 @@ export const seedPerformances = [
     youtubeVideoId: "oYfmVYBymCM",
     youtubeVideoStartTime: 1111,
   },
+  {
+    id: "485a18f8-46ab-4ac0-b470-1d3df8f0e8e5",
+    songId: seedSongs.selfImmolate.id,
+    showId: seedShows.la24.id,
+    showPosition: 7,
+    spotifyTrackId: "6VImCHNvhl5tSMKh63NOoa",
+    bandcampTrackId: "3387305624",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 3311,
+  },
 
   // ====================================================
   // Sense
@@ -5185,6 +5335,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Some Of Us
+  {
+    id: "16289d7a-971f-4648-af4c-0b0eef6a6971",
+    songId: seedSongs.someOfUs.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 12,
+    spotifyTrackId: "3jULLZ1SNk1SVaIzlk6gmy",
+    bandcampTrackId: "3656664290",
+    youtubeVideoId: "GsBAA4HWBeM",
+    youtubeVideoStartTime: 275,
+  },
+
+  // ====================================================
   // Straws In The Wind
   {
     id: "991e759e-6b13-44fa-8e9f-b2dffa3ec017",
@@ -5317,6 +5480,19 @@ export const seedPerformances = [
     bandcampTrackId: "451540334",
     youtubeVideoId: "8M8T3mFdPNQ",
     youtubeVideoStartTime: 2166,
+  },
+
+  // ====================================================
+  // Tezeta
+  {
+    id: "3ffa1040-9093-4b8c-b08d-c6e77c6be580",
+    songId: seedSongs.tezeta.id,
+    showId: seedShows.rr22.id,
+    showPosition: 45,
+    spotifyTrackId: "1bnEQMQfza0BbrB8qln2io",
+    bandcampTrackId: "3624953210",
+    youtubeVideoId: "U0y9bbS8Ezg",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
