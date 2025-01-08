@@ -1493,6 +1493,23 @@ export const seedSongs = {
   },
 
   // ====================================================
+  // Made In Timeland
+  timeland: {
+    id: "441ffc43-fadb-4fe2-8754-5c5eb4845bab",
+    albumPosition: 1,
+    slug: "timeland",
+    title: "Timeland",
+    albumId: seedAlbums.madeInTimeland.id,
+  },
+  smokeAndMirrors: {
+    id: "7d91313f-83a8-4df0-bc2f-ca86fde27074",
+    albumPosition: 2,
+    slug: "smoke-and-mirrors",
+    title: "Smoke And Mirrors",
+    albumId: seedAlbums.madeInTimeland.id,
+  },
+
+  // ====================================================
   // Ice, Death, Planets, Lungs, Mushrooms and Lava
   mycelium: {
     id: "484a071d-8043-483a-a85a-8b8183f73326",
