@@ -30,6 +30,10 @@ export default function Songs() {
               .filter((song) => song.albumId === album.id)
               .sort((a, b) => a.albumPosition - b.albumPosition);
 
+            if (albumSongs.length === 0) {
+              return null;
+            }
+
             const albumPath = getAlbumPath(album);
 
             return (

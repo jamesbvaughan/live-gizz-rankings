@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { allAlbums } from "@/drizzle/data/albums";
 import { allPerformances } from "@/drizzle/data/performances";
 import { allSongs } from "@/drizzle/data/songs";
 import { Album } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
+import { getAlbumPath, getSongPath } from "@/utils";
 
 function AlbumWithMissingPerformances({
   album,
@@ -30,23 +32,33 @@ function AlbumWithMissingPerformances({
     return null;
   }
 
+  const albumPath = getAlbumPath(album);
+
   return (
     <div className="space-y-2">
       <div className="flex items-start space-x-2">
-        <Image
-          className="shrink-0"
-          src={album.imageUrl}
-          alt={album.title}
-          width={50}
-          height={50}
-        />
+        <Link href={albumPath}>
+          <Image
+            className="shrink-0"
+            src={album.imageUrl}
+            alt={album.title}
+            width={50}
+            height={50}
+          />
+        </Link>
 
-        <h3 className="text-xl">{album.title}</h3>
+        <Link href={albumPath} className="no-underline">
+          <h3 className="text-xl">{album.title}</h3>
+        </Link>
       </div>
 
       <ul className="ml-4 list-disc">
         {songsWithoutPerformances.map((song) => (
-          <li key={song.id}>{song.title}</li>
+          <li key={song.id}>
+            <Link href={getSongPath(song)} className="no-underline">
+              {song.title}
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
