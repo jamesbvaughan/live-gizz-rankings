@@ -1633,6 +1633,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Invisible Face
+  {
+    id: "778f4a61-6093-4a17-ae1b-dcc54336d692",
+    songId: seedSongs.invisibleFace.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 20,
+    spotifyTrackId: "13mWSpOceiPVULYvVERM3D",
+    bandcampTrackId: "1178289440",
+    youtubeVideoId: "7AZTjmx9nUc",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Iron Lung
   {
     id: "7e37c8c6-b012-4e44-9c34-b818196ca969",
@@ -3115,6 +3128,16 @@ export const seedPerformances = [
     // TODO: Replace this with the official video once it's up
     youtubeVideoId: "iO94a7oTK5k",
     youtubeVideoStartTime: 1875,
+  },
+  {
+    id: "9bfb9c9c-b412-4c5c-ad01-994b82eebbfa",
+    songId: seedSongs.thisThing.id,
+    showId: seedShows.brussels19.id,
+    showPosition: 8,
+    spotifyTrackId: "4JqdFDKr8A8NGqUyBNzfbq",
+    bandcampTrackId: "3098293215",
+    youtubeVideoId: "ZvOoM79OwpA",
+    youtubeVideoStartTime: 1735,
   },
 
   // ====================================================
