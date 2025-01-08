@@ -158,6 +158,14 @@ export const seedAlbums = {
     imageUrl: "https://f4.bcbits.com/img/a2638998972_16.jpg",
     bandcampAlbumId: "129981996",
   },
+  madeInTimeland: {
+    title: "Made In Timeland",
+    slug: "made-in-timeland",
+    releaseDate: "2022-05-05",
+    id: "ffa0b981-0a7d-4546-a34e-49ea4c75bb5a",
+    imageUrl: "https://f4.bcbits.com/img/a3933910583_16.jpg",
+    bandcampAlbumId: "3954586896",
+  },
   iceDeath: {
     title: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
     slug: "ice-death-planets-lungs-mushrooms-and-lava",
