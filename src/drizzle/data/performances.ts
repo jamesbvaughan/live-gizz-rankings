@@ -1699,6 +1699,16 @@ export const seedPerformances = [
     youtubeVideoId: "8M8T3mFdPNQ",
     youtubeVideoStartTime: 2687,
   },
+  {
+    id: "bbf891ec-8bff-40a7-b58c-2969f81873bb",
+    songId: seedSongs.itsGotOld.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 50,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "jYVwPa3YAnA",
+    youtubeVideoStartTime: null,
+  },
 
   // ===========================================================================
   // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
@@ -2217,6 +2227,26 @@ export const seedPerformances = [
     bandcampTrackId: "649182598",
     youtubeVideoId: "lb7vWhUHEFg",
     youtubeVideoStartTime: 738,
+  },
+  {
+    id: "dab88ad2-b17c-43cc-bf60-0faaa0e53175",
+    songId: seedSongs.peopleVultures.id,
+    showId: seedShows.arkansas24.id,
+    showPosition: 3,
+    spotifyTrackId: "6ogJIT5LzSprIkAadrMWVs",
+    bandcampTrackId: "3451430331",
+    youtubeVideoId: "5K02tvEbEp4",
+    youtubeVideoStartTime: 1950,
+  },
+  {
+    id: "38a0b332-ebdb-4f05-8351-e0a340013008",
+    songId: seedSongs.peopleVultures.id,
+    showId: seedShows.houston24.id,
+    showPosition: 1,
+    spotifyTrackId: "51CMAwr6QLxa4IDnTblmjo",
+    bandcampTrackId: "887213105",
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 1188,
   },
 
   // ====================================================
