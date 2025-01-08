@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
 import {
+  boolean,
   date,
   integer,
   pgTable,
@@ -145,6 +146,7 @@ export const nominations = pgTable("nominations", {
   userId: text("user_id"),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
+  willNotAdd: boolean("will_not_add"),
   performanceId: uuid("performance_id").references(() => performances.id),
 });
 
