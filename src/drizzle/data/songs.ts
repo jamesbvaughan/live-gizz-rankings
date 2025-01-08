@@ -95,6 +95,79 @@ export const seedSongs = {
   },
 
   // ====================================================
+  // Eyes Like The Sky
+  eyesLikeTheSky: {
+    id: "931f05d2-c935-4b36-9ed8-32cf7e26eb7c",
+    albumPosition: 1,
+    slug: "eyes-like-the-sky",
+    title: "Eyes Like The Sky",
+    albumId: seedAlbums.elts.id,
+  },
+  yearOfOurLord: {
+    id: "79931294-56de-4a60-a63c-ca1d6ba4d09e",
+    albumPosition: 2,
+    slug: "year-of-our-lord",
+    title: "Year Of Our Lord",
+    albumId: seedAlbums.elts.id,
+  },
+  theRaid: {
+    id: "3ecd8a99-8166-471c-8719-6524a0001ab3",
+    albumPosition: 3,
+    slug: "the-raid",
+    title: "The Raid",
+    albumId: seedAlbums.elts.id,
+  },
+  drumRun: {
+    id: "35498cec-886a-4e2b-a86a-3ab4eae7358e",
+    albumPosition: 4,
+    slug: "drum-run",
+    title: "Drum Run",
+    albumId: seedAlbums.elts.id,
+  },
+  evilMan: {
+    id: "bedc1a24-c7ab-49fa-a92e-a166770842fd",
+    albumPosition: 5,
+    slug: "evil-man",
+    title: "Evil Man",
+    albumId: seedAlbums.elts.id,
+  },
+  fortWhipple: {
+    id: "48600f9f-0800-45b9-986c-1662ef1d064d",
+    albumPosition: 6,
+    slug: "fort-whipple",
+    title: "Fort Whipple",
+    albumId: seedAlbums.elts.id,
+  },
+  theGodMansGoatLust: {
+    id: "e92a1243-8e3c-47b8-a2c3-1f1a0cad5272",
+    albumPosition: 7,
+    slug: "the-god-mans-goat-lust",
+    title: "The God Man's Goat Lust",
+    albumId: seedAlbums.elts.id,
+  },
+  theKillingGround: {
+    id: "002ac3de-c131-4841-a7a0-6a464b1b0569",
+    albumPosition: 8,
+    slug: "the-killing-ground",
+    title: "The Killing Ground",
+    albumId: seedAlbums.elts.id,
+  },
+  dustInTheWind: {
+    id: "379219c9-460e-48dd-a997-6e716b1a39cb",
+    albumPosition: 9,
+    slug: "dust-in-the-wind",
+    title: "Duist In The Wind",
+    albumId: seedAlbums.elts.id,
+  },
+  gunsAndHorses: {
+    id: "194e948e-992f-4931-aeae-b83f3e2414d0",
+    albumPosition: 10,
+    slug: "guns-and-horses",
+    title: "Guns & Horses",
+    albumId: seedAlbums.elts.id,
+  },
+
+  // ====================================================
   // Float Along - Fill Your Lungs
   headOn: {
     id: "556e6f5e-9099-4351-9c7e-0edb17e76b73",
