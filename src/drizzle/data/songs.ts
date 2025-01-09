@@ -332,8 +332,8 @@ export const seedSongs = {
   cellophane: {
     id: "5ada7965-bbef-44ac-8317-f00cf8fcc17d",
     albumPosition: 3,
-    slug: "cellaphane",
-    title: "Cellaphane",
+    slug: "cellophane",
+    title: "Cellophane",
     albumId: seedAlbums.mindFuzz.id,
   },
   imInYourMindFuzz: {
@@ -680,11 +680,11 @@ export const seedSongs = {
     title: "Altered Beast III",
     albumId: seedAlbums.motu.id,
   },
-  alteredMeIII: {
+  alterMeIII: {
     id: "50a1717d-6262-4109-8e28-11635bf615a1",
     albumPosition: 7,
-    slug: "altered-me-iii",
-    title: "Altered Me III",
+    slug: "alter-me-iii",
+    title: "Alter Me III",
     albumId: seedAlbums.motu.id,
   },
   alteredBeastIV: {
