@@ -171,7 +171,7 @@ export const seedShows = {
   southBurlington22: {
     id: "e406f033-a8e0-4d73-9ff6-1e9b32e45f89",
     slug: "south-burlington-2022",
-    location: "Souht Burlington",
+    location: "South Burlington",
     date: "2022-05-25",
     imageUrl: "/showCovers/southBurlington22.webp",
     youtubeVideoId: "Mo3aXp0QiDA",
