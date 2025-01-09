@@ -3,7 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
-import { PageContent, PageTitle, PageType } from "@/components/ui";
+import {
+  PageContent,
+  PageSubtitle,
+  PageTitle,
+  PageType,
+} from "@/components/ui";
 import { allPerformances } from "@/drizzle/data/performances";
 import {
   getPerformanceBySlug,
@@ -60,6 +65,14 @@ export default async function PerformancePage({ params }: Props) {
   const song = getSongById(performance.songId)!;
   const songPath = getSongPath(song);
 
+  const formattedDate = new Intl.DateTimeFormat(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(show.date));
+
   return (
     <>
       <PageType>Performance</PageType>
@@ -73,6 +86,8 @@ export default async function PerformancePage({ params }: Props) {
           {showTitle}
         </Link>
       </PageTitle>
+
+      <PageSubtitle>{formattedDate}</PageSubtitle>
 
       <PageContent className="space-y-8">
         <MediaPlayers performance={performance} show={show} />
