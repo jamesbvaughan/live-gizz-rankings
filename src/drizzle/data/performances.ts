@@ -2255,6 +2255,16 @@ export const seedPerformances = [
     youtubeVideoId: "k69DG8aZ6mw",
     youtubeVideoStartTime: 4413,
   },
+  {
+    id: "b208b1f6-f9f4-4e50-b134-fc4ebd5a015e",
+    songId: seedSongs.organFarmer.id,
+    showId: seedShows.abq24.id,
+    showPosition: 3,
+    spotifyTrackId: "4xS2cqCZMQD5iymfR58hxG",
+    bandcampTrackId: "2737216409",
+    youtubeVideoId: "oYfmVYBymCM",
+    youtubeVideoStartTime: 1872,
+  },
 
   // ===========================================================================
   // PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
