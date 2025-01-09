@@ -641,6 +641,20 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Dirt
+  {
+    id: "1f9e6203-7e30-4552-beaf-929ea53b2c6e",
+    songId: seedSongs.dirt.id,
+    showId: seedShows.houston24.id,
+    showPosition: 6,
+    spotifyTrackId: "5BEc4Vs4DsKdXNW8nySucQ",
+    bandcampTrackId: "4143948751",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 3420,
+  },
+
+  // ====================================================
   // Dragon
   {
     id: "21fed194-6093-4628-bffd-cde4644e9ff2",
@@ -1209,6 +1223,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // God Is Calling Me Back Home
+  {
+    id: "2f9c0377-9a6e-40ef-95b8-36b765053f50",
+    songId: seedSongs.godIsCallingMeBackHome.id,
+    showId: seedShows.milwaukee24.id,
+    showPosition: 5,
+    spotifyTrackId: "075SL2FUr7qgKwYPE6GNoP",
+    bandcampTrackId: "1584770727",
+    youtubeVideoId: "cTO9U8nG280",
+    youtubeVideoStartTime: 2664,
+  },
+
+  // ====================================================
   // Gondii
   {
     id: "7c7d108c-da40-45b4-85ff-0b92870d6538",
@@ -1725,6 +1752,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+
+  // ====================================================
+  // Kepler-22b
+  {
+    id: "9a66ebbf-94ff-4c82-9e2b-e9a4754f7732",
+    songId: seedSongs.kepler22b.id,
+    showId: seedShows.barcelona23.id,
+    showPosition: 11,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "ZvvvOTVpX0c",
+    youtubeVideoStartTime: 2629,
+  },
 
   // ====================================================
   // K.G.L.W. (Outro)
@@ -2321,6 +2361,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Persistence
+  {
+    id: "50133586-33b1-4131-8eb3-ba6e684e520e",
+    songId: seedSongs.persistence.id,
+    showId: seedShows.southBurlington22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "zU2yJJ0rRqc",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Plastic Boogie
   {
     id: "7465275c-8bba-47af-b84a-3ee345744de4",
@@ -2606,6 +2659,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Sadie Sorceress
+  {
+    id: "3e5b6327-7480-4ba8-8e8f-7e0b70363b85",
+    songId: seedSongs.sadieSorceress.id,
+    showId: seedShows.miami22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "ztoNozDH4hw",
+    youtubeVideoStartTime: 4210,
+  },
+
+  // ====================================================
   // Sea of Trees
   {
     id: "5cbf8ea4-401c-4beb-b6f0-d52d0b03ca88",
@@ -2616,6 +2682,16 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "jMSvOtHaiw0",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "a2cd9862-346c-426c-a2a4-8491046903bf",
+    songId: seedSongs.seaOfTrees.id,
+    showId: seedShows.sf22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "wiCUHo4h4Mo",
+    youtubeVideoStartTime: 1009,
   },
 
   // ====================================================
@@ -3219,6 +3295,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+  // ====================================================
+  // Wah Wah
+  {
+    id: "55712bed-c5c1-4310-8449-9982b4ffa0d2",
+    songId: seedSongs.wahWah.id,
+    showId: seedShows.rr24.id,
+    showPosition: 41,
+    spotifyTrackId: "6nfIg5ukFhwxOpbX6Lj2XS",
+    bandcampTrackId: "2811327836",
+    youtubeVideoId: "KpTyphhCmEA",
+    youtubeVideoStartTime: 1573,
+  },
 
   // ====================================================
   // The Wheel
