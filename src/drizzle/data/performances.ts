@@ -489,6 +489,17 @@ export const seedPerformances = [
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 2983,
   },
+  {
+    id: "d248bbba-f678-491d-ab56-1ae8d3729268",
+    songId: seedSongs.converge.id,
+    showId: seedShows.vegas24.id,
+    showPosition: 16,
+    spotifyTrackId: "6cxIIErlipG0JJSDfEVbKa",
+    bandcampTrackId: "2637225910",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "hxebzoQTkvA",
+    youtubeVideoStartTime: 7005,
+  },
 
   // ====================================================
   // Crumbling Castle
@@ -2139,6 +2150,16 @@ export const seedPerformances = [
     youtubeVideoId: "lb7vWhUHEFg",
     youtubeVideoStartTime: 1089,
   },
+  {
+    id: "788bfcab-de70-468d-97d7-90ae07b5b256",
+    songId: seedSongs.mrBeat.id,
+    showId: seedShows.rr24.id,
+    showPosition: 48,
+    spotifyTrackId: "44WBnKZ9i8bLgCv11WyhFI",
+    bandcampTrackId: "1994357509",
+    youtubeVideoId: "KpTyphhCmEA",
+    youtubeVideoStartTime: 4111,
+  },
 
   // ====================================================
   // Muddy Water
@@ -2310,6 +2331,16 @@ export const seedPerformances = [
     bandcampTrackId: "887213105",
     youtubeVideoId: "GRxg_EYCsDI",
     youtubeVideoStartTime: 1188,
+  },
+  {
+    id: "4310eebd-012c-4a55-9fb9-5f423ea83d36",
+    songId: seedSongs.peopleVultures.id,
+    showId: seedShows.rr24.id,
+    showPosition: 47,
+    spotifyTrackId: "1ggqXI3YIXDbUrvWUl37eK",
+    bandcampTrackId: "3590936266",
+    youtubeVideoId: "KpTyphhCmEA",
+    youtubeVideoStartTime: 3627,
   },
 
   // ====================================================
@@ -3374,6 +3405,17 @@ export const seedPerformances = [
     bandcampTrackId: "1089444983",
     youtubeVideoId: "cEvtbHcCyic",
     youtubeVideoStartTime: 4986,
+  },
+  {
+    id: "4b23c44c-357d-42e6-866b-e6bf6913412c",
+    songId: seedSongs.witchcraft.id,
+    showId: seedShows.vegas24.id,
+    showPosition: 17,
+    spotifyTrackId: "5Ij14fDjuW26pPZtrYGHh8",
+    bandcampTrackId: "3909128557",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "hxebzoQTkvA",
+    youtubeVideoStartTime: 7398,
   },
 
   // ====================================================
