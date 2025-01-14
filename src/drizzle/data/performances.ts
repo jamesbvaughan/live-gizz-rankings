@@ -1659,7 +1659,7 @@ export const seedPerformances = [
     songId: seedSongs.intrasport.id,
     showId: seedShows.okc24.id,
     showPosition: 9,
-    spotifyTrackId: "",
+    spotifyTrackId: null,
     bandcampTrackId: "1304469369",
     // TODO: Replace with official video once it's up
     youtubeVideoId: "TsK-U1PhmSc",
