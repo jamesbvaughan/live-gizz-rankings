@@ -55,6 +55,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Acarine
+  {
+    id: "98e1605a-6e8d-43f4-b665-8472f0db712b",
+    songId: seedSongs.acarine.id,
+    showId: seedShows.milwaukee19.id,
+    showPosition: 13,
+    spotifyTrackId: "36rNKRp8W5vfjpRkuRlQx2",
+    bandcampTrackId: "1710114828",
+    youtubeVideoId: "Z-MwVZLARLU",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Alter Me I
   {
     id: "c7437a1d-74fb-4136-a037-1ad382db36e0",
@@ -281,6 +294,19 @@ export const seedPerformances = [
   // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
   // ====================================================
+  // Beginner's Luck
+  {
+    id: "8d098a18-6f10-4b77-a4db-b39beb4c2ed5",
+    songId: seedSongs.beginnersLuck.id,
+    showId: seedShows.asheville19.id,
+    showPosition: 8,
+    spotifyTrackId: "2kRqmnvMSNMxuSoTss7FxX",
+    bandcampTrackId: "4208902064",
+    youtubeVideoId: "em9I_QmkPgE",
+    youtubeVideoStartTime: 1736,
+  },
+
+  // ====================================================
   // Big Fig Wasp
   {
     id: "a982b6aa-590b-4efa-9f2a-5ebd37b6ea7d",
@@ -337,6 +363,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // The Bird Song
+  {
+    id: "b88f93db-0e7e-4203-8443-3b2ab271d2be",
+    songId: seedSongs.theBirdSong.id,
+    showId: seedShows.adelaide19.id,
+    showPosition: 11,
+    spotifyTrackId: "2bSktGvsBG3bqdcYKUvCwQ",
+    bandcampTrackId: "3964443595",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // The Bitter Boogie
   {
     id: "acd6e4f5-63f9-486d-be1f-0a97dba3df50",
@@ -347,6 +386,29 @@ export const seedPerformances = [
     bandcampTrackId: "1671375291",
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 3809,
+  },
+  {
+    id: "9a323fa5-c416-421b-8a0f-9d2cdaa78e51",
+    songId: seedSongs.theBitterBoogie.id,
+    showId: seedShows.asheville19.id,
+    showPosition: 18,
+    spotifyTrackId: "0hCI4zIdwMtyQspKtEKcN9",
+    bandcampTrackId: "3958468352",
+    youtubeVideoId: "em9I_QmkPgE",
+    youtubeVideoStartTime: 4600,
+  },
+
+  // ====================================================
+  // Blame It On The Weather
+  {
+    id: "a45a1cf4-c90b-475a-837a-40193cff0044",
+    songId: seedSongs.blameItOnTheWeather.id,
+    showId: seedShows.rr22.id,
+    showPosition: 64,
+    spotifyTrackId: "1FArR5TKydq1vP6AtPIQhS",
+    bandcampTrackId: "4044271982",
+    youtubeVideoId: "LtYjow5giao",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -408,6 +470,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+  // ====================================================
+  // The Castle In The Air
+  {
+    id: "4b239168-c3ac-408f-bf22-23002d6aa8ce",
+    songId: seedSongs.theCastleInTheAir.id,
+    showId: seedShows.paris19.id,
+    showPosition: 7,
+    spotifyTrackId: "6K0wJH1XKXYBQVgAvLumRj",
+    bandcampTrackId: "4258631093",
+    youtubeVideoId: "k8KPrPgTxVA",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Chang'e
@@ -649,6 +724,19 @@ export const seedPerformances = [
     bandcampTrackId: "2997856281",
     youtubeVideoId: "FGOsQiPCpEA",
     youtubeVideoStartTime: 6900,
+  },
+
+  // ====================================================
+  // Deserted Dunes Welcome Weary Feet
+  {
+    id: "000d1f51-44c9-4a73-ace9-6cbb1fc392e0",
+    songId: seedSongs.desertedDunesWelcomeWearyFeet.id,
+    showId: seedShows.paris19.id,
+    showPosition: 6,
+    spotifyTrackId: "20SVYbllRp6iLkn8IUlN83",
+    bandcampTrackId: "388377866",
+    youtubeVideoId: "1MhsTg8LM28",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -1329,6 +1417,19 @@ export const seedPerformances = [
   // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
   // ====================================================
+  // Hate Dancin'
+  {
+    id: "d8500041-165b-4d98-aaa9-413ba2cf1e19",
+    songId: seedSongs.hateDancin.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 17,
+    spotifyTrackId: "1lTeatKHddL0OrDRiq0tj1",
+    bandcampTrackId: "686151067",
+    youtubeVideoId: "tMQTQCxjfWk",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Head On/Pill
   {
     id: "ddad346f-80c8-4b2d-ac0a-e884d6e8abf6",
@@ -1642,6 +1743,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // If Not Now, Then When?
+  {
+    id: "f7e21eb3-dbe0-42ee-8013-b20de8e189d1",
+    songId: seedSongs.ifNotNowThenWhen.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 1,
+    spotifyTrackId: "6zHcfndurOuCrN9nZpdMfX",
+    bandcampTrackId: "871485312",
+    youtubeVideoId: "JbjZ-jZnoss",
+    youtubeVideoStartTime: 158,
+  },
+
+  // ====================================================
   // Intrasport
   {
     id: "33fce7c9-7b67-4f7a-97db-9297087ef168",
@@ -1813,6 +1927,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+
+  // ====================================================
+  // Lava
+  {
+    id: "0cc8ebb2-0935-40c4-84c6-fc345a71c976",
+    songId: seedSongs.lava.id,
+    showId: seedShows.rr22.id,
+    showPosition: 66,
+    spotifyTrackId: "3zavQpSj692ZYpvNNEyE6R",
+    bandcampTrackId: "4008260192",
+    youtubeVideoId: "CTri9U6k0pQ",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Le Risque
@@ -2090,6 +2217,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Melting
+  {
+    id: "a2212b80-93ed-43b1-9097-9773f6893636",
+    songId: seedSongs.melting.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 7,
+    spotifyTrackId: "0opqxsNMz05qSgKyrShvWD",
+    bandcampTrackId: "2088723428",
+    youtubeVideoId: "JbjZ-jZnoss",
+    youtubeVideoStartTime: 2000,
+  },
+
+  // ====================================================
   // Mirage City
   {
     id: "ab36e296-a0a9-4553-9c7e-8efec595c58b",
@@ -2147,6 +2287,17 @@ export const seedPerformances = [
     bandcampTrackId: "45887920",
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 1629,
+  },
+  {
+    id: "86fdd015-ae22-4a32-8fff-c7bbd095e627",
+    songId: seedSongs.motorSpirit.id,
+    showId: seedShows.phoenix24.id,
+    showPosition: 3,
+    spotifyTrackId: "1oV3VtrO4TsK35qwyHpyil",
+    bandcampTrackId: "1170988180",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "MVzLz_q8xAg",
+    youtubeVideoStartTime: 1780,
   },
 
   // ====================================================
@@ -2260,6 +2411,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+  // ====================================================
+  // Ontology
+  {
+    id: "adf2a381-e6fd-46e9-aacb-62f0d0db972d",
+    songId: seedSongs.ontology.id,
+    showId: seedShows.melbourne21.id,
+    showPosition: 6,
+    spotifyTrackId: "4OxnXrbwC2SPnlgfAzkVGb",
+    bandcampTrackId: "3046419811",
+    youtubeVideoId: "8X_LVeLFrA8",
+    youtubeVideoStartTime: 991,
+  },
 
   // ====================================================
   // Open Water
@@ -2388,6 +2552,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Persistence
+  {
+    id: "50133586-33b1-4131-8eb3-ba6e684e520e",
+    songId: seedSongs.persistence.id,
+    showId: seedShows.southBurlington22.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "zU2yJJ0rRqc",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Planet B
   {
     id: "457f6dc2-aca4-48b2-8a5b-bff275572893",
@@ -2423,19 +2600,6 @@ export const seedPerformances = [
   },
 
   // ====================================================
-  // Persistence
-  {
-    id: "50133586-33b1-4131-8eb3-ba6e684e520e",
-    songId: seedSongs.persistence.id,
-    showId: seedShows.southBurlington22.id,
-    showPosition: 10,
-    spotifyTrackId: null,
-    bandcampTrackId: null,
-    youtubeVideoId: "zU2yJJ0rRqc",
-    youtubeVideoStartTime: null,
-  },
-
-  // ====================================================
   // Plastic Boogie
   {
     id: "7465275c-8bba-47af-b84a-3ee345744de4",
@@ -2466,6 +2630,19 @@ export const seedPerformances = [
     bandcampTrackId: "2141508110",
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 7343,
+  },
+
+  // ====================================================
+  // Predator X
+  {
+    id: "8170c155-2b38-4e90-b5c8-2b12849a15b2",
+    songId: seedSongs.predatorX.id,
+    showId: seedShows.chicago24.id,
+    showPosition: 15,
+    spotifyTrackId: "0jcrtNN12MHlLLgDFAMkPA",
+    bandcampTrackId: "3697856395",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 5916,
   },
 
   // ====================================================
@@ -2734,6 +2911,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Satan Speeds Up
+  {
+    id: "6163383d-1568-4e47-ab89-bbe6603a776c",
+    songId: seedSongs.satanSpeedsUp.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 8,
+    spotifyTrackId: "7FgHe5YXGTtMCvRzed4Eeo",
+    bandcampTrackId: "2202941577",
+    youtubeVideoId: "Ho1GZwV5U0E",
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Sea of Trees
   {
     id: "5cbf8ea4-401c-4beb-b6f0-d52d0b03ca88",
@@ -2754,6 +2944,19 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "wiCUHo4h4Mo",
     youtubeVideoStartTime: 1009,
+  },
+
+  // ====================================================
+  // See Me
+  {
+    id: "086aa5f0-c1df-4457-a121-7a2b33e7b50a",
+    songId: seedSongs.seeMe.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 14,
+    spotifyTrackId: "1r1tqf6LTyeXfNQMBllUNB",
+    bandcampTrackId: "24333044",
+    youtubeVideoId: "JbjZ-jZnoss",
+    youtubeVideoStartTime: 4193,
   },
 
   // ====================================================
@@ -3134,6 +3337,19 @@ export const seedPerformances = [
     bandcampTrackId: "3167137517",
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 5408,
+  },
+
+  // ====================================================
+  // Supreme Ascendancy
+  {
+    id: "7c898446-d104-4ded-8b37-2841f835e1e7",
+    songId: seedSongs.supremeAscendency.id,
+    showId: seedShows.sydney21.id,
+    showPosition: 13,
+    spotifyTrackId: "0wWuIK5jAqJI9ODrL4Vefm",
+    bandcampTrackId: "4241439072",
+    youtubeVideoId: "JbjZ-jZnoss",
+    youtubeVideoStartTime: 3947,
   },
 
   // ====================================================

@@ -76,7 +76,7 @@ export const seedSongs = {
     id: "7e21c3f7-da5e-4890-846c-28765bf5d487",
     albumPosition: 10,
     slug: "uh-oh-i-called-mum",
-    title: "Up Oh I Called Mum",
+    title: "Uh Oh I Called Mum",
     albumId: seedAlbums.tbb.id,
   },
   seaOfTrees: {
@@ -176,11 +176,11 @@ export const seedSongs = {
     title: "Head On/Pill",
     albumId: seedAlbums.fafyl.id,
   },
-  iAmNotAMan: {
+  imNotAMan: {
     id: "8e4ef0bb-acfe-4eb2-838b-1782271dea28",
     albumPosition: 2,
-    slug: "i-am-not-a-man-unless-i-have-a-woman",
-    title: "I Am Not A Man Unless I Have A Woman",
+    slug: "im-not-a-man-unless-i-have-a-woman",
+    title: "I'm Not A Man Unless I Have A Woman",
     albumId: seedAlbums.fafyl.id,
   },
   godIsCallingMeBackHome: {
@@ -1063,11 +1063,11 @@ export const seedSongs = {
     title: "Plastic Boogie",
     albumId: seedAlbums.fff.id,
   },
-  theCruelMillenial: {
+  theCruelMillennial: {
     id: "f9551ec5-cfaf-45ea-840d-8832f60d10bb",
     albumPosition: 5,
-    slug: "the-cruel-millenial",
-    title: "The Cruel Millenial",
+    slug: "the-cruel-millennial",
+    title: "The Cruel Millennial",
     albumId: seedAlbums.fff.id,
   },
   realsNotReal: {
