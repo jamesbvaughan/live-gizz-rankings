@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Users",
 };
 
+const nPairs = Object.values(allPairs).reduce(
+  (acc, pairsForSong) => acc + pairsForSong.length,
+  0,
+);
+
 export default async function UsersPage() {
   const user = await currentUser();
   if (!user) {
@@ -37,10 +42,7 @@ export default async function UsersPage() {
       <PageTitle>Users</PageTitle>
 
       <PageContent>
-        <p>
-          There are {Object.keys(allPairs).length} pairs of performances
-          available to vote on.
-        </p>
+        <p>There are {nPairs} pairs of performances available to vote on.</p>
 
         <div className="overflow-x-scroll">
           <table className="table-auto">
