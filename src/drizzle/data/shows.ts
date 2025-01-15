@@ -58,6 +58,15 @@ export const seedShows = {
     youtubeVideoId: null,
     bandcampAlbumId: "2354695487",
   },
+  asheville19: {
+    id: "ca2073cb-096c-430c-a3e7-e98f3e01d325",
+    slug: "asheville-2019",
+    location: "Asheville",
+    date: "2019-09-01",
+    imageUrl: "https://f4.bcbits.com/img/a2453595217_16.jpg",
+    youtubeVideoId: "em9I_QmkPgE",
+    bandcampAlbumId: "633945746",
+  },
   manchester19: {
     id: "01575133-ff92-4668-99d4-b1b62a9f29eb",
     slug: "manchester-2019",
@@ -75,6 +84,15 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a2684291974_16.jpg",
     youtubeVideoId: "ZvOoM79OwpA",
     bandcampAlbumId: "1602825616",
+  },
+  paris19: {
+    id: "bc35130e-3e74-4410-bb4c-91714e8a94e2",
+    slug: "paris-2019",
+    location: "Paris",
+    date: "2019-10-14",
+    imageUrl: "https://f4.bcbits.com/img/a2896811102_16.jpg",
+    youtubeVideoId: null,
+    bandcampAlbumId: "1553589735",
   },
   madrid19: {
     id: "11597d9b-21e7-43b7-b681-cd22a31c5a90",
