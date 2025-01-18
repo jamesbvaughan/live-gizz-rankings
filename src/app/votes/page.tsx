@@ -1,9 +1,10 @@
+import { desc } from "drizzle-orm";
 import { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { Vote } from "@/drizzle/schema";
+import { Vote, votes } from "@/drizzle/schema";
 import {
   getPerformanceById,
   getPerformancePath,
@@ -12,8 +13,10 @@ import {
   getSongById,
 } from "@/utils";
 
+import { allPairs } from "../rank/getRandomPair";
 import { Converge } from "./Converge";
 import { LeftRightChart } from "./LeftRightChart";
+import { VoteDistributionChart } from "./VoteDistributionChart";
 
 export const metadata: Metadata = {
   title: "Votes",
@@ -142,10 +145,6 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
 }
 
 function VotesList({ votes }: { votes: Vote[] }) {
-  const sortedVotes = [...votes].sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
-  );
-
   return (
     <details>
       <summary className="select-none">
@@ -153,7 +152,7 @@ function VotesList({ votes }: { votes: Vote[] }) {
       </summary>
 
       <ol className="mt-4 list-disc space-y-2 pl-4">
-        {sortedVotes.map((vote) => (
+        {votes.map((vote) => (
           <VoteListItem key={vote.id} vote={vote} />
         ))}
       </ol>
@@ -161,16 +160,47 @@ function VotesList({ votes }: { votes: Vote[] }) {
   );
 }
 
+function VoteDistribution({ votes }: { votes: Vote[] }) {
+  const voteCounts: number[] = [];
+
+  for (const pairs of Object.values(allPairs)) {
+    for (const pair of pairs) {
+      const pairVotes = votes.filter((vote) => {
+        return (
+          (vote.performance1Id === pair[0] &&
+            vote.performance2Id === pair[1]) ||
+          (vote.performance1Id === pair[1] && vote.performance2Id === pair[0])
+        );
+      });
+      voteCounts.push(pairVotes.length);
+    }
+  }
+
+  return (
+    <div className="space-y-4">
+      <h2 className="text-4xl">Vote distribution</h2>
+      <p>
+        This visualizes the distribution of the number of votes that have been
+        cast for a given pair of performances.
+      </p>
+      <VoteDistributionChart voteCounts={voteCounts} />
+    </div>
+  );
+}
+
 export default async function Votes() {
-  const votes = await db.query.votes.findMany();
+  const allVotes = await db.query.votes.findMany({
+    orderBy: desc(votes.createdAt),
+  });
 
   return (
     <>
       <PageTitle>All votes</PageTitle>
 
       <PageContent className="space-y-6">
-        <VotesList votes={votes} />
-        <LeftRightStats votes={votes} />
+        <VotesList votes={allVotes} />
+        <LeftRightStats votes={allVotes} />
+        <VoteDistribution votes={allVotes} />
       </PageContent>
     </>
   );
