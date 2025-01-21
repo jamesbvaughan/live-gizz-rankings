@@ -68,6 +68,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // All Is Known
+  {
+    id: "5960da80-b666-494d-b66a-74a6c869ab5b",
+    songId: seedSongs.allIsKnown.id,
+    showId: seedShows.melbourne21.id,
+    showPosition: 10,
+    spotifyTrackId: "3TgM4upGyn4VrFIT6wz1D7",
+    bandcampTrackId: "396980638",
+    youtubeVideoId: "8X_LVeLFrA8",
+    youtubeVideoStartTime: 2224,
+  },
+
+  // ====================================================
   // Alter Me I
   {
     id: "c7437a1d-74fb-4136-a037-1ad382db36e0",
@@ -294,6 +307,19 @@ export const seedPerformances = [
   // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
   // ====================================================
+  // The Balrog
+  {
+    id: "23f0f993-9597-481d-b409-8e5210ec121b",
+    songId: seedSongs.theBalrog.id,
+    showId: seedShows.rr22.id,
+    showPosition: 23,
+    spotifyTrackId: "7uNlKHwr66Tp1Yo5YKg3wg",
+    bandcampTrackId: "2699928084",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Beginner's Luck
   {
     id: "8d098a18-6f10-4b77-a4db-b39beb4c2ed5",
@@ -432,6 +458,16 @@ export const seedPerformances = [
     spotifyTrackId: "5dXrhzKkFeSVmv7Xcg7WOK",
     bandcampTrackId: "1399854240",
     youtubeVideoId: "_adQLXQDRgo",
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "bb5b0919-be9a-4a05-858c-16398744083f",
+    songId: seedSongs.boogiemanSam.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 13,
+    spotifyTrackId: "7h8mUYjeHgbnFxBNmaryqz",
+    bandcampTrackId: "2681130055",
+    youtubeVideoId: "flK2I9ny94w",
     youtubeVideoStartTime: null,
   },
 
@@ -641,6 +677,16 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "_SXpEZS3vlU",
     youtubeVideoStartTime: 1540,
+  },
+  {
+    id: "5287cea2-6627-4510-8d36-c7aa78ee29d0",
+    songId: seedSongs.cutThroatBoogie.id,
+    showId: seedShows.levitation16.id,
+    showPosition: 12,
+    spotifyTrackId: "1FLGCNYibmdkSxfZMjBb8s",
+    bandcampTrackId: "1534284373",
+    youtubeVideoId: "uUl0xaVfVw8",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -1333,6 +1379,16 @@ export const seedPerformances = [
     youtubeVideoId: "cTO9U8nG280",
     youtubeVideoStartTime: 2664,
   },
+  {
+    id: "30ea76f1-b9d1-4e9f-9c3d-20a8dcfb4f3e",
+    songId: seedSongs.godIsCallingMeBackHome.id,
+    showId: seedShows.rr24.id,
+    showPosition: 28,
+    spotifyTrackId: "2EkuotMUGa8OzRlR8rKiyH",
+    bandcampTrackId: "2638749677",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 3666,
+  },
 
   // ====================================================
   // Gondii
@@ -1595,6 +1651,32 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Honey
+  {
+    id: "418009d0-2484-4eba-8b45-0e94f1ab6cd3",
+    songId: seedSongs.honey.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 15,
+    spotifyTrackId: "3YjJKhRfkhfcpolJbNAXAj",
+    bandcampTrackId: "1303122436",
+    youtubeVideoId: "ZVBttwTAxYk",
+    youtubeVideoStartTime: 832,
+  },
+
+  // ====================================================
+  // Horology
+  {
+    id: "e9e5f557-c002-4b34-9a9a-153ac6102999",
+    songId: seedSongs.horology.id,
+    showId: seedShows.utrecht19.id,
+    showPosition: 15,
+    spotifyTrackId: "3adW5fKAjqK4POVGbLu851",
+    bandcampTrackId: "1947929634",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Hot Water
   {
     id: "81387e59-8ce6-4dd8-97b1-7367db88884c",
@@ -1763,6 +1845,20 @@ export const seedPerformances = [
     bandcampTrackId: "871485312",
     youtubeVideoId: "JbjZ-jZnoss",
     youtubeVideoStartTime: 158,
+  },
+
+  // ====================================================
+  // Inner Cell
+  {
+    id: "6cd5bda2-38d8-4a4b-aa28-f7d21198d7f8",
+    songId: seedSongs.innerCell.id,
+    showId: seedShows.utrecht19.id,
+    showPosition: 13,
+    spotifyTrackId: "1jttwtU52JAbFxQnj2OUwH",
+    bandcampTrackId: "3408699188",
+    // Chunky Shrapnel
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -2054,6 +2150,39 @@ export const seedPerformances = [
     youtubeVideoId: "iO94a7oTK5k",
     youtubeVideoStartTime: 9899,
   },
+  {
+    id: "a8253433-66a5-49e4-9b53-533130a8a2fc",
+    songId: seedSongs.lordOfLightning.id,
+    showId: seedShows.rr22.id,
+    showPosition: 22,
+    spotifyTrackId: "2ieg1D4F5M79AqUyNKnaah",
+    bandcampTrackId: "833108319",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Loyalty
+  {
+    id: "35b14ebb-1365-40f7-83fe-2045bd61b286",
+    songId: seedSongs.loyalty.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 23,
+    spotifyTrackId: "1lREmkB5SSPGgdU3P8OBtU",
+    bandcampTrackId: "2746934667",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 9375,
+  },
+  {
+    id: "d3064141-da89-4ee2-99c2-f883b9a65af4",
+    songId: seedSongs.loyalty.id,
+    showId: seedShows.utrecht19.id,
+    showPosition: 14,
+    spotifyTrackId: "0iKGoyW44iJ5BCh7Dzl5Wf",
+    bandcampTrackId: "3108237034",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ===========================================================================
   // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -2224,6 +2353,17 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "hD6SW7Nmj-U",
     youtubeVideoStartTime: 9365,
+  },
+  {
+    id: "9cf7bca5-4afe-49d3-bd3e-5303cbb81c30",
+    songId: seedSongs.marsForTheRich.id,
+    showId: seedShows.la24.id,
+    showPosition: 1,
+    spotifyTrackId: "3ufRiYSiN8FvD8KxbWQZgM",
+    bandcampTrackId: "3591768248",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 404,
   },
 
   // ====================================================
@@ -2417,6 +2557,26 @@ export const seedPerformances = [
     bandcampTrackId: "1553354825",
     youtubeVideoId: "5Y4bYCp4KAo",
     youtubeVideoStartTime: 1127,
+  },
+  {
+    id: "c3d5b7d4-36d0-4e15-8134-8db74ad04b6d",
+    songId: seedSongs.nuclearFusion.id,
+    showId: seedShows.la24.id,
+    showPosition: 13,
+    spotifyTrackId: "3LYpLHfDmmPqscGj6FNuhJ",
+    bandcampTrackId: "3561800724",
+    youtubeVideoId: "iO94a7oTK5k",
+    youtubeVideoStartTime: 6155,
+  },
+  {
+    id: "66e2443c-5894-43e1-b0e9-0da795d6b441",
+    songId: seedSongs.nuclearFusion.id,
+    showId: seedShows.kexp17.id,
+    showPosition: 4,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Qxxz7Tgfsv4",
+    youtubeVideoStartTime: 899,
   },
 
   // ===========================================================================
@@ -2729,6 +2889,19 @@ export const seedPerformances = [
     bandcampTrackId: "2118356148",
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 2103,
+  },
+
+  // ====================================================
+  // The Reticent Raconteur
+  {
+    id: "cfac8776-5eaa-4735-acdd-3a3248b2e79a",
+    songId: seedSongs.theReticentRaconteur.id,
+    showId: seedShows.rr22.id,
+    showPosition: 21,
+    spotifyTrackId: "1mFIrI7JQbh4cJ6g3I0GZG",
+    bandcampTrackId: "2304448542",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3229,6 +3402,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Sleepwalker
+  {
+    id: "0338d39c-80b8-44b0-b076-6df4c4c3ca90",
+    songId: seedSongs.sleepwalker.id,
+    showId: seedShows.berkeley22.id,
+    showPosition: 19,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "ySuZetRtNlE",
+    youtubeVideoStartTime: 705,
+  },
+
+  // ====================================================
   // Slow Jam 1
   {
     id: "c5d9c89b-f30c-43b9-b089-2e215377d4da",
@@ -3567,6 +3753,16 @@ export const seedPerformances = [
     bandcampTrackId: "1745381553",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 9908,
+  },
+  {
+    id: "bd0386f8-4f03-4eec-984b-f5795b666a3c",
+    songId: seedSongs.venusian1.id,
+    showId: seedShows.stl24.id,
+    showPosition: 2,
+    spotifyTrackId: "3heQbn8nMsfhXzdOtil1AC",
+    bandcampTrackId: "3815584324",
+    youtubeVideoId: "FGOsQiPCpEA",
+    youtubeVideoStartTime: 710,
   },
 
   // ====================================================
