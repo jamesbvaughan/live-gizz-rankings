@@ -195,6 +195,16 @@ export const seedShows = {
     youtubeVideoId: "Mo3aXp0QiDA",
     bandcampAlbumId: null,
   },
+  athens22: {
+    // drum machine show - no cavs!
+    id: "ab8e9ee9-73b3-4fb2-92ff-963e36e24191",
+    slug: "athens-2022",
+    location: "Athens",
+    date: "2022-05-31",
+    imageUrl: "/showCovers/athens22.webp",
+    youtubeVideoId: "EjuZoOUZ7_s",
+    bandcampAlbumId: null,
+  },
   bonnaroo22: {
     id: "1744f3c5-8da4-4e28-845d-0b2cf02db7a1",
     slug: "bonnaroo-2022",

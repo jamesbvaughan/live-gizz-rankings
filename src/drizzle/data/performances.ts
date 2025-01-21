@@ -1647,6 +1647,16 @@ export const seedPerformances = [
     youtubeVideoId: "BWVwGVPAWik",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "1a4da8a0-1d84-4b54-81a6-326ca418faeb",
+    songId: seedSongs.hotWater.id,
+    showId: seedShows.athens22.id,
+    showPosition: 12,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "EjuZoOUZ7_s",
+    youtubeVideoStartTime: 4905,
+  },
 
   // ====================================================
   // Hot Wax
@@ -2895,6 +2905,17 @@ export const seedPerformances = [
     // TODO: replace this with the official video once it's up
     youtubeVideoId: "GRxg_EYCsDI",
     youtubeVideoStartTime: 2061,
+  },
+  {
+    id: "8e2b9594-e873-427f-8ac6-32d0d5e2db0a",
+    songId: seedSongs.sadPilot.id,
+    showId: seedShows.vegas24.id,
+    showPosition: 8,
+    spotifyTrackId: "1GmsigE6qAiDA1QeVBNntE",
+    bandcampTrackId: "3175487951",
+    // TODO: replace this with the official video once it's up
+    youtubeVideoId: "hxebzoQTkvA",
+    youtubeVideoStartTime: 3157,
   },
 
   // ====================================================
