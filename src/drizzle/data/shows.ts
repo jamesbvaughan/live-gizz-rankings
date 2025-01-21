@@ -16,6 +16,15 @@ export const seedShows = {
 
   // ====================================================
   // 2016 Tour
+  levitation16: {
+    id: "6c4060e8-f179-45a1-acb6-e5ddffe7f7ad",
+    slug: "levitation-2016",
+    location: "Levitation",
+    date: "2016-05-01",
+    imageUrl: "https://f4.bcbits.com/img/a1539359681_16.jpg",
+    youtubeVideoId: "Q1A0XaeCXt0",
+    bandcampAlbumId: "3459817356",
+  },
   sf16: {
     id: "959fc957-a47f-4618-a0ea-91a57e17c55e",
     slug: "san-francisco-2016",
@@ -24,6 +33,18 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a3583868136_16.jpg",
     youtubeVideoId: "n98Je4AJbu8",
     bandcampAlbumId: "1532371660",
+  },
+
+  // ====================================================
+  // 2017 Tour
+  kexp17: {
+    id: "d60e0220-7b63-4aa7-9d30-b61efbe72bb9",
+    slug: "kexp-2017",
+    location: "KEXP",
+    date: "2017-04-10",
+    imageUrl: "/showCovers/kexp17.webp",
+    youtubeVideoId: "Qxxz7Tgfsv4",
+    bandcampAlbumId: null,
   },
 
   // ====================================================
@@ -74,6 +95,18 @@ export const seedShows = {
     date: "2019-10-03",
     imageUrl: "/showCovers/manchester19.webp",
     youtubeVideoId: null,
+    bandcampAlbumId: null,
+  },
+  utrecht19: {
+    id: "48c350f5-d3f3-476c-8f1c-b5f9e671171c",
+    slug: "utrecht-2019",
+    location: "Utrecht",
+    date: "2019-10-07",
+    imageUrl:
+      "https://ia801002.us.archive.org/12/items/king-gizzard-the-lizard-wizard-live-in-utrecht-19-show-1-audio/Utrecht.jpg?cnt=0",
+    youtubeVideoId: null,
+    // kind of - this is chunky shrapnel
+    // bandcampAlbumId: "6509641",
     bandcampAlbumId: null,
   },
   brussels19: {
@@ -193,6 +226,16 @@ export const seedShows = {
     date: "2022-05-25",
     imageUrl: "/showCovers/southBurlington22.webp",
     youtubeVideoId: "Mo3aXp0QiDA",
+    bandcampAlbumId: null,
+  },
+  athens22: {
+    // drum machine show - no cavs!
+    id: "ab8e9ee9-73b3-4fb2-92ff-963e36e24191",
+    slug: "athens-2022",
+    location: "Athens",
+    date: "2022-05-31",
+    imageUrl: "/showCovers/athens22.webp",
+    youtubeVideoId: "EjuZoOUZ7_s",
     bandcampAlbumId: null,
   },
   bonnaroo22: {
