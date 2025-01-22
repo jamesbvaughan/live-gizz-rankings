@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "f4.bcbits.com",
       },
+      {
+        protocol: "https",
+        hostname: "ia801002.us.archive.org",
+      },
     ],
   },
   async headers() {
