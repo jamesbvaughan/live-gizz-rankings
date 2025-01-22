@@ -107,6 +107,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Alter Me III
+  {
+    id: "d8dfc5d1-92f3-4f1c-94f7-371cfb1502a5",
+    songId: seedSongs.alterMeIII.id,
+    showId: seedShows.rr22.id,
+    showPosition: 84,
+    spotifyTrackId: "3YyyiaogPjJPHkkb91RmOw",
+    bandcampTrackId: "1193653662",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 721,
+  },
+
+  // ====================================================
   // Altered Beast I
   {
     id: "205fc1ed-476b-4e6e-b3ec-e266261a4813",
@@ -143,6 +156,19 @@ export const seedPerformances = [
     bandcampTrackId: "3828515964",
     youtubeVideoId: "MKHP7DgwmI8",
     youtubeVideoStartTime: 592,
+  },
+
+  // ====================================================
+  // Altered Beast IV
+  {
+    id: "0a9a4926-e577-4825-85fd-dc495ad57582",
+    songId: seedSongs.alteredBeastIV.id,
+    showId: seedShows.rr22.id,
+    showPosition: 85,
+    spotifyTrackId: "5LJbiMORCQ4Cyvm5Y99Okv",
+    bandcampTrackId: "1878812234",
+    youtubeVideoId: "MKHP7DgwmI8",
+    youtubeVideoStartTime: 765,
   },
 
   // ====================================================
@@ -797,6 +823,29 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "GRxg_EYCsDI",
     youtubeVideoStartTime: 3420,
+  },
+
+  // ====================================================
+  // Down The Sink
+  {
+    id: "bda9fcef-712c-4b77-bb12-0dbe6db0814c",
+    songId: seedSongs.downTheSink.id,
+    showId: seedShows.hollywoodBowl23.id,
+    showPosition: 16,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "XMAkcpI8fyQ",
+    youtubeVideoStartTime: 5107,
+  },
+  {
+    id: "9aef4936-9b38-40c0-9e46-4fc49ad2859f",
+    songId: seedSongs.downTheSink.id,
+    showId: seedShows.chicago23.id,
+    showPosition: 19,
+    spotifyTrackId: "3ZPt7nY6TgVQHRaq6nCDCK",
+    bandcampTrackId: "1094381637",
+    youtubeVideoId: "KU3fneSA7-I",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -1675,6 +1724,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "2571bd83-0093-4e59-8cf5-c0afca319a6f",
+    songId: seedSongs.horology.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 24,
+    spotifyTrackId: "1RHKztNPdtoYnqKqC5bZaq",
+    bandcampTrackId: "3939465685",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 9637,
+  },
 
   // ====================================================
   // Hot Water
@@ -1859,6 +1918,16 @@ export const seedPerformances = [
     // Chunky Shrapnel
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "8fdaa307-ae13-445f-898f-b7dadde607ba",
+    songId: seedSongs.innerCell.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 22,
+    spotifyTrackId: "1mQmU6lLwoOuRL2YoSXeQF",
+    bandcampTrackId: "3071570009",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 9148,
   },
 
   // ====================================================
@@ -2181,6 +2250,16 @@ export const seedPerformances = [
     spotifyTrackId: "0iKGoyW44iJ5BCh7Dzl5Wf",
     bandcampTrackId: "3108237034",
     youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+  {
+    id: "288ef241-c8b1-4f26-931f-0f643e34699a",
+    songId: seedSongs.loyalty.id,
+    showId: seedShows.milwaukee19.id,
+    showPosition: 7,
+    spotifyTrackId: "6LsPfh9RTGhXH9d25rz065",
+    bandcampTrackId: "820485138",
+    youtubeVideoId: "iugTP8JWKxM",
     youtubeVideoStartTime: null,
   },
 
@@ -2528,6 +2607,17 @@ export const seedPerformances = [
     bandcampTrackId: "1413295876",
     youtubeVideoId: "B7kGqj915YY",
     youtubeVideoStartTime: 9908,
+  },
+  {
+    // Chunky Shrapnel!
+    id: "14b78e9b-8e3f-40b2-be8a-458baa752e26",
+    songId: seedSongs.motu.id,
+    showId: seedShows.utrecht19.id,
+    showPosition: 16,
+    spotifyTrackId: "6oNx7uraIAaxBskimDQlVP",
+    bandcampTrackId: "1647548516",
+    youtubeVideoId: "rcsIEE1mbds",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3242,6 +3332,16 @@ export const seedPerformances = [
     youtubeVideoId: "CLxJ6ltVjHU",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "f149a952-958d-46d4-b7f1-978ed2064476",
+    songId: seedSongs.sense.id,
+    showId: seedShows.brussels19.id,
+    showPosition: 9,
+    spotifyTrackId: "4A6h2WzAGWeORgjwwYszVE",
+    bandcampTrackId: "1109769889",
+    youtubeVideoId: "ZvOoM79OwpA",
+    youtubeVideoStartTime: 2133,
+  },
 
   // ====================================================
   // Set
@@ -3364,6 +3464,16 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "XMAkcpI8fyQ",
     youtubeVideoStartTime: 6210,
+  },
+  {
+    id: "14600cd8-77c1-4e1b-b350-d76da5b07fac",
+    songId: seedSongs.shanghai.id,
+    showId: seedShows.remlinger23.id,
+    showPosition: 11,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "JRZjmgOc-v0",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3933,6 +4043,16 @@ export const seedPerformances = [
     bandcampTrackId: "2642857633",
     youtubeVideoId: "VtezqMDh4Sc",
     youtubeVideoStartTime: 7593,
+  },
+  {
+    id: "35f22d93-5af7-4b38-87ea-adc1a9ca643a",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.brussels19.id,
+    showPosition: 13,
+    spotifyTrackId: "0SqIiBvN2kefOFusciKcpp",
+    bandcampTrackId: "3992220992",
+    youtubeVideoId: "ZvOoM79OwpA",
+    youtubeVideoStartTime: 3651,
   },
 
   // ===========================================================================
