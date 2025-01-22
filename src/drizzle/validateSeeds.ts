@@ -61,7 +61,7 @@ for (const song of allSongs) {
 // Ensure that performance show positions are unique
 const showPositions = new Set<string>();
 for (const performance of allPerformances) {
-  const key = performance.showId + performance.showPosition;
+  const key = `show:${performance.showId} position:${performance.showPosition}`;
   if (showPositions.has(key)) {
     fail(`Duplicate show position: ${key}`);
   }
