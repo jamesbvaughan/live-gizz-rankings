@@ -79,6 +79,16 @@ export const seedPerformances = [
     youtubeVideoId: "8X_LVeLFrA8",
     youtubeVideoStartTime: 2224,
   },
+  {
+    id: "f0c86902-64f1-4b3a-8311-682f1a685388",
+    songId: seedSongs.allIsKnown.id,
+    showId: seedShows.pasoRobles24.id,
+    showPosition: 1,
+    spotifyTrackId: null,
+    bandcampTrackId: "3528567119",
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 881,
+  },
 
   // ====================================================
   // Alter Me I
@@ -329,6 +339,19 @@ export const seedPerformances = [
     youtubeVideoStartTime: null,
   },
 
+  // ====================================================
+  // Ataraxia
+  {
+    id: "75e96e1e-bf45-46a0-ad21-f6add0ad0345",
+    songId: seedSongs.ataraxia.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 4,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "6ah_-uY-lxI",
+    youtubeVideoStartTime: null,
+  },
+
   // ===========================================================================
   // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
@@ -343,6 +366,16 @@ export const seedPerformances = [
     bandcampTrackId: "2699928084",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "e81a8342-d7c2-4c8f-9068-0ab7bf5edaa0",
+    songId: seedSongs.theBalrog.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 8,
+    spotifyTrackId: "50mP0WaTB1Bsx9mo06mTrp",
+    bandcampTrackId: "1720379094",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 3608,
   },
 
   // ====================================================
@@ -826,6 +859,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Doom City
+  {
+    id: "a1fbc5ba-50a6-41ef-95b0-cbeeff944fd0",
+    songId: seedSongs.doomCity.id,
+    showId: seedShows.pasoRobles24.id,
+    showPosition: 3,
+    spotifyTrackId: null,
+    bandcampTrackId: "2245698942",
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 1447,
+  },
+
+  // ====================================================
   // Down The Sink
   {
     id: "bda9fcef-712c-4b77-bb12-0dbe6db0814c",
@@ -902,6 +948,16 @@ export const seedPerformances = [
     youtubeVideoId: "_OgT1yyq0DM",
     youtubeVideoStartTime: 7224,
   },
+  {
+    id: "dee51fcd-49e8-4e4f-a2f2-6125a13c465a",
+    songId: seedSongs.dragon.id,
+    showId: seedShows.toronto24.id,
+    showPosition: 6,
+    spotifyTrackId: "39kajPq1WRHoRxBDNcw5nr",
+    bandcampTrackId: "492521636",
+    youtubeVideoId: "8sXbseUS6rM",
+    youtubeVideoStartTime: 2376,
+  },
 
   // ====================================================
   // The Dripping Tap
@@ -968,6 +1024,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+  // ====================================================
+  // East West Link
+  {
+    id: "ab19f590-fe35-4418-bd8c-600791561525",
+    songId: seedSongs.eastWestLink.id,
+    showId: seedShows.rr24.id,
+    showPosition: 18,
+    spotifyTrackId: "0FXNB07G02CELPyrHVjv6Q",
+    bandcampTrackId: "1931954922",
+    youtubeVideoId: "8M8T3mFdPNQ",
+    youtubeVideoStartTime: 656,
+  },
 
   // ====================================================
   // Elbow
@@ -1219,6 +1288,16 @@ export const seedPerformances = [
     youtubeVideoId: "I8LbMgQVJLs",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "667828ca-ca6a-4fe3-af4e-1fbeb08e4d10",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.palp23.id,
+    showPosition: 1,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "myIjlvrfdfY",
+    youtubeVideoStartTime: 50,
+  },
 
   // ====================================================
   // The Fourth Color
@@ -1461,6 +1540,19 @@ export const seedPerformances = [
     bandcampTrackId: "3927576718",
     youtubeVideoId: "wbtTEgC6quI",
     youtubeVideoStartTime: 334,
+  },
+
+  // ====================================================
+  // The Great Chain of Being
+  {
+    id: "8496702a-3473-496c-97f1-353c816c8392",
+    songId: seedSongs.theGreatChainOfBeing.id,
+    showId: seedShows.rr24.id,
+    showPosition: 39,
+    spotifyTrackId: "4tlHrETLuET8ztgf2ETwpK",
+    bandcampTrackId: "3306912834",
+    youtubeVideoId: "KpTyphhCmEA",
+    youtubeVideoStartTime: 996,
   },
 
   // ====================================================
@@ -1855,6 +1947,16 @@ export const seedPerformances = [
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 3219,
   },
+  {
+    id: "4a6ee1e8-1e56-4697-a908-971c1b5ca51e",
+    songId: seedSongs.hypertension.id,
+    showId: seedShows.asheville24.id,
+    showPosition: 2,
+    spotifyTrackId: "156HfpWlllBmn0kmIDEsWz",
+    bandcampTrackId: "507486986",
+    youtubeVideoId: "cEvtbHcCyic",
+    youtubeVideoStartTime: 1428,
+  },
 
   // ===========================================================================
   // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
@@ -2229,6 +2331,16 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "d3ba902f-f177-497e-9c6e-a869d2491740",
+    songId: seedSongs.lordOfLightning.id,
+    showId: seedShows.gorge24.id,
+    showPosition: 7,
+    spotifyTrackId: "2LF697rQd2FewTD2ACZ8SR",
+    bandcampTrackId: "3401342232",
+    youtubeVideoId: "Tfm4okv47M4",
+    youtubeVideoStartTime: 3273,
+  },
 
   // ====================================================
   // Loyalty
@@ -2574,6 +2686,16 @@ export const seedPerformances = [
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 3515,
   },
+  {
+    id: "2bb263da-a660-4367-97c9-101247f4986d",
+    songId: seedSongs.muddyWater.id,
+    showId: seedShows.cleveland24.id,
+    showPosition: 2,
+    spotifyTrackId: "7eZiAvXtfjGeWZz3fuRYIs",
+    bandcampTrackId: "3115059865",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 1279,
+  },
 
   // ====================================================
   // Murder of the Universe
@@ -2667,6 +2789,17 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "Qxxz7Tgfsv4",
     youtubeVideoStartTime: 899,
+  },
+  {
+    id: "9c2d80aa-9847-4051-871d-7713b11b08b1",
+    songId: seedSongs.nuclearFusion.id,
+    showId: seedShows.austin24.id,
+    showPosition: 8,
+    spotifyTrackId: "0psSCX31dkVnlopCNP3pdw",
+    bandcampTrackId: "4004053908",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 4986,
   },
 
   // ===========================================================================
@@ -2890,6 +3023,19 @@ export const seedPerformances = [
     bandcampTrackId: "2141508110",
     youtubeVideoId: "qY7iyjHdBUM",
     youtubeVideoStartTime: 7343,
+  },
+
+  // ====================================================
+  // Pleura
+  {
+    id: "5d39a1a9-c3d7-45cf-9ff4-85d45b4474b9",
+    songId: seedSongs.pleura.id,
+    showId: seedShows.pasoRobles24.id,
+    showPosition: 2,
+    spotifyTrackId: null,
+    bandcampTrackId: "3518313694",
+    youtubeVideoId: "qvBMzzDtgHE",
+    youtubeVideoStartTime: 1127,
   },
 
   // ====================================================
@@ -3593,6 +3739,17 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "GOypQkCShfw",
     youtubeVideoStartTime: 1957,
+  },
+  {
+    id: "27060efb-3114-49b3-bf8d-174d6562841c",
+    songId: seedSongs.strawsInTheWind.id,
+    showId: seedShows.austin24.id,
+    showPosition: 9,
+    spotifyTrackId: "26UeplgO4a5HQHoVV0PFqe",
+    bandcampTrackId: "156385736",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 5349,
   },
 
   // ====================================================
