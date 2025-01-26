@@ -32,9 +32,10 @@ for (const vote of allVotes) {
   counts[key] = (counts[key] ?? 0) + 1;
 }
 
-console.log(Object.entries(counts)[0]);
 for (const [key, count] of Object.entries(counts)) {
   if (count > 1) {
     console.log(key, count);
   }
 }
+
+process.exit(0);
