@@ -1,6 +1,9 @@
+import { currentUser } from "@clerk/nextjs/server";
 import { desc } from "drizzle-orm";
 import { Metadata } from "next";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -41,6 +44,26 @@ function NominationList({ nominations }: { nominations: Nomination[] }) {
   );
 }
 
+async function RefreshButton() {
+  const user = await currentUser();
+  const isAdmin = !!user?.publicMetadata.isAdmin;
+  if (!isAdmin) {
+    return null;
+  }
+
+  return (
+    <button
+      className="border-2 border-foreground p-2 hover:bg-foreground hover:text-background"
+      onClick={async () => {
+        "use server";
+        revalidatePath("/nominations");
+      }}
+    >
+      Refresh
+    </button>
+  );
+}
+
 export default async function NominationsPage() {
   const allNominations = await db.query.nominations.findMany({
     orderBy: desc(nominations.createdAt),
@@ -65,6 +88,10 @@ export default async function NominationsPage() {
           These are user-submitted nominations for performances to add to the
           database.
         </p>
+
+        <Suspense>
+          <RefreshButton />
+        </Suspense>
 
         <div className="space-y-4">
           <h2 className="text-2xl">
