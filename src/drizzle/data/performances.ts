@@ -403,6 +403,16 @@ export const seedPerformances = [
     youtubeVideoId: "koQvZI4ewGg",
     youtubeVideoStartTime: 912,
   },
+  {
+    id: "339b15a0-6c45-4b60-9209-76b4eeefba67",
+    songId: seedSongs.bigFigWasp.id,
+    showId: seedShows.kentucky24.id,
+    showPosition: 16,
+    spotifyTrackId: "1pPO5VnSEALPMhGwtGzFqP",
+    bandcampTrackId: "4023088841",
+    youtubeVideoId: "VtezqMDh4Sc",
+    youtubeVideoStartTime: 6579,
+  },
 
   // ====================================================
   // Billabong Valley
@@ -1298,6 +1308,16 @@ export const seedPerformances = [
     youtubeVideoId: "myIjlvrfdfY",
     youtubeVideoStartTime: 50,
   },
+  {
+    id: "3ed67b1c-d070-453a-9b8e-5c978c8755e0",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.rr22.id,
+    showPosition: 86,
+    spotifyTrackId: "3vi8yENTD1Ax9GuuMky69N",
+    bandcampTrackId: "2585326728",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // The Fourth Color
@@ -1387,6 +1407,16 @@ export const seedPerformances = [
     bandcampTrackId: "1692217050",
     youtubeVideoId: "Tfm4okv47M4",
     youtubeVideoStartTime: 10553,
+  },
+  {
+    id: "77dd1d53-d979-403c-84f2-60855f4b16cf",
+    songId: seedSongs.gaia.id,
+    showId: seedShows.dc24.id,
+    showPosition: 14,
+    spotifyTrackId: "0Wt3iLXtcVSGIf0zlUT8q4",
+    bandcampTrackId: "2840753001",
+    youtubeVideoId: "8uLjJw9Z8us",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3050,6 +3080,16 @@ export const seedPerformances = [
     youtubeVideoId: "koQvZI4ewGg",
     youtubeVideoStartTime: 5916,
   },
+  {
+    id: "521c39cb-144a-4c77-99a7-95fcfe77e855",
+    songId: seedSongs.predatorX.id,
+    showId: seedShows.rr22.id,
+    showPosition: 30,
+    spotifyTrackId: "3vkeFEqfncdV8bFVcA1d3K",
+    bandcampTrackId: "2972499799",
+    youtubeVideoId: "kno1UYgj_ag",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Presumptuous
@@ -3788,6 +3828,16 @@ export const seedPerformances = [
     youtubeVideoId: "ijBUyqm-nLI",
     youtubeVideoStartTime: 997,
   },
+  {
+    id: "022ef033-32fd-4af8-9ba9-d121635e6965",
+    songId: seedSongs.superbug.id,
+    showId: seedShows.cleveland24.id,
+    showPosition: 12,
+    spotifyTrackId: "6edathEwHcBTblFCp0AHZp",
+    bandcampTrackId: "3267708194",
+    youtubeVideoId: "1_vJkwyLjds",
+    youtubeVideoStartTime: 4999,
+  },
 
   // ====================================================
   // Supercell
@@ -4210,6 +4260,16 @@ export const seedPerformances = [
     bandcampTrackId: "3992220992",
     youtubeVideoId: "ZvOoM79OwpA",
     youtubeVideoStartTime: 3651,
+  },
+  {
+    id: "870d9868-9072-48fe-b1e1-cae20989eec2",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.nashville24.id,
+    showPosition: 6,
+    spotifyTrackId: "4D9XnKQL836rnnyGkoEyqG",
+    bandcampTrackId: "1351093930",
+    youtubeVideoId: "8RbhqJHZPtM",
+    youtubeVideoStartTime: 2290,
   },
 
   // ===========================================================================
