@@ -33,7 +33,7 @@
     "@vercel/analytics": "^1.4.1",
     "chart.js": "^4.4.7",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.38.2",
+    "drizzle-orm": "^0.40.0",
     "isomorphic-dompurify": "^2.19.0",
     "next": "canary",
     "pluralize": "^8.0.0",
