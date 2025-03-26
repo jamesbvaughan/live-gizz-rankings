@@ -1418,6 +1418,17 @@ export const seedPerformances = [
     youtubeVideoId: "8uLjJw9Z8us",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "0f5e8af4-933e-4e29-a2ec-043c2ab3095e",
+    songId: seedSongs.gaia.id,
+    showId: seedShows.houston24.id,
+    showPosition: 14,
+    spotifyTrackId: "2aW8Aq7f8D08nRMNbe6Dhv",
+    bandcampTrackId: "2906168585",
+    // TODO: Replace with official video once it's up
+    youtubeVideoId: "GRxg_EYCsDI",
+    youtubeVideoStartTime: 7893,
+  },
 
   // ====================================================
   // Gamma Knife
@@ -1718,6 +1729,16 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "yD4Uf-lPhek",
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "93d1e639-9b6a-48c9-a3fb-51137eb27e1e",
+    songId: seedSongs.headOn.id,
+    showId: seedShows.wideAwake24.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "Lo6x4Rexwh0",
+    youtubeVideoStartTime: 5294,
   },
 
   // ====================================================
