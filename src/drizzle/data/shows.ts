@@ -381,6 +381,18 @@ export const seedShows = {
   },
 
   // ====================================================
+  // UK 2024
+  wideAwake24: {
+    id: "c8922c00-a9f5-43ff-abf7-65ab87f33a62",
+    slug: "wide-awake-2024",
+    location: "Wide Awake",
+    date: "2024-05-25",
+    imageUrl: "/showCovers/wideAwake24.png",
+    youtubeVideoId: "Lo6x4Rexwh0",
+    bandcampAlbumId: null,
+  },
+
+  // ====================================================
   // U.S. Tour 2024 pt. 1
   dc24: {
     id: "1aba10fe-3d4e-49c4-ae47-f30a2b7e0e1b",
