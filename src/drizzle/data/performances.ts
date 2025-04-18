@@ -1765,6 +1765,17 @@ export const seedPerformances = [
     youtubeVideoId: "_OgT1yyq0DM",
     youtubeVideoStartTime: 6942,
   },
+  {
+    // Chunky Shrapnel
+    id: "6be6068e-d4a7-4a07-8ebe-b6db3e67fcb4",
+    songId: seedSongs.hell.id,
+    showId: seedShows.milan19.id,
+    showPosition: 12,
+    spotifyTrackId: "0osNPjpilqWgqMz7lhdruC",
+    bandcampTrackId: "3773252228",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Her and I (Slow Jam 2)
@@ -2060,6 +2071,32 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // I'm In Your Mind
+  {
+    id: "d1cd9a4e-461e-4fdf-8733-0593f1437195",
+    songId: seedSongs.imInYourMind.id,
+    showId: seedShows.rr22.id,
+    showPosition: 41,
+    spotifyTrackId: "67AFMaK4cny15rS7Zq8rpN",
+    bandcampTrackId: "1413518667",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // I'm In Your Mind Fuzz
+  {
+    id: "b93bd131-090c-4c97-8d07-561d7d03953e",
+    songId: seedSongs.imInYourMind.id,
+    showId: seedShows.levitation14.id,
+    showPosition: 4,
+    spotifyTrackId: "6YOGsfm3HXDjfuR7CSzMdr",
+    bandcampTrackId: "380850676",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
   // Inner Cell
   {
     id: "6cd5bda2-38d8-4a4b-aa28-f7d21198d7f8",
@@ -2322,6 +2359,17 @@ export const seedPerformances = [
     bandcampTrackId: "272915997",
     youtubeVideoId: "8RbhqJHZPtM",
     youtubeVideoStartTime: 2848,
+  },
+  {
+    id: "91d1709c-adcf-41a3-92b6-011aa76e5685",
+    songId: seedSongs.leRisque.id,
+    showId: seedShows.austin24.id,
+    showPosition: 16,
+    spotifyTrackId: "3nlblBBNBDrA1yLcFxmk49",
+    bandcampTrackId: "1737316239",
+    // TODO: Replace this with the official video once it's up
+    youtubeVideoId: "hD6SW7Nmj-U",
+    youtubeVideoStartTime: 8989,
   },
 
   // ====================================================
@@ -2643,6 +2691,16 @@ export const seedPerformances = [
     bandcampTrackId: "1305004156",
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 4912,
+  },
+  {
+    id: "1546f82a-d89d-4eb6-8d0c-024d0296cdf6",
+    songId: seedSongs.mirageCity.id,
+    showId: seedShows.stAugustine24.id,
+    showPosition: 7,
+    spotifyTrackId: "0TxqjYdttWEUKzYLgxffTa",
+    bandcampTrackId: "1102730743",
+    youtubeVideoId: "GOypQkCShfw",
+    youtubeVideoStartTime: 4211,
   },
 
   // ====================================================
@@ -3716,6 +3774,19 @@ export const seedPerformances = [
     // TODO: Replace with official video once it's up
     youtubeVideoId: "GR1A0l4c_5g",
     youtubeVideoStartTime: 6877,
+  },
+
+  // ====================================================
+  // Sleep Drifter
+  {
+    id: "ccfaf4a5-0f65-4c53-9877-847b21e15d33",
+    songId: seedSongs.sleepDrifter.id,
+    showId: seedShows.kexp17.id,
+    showPosition: 2,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "U72rbtrufws",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
