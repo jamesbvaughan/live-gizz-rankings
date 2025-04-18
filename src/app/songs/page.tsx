@@ -30,7 +30,10 @@ export default function Songs() {
               .filter((song) => song.albumId === album.id)
               .sort((a, b) => a.albumPosition - b.albumPosition);
 
-            if (albumSongs.length === 0) {
+            const albumPerformances = allPerformances.filter((performance) =>
+              albumSongs.some((song) => song.id === performance.songId),
+            );
+            if (albumPerformances.length === 0) {
               return null;
             }
 

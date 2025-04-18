@@ -15,6 +15,18 @@ export const seedShows = {
   },
 
   // ====================================================
+  // 2014 Tour
+  levitation14: {
+    id: "2a48fa0d-e34a-410d-b771-334782346e14",
+    slug: "levitation-2014",
+    location: "Levitation",
+    date: "2014-05-02",
+    imageUrl: "https://f4.bcbits.com/img/a2573238909_10.jpg",
+    youtubeVideoId: null,
+    bandcampAlbumId: "1402278704",
+  },
+
+  // ====================================================
   // 2016 Tour
   levitation16: {
     id: "6c4060e8-f179-45a1-acb6-e5ddffe7f7ad",
@@ -126,6 +138,17 @@ export const seedShows = {
     imageUrl: "https://f4.bcbits.com/img/a2896811102_16.jpg",
     youtubeVideoId: null,
     bandcampAlbumId: "1553589735",
+  },
+  milan19: {
+    id: "58a4cce7-4153-4130-9d62-6e1d83eab463",
+    slug: "milan-2019",
+    location: "Milan",
+    date: "2019-10-15",
+    imageUrl: "/showCovers/milan19.webp",
+    youtubeVideoId: null,
+    // kind of - this is chunky shrapnel
+    // bandcampAlbumId: "6509641",
+    bandcampAlbumId: null,
   },
   madrid19: {
     id: "11597d9b-21e7-43b7-b681-cd22a31c5a90",
