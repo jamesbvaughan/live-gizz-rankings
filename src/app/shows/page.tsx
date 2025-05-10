@@ -50,7 +50,7 @@ export default async function ShowsPage() {
                       href={showPath}
                       className="no-underline"
                     >
-                      <div className="aspect-square bg-muted-3">
+                      <div className="bg-muted-3 aspect-square">
                         {show.imageUrl ? (
                           <Image
                             priority={index < 4}

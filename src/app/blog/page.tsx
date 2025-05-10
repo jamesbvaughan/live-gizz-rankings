@@ -21,7 +21,7 @@ function BlogPosts() {
             className="inline-flex text-lg no-underline"
             href={`/blog/${post.slug}`}
           >
-            <p className="w-[120px] tabular-nums text-muted">
+            <p className="text-muted w-[120px] tabular-nums">
               {post.metadata.publishedAt}
             </p>
 

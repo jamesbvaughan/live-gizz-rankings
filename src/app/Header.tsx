@@ -5,7 +5,7 @@ import lgrHandwritten from "./lgr-handwritten.png";
 
 function HeaderMenu() {
   return (
-    <div className="flex items-center space-x-4 text-muted">
+    <div className="text-muted flex items-center space-x-4">
       <Link href="/songs" className="no-underline">
         Songs
       </Link>
@@ -19,7 +19,7 @@ function HeaderMenu() {
       <Link
         prefetch={false}
         href="/rank"
-        className="border-2 border-muted px-2 py-1 no-underline hover:border-foreground hover:text-foreground"
+        className="border-muted hover:border-foreground hover:text-foreground border-2 px-2 py-1 no-underline"
       >
         Vote
       </Link>

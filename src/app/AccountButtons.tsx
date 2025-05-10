@@ -14,7 +14,7 @@ export function AccountButtons() {
   }, []);
 
   if (!isClient || !isLoaded) {
-    return <div className="cursor-wait text-muted-2">sign in</div>;
+    return <div className="text-muted-2 cursor-wait">sign in</div>;
   }
 
   if (!isSignedIn) {
@@ -32,7 +32,7 @@ export function AccountButtons() {
     <div className="flex flex-col items-end space-y-2">
       <div className="">{username || "signed in"}</div>
 
-      <hr className="w-full border-muted-2" />
+      <hr className="border-muted-2 w-full" />
 
       <div className="flex flex-col items-end space-y-2">
         <div className="flex flex-col items-end space-y-1">
@@ -52,7 +52,7 @@ export function AccountButtons() {
 
         {isAdmin ? (
           <>
-            <hr className="w-full border-muted-2" />
+            <hr className="border-muted-2 w-full" />
 
             <div className="flex flex-col space-y-1">
               <Link href="/users">users</Link>
