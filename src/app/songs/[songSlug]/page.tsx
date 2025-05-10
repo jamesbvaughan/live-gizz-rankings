@@ -75,7 +75,7 @@ async function RankedPerformances({ songId }: { songId: string }) {
             <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
 
             <div className="flex shrink-0 space-x-4">
-              <div className="aspect-square w-24 bg-background">
+              <div className="bg-background aspect-square w-24">
                 {show.imageUrl ? (
                   <Image
                     src={show.imageUrl}

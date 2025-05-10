@@ -21,7 +21,7 @@ function Q({ children }: PropsWithChildren) {
 }
 
 function A({ children }: PropsWithChildren) {
-  return <div className="space-y-2 text-muted">{children}</div>;
+  return <div className="text-muted space-y-2">{children}</div>;
 }
 
 export default function NominatePage() {
@@ -67,12 +67,12 @@ export default function NominatePage() {
                 Even if I easily could add <i>every</i> performance to the
                 database, I don&apos;t think I&apos;d want to. There are some
                 songs{" "}
-                <span className="text-sm text-muted-2">
+                <span className="text-muted-2 text-sm">
                   (<i>*cough* *cough* work this time</i>)
                 </span>{" "}
                 where lots of us have strong opinons about what the <i>best</i>{" "}
                 performance is{" "}
-                <span className="text-sm text-muted-2">
+                <span className="text-muted-2 text-sm">
                   (<i>*cough* *cough* work this time atlanta &apos;24</i>)
                 </span>{" "}
                 and I want to make sure that people who take the time to vote

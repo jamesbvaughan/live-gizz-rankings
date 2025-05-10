@@ -10,7 +10,7 @@ export function EloScore({ score }: { score: number }) {
       </PopoverButton>
 
       <PopoverPanel
-        className="w-72 bg-muted-2 bg-opacity-50 px-4 py-3 shadow backdrop-blur [--anchor-gap:8px]"
+        className="bg-muted-2 bg-opacity-50 w-72 px-4 py-3 shadow-sm backdrop-blur-sm [--anchor-gap:8px]"
         anchor="bottom"
       >
         This is an{" "}

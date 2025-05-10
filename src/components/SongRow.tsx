@@ -51,7 +51,7 @@ async function TopPerformance({ song }: { song: Song }) {
   return (
     <Link
       href={performancePath}
-      className="flex items-start space-x-2 text-right text-muted no-underline"
+      className="text-muted flex items-start space-x-2 text-right no-underline"
     >
       <div>Top: {showTitle}</div>
 
@@ -77,14 +77,14 @@ export function SongRow({ song }: { song: Song }) {
 
   return (
     <div className="flex items-baseline space-x-1">
-      <div className="w-6 text-right text-muted">{song.albumPosition}.</div>
+      <div className="text-muted w-6 text-right">{song.albumPosition}.</div>
 
       <div className="grow">
         <Link href={songPath} className="text-lg no-underline">
           {song.title}
         </Link>
 
-        <div className="flex justify-between space-x-2 text-muted">
+        <div className="text-muted flex justify-between space-x-2">
           {songPerformances.length === 0 ? (
             songsNeverPlayedLive.includes(song.title) ? (
               <span>They haven&apos;t played this live yet!</span>

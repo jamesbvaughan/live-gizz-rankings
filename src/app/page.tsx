@@ -29,7 +29,7 @@ export default function HomePage() {
         <Link
           prefetch={false}
           href="/rank"
-          className="block border-2 border-foreground px-6 py-6 text-center text-2xl no-underline hover:bg-foreground hover:text-background"
+          className="border-foreground hover:bg-foreground hover:text-background block border-2 px-6 py-6 text-center text-2xl no-underline"
         >
           vote on some performances
         </Link>

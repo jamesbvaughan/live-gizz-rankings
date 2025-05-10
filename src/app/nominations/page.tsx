@@ -33,7 +33,7 @@ function NominationList({ nominations }: { nominations: Nomination[] }) {
               )}
             </div>
 
-            <div className="text-sm text-muted">
+            <div className="text-muted text-sm">
               {nomination.createdAt.toLocaleString()} - submitted by{" "}
               {nomination.userId ?? "an anonymous visitor"}
             </div>
@@ -53,7 +53,7 @@ async function RefreshButton() {
 
   return (
     <button
-      className="border-2 border-foreground p-2 hover:bg-foreground hover:text-background"
+      className="border-foreground hover:bg-foreground hover:text-background border-2 p-2"
       onClick={async () => {
         "use server";
         revalidatePath("/nominations");

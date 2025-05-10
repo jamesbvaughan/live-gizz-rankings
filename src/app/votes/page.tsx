@@ -53,7 +53,7 @@ function VoteListItem({ vote }: { vote: Vote }) {
         <PerformanceLink performanceId={losingPerformanceId} />
       </div>
 
-      <div className="text-sm text-muted">
+      <div className="text-muted text-sm">
         <time>{new Date(vote.createdAt).toLocaleString()}</time> -{" "}
         {vote.voterId}
       </div>

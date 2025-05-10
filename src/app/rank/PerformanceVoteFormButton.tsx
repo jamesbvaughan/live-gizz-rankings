@@ -43,10 +43,10 @@ export function PerformanceFormButtons({
                   setSelectedShow(show);
                 }}
               />
-              <div className="border-8 border-transparent peer-checked:border-red">
+              <div className="peer-checked:border-red border-8 border-transparent">
                 <label
                   htmlFor={performance.id}
-                  className="flex aspect-square w-full cursor-pointer items-center justify-center bg-muted-2 bg-cover text-center text-2xl hover:invert sm:text-4xl"
+                  className="bg-muted-2 flex aspect-square w-full cursor-pointer items-center justify-center bg-cover text-center text-2xl hover:invert sm:text-4xl"
                   style={{
                     backgroundImage: show.imageUrl
                       ? `url(${show.imageUrl})`
@@ -71,7 +71,7 @@ export function PerformanceFormButtons({
         {selectedShow ? (
           <button
             type="submit"
-            className="border-2 border-foreground px-6 py-4 hover:bg-foreground hover:text-background"
+            className="border-foreground hover:bg-foreground hover:text-background border-2 px-6 py-4"
           >
             {isPending ? (
               "submitting vote..."

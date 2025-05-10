@@ -44,7 +44,7 @@ export function Footer() {
     <footer className="space-y-10">
       <hr className="border-red" />
 
-      <div className="flex items-start justify-between space-x-2 leading-5 text-muted">
+      <div className="text-muted flex items-start justify-between space-x-2 leading-5">
         <SiteButtons />
 
         <AccountButtons />

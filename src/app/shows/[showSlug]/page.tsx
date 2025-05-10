@@ -84,7 +84,7 @@ async function GizzTapesNote({ show }: { show: Show }) {
 
       <a
         href={`https://tapes.kglw.net/${gizzTapesShowId}/`}
-        className="inline-block text-muted"
+        className="text-muted inline-block"
         target="_blank"
         rel="noopener"
       >

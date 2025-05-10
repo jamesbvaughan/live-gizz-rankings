@@ -9,7 +9,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-import tailwindConfig from "@/../tailwind.config";
 import { Vote } from "@/drizzle/schema";
 
 Chart.register(CategoryScale);
@@ -57,14 +56,14 @@ export function LeftRightChart({ votes }: { votes: Vote[] }) {
             title: {
               display: true,
               text: "Number of votes",
-              color: tailwindConfig.theme.extend.colors.muted,
+              color: "#a8a29e",
             },
           },
           y: {
             title: {
               display: true,
               text: "Left/right ratio",
-              color: tailwindConfig.theme.extend.colors.muted,
+              color: "#a8a29e",
             },
             min: 0.6,
             max: 1.4,
@@ -89,7 +88,7 @@ export function LeftRightChart({ votes }: { votes: Vote[] }) {
             ctx.moveTo(left, yPosition);
             ctx.lineTo(right, yPosition);
             ctx.lineWidth = 2;
-            ctx.strokeStyle = tailwindConfig.theme.extend.colors["muted-2"];
+            ctx.strokeStyle = "#44403c";
             ctx.stroke();
             ctx.restore();
           },
@@ -112,7 +111,7 @@ export function LeftRightChart({ votes }: { votes: Vote[] }) {
             ctx.moveTo(xPosition, top);
             ctx.lineTo(xPosition, bottom);
             ctx.lineWidth = 2;
-            ctx.strokeStyle = tailwindConfig.theme.extend.colors["muted-2"];
+            ctx.strokeStyle = "#44403c";
             ctx.stroke();
             ctx.restore();
           },

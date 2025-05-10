@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ComponentProps, PropsWithChildren } from "react";
 
 export function PageType({ children }: PropsWithChildren) {
-  return <div className="text-base font-bold text-muted">{children}</div>;
+  return <div className="text-muted text-base font-bold">{children}</div>;
 }
 
 export function PageTitle({ children }: PropsWithChildren) {
@@ -10,7 +10,7 @@ export function PageTitle({ children }: PropsWithChildren) {
 }
 
 export function PageSubtitle({ children }: PropsWithChildren) {
-  return <p className="mt-2 text-muted">{children}</p>;
+  return <p className="text-muted mt-2">{children}</p>;
 }
 
 export function PageContent({

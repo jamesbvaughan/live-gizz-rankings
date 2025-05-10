@@ -6,8 +6,6 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
-import tailwindConfig from "@/../tailwind.config";
-
 import BackgroundCanvas from "./BackgroundCanvas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -29,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: tailwindConfig.theme.extend.colors.background,
+  themeColor: "#0c0a09",
   colorScheme: "dark",
 };
 
@@ -43,13 +41,13 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className="overflow-y-scroll bg-background text-foreground">
+        <body className="bg-background text-foreground overflow-y-scroll">
           <BackgroundCanvas />
 
-          <div className="mx-auto max-w-[720px] px-4 pb-10 pt-6">
+          <div className="mx-auto max-w-[720px] px-4 pt-6 pb-10">
             <Header />
 
-            <main className="mb-12 mt-6">{children}</main>
+            <main className="mt-6 mb-12">{children}</main>
 
             <Footer />
           </div>
