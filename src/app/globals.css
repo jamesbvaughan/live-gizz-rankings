@@ -1,10 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin '@tailwindcss/forms' {
+  strategy: "class";
+}
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-background: #0c0a09;
+  --color-foreground: #f5f4f4;
+  --color-muted: #a8a29e;
+  --color-muted-2: #44403c;
+  --color-muted-3: #1c1917;
+  --color-red: #ff0000;
+}
 
 @layer components {
   a {
-    @apply underline underline-offset-2 hover:text-red;
+    @apply hover:text-red underline underline-offset-2;
   }
   footer a {
     @apply no-underline;
