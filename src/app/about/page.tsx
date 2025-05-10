@@ -57,16 +57,16 @@ export default function NominatePage() {
           </QnA>
 
           <QnA>
-            <Q>Why is it missing my favorite song/performance?</Q>
+            <Q>Why is it missing my favorite performance?</Q>
             <A>
               <p>
-                I currently maintain the song data manually, which is a bit
-                tedious.
+                I currently maintain the performance data manually, which is a
+                bit tedious.
               </p>
               <p>
-                Even if I easily could add <i>every</i> song and performance to
-                the database, I don&apos;t think I&apos;d want to. There are
-                some songs{" "}
+                Even if I easily could add <i>every</i> performance to the
+                database, I don&apos;t think I&apos;d want to. There are some
+                songs{" "}
                 <span className="text-sm text-muted-2">
                   (<i>*cough* *cough* work this time</i>)
                 </span>{" "}
@@ -80,8 +80,8 @@ export default function NominatePage() {
                 most interested in.
               </p>
               <p>
-                If there&apos;s a specific song or performance that you&apos;d
-                like included,{" "}
+                If there&apos;s a specific performance that you&apos;d like
+                included,{" "}
                 <Link href="/nominate">nominate it for inclusion here</Link> or{" "}
                 <a href="mailto:james@jamesbvaughan.com">email me</a> and
                 I&apos;ll add it!
