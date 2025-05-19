@@ -62,15 +62,18 @@ async function GizzTapesNote({ show }: { show: Show }) {
     const response = await fetch(
       `https://tapes.kglw.net/api/v1/shows/${gizzTapesShowId}.json`,
     );
+    if (response.status === 404) {
+      return <div>No Gizz Tapes notes for this show.</div>;
+    }
     const data = await response.json();
     note = data.notes;
   } catch (error) {
     const showTitle = getShowTitle(show);
     console.error(
-      `No Gizz Tapes notes found for ${showTitle}:`,
+      `Unable to fetch Gizz Tapes notes for ${showTitle}:`,
       (error as Error).message,
     );
-    return <div>No Gizz Tapes notes for this show.</div>;
+    return <div>Error fetching Gizz Tapes notes for this show.</div>;
   }
 
   const htmlWithLineBreaks = note.replace(/\n/g, "<br>");
@@ -98,8 +101,11 @@ async function PerformanceElo({ performanceId }: { performanceId: string }) {
   const performance = await db.query.performances.findFirst({
     where: eq(performances.id, performanceId),
   });
+  if (performance == null) {
+    return "No score yet";
+  }
 
-  return <EloScore score={performance!.eloRating} />;
+  return <EloScore score={performance.eloRating} />;
 }
 
 export default async function ShowPage({ params }: Props) {
