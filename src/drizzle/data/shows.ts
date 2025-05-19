@@ -384,6 +384,15 @@ export const seedShows = {
     youtubeVideoId: "myIjlvrfdfY",
     bandcampAlbumId: null,
   },
+  cologne23: {
+    id: "2cf2e746-f73d-4c62-b95e-cf3ed49d26e2",
+    slug: "cologne-2023",
+    location: "Cologne",
+    date: "2023-08-15",
+    imageUrl: "/showCovers/cologne23.webp",
+    youtubeVideoId: null,
+    bandcampAlbumId: null,
+  },
   lowlands23: {
     id: "58a8f68b-0f95-4a3a-963b-9740a68b8729",
     slug: "lowlands-2023",
@@ -747,6 +756,21 @@ export const seedShows = {
     youtubeVideoId: "_OgT1yyq0DM",
     imageUrl: "https://f4.bcbits.com/img/a1675499924_16.jpg",
     bandcampAlbumId: "4243074642",
+  },
+
+  // ====================================================
+  // Europe Tour 2025
+  lisbon25Night1: {
+    id: "dba24ab3-79d8-474d-975d-bd5cb2c98c7c",
+    slug: "lisbon-2025-night-1",
+    location: "Lisbon",
+    date: "2025-05-18",
+    // TODO: Update this when the official video is released
+    youtubeVideoId: null,
+    // TODO: Update this when the official bootleg is released
+    imageUrl: "/showCovers/lisbon25.webp",
+    // TODO: Update this when the official bootleg is released
+    bandcampAlbumId: null,
   },
 } as const satisfies Record<string, Omit<Show, "createdAt">>;
 

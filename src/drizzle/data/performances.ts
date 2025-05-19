@@ -857,6 +857,16 @@ export const seedPerformances = [
     youtubeVideoId: "pwpoWlXs8cg",
     youtubeVideoStartTime: 3043,
   },
+  {
+    id: "cd34c93a-55bb-4e61-b9b2-a0fd5bd9a7cc",
+    songId: seedSongs.dirt.id,
+    showId: seedShows.sd24.id,
+    showPosition: 8,
+    spotifyTrackId: "3Z719mtP50rSP7clClth75",
+    bandcampTrackId: "1349292203",
+    youtubeVideoId: "bDd8lLWY8BQ",
+    youtubeVideoStartTime: 3414,
+  },
 
   // ====================================================
   // Doom City
@@ -1159,6 +1169,17 @@ export const seedPerformances = [
     bandcampTrackId: "2759237781",
     youtubeVideoId: "5JEkTEktukg",
     youtubeVideoStartTime: 5234,
+  },
+  {
+    id: "dd8d4bfd-32d1-4267-9f92-f4c69bd30496",
+    songId: seedSongs.fieldOfVision.id,
+    showId: seedShows.lisbon25Night1.id,
+    showPosition: 10,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    // TODO: Replace with the official video when it's available
+    youtubeVideoId: "stF6kR7KQCg",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -2860,6 +2881,19 @@ export const seedPerformances = [
   // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
   // ====================================================
+  // O.N.E.
+  {
+    id: "68a4a43f-d86d-42d1-b776-f0e2781fe3b7",
+    songId: seedSongs.one.id,
+    showId: seedShows.la24.id,
+    showPosition: 11,
+    spotifyTrackId: "3VmvooeT45XkH7ERlwRD2q",
+    bandcampTrackId: "2778274706",
+    youtubeVideoId: "CLSzzU_IKVc",
+    youtubeVideoStartTime: 5453,
+  },
+
+  // ====================================================
   // Ontology
   {
     id: "adf2a381-e6fd-46e9-aacb-62f0d0db972d",
@@ -3921,6 +3955,16 @@ export const seedPerformances = [
     youtubeVideoId: "cEvtbHcCyic",
     youtubeVideoStartTime: 6466,
   },
+  {
+    id: "fe4c9bda-1605-4d0d-9e7d-18ce5707ca57",
+    songId: seedSongs.swanSong.id,
+    showId: seedShows.chicago24.id,
+    showPosition: 26,
+    spotifyTrackId: "0UtIFKdGVRdjjKpmR1EsrY",
+    bandcampTrackId: "2914321187",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 9016,
+  },
 
   // ===========================================================================
   // TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
@@ -4275,6 +4319,16 @@ export const seedPerformances = [
     bandcampTrackId: "1351093930",
     youtubeVideoId: "8RbhqJHZPtM",
     youtubeVideoStartTime: 2290,
+  },
+  {
+    id: "76c2570b-9db3-4a5f-8241-d3f621f01576",
+    songId: seedSongs.workThisTime.id,
+    showId: seedShows.cologne23.id,
+    showPosition: 9,
+    spotifyTrackId: null,
+    bandcampTrackId: null,
+    youtubeVideoId: "LCveD2Y-r9k",
+    youtubeVideoStartTime: 1411,
   },
 
   // ===========================================================================
