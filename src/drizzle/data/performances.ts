@@ -307,7 +307,7 @@ export const seedPerformances = [
     songId: seedSongs.antarctica.id,
     showId: seedShows.pasoRobles24.id,
     showPosition: 6,
-    spotifyTrackId: "",
+    spotifyTrackId: null,
     bandcampTrackId: "3096333718",
     youtubeVideoId: "sx19h0F-v1w",
     youtubeVideoStartTime: 2604,
@@ -966,6 +966,17 @@ export const seedPerformances = [
     youtubeVideoId: "8sXbseUS6rM",
     youtubeVideoStartTime: 2376,
   },
+  {
+    id: "46504860-fc46-4b0a-af06-692376350e1b",
+    songId: seedSongs.dragon.id,
+    showId: seedShows.lisbon25.id,
+    showPosition: 19,
+    spotifyTrackId: "7EzTc5hzwDwajZSa9ju1Qb",
+    bandcampTrackId: "3177490401",
+    // TODO: Replace with the official video once it's uploaded
+    youtubeVideoId: "VnyiFaFokUc",
+    youtubeVideoStartTime: 2931,
+  },
 
   // ====================================================
   // The Dripping Tap
@@ -1173,10 +1184,10 @@ export const seedPerformances = [
   {
     id: "dd8d4bfd-32d1-4267-9f92-f4c69bd30496",
     songId: seedSongs.fieldOfVision.id,
-    showId: seedShows.lisbon25Night1.id,
+    showId: seedShows.lisbon25.id,
     showPosition: 10,
-    spotifyTrackId: null,
-    bandcampTrackId: null,
+    spotifyTrackId: "0j9eEYssNbMMJAs6vp5Zns",
+    bandcampTrackId: "2097441246",
     // TODO: Replace with the official video when it's available
     youtubeVideoId: "stF6kR7KQCg",
     youtubeVideoStartTime: null,
@@ -3158,6 +3169,16 @@ export const seedPerformances = [
     youtubeVideoId: "Q1W5YLf4WQM",
     youtubeVideoStartTime: 2453,
   },
+  {
+    id: "814322ad-f495-477c-bd32-b871955133d1",
+    songId: seedSongs.presumptuous.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 59,
+    spotifyTrackId: "5yWEf97C7N0F9kiWRrr5IO",
+    bandcampTrackId: "2058674597",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ===========================================================================
   // RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
@@ -4027,6 +4048,17 @@ export const seedPerformances = [
     youtubeVideoId: "TbVDmWNbYFs",
     youtubeVideoStartTime: 471,
   },
+  {
+    id: "4af7b705-b348-42ee-9223-70bbb65a2cc8",
+    songId: seedSongs.theia.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 19,
+    spotifyTrackId: "6Nh1QzFUg6pVOLSZofONLY",
+    bandcampTrackId: "1628917696",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "TbC9TR1V-5E",
+    youtubeVideoStartTime: 2103,
+  },
 
   // ====================================================
   // This Thing
@@ -4355,6 +4387,16 @@ export const seedPerformances = [
     bandcampTrackId: "3733101087",
     youtubeVideoId: "TbVDmWNbYFs",
     youtubeVideoStartTime: 3165,
+  },
+  {
+    id: "e32c6db9-8b71-47c3-90ef-e31039ee53e0",
+    songId: seedSongs.silhouette.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 42,
+    spotifyTrackId: "5Dy087QxXZ8S3brwzMeMon",
+    bandcampTrackId: "504501695",
+    youtubeVideoId: "gxpKnf-FPkg",
+    youtubeVideoStartTime: 3180,
   },
 ] as const satisfies Omit<
   Performance,
