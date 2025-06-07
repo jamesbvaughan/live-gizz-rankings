@@ -760,17 +760,25 @@ export const seedShows = {
 
   // ====================================================
   // Europe Tour 2025
-  lisbon25Night1: {
+  lisbon25: {
     id: "dba24ab3-79d8-474d-975d-bd5cb2c98c7c",
-    slug: "lisbon-2025-night-1",
+    slug: "lisbon-2025",
     location: "Lisbon",
     date: "2025-05-18",
     // TODO: Update this when the official video is released
     youtubeVideoId: null,
-    // TODO: Update this when the official bootleg is released
-    imageUrl: "/showCovers/lisbon25.webp",
-    // TODO: Update this when the official bootleg is released
-    bandcampAlbumId: null,
+    imageUrl: "https://f4.bcbits.com/img/a3853004108_16.jpg",
+    bandcampAlbumId: "3446736804",
+  },
+  barcelona25: {
+    id: "52ecd157-974d-4ab0-9c2f-0dc34598e0ee",
+    slug: "barcelona-2025",
+    location: "Barcelona",
+    date: "2025-05-23",
+    // TODO: Update this when the official video is released
+    youtubeVideoId: "gxpKnf-FPkg",
+    imageUrl: "https://f4.bcbits.com/img/a2787395785_16.jpg",
+    bandcampAlbumId: "2923551653",
   },
 } as const satisfies Record<string, Omit<Show, "createdAt">>;
 
