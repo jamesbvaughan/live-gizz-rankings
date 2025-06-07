@@ -307,7 +307,7 @@ export const seedPerformances = [
     songId: seedSongs.antarctica.id,
     showId: seedShows.pasoRobles24.id,
     showPosition: 6,
-    spotifyTrackId: "",
+    spotifyTrackId: null,
     bandcampTrackId: "3096333718",
     youtubeVideoId: "sx19h0F-v1w",
     youtubeVideoStartTime: 2604,
@@ -971,7 +971,7 @@ export const seedPerformances = [
     songId: seedSongs.dragon.id,
     showId: seedShows.lisbon25.id,
     showPosition: 19,
-    spotifyTrackId: "",
+    spotifyTrackId: "7EzTc5hzwDwajZSa9ju1Qb",
     bandcampTrackId: "3177490401",
     // TODO: Replace with the official video once it's uploaded
     youtubeVideoId: "VnyiFaFokUc",
