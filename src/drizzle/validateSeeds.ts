@@ -61,7 +61,8 @@ for (const song of allSongs) {
 // Ensure that performance show positions are unique
 const showPositions = new Set<string>();
 for (const performance of allPerformances) {
-  const key = `show:${performance.showId} position:${performance.showPosition}`;
+  const show = allShows.find((s) => s.id === performance.showId);
+  const key = `show: ${show?.slug ?? "SHOW NOT FOUND"} position:${performance.showPosition}`;
   if (showPositions.has(key)) {
     fail(`Duplicate show position: ${key}`);
   }
@@ -85,8 +86,11 @@ for (const performance of allPerformances) {
     mediaIds.add(performance.bandcampTrackId);
 
     const bandcampKey = performance.bandcampTrackId + show.bandcampAlbumId;
+    const song = allSongs.find((s) => s.id === performance.songId);
     if (mediaIds.has(bandcampKey)) {
-      fail(`Duplicate Bandcamp track and album ID: ${bandcampKey}`);
+      fail(
+        `Duplicate Bandcamp track and album ID: ${bandcampKey} (${song?.title ?? "SONG NOT FOUND"} at ${show.slug})`,
+      );
     }
     mediaIds.add(bandcampKey);
   }

@@ -571,6 +571,15 @@ export const seedShows = {
     youtubeVideoId: "FGOsQiPCpEA",
     bandcampAlbumId: "2447524963",
   },
+  omaha24: {
+    id: "af04eb29-eb2f-4abd-8249-f2f3ecf250ee",
+    slug: "omaha-2024",
+    location: "Omaha",
+    date: "2024-09-06",
+    imageUrl: "https://f4.bcbits.com/img/a3021844323_16.jpg",
+    youtubeVideoId: "AB7yHN8b4s0",
+    bandcampAlbumId: "913718407",
+  },
   rr24: {
     id: "8fc370f6-46e7-488f-8e69-e4e3f3d10d28",
     slug: "red-rocks-2024",
@@ -779,6 +788,26 @@ export const seedShows = {
     youtubeVideoId: "gxpKnf-FPkg",
     imageUrl: "https://f4.bcbits.com/img/a2787395785_16.jpg",
     bandcampAlbumId: "2923551653",
+  },
+  lithuania25: {
+    id: "5d9f6d6c-6b4c-4400-bd3d-550cd562a4cf",
+    slug: "lithuania-2025",
+    location: "Lithuania",
+    date: "2025-05-29",
+    // TODO: Update this when the official video is released
+    youtubeVideoId: "GvuCjhwY984",
+    imageUrl: "https://f4.bcbits.com/img/a3612582464_16.jpg",
+    bandcampAlbumId: "988784237",
+  },
+  athens25: {
+    id: "85a793d9-aafa-4d79-a7f1-5fa2ae582b9c",
+    slug: "athens-2025",
+    location: "Athens",
+    date: "2025-06-04",
+    // TODO: Update this when the official video is released
+    youtubeVideoId: "tO2tJnMx3DE",
+    imageUrl: "https://f4.bcbits.com/img/a3851928569_16.jpg",
+    bandcampAlbumId: "95799529",
   },
 } as const satisfies Record<string, Omit<Show, "createdAt">>;
 
