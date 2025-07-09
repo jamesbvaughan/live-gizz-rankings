@@ -586,6 +586,19 @@ export const seedPerformances = [
   },
 
   // ====================================================
+  // Cellophane
+  {
+    id: "8dcf202c-0d4f-4c4a-b765-504716d30ded",
+    songId: seedSongs.cellophane.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 32,
+    spotifyTrackId: "6LFUOQ9dCDquldAtbqb9CG",
+    bandcampTrackId: "2558334916",
+    youtubeVideoId: "TbC9TR1V-5E",
+    youtubeVideoStartTime: 7519,
+  },
+
+  // ====================================================
   // Chang'e
   {
     id: "05eb878b-c3c6-4893-bfd9-a9df069b2bf8",
@@ -831,6 +844,17 @@ export const seedPerformances = [
     youtubeVideoId: "FGOsQiPCpEA",
     youtubeVideoStartTime: 6900,
   },
+  {
+    id: "a42509b9-1b19-4eed-ae3b-4adf65805571",
+    songId: seedSongs.dailyBlues.id,
+    showId: seedShows.lithuania25.id,
+    showPosition: 19,
+    spotifyTrackId: "576oVLMRTR7ebj1qy3aoJL",
+    bandcampTrackId: "4098579165",
+    // TODO: Replace with the official video once it's uploaded
+    youtubeVideoId: "vcuZ508OE1E",
+    youtubeVideoStartTime: 4032,
+  },
 
   // ====================================================
   // Deserted Dunes Welcome Weary Feet
@@ -843,6 +867,19 @@ export const seedPerformances = [
     bandcampTrackId: "388377866",
     youtubeVideoId: "1MhsTg8LM28",
     youtubeVideoStartTime: null,
+  },
+
+  // ====================================================
+  // Digital Black
+  {
+    id: "206451bd-3f93-4d5d-abf6-59603d4804ff",
+    songId: seedSongs.digitalBlack.id,
+    showId: seedShows.chicago24.id,
+    showPosition: 21,
+    spotifyTrackId: "2E5eG9Tpv491BlN7H06cCl",
+    bandcampTrackId: "3428420820",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 8212,
   },
 
   // ====================================================
@@ -976,6 +1013,17 @@ export const seedPerformances = [
     // TODO: Replace with the official video once it's uploaded
     youtubeVideoId: "VnyiFaFokUc",
     youtubeVideoStartTime: 2931,
+  },
+  {
+    id: "8ba89c8a-9204-4c43-afc7-e31c5de5d8c1",
+    songId: seedSongs.dragon.id,
+    showId: seedShows.lithuania25.id,
+    showPosition: 34,
+    spotifyTrackId: "4kueEen61xvsnWUt9PeEdl",
+    bandcampTrackId: "2690795255",
+    // TODO: Replace with the official video once it's uploaded
+    youtubeVideoId: "_KoH62DW8F8",
+    youtubeVideoStartTime: 3644,
   },
 
   // ====================================================
@@ -1331,6 +1379,17 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "01639636-7bcf-4f59-b283-5d55c9e14012",
+    songId: seedSongs.fafyl.id,
+    showId: seedShows.athens25.id,
+    showPosition: 50,
+    spotifyTrackId: "5zQOIckcj0y8jL97fGY7vd",
+    bandcampTrackId: "1813288178",
+    // TODO: Replace with the official video once it's uploaded
+    youtubeVideoId: "qos7qGvO-9Y",
+    youtubeVideoStartTime: 8430,
+  },
 
   // ====================================================
   // The Fourth Color
@@ -1542,6 +1601,17 @@ export const seedPerformances = [
     youtubeVideoId: "8Z0Ua2l7Dus",
     youtubeVideoStartTime: 7160,
   },
+  {
+    id: "d56b6cea-3fff-4930-a427-337c5e31324c",
+    songId: seedSongs.gilgamesh.id,
+    showId: seedShows.lithuania25.id,
+    showPosition: 39,
+    spotifyTrackId: "4ZJiirt41FdKCDSW4TzqwU",
+    bandcampTrackId: "3985367212",
+    // TODO: Replace with the official video once it's uploaded
+    youtubeVideoId: "_KoH62DW8F8",
+    youtubeVideoStartTime: 5970,
+  },
 
   // ====================================================
   // God Is Calling Me Back Home
@@ -1657,6 +1727,19 @@ export const seedPerformances = [
 
   // ===========================================================================
   // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+  // ====================================================
+  // Han-Tyumi, The Confused Cyborg
+  {
+    id: "d22d1943-9a80-4ff3-b6e5-ce71f7058a53",
+    songId: seedSongs.hanTyumiTheConfusedCyborg.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 48,
+    spotifyTrackId: "446ma2eivqI3nCDCjGjBut",
+    bandcampTrackId: "1845012461",
+    youtubeVideoId: "8WW8gjyjHzc",
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Hate Dancin'
@@ -2080,18 +2163,54 @@ export const seedPerformances = [
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
   },
+  {
+    id: "c88e187a-59a9-4d59-bab2-6ec5bfc3a121",
+    songId: seedSongs.imInYourMind.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 30,
+    spotifyTrackId: "5PN8VHyq5yGupHxuP8gaSe",
+    bandcampTrackId: "1370834364",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "TbC9TR1V-5E",
+    youtubeVideoStartTime: 6741,
+  },
 
   // ====================================================
   // I'm In Your Mind Fuzz
   {
     id: "b93bd131-090c-4c97-8d07-561d7d03953e",
-    songId: seedSongs.imInYourMind.id,
+    songId: seedSongs.imInYourMindFuzz.id,
     showId: seedShows.levitation14.id,
     showPosition: 4,
     spotifyTrackId: "6YOGsfm3HXDjfuR7CSzMdr",
     bandcampTrackId: "380850676",
     youtubeVideoId: null,
     youtubeVideoStartTime: null,
+  },
+  {
+    id: "ba3f93a5-a21a-4f8c-9c7d-16b7f3dffde8",
+    songId: seedSongs.imInYourMindFuzz.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 33,
+    spotifyTrackId: "3xEp9Z0NxxaD9xJDXbzvR8",
+    bandcampTrackId: "725427330",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "TbC9TR1V-5E",
+    youtubeVideoStartTime: 7680,
+  },
+
+  // ====================================================
+  // I'm Not In Your Mind
+  {
+    id: "0405c370-e53f-4897-a412-5405cfa0f97e",
+    songId: seedSongs.imNotInYourMind.id,
+    showId: seedShows.barcelona25.id,
+    showPosition: 31,
+    spotifyTrackId: "7yxLOQWxCcjNImv5IzPS81",
+    bandcampTrackId: "419592068",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "TbC9TR1V-5E",
+    youtubeVideoStartTime: 7004,
   },
 
   // ====================================================
@@ -2297,6 +2416,16 @@ export const seedPerformances = [
     youtubeVideoId: "CTri9U6k0pQ",
     youtubeVideoStartTime: null,
   },
+  {
+    id: "81d8fad1-aaa5-4e08-95f4-89aae07e29b7",
+    songId: seedSongs.lava.id,
+    showId: seedShows.omaha24.id,
+    showPosition: 15,
+    spotifyTrackId: "1bGs4QTZFvNwHerENiuu4g",
+    bandcampTrackId: "2649598680",
+    youtubeVideoId: "AB7yHN8b4s0",
+    youtubeVideoStartTime: 6583,
+  },
 
   // ====================================================
   // Le Risque
@@ -2395,6 +2524,16 @@ export const seedPerformances = [
     bandcampTrackId: null,
     youtubeVideoId: "myIjlvrfdfY",
     youtubeVideoStartTime: 824,
+  },
+  {
+    id: "060a3775-8d2d-4062-a0b2-df2834ca9968",
+    songId: seedSongs.lonelySteelSheetFlyer.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 47,
+    spotifyTrackId: "3VDPLl4Z3wJkNbAuZpJaFf",
+    bandcampTrackId: "2477060230",
+    youtubeVideoId: "gZOWTn1YsC4",
+    youtubeVideoStartTime: null,
   },
 
   // ====================================================
@@ -3439,6 +3578,16 @@ export const seedPerformances = [
     youtubeVideoId: "BdPzIUz8vqs",
     youtubeVideoStartTime: 2544,
   },
+  {
+    id: "144fe2e4-1bbb-4316-ab89-749afb0398d1",
+    songId: seedSongs.sadPilot.id,
+    showId: seedShows.athens25.id,
+    showPosition: 26,
+    spotifyTrackId: "5ilzxeoVUJypInBttHv1ax",
+    bandcampTrackId: "2576212588",
+    youtubeVideoId: "PUWs5l-lT3A",
+    youtubeVideoStartTime: 2205,
+  },
 
   // ====================================================
   // Sadie Sorceress
@@ -3884,6 +4033,16 @@ export const seedPerformances = [
     youtubeVideoId: "vfWdWU5J2zc",
     youtubeVideoStartTime: 5261,
   },
+  {
+    id: "576496e0-ecc8-4ba8-b69a-fc4df3baef43",
+    songId: seedSongs.stressin.id,
+    showId: seedShows.milwaukee19.id,
+    showPosition: 5,
+    spotifyTrackId: "3mBs9uhlrxm0YeWSk3HNU5",
+    bandcampTrackId: "2361719371",
+    youtubeVideoId: null,
+    youtubeVideoStartTime: null,
+  },
 
   // ====================================================
   // Superbug
@@ -3929,6 +4088,20 @@ export const seedPerformances = [
     bandcampTrackId: "3167137517",
     youtubeVideoId: "1_vJkwyLjds",
     youtubeVideoStartTime: 5408,
+  },
+
+  // ====================================================
+  // Superposition
+  {
+    id: "34be168a-1690-4344-bc77-c41b8ca656c2",
+    songId: seedSongs.superposition.id,
+    showId: seedShows.athens25.id,
+    showPosition: 49,
+    spotifyTrackId: "0OeUnr6g4KNrK0boyOEonB",
+    bandcampTrackId: "312342974",
+    // TODO: Replace with the official video once it's up
+    youtubeVideoId: "qos7qGvO-9Y",
+    youtubeVideoStartTime: 7395,
   },
 
   // ====================================================
@@ -4188,6 +4361,19 @@ export const seedPerformances = [
     youtubeVideoStartTime: 194,
   },
 
+  // ====================================================
+  // Vomit Coffin
+  {
+    id: "40f006ca-8e48-4a98-b5c2-67122641fd79",
+    songId: seedSongs.vomitCoffin.id,
+    showId: seedShows.chicago24.id,
+    showPosition: 24,
+    spotifyTrackId: "20EYnjR8swOwEUTRyt2tAh",
+    bandcampTrackId: "3123021465",
+    youtubeVideoId: "koQvZI4ewGg",
+    youtubeVideoStartTime: 8546,
+  },
+
   // ===========================================================================
   // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
@@ -4202,6 +4388,16 @@ export const seedPerformances = [
     bandcampTrackId: "2811327836",
     youtubeVideoId: "KpTyphhCmEA",
     youtubeVideoStartTime: 1573,
+  },
+  {
+    id: "30c1a47c-2fdb-46b8-8132-a98f7f9528a4",
+    songId: seedSongs.wahWah.id,
+    showId: seedShows.caverns23.id,
+    showPosition: 53,
+    spotifyTrackId: "1RhERG7Oi0d3F0PcmLMkoK",
+    bandcampTrackId: "2942193969",
+    youtubeVideoId: "eOXiHw3iX4w",
+    youtubeVideoStartTime: 738,
   },
 
   // ====================================================
