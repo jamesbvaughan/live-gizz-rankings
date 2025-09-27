@@ -4,7 +4,11 @@ import Link from "next/link";
 
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
-import { getPerformancePath, getShowTitle, getSongPath } from "@/utils";
+import {
+  getPerformancePathBySongAndShow,
+  getShowTitle,
+  getSongPath,
+} from "@/utils";
 
 export async function RecentVotes() {
   const allVotes = await db.query.votes.findMany({
@@ -14,18 +18,16 @@ export async function RecentVotes() {
       performance1: {
         with: {
           show: true,
+          song: true,
         },
       },
       performance2: {
         with: {
           show: true,
-        },
-      },
-      winner: {
-        with: {
           song: true,
         },
       },
+      winner: true,
     },
   });
 
@@ -44,9 +46,15 @@ export async function RecentVotes() {
         const winnerTitle = getShowTitle(winner.show);
         const loserTitle = getShowTitle(loser.show);
 
-        const songPath = getSongPath(vote.winner.song);
-        const winnerPath = getPerformancePath(winner);
-        const loserPath = getPerformancePath(loser);
+        const songPath = getSongPath(winner.song);
+        const winnerPath = getPerformancePathBySongAndShow(
+          winner.song,
+          winner.show,
+        );
+        const loserPath = getPerformancePathBySongAndShow(
+          loser.song,
+          loser.show,
+        );
 
         const formattedDate = new Intl.DateTimeFormat(undefined, {
           weekday: "long",
@@ -70,7 +78,7 @@ export async function RecentVotes() {
             <div>
               <div className="text-lg leading-6">
                 <Link href={songPath} className="font-bold no-underline">
-                  {vote.winner.song.title}
+                  {winner.song.title}
                 </Link>{" "}
                 at{" "}
                 <Link href={winnerPath} className="font-bold no-underline">

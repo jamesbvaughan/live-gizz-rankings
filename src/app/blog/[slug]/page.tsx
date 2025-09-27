@@ -1,4 +1,5 @@
 import { evaluate } from "@mdx-js/mdx";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import * as runtime from "react/jsx-runtime";
@@ -30,7 +31,7 @@ interface Props {
   params: Promise<Params>;
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {

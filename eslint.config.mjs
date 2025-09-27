@@ -27,6 +27,9 @@ const config = [
     "plugin:import/typescript",
   ),
   {
+    ignores: ["next-env.d.ts"],
+  },
+  {
     plugins: {
       import: importPlugin,
       "simple-import-sort": simpleImportSortPlugin,

@@ -51,10 +51,8 @@ export function YouTubePlayer({
 
 export function MediaPlayers({
   performance,
-  show,
 }: {
-  performance: Performance;
-  show: Show;
+  performance: Performance & { show: Show };
 }) {
   return (
     <div className="space-y-4">
@@ -65,10 +63,10 @@ export function MediaPlayers({
         />
       )}
 
-      {performance.bandcampTrackId && show.bandcampAlbumId && (
+      {performance.bandcampTrackId && performance.show.bandcampAlbumId && (
         <BandcampPlayer
           bandcampTrackId={performance.bandcampTrackId}
-          bandcampAlbumId={show.bandcampAlbumId}
+          bandcampAlbumId={performance.show.bandcampAlbumId}
         />
       )}
 
@@ -78,7 +76,7 @@ export function MediaPlayers({
 
       <a
         className="inline-block"
-        href={`https://tapes.kglw.net/${show.date}/`}
+        href={`https://tapes.kglw.net/${performance.show.date}/`}
         target="_blank"
         rel="noopener"
       >

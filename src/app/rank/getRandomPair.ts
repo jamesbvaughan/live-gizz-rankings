@@ -2,13 +2,13 @@ import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { unauthorized } from "next/navigation";
 
-import { allPerformances } from "@/drizzle/data/performances";
-import { allSongs } from "@/drizzle/data/songs";
 import { db } from "@/drizzle/db";
 import { votes } from "@/drizzle/schema";
 
-function generateAllPotentialPairs() {
+async function generateAllPotentialPairs() {
   const pairs: Record<string, [string, string][]> = {};
+  const allSongs = await db.query.songs.findMany();
+  const allPerformances = await db.query.performances.findMany();
 
   for (const song of allSongs) {
     pairs[song.id] = [];
@@ -59,7 +59,7 @@ const SHOW_ALL_PAIRS = false;
 /**
  * Every potential pair of performances.
  */
-export const allPairs = generateAllPotentialPairs();
+export const allPairs = await generateAllPotentialPairs();
 
 export async function getRandomPairForCurrentUser() {
   // Get all of the pairs of performances that the current user has already

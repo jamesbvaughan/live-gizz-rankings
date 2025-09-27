@@ -10,9 +10,7 @@ import { performances, votes } from "../drizzle/schema";
 import {
   getAlbumPath,
   getPerformanceTitle,
-  getShowById,
   getShowPath,
-  getSongById,
   getSongPath,
 } from "../utils";
 
@@ -25,7 +23,7 @@ const voteSchema = zfd.formData({
 async function getPerformance(performanceId: string) {
   const performance = await db.query.performances.findFirst({
     where: eq(performances.id, performanceId),
-    with: { song: true },
+    with: { song: { with: { album: true } }, show: true },
   });
   if (!performance) {
     throw new Error("Performance not found");
@@ -112,25 +110,24 @@ export async function vote(
     });
   });
 
-  const song = getSongById(performanceA.songId)!;
-  const songPath = getSongPath(performanceA.songId);
+  const song = performanceA.song;
+  const songPath = getSongPath(song);
   revalidatePath(songPath);
 
-  const showAPath = getShowPath(performanceA.showId);
+  const showAPath = getShowPath(performanceA.show);
   revalidatePath(showAPath);
 
-  const showBPath = getShowPath(performanceB.showId);
+  const showBPath = getShowPath(performanceB.show);
   revalidatePath(showBPath);
 
-  const albumPath = getAlbumPath(song.albumId);
+  const albumPath = getAlbumPath(song.album);
   revalidatePath(albumPath);
 
   revalidatePath(`/`);
   revalidatePath(`/songs`);
   revalidatePath(`/votes`);
 
-  const show = getShowById(winner.showId)!;
-  const performanceTitle = getPerformanceTitle(song, show);
+  const performanceTitle = getPerformanceTitle(song, winner.show);
 
   console.log(`New vote: User ${userId} voted for ${performanceTitle}!`);
 }

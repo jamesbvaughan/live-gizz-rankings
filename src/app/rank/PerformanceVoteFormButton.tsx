@@ -6,14 +6,14 @@ import { useActionState, useState } from "react";
 
 import { vote } from "@/actions/vote";
 import { Performance, Show } from "@/drizzle/schema";
-import { getShowById, getShowTitle } from "@/utils";
+import { getShowTitle } from "@/utils";
 
 export function PerformanceFormButtons({
   performanceA,
   performanceB,
 }: {
-  performanceA: Performance;
-  performanceB: Performance;
+  performanceA: Performance & { show: Show };
+  performanceB: Performance & { show: Show };
 }) {
   const [selectedShow, setSelectedShow] = useState<Show | null>(null);
   const [_state, submitVote, isPending] = useActionState(vote, null);
@@ -25,7 +25,7 @@ export function PerformanceFormButtons({
     >
       <fieldset className="grid grid-cols-2 gap-2">
         {[performanceA, performanceB].map((performance) => {
-          const show = getShowById(performance.showId)!;
+          const { show } = performance;
           const performanceTitle = getShowTitle(show);
 
           return (

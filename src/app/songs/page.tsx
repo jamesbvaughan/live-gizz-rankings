@@ -4,16 +4,24 @@ import Link from "next/link";
 
 import { SongRow } from "@/components/SongRow";
 import { PageContent, PageTitle } from "@/components/ui";
-import { allAlbums } from "@/drizzle/data/albums";
-import { allPerformances } from "@/drizzle/data/performances";
-import { allSongs } from "@/drizzle/data/songs";
+import { db } from "@/drizzle/db";
 import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Songs",
 };
 
-export default function Songs() {
+export default async function Songs() {
+  const allAlbums = await db.query.albums.findMany({
+    with: {
+      songs: {
+        with: {
+          performances: true,
+        },
+      },
+    },
+  });
+
   return (
     <>
       <PageTitle>All songs</PageTitle>
@@ -26,16 +34,9 @@ export default function Songs() {
 
         <div className="mt-6 space-y-8">
           {allAlbums.map((album) => {
-            const albumSongs = allSongs
-              .filter((song) => song.albumId === album.id)
-              .sort((a, b) => a.albumPosition - b.albumPosition);
-
-            const albumPerformances = allPerformances.filter((performance) =>
-              albumSongs.some((song) => song.id === performance.songId),
+            const sortedAlbumSongs = album.songs.sort(
+              (a, b) => a.albumPosition - b.albumPosition,
             );
-            if (albumPerformances.length === 0) {
-              return null;
-            }
 
             const albumPath = getAlbumPath(album);
 
@@ -57,14 +58,7 @@ export default function Songs() {
                 </Link>
 
                 <div className="space-y-2">
-                  {albumSongs.map((song) => {
-                    const performances = allPerformances.filter(
-                      (performance) => performance.songId === song.id,
-                    );
-                    if (performances.length === 0) {
-                      return null;
-                    }
-
+                  {sortedAlbumSongs.map((song) => {
                     return <SongRow key={song.id} song={song} />;
                   })}
                 </div>

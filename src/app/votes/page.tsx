@@ -2,15 +2,10 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
+import { getPerformanceById } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import { Vote } from "@/drizzle/schema";
-import {
-  getPerformanceById,
-  getPerformancePath,
-  getShowById,
-  getShowTitle,
-  getSongById,
-} from "@/utils";
+import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 import { Converge } from "./Converge";
 import { LeftRightChart } from "./LeftRightChart";
@@ -21,11 +16,13 @@ export const metadata: Metadata = {
     "Browse all of the votes on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.",
 };
 
-function PerformanceLink({ performanceId }: { performanceId: string }) {
-  const performance = getPerformanceById(performanceId)!;
-  const performancePath = getPerformancePath(performance);
-  const show = getShowById(performance.showId)!;
-  const showTitle = getShowTitle(show);
+async function PerformanceLink({ performanceId }: { performanceId: string }) {
+  const performance = await getPerformanceById(performanceId);
+  const performancePath = getPerformancePathBySongAndShow(
+    performance.song,
+    performance.show,
+  );
+  const showTitle = getShowTitle(performance.show);
 
   return (
     <Link href={performancePath} className="font-bold">
@@ -34,13 +31,9 @@ function PerformanceLink({ performanceId }: { performanceId: string }) {
   );
 }
 
-function VoteListItem({ vote }: { vote: Vote }) {
-  const performance = getPerformanceById(vote.winnerId);
-  if (!performance) {
-    throw new Error(`Unable to find performance with ID ${vote.winnerId}`);
-  }
+async function VoteListItem({ vote }: { vote: Vote }) {
+  const performance = await getPerformanceById(vote.winnerId);
 
-  const song = getSongById(performance.songId)!;
   const losingPerformanceId =
     vote.winnerId === vote.performance1Id
       ? vote.performance2Id
@@ -49,7 +42,8 @@ function VoteListItem({ vote }: { vote: Vote }) {
   return (
     <li>
       <div>
-        {song.title}: <PerformanceLink performanceId={vote.winnerId} /> beat{" "}
+        {performance.song.title}:{" "}
+        <PerformanceLink performanceId={vote.winnerId} /> beat{" "}
         <PerformanceLink performanceId={losingPerformanceId} />
       </div>
 
