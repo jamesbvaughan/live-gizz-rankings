@@ -1,33 +1,42 @@
+import { count, eq, lte } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
 
-import { allAlbums } from "@/drizzle/data/albums";
-import { allPerformances } from "@/drizzle/data/performances";
-import { allSongs } from "@/drizzle/data/songs";
-import { Album } from "@/drizzle/schema";
+import { db } from "@/drizzle/db";
+import { Album, performances, songs } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import { getAlbumPath, getSongPath } from "@/utils";
 
-function AlbumWithMissingPerformances({
+async function getSongsWithNPerformancesForAlbum(albumId: string, n: number) {
+  const performanceCount = count(performances.id);
+
+  const rows = await db
+    .select({
+      song: songs,
+      performanceCount,
+    })
+    .from(songs)
+    .where(eq(songs.albumId, albumId))
+    .leftJoin(performances, eq(performances.songId, songs.id))
+    .groupBy(songs.id)
+    .having(lte(performanceCount, n));
+
+  return rows
+    .map((row) => row.song)
+    .filter((song) => !songsNeverPlayedLive.includes(song.title));
+}
+
+async function AlbumWithMissingPerformances({
   album,
   performanceCount,
 }: {
   album: Album;
   performanceCount: number;
 }) {
-  const songs = allSongs.filter((song) => song.albumId === album.id);
-  const songsWithoutPerformances = songs.filter((song) => {
-    // Don't include songs that the band has never played live
-    if (songsNeverPlayedLive.includes(song.title)) {
-      return false;
-    }
-
-    const performances = allPerformances.filter(
-      (performance) => performance.songId === song.id,
-    );
-    return performances.length === performanceCount;
-  });
-
+  const songsWithoutPerformances = await getSongsWithNPerformancesForAlbum(
+    album.id,
+    performanceCount,
+  );
   if (songsWithoutPerformances.length === 0) {
     return null;
   }
@@ -64,11 +73,12 @@ function AlbumWithMissingPerformances({
     </div>
   );
 }
-export function SongsWithoutPerformances({
+export async function SongsWithoutPerformances({
   performanceCount,
 }: {
   performanceCount: number;
 }) {
+  const allAlbums = await db.query.albums.findMany();
   const albums = [...allAlbums].sort(
     (a, b) =>
       new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime(),

@@ -48,7 +48,7 @@ export default function NominatePage() {
               <a
                 href="https://en.wikipedia.org/wiki/Elo_rating_system"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 Elo rating system
               </a>{" "}
@@ -98,14 +98,14 @@ export default function NominatePage() {
               className="font-bold"
               href="https://kglw.net/jams/artist/1"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
             >
               KGLW.net Notable Versions
             </a>{" "}
             <span className="text-muted">
               - A list of particularly notable live versions of songs, curated
               by the{" "}
-              <a href="https://kglw.net" target="_blank" rel="noopener">
+              <a href="https://kglw.net" target="_blank" rel="noreferrer">
                 KGLW.net
               </a>{" "}
               team.
@@ -117,7 +117,7 @@ export default function NominatePage() {
               className="font-bold"
               href="https://tapes.kglw.net/notables/curated/"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
             >
               Gizz Tapes Curated Notable Versions
             </a>{" "}
@@ -137,7 +137,7 @@ export default function NominatePage() {
               <a
                 href="https://open.spotify.com/playlist/1NjPzQwuRoV6n8GAkCPrKZ"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 Spotify
               </a>
@@ -145,7 +145,7 @@ export default function NominatePage() {
               <a
                 href="https://music.youtube.com/playlist?list=PLqqsox9wp19vSEho7nBZEpNUY9XTReInM"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 YouTube
               </a>
@@ -157,7 +157,7 @@ export default function NominatePage() {
               <a
                 href="https://www.reddit.com/r/KGATLW/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 /r/KGATLW
               </a>
@@ -165,7 +165,7 @@ export default function NominatePage() {
               <a
                 href="https://www.reddit.com/r/KGATLW/comments/1hppp77/best_of_gizz_24/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 /u/Particular_Lie6809
               </a>

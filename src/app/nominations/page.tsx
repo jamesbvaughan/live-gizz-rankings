@@ -3,41 +3,48 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
+import { getPerformancePath } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import { Nomination, nominations } from "@/drizzle/schema";
-import { getPerformancePath } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Nominations",
 };
 
-export const dynamic = "force-dynamic"; // Force this page to always be dynamic
+// Force this page to always be dynamic.
+// We can remove this after all edits go through the app.
+export const dynamic = "force-dynamic";
+
+async function NominationRow({ nomination }: { nomination: Nomination }) {
+  const performancePath = nomination.performanceId
+    ? await getPerformancePath(nomination.performanceId)
+    : null;
+  return (
+    <li>
+      <div>
+        {performancePath ? (
+          <span>
+            <del>{nomination.message}</del> -{" "}
+            <Link href={performancePath}>Added!</Link>
+          </span>
+        ) : (
+          <span>{nomination.message}</span>
+        )}
+      </div>
+
+      <div className="text-muted text-sm">
+        {nomination.createdAt.toLocaleString()} - submitted by{" "}
+        {nomination.userId ?? "an anonymous visitor"}
+      </div>
+    </li>
+  );
+}
 
 function NominationList({ nominations }: { nominations: Nomination[] }) {
   return (
     <ul className="ml-6 list-disc space-y-2">
       {nominations.map((nomination) => {
-        return (
-          <li key={nomination.id}>
-            <div>
-              {nomination.performanceId ? (
-                <span>
-                  <del>{nomination.message}</del> -{" "}
-                  <Link href={getPerformancePath(nomination.performanceId)}>
-                    Added!
-                  </Link>
-                </span>
-              ) : (
-                <span>{nomination.message}</span>
-              )}
-            </div>
-
-            <div className="text-muted text-sm">
-              {nomination.createdAt.toLocaleString()} - submitted by{" "}
-              {nomination.userId ?? "an anonymous visitor"}
-            </div>
-          </li>
-        );
+        return <NominationRow key={nomination.id} nomination={nomination} />;
       })}
     </ul>
   );

@@ -37,7 +37,7 @@ import { seedSongs } from "./songs";
 // =============================================================================
 
 // Ordered alphabetically by song title, not ordered with songs
-export const seedPerformances = [
+const seedPerformances = [
   // ===========================================================================
   // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 

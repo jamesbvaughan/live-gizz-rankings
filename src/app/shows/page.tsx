@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
-import { allShows } from "@/drizzle/data/shows";
+import { db } from "@/drizzle/db";
 import { Show } from "@/drizzle/schema";
 import { getShowPath, getShowTitle } from "@/utils";
 
@@ -12,23 +12,27 @@ export const metadata: Metadata = {
   description: `Browse all of King Gizzard & The Lizard Wizard's live shows on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.`,
 };
 
-const showsByYear: Record<string, Show[]> = {};
-
-for (const show of allShows) {
-  const year = new Date(show.date).getFullYear().toString();
-  showsByYear[year] ??= [];
-  showsByYear[year].push(show);
-}
-
-const sortedShowsByYear = Object.entries(showsByYear).sort(
-  ([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA),
-);
-
-for (const [_year, shows] of sortedShowsByYear) {
-  shows.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
-
 export default async function ShowsPage() {
+  const allShows = await db.query.shows.findMany();
+
+  const showsByYear: Record<string, Show[]> = {};
+
+  for (const show of allShows) {
+    const year = new Date(show.date).getFullYear().toString();
+    showsByYear[year] ??= [];
+    showsByYear[year].push(show);
+  }
+
+  const sortedShowsByYear = Object.entries(showsByYear).sort(
+    ([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA),
+  );
+
+  for (const [_year, shows] of sortedShowsByYear) {
+    shows.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+  }
+
   return (
     <>
       <PageTitle>Shows with ranked performances</PageTitle>
@@ -40,7 +44,7 @@ export default async function ShowsPage() {
               <h3 className="text-2xl">{year}</h3>
 
               <div className="grid grid-cols-2 gap-4">
-                {shows!.map((show, index) => {
+                {shows.map((show, index) => {
                   const showPath = getShowPath(show);
                   const showTitle = getShowTitle(show);
 

@@ -2,6 +2,7 @@
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
+import { replayIntegration } from "@sentry/nextjs";
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
@@ -9,12 +10,13 @@ Sentry.init({
 
   // Add optional integrations for additional features
   integrations: [
-    Sentry.replayIntegration({
+    replayIntegration({
       // Disable masking since I don't have any private user info visible on the
       // site.
       maskAllText: false,
       blockAllMedia: false,
     }),
+    Sentry.consoleLoggingIntegration(),
   ],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
@@ -30,4 +32,8 @@ Sentry.init({
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
+
+  enableLogs: true,
 });
+
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

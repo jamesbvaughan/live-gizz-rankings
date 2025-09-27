@@ -2,7 +2,6 @@ import { desc, eq } from "drizzle-orm";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import { EloScore } from "@/components/EloScore";
@@ -12,52 +11,67 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
-import { allPerformances } from "@/drizzle/data/performances";
-import { allSongs } from "@/drizzle/data/songs";
+import { getPerformancePath, getShowById, getSongBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
-import { performances } from "@/drizzle/schema";
+import { Performance, performances } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
-import {
-  getAlbumById,
-  getAlbumPath,
-  getPerformancePath,
-  getShowById,
-  getShowTitle,
-  getSongById,
-  getSongBySlug,
-} from "@/utils";
+import { getAlbumPath, getShowTitle } from "@/utils";
 
 type Params = { songSlug: string };
 type Props = { params: Promise<Params> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { songSlug } = await params;
-  const song = getSongBySlug(songSlug);
-  if (!song) {
-    notFound();
-  }
+  const song = await getSongBySlug(songSlug);
 
   return {
     title: song.title,
   };
 }
 
-export const experimental_ppr = true;
+async function PerformanceRow({
+  performance,
+  index,
+}: {
+  performance: Performance;
+  index: number;
+}) {
+  const show = await getShowById(performance.showId)!;
+  const showTitle = getShowTitle(show);
+  const performancePath = await getPerformancePath(performance);
 
-export function generateStaticParams(): Params[] {
-  return allSongs.map((song) => ({
-    songSlug: song.slug,
-  }));
+  return (
+    <li key={performance.id} className="flex">
+      <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
+
+      <div className="flex shrink-0 space-x-4">
+        <div className="bg-background aspect-square w-24">
+          {show.imageUrl ? (
+            <Image
+              src={show.imageUrl}
+              alt={showTitle}
+              width={500}
+              height={500}
+            />
+          ) : null}
+        </div>
+
+        <div>
+          <Link
+            href={performancePath}
+            className="text-2xl no-underline sm:text-4xl"
+          >
+            {showTitle}
+          </Link>
+
+          <EloScore score={performance.eloRating} />
+        </div>
+      </div>
+    </li>
+  );
 }
 
-export const dynamicParams = false;
-
 async function RankedPerformances({ songId }: { songId: string }) {
-  const song = getSongById(songId);
-  if (!song) {
-    notFound();
-  }
-
   const songPerformances = await db.query.performances.findMany({
     where: eq(performances.songId, songId),
     orderBy: desc(performances.eloRating),
@@ -66,38 +80,12 @@ async function RankedPerformances({ songId }: { songId: string }) {
   return (
     <ol className="space-y-4">
       {songPerformances.map((performance, index) => {
-        const show = getShowById(performance.showId)!;
-        const showTitle = getShowTitle(show);
-        const performancePath = getPerformancePath(performance);
-
         return (
-          <li key={performance.id} className="flex">
-            <div className="w-10 shrink-0 text-4xl">{index + 1}.</div>
-
-            <div className="flex shrink-0 space-x-4">
-              <div className="bg-background aspect-square w-24">
-                {show.imageUrl ? (
-                  <Image
-                    src={show.imageUrl}
-                    alt={showTitle}
-                    width={500}
-                    height={500}
-                  />
-                ) : null}
-              </div>
-
-              <div>
-                <Link
-                  href={performancePath}
-                  className="text-2xl no-underline sm:text-4xl"
-                >
-                  {showTitle}
-                </Link>
-
-                <EloScore score={performance.eloRating} />
-              </div>
-            </div>
-          </li>
+          <PerformanceRow
+            performance={performance}
+            index={index}
+            key={performance.id}
+          />
         );
       })}
     </ol>
@@ -106,17 +94,13 @@ async function RankedPerformances({ songId }: { songId: string }) {
 
 export default async function Song({ params }: Props) {
   const { songSlug } = await params;
-  const song = getSongBySlug(songSlug);
-  if (!song) {
-    notFound();
-  }
+  const song = await getSongBySlug(songSlug);
 
-  const performances = allPerformances.filter(
-    (performance) => performance.songId === song.id,
-  );
+  const songPerformances = await db.query.performances.findMany({
+    where: eq(performances.songId, song.id),
+  });
 
-  const album = getAlbumById(song.albumId)!;
-  const albumPath = getAlbumPath(song.albumId);
+  const albumPath = getAlbumPath(song.album);
 
   const neverBeenPlayedLive = songsNeverPlayedLive.includes(song.title);
 
@@ -129,12 +113,12 @@ export default async function Song({ params }: Props) {
       <PageSubtitle>
         Track {song.albumPosition} on{" "}
         <Link href={albumPath} className="no-underline">
-          {album.title}
+          {song.album.title}
         </Link>
       </PageSubtitle>
 
       <PageContent className="space-y-8">
-        {performances.length === 0 ? (
+        {songPerformances.length === 0 ? (
           neverBeenPlayedLive ? (
             <p>They haven&apos;t played this live yet!</p>
           ) : (

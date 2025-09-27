@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
 import {
@@ -9,38 +8,17 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
-import { allPerformances } from "@/drizzle/data/performances";
-import {
-  getPerformanceBySlug,
-  getPerformanceSlug,
-  getShowById,
-  getShowPath,
-  getShowTitle,
-  getSongById,
-  getSongPath,
-} from "@/utils";
+import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
+import { getShowPath, getShowTitle, getSongPath } from "@/utils";
 
 type Params = { performanceSlug: string };
 type Props = { params: Promise<Params> };
 
-export function generateStaticParams(): Params[] {
-  return allPerformances.map((performance) => ({
-    performanceSlug: getPerformanceSlug(performance),
-  }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { performanceSlug } = await params;
-  const performance = getPerformanceBySlug(performanceSlug);
-  if (!performance) {
-    notFound();
-  }
-
-  const show = getShowById(performance.showId);
-  const song = getSongById(performance.songId);
-  if (!song || !show) {
-    notFound();
-  }
+  const performance = await getPerformanceBySlug(performanceSlug);
+  const show = await getShowById(performance.showId);
+  const song = await getSongById(performance.songId);
 
   const showTitle = getShowTitle(show);
   const title = `${song.title} - ${getShowTitle(show)}`;
@@ -53,16 +31,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PerformancePage({ params }: Props) {
   const { performanceSlug } = await params;
-  const performance = getPerformanceBySlug(performanceSlug);
-  if (!performance) {
-    notFound();
-  }
-
-  const show = getShowById(performance.showId)!;
+  const performance = await getPerformanceBySlug(performanceSlug);
+  const show = await getShowById(performance.showId);
   const showPath = getShowPath(show);
   const showTitle = getShowTitle(show);
 
-  const song = getSongById(performance.songId)!;
+  const song = await getSongById(performance.songId);
   const songPath = getSongPath(song);
 
   const formattedDate = new Intl.DateTimeFormat(undefined, {
@@ -90,7 +64,7 @@ export default async function PerformancePage({ params }: Props) {
       <PageSubtitle>{formattedDate}</PageSubtitle>
 
       <PageContent className="space-y-8">
-        <MediaPlayers performance={performance} show={show} />
+        <MediaPlayers performance={performance} />
 
         <div className="flex flex-col space-y-2">
           <Link href={songPath} className="inline-block no-underline">

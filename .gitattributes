@@ -1,2 +1,2 @@
-*.lockb       binary linguist-generated diff=lockb
-next-env.d.ts        linguist-generated
+bun.lock      linguist-generated
+next-env.d.ts linguist-generated

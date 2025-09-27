@@ -1,28 +1,21 @@
-import { currentUser } from "@clerk/nextjs/server";
 import { count, desc, eq } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
 import pluralize from "pluralize";
 import { Suspense } from "react";
 
-import { allPerformances } from "@/drizzle/data/performances";
 import { db } from "@/drizzle/db";
 import { performances, Song, votes } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
-  getPerformancePath,
-  getShowById,
+  getPerformancePathBySongAndShow,
   getShowTitle,
   getSongPath,
 } from "@/utils";
 
-async function VoteCount({ song }: { song: Song }) {
-  const user = await currentUser();
-  const isAdmin = !!user?.publicMetadata.isAdmin;
-  if (!isAdmin) {
-    return null;
-  }
+import { OnlyAdmins } from "./OnlyAdmins";
 
+async function VoteCount({ song }: { song: Song }) {
   const [songVotes] = await db
     .select({ songId: performances.songId, voteCount: count(votes.id) })
     .from(votes)
@@ -39,14 +32,17 @@ async function TopPerformance({ song }: { song: Song }) {
   const performance = await db.query.performances.findFirst({
     where: eq(performances.songId, song.id),
     orderBy: desc(performances.eloRating),
+    with: { show: true },
   });
   if (performance == null) {
     return null;
   }
 
-  const show = getShowById(performance.showId)!;
-  const showTitle = getShowTitle(show);
-  const performancePath = getPerformancePath(performance);
+  const showTitle = getShowTitle(performance.show);
+  const performancePath = getPerformancePathBySongAndShow(
+    song,
+    performance.show,
+  );
 
   return (
     <Link
@@ -55,10 +51,10 @@ async function TopPerformance({ song }: { song: Song }) {
     >
       <div>Top: {showTitle}</div>
 
-      {show.imageUrl ? (
+      {performance.show.imageUrl ? (
         <Image
           className="shrink-0"
-          src={show.imageUrl}
+          src={performance.show.imageUrl}
           alt={showTitle}
           width={24}
           height={24}
@@ -68,10 +64,10 @@ async function TopPerformance({ song }: { song: Song }) {
   );
 }
 
-export function SongRow({ song }: { song: Song }) {
-  const songPerformances = allPerformances.filter(
-    (performance) => performance.songId === song.id,
-  );
+export async function SongRow({ song }: { song: Song }) {
+  const songPerformances = await db.query.performances.findMany({
+    where: eq(performances.songId, song.id),
+  });
 
   const songPath = getSongPath(song);
 
@@ -99,9 +95,11 @@ export function SongRow({ song }: { song: Song }) {
               <div className="shrink-0">
                 {pluralize("performance", songPerformances.length, true)}
 
-                <Suspense fallback={null}>
-                  <VoteCount song={song} />
-                </Suspense>
+                <OnlyAdmins>
+                  <Suspense fallback={null}>
+                    <VoteCount song={song} />
+                  </Suspense>
+                </OnlyAdmins>
               </div>
 
               <Suspense

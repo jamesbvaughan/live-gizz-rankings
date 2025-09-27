@@ -51,4 +51,6 @@ async function seed() {
   console.log("Seeded database.");
 }
 
-seed();
+seed().catch((error) => {
+  console.error("Error seeding database:", error);
+});

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
-import { allAlbums } from "@/drizzle/data/albums";
+import { db } from "@/drizzle/db";
 import { getAlbumPath } from "@/utils";
 
 export const metadata: Metadata = {
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Albums() {
+  const allAlbums = await db.query.albums.findMany();
   const albumsByYear = Object.entries(
     Object.groupBy(allAlbums, (album) =>
       new Date(album.releaseDate).getFullYear(),

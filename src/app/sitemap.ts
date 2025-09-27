@@ -1,12 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { allAlbums } from "@/drizzle/data/albums";
-import { allPerformances } from "@/drizzle/data/performances";
-import { allShows } from "@/drizzle/data/shows";
-import { allSongs } from "@/drizzle/data/songs";
+import { db } from "@/drizzle/db";
 import {
   getAlbumPath,
-  getPerformancePath,
+  getPerformancePathBySongAndShow,
   getShowPath,
   getSongPath,
 } from "@/utils";
@@ -23,8 +20,15 @@ function makeSitemapEntriesForPaths(paths: string[]) {
   return paths.map(getSitemapEntryForPath);
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPosts = getBlogPosts();
+
+  const allAlbums = await db.query.albums.findMany();
+  const allSongs = await db.query.songs.findMany();
+  const allShows = await db.query.shows.findMany();
+  const allPerformances = await db.query.performances.findMany({
+    with: { song: true, show: true },
+  });
 
   return makeSitemapEntriesForPaths([
     "/",
@@ -39,7 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...allAlbums.map((album) => getAlbumPath(album)),
     ...allSongs.map((song) => getSongPath(song)),
     ...allShows.map((show) => getShowPath(show)),
-    ...allPerformances.map((performance) => getPerformancePath(performance)),
+    ...allPerformances.map((performance) =>
+      getPerformancePathBySongAndShow(performance.song, performance.show),
+    ),
     ...blogPosts.map((post) => `/blog/${post.slug}`),
   ]);
 }

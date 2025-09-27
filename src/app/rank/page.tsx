@@ -4,12 +4,8 @@ import Link from "next/link";
 import { unauthorized } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
-import {
-  getPerformanceById,
-  getShowById,
-  getShowTitle,
-  getSongById,
-} from "@/utils";
+import { getPerformanceById } from "@/dbUtils";
+import { getShowTitle } from "@/utils";
 
 import { getRandomPairForCurrentUser } from "./getRandomPair";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
@@ -44,9 +40,9 @@ export default async function Rank() {
     );
   }
 
-  const performanceA = getPerformanceById(pair[0])!;
-  const performanceB = getPerformanceById(pair[1])!;
-  const song = getSongById(performanceA.songId)!;
+  const performanceA = await getPerformanceById(pair[0]);
+  const performanceB = await getPerformanceById(pair[1]);
+  const song = performanceA.song;
 
   const performances = [performanceA, performanceB];
 
@@ -64,8 +60,7 @@ export default async function Rank() {
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
         {performances.map((performance) => {
-          const show = getShowById(performance.showId)!;
-          const showTitle = getShowTitle(show);
+          const showTitle = getShowTitle(performance.show);
 
           return (
             <div key={performance.id} className="space-y-4">
@@ -73,7 +68,7 @@ export default async function Rank() {
                 Listen to {song.title} at {showTitle}
               </h3>
 
-              <MediaPlayers performance={performance} show={show} />
+              <MediaPlayers performance={performance} />
             </div>
           );
         })}

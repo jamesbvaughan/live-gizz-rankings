@@ -1,10 +1,12 @@
 import { YouTubeEmbed } from "@next/third-parties/google";
 
 import { Performance, Show } from "@/drizzle/schema";
+import Link from "next/link";
 
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
     <iframe
+      title="Spotify player"
       className="rounded-xl"
       width="100%"
       height="80"
@@ -26,6 +28,7 @@ function BandcampPlayer({
   const linkColor = "ff0000";
   return (
     <iframe
+      title="Bandcamp player"
       width="100%"
       height="120"
       src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
@@ -49,12 +52,12 @@ export function YouTubePlayer({
   );
 }
 
+const enableSpotify = false;
+
 export function MediaPlayers({
   performance,
-  show,
 }: {
-  performance: Performance;
-  show: Show;
+  performance: Performance & { show: Show };
 }) {
   return (
     <div className="space-y-4">
@@ -65,25 +68,25 @@ export function MediaPlayers({
         />
       )}
 
-      {performance.bandcampTrackId && show.bandcampAlbumId && (
+      {performance.bandcampTrackId && performance.show.bandcampAlbumId && (
         <BandcampPlayer
           bandcampTrackId={performance.bandcampTrackId}
-          bandcampAlbumId={show.bandcampAlbumId}
+          bandcampAlbumId={performance.show.bandcampAlbumId}
         />
       )}
 
-      {performance.spotifyTrackId && (
+      {performance.spotifyTrackId && enableSpotify && (
         <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
       )}
 
-      <a
+      <Link
         className="inline-block"
-        href={`https://tapes.kglw.net/${show.date}/`}
+        href={`https://tapes.kglw.net/${performance.show.date}/`}
         target="_blank"
         rel="noopener"
       >
         Listen on Gizz Tapes
-      </a>
+      </Link>
     </div>
   );
 }

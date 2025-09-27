@@ -1,9 +1,8 @@
-import { eq } from "drizzle-orm";
+import { asc, eq } from "drizzle-orm";
 import DOMPurify from "isomorphic-dompurify";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import { EloScore } from "@/components/EloScore";
@@ -14,27 +13,17 @@ import {
   PageTitle,
   PageType,
 } from "@/components/ui";
-import { allPerformances } from "@/drizzle/data/performances";
-import { allShows } from "@/drizzle/data/shows";
-import { allSongs } from "@/drizzle/data/songs";
+import { getShowBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import { performances, Show } from "@/drizzle/schema";
-import {
-  getAlbumById,
-  getPerformancePath,
-  getShowBySlug,
-  getShowTitle,
-} from "@/utils";
+import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 type Params = { showSlug: string };
 type Props = { params: Promise<Params> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { showSlug } = await params;
-  const show = getShowBySlug(showSlug);
-  if (!show) {
-    notFound();
-  }
+  const show = await getShowBySlug(showSlug);
 
   const showTitle = getShowTitle(show);
 
@@ -43,16 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Find the top-ranked song performances from King Gizzard & The Lizard Wizard's ${showTitle} show on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.`,
   };
 }
-
-export const experimental_ppr = true;
-
-export function generateStaticParams(): Params[] {
-  return allShows.map((show) => ({
-    showSlug: show.slug,
-  }));
-}
-
-export const dynamicParams = false;
 
 async function GizzTapesNote({ show }: { show: Show }) {
   const gizzTapesShowId = show.date;
@@ -85,14 +64,14 @@ async function GizzTapesNote({ show }: { show: Show }) {
     <div className="space-y-2">
       <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
 
-      <a
+      <Link
         href={`https://tapes.kglw.net/${gizzTapesShowId}/`}
         className="text-muted inline-block"
         target="_blank"
         rel="noopener"
       >
         Read more on Gizz Tapes
-      </a>
+      </Link>
     </div>
   );
 }
@@ -110,17 +89,18 @@ async function PerformanceElo({ performanceId }: { performanceId: string }) {
 
 export default async function ShowPage({ params }: Props) {
   const { showSlug } = await params;
-  const show = getShowBySlug(showSlug);
-  if (!show) {
-    notFound();
-  }
-
-  const showPerformances = allPerformances
-    .filter((performance) => performance.showId === show.id)
-    .sort(
-      (performanceA, performanceB) =>
-        performanceA.showPosition - performanceB.showPosition,
-    );
+  const show = await getShowBySlug(showSlug);
+  const showPerformances = await db.query.performances.findMany({
+    where: eq(performances.showId, show.id),
+    orderBy: asc(performances.showPosition),
+    with: {
+      song: {
+        with: {
+          album: true,
+        },
+      },
+    },
+  });
 
   const showTitle = getShowTitle(show);
 
@@ -159,11 +139,12 @@ export default async function ShowPage({ params }: Props) {
           {showPerformances.length > 0 ? (
             <ol className="space-y-4">
               {showPerformances.map((performance) => {
-                const performancePath = getPerformancePath(performance);
-                const song = allSongs.find(
-                  (song) => song.id === performance.songId,
-                )!;
-                const album = getAlbumById(song.albumId)!;
+                const { song } = performance;
+                const { album } = song;
+                const performancePath = getPerformancePathBySongAndShow(
+                  song,
+                  show,
+                );
 
                 return (
                   <li
@@ -212,15 +193,16 @@ export default async function ShowPage({ params }: Props) {
           <h3 className="text-3xl">Listen to this show</h3>
 
           <div>
-            <a href={`https://tapes.kglw.net/${show.date}/`}>
+            <Link href={`https://tapes.kglw.net/${show.date}/`}>
               Listen to this show on Gizz Tapes
-            </a>
+            </Link>
 
             {show.bandcampAlbumId && (
               <>
                 {" "}
                 or on Bandcamp:
                 <iframe
+                  title={`Bandcamp player for ${showTitle}`}
                   style={{
                     border: 0,
                     marginTop: 8,
