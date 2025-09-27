@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "build:analyze": "ANALYZE=true bun run build",
-    "build:vercel": "bun db:push && bun db:seed && next build",
+    "build:vercel": "bun db:push && next build",
     "db:push": "drizzle-kit push",
     "db:seed": "bun validate-seeds && tsx src/drizzle/seed.ts",
     "validate-seeds": "tsx src/drizzle/validateSeeds.ts",
