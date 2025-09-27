@@ -52,6 +52,8 @@ export function YouTubePlayer({
   );
 }
 
+const enableSpotify = false;
+
 export function MediaPlayers({
   performance,
 }: {
@@ -73,7 +75,7 @@ export function MediaPlayers({
         />
       )}
 
-      {performance.spotifyTrackId && (
+      {performance.spotifyTrackId && enableSpotify && (
         <SpotifyPlayer spotifyTrackId={performance.spotifyTrackId} />
       )}
 
