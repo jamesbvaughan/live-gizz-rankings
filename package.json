@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/postcss": "latest",
+    "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^24.5.2",
     "@types/pluralize": "^0.0.33",
@@ -62,8 +62,8 @@
     "postcss": "^8",
     "postcss-load-config": "^6.0.1",
     "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "latest",
-    "tailwindcss": "latest",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.13",
     "tsx": "^4.19.2",
     "typescript": "^5.9.2"
   },
