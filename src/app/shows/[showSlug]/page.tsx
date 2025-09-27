@@ -64,14 +64,14 @@ async function GizzTapesNote({ show }: { show: Show }) {
     <div className="space-y-2">
       <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
 
-      <a
+      <Link
         href={`https://tapes.kglw.net/${gizzTapesShowId}/`}
         className="text-muted inline-block"
         target="_blank"
         rel="noopener"
       >
         Read more on Gizz Tapes
-      </a>
+      </Link>
     </div>
   );
 }
@@ -193,15 +193,16 @@ export default async function ShowPage({ params }: Props) {
           <h3 className="text-3xl">Listen to this show</h3>
 
           <div>
-            <a href={`https://tapes.kglw.net/${show.date}/`}>
+            <Link href={`https://tapes.kglw.net/${show.date}/`}>
               Listen to this show on Gizz Tapes
-            </a>
+            </Link>
 
             {show.bandcampAlbumId && (
               <>
                 {" "}
                 or on Bandcamp:
                 <iframe
+                  title={`Bandcamp player for ${showTitle}`}
                   style={{
                     border: 0,
                     marginTop: 8,

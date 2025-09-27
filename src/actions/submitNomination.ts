@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/drizzle/db";
 import { nominations } from "@/drizzle/schema";
 
-export type SubmitNominationState =
+type SubmitNominationState =
   | {
       success: true;
     }

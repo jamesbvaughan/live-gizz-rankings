@@ -13,6 +13,7 @@ import {
   getShowPath,
   getSongPath,
 } from "../utils";
+import { logger } from "@/logger";
 
 const voteSchema = zfd.formData({
   performanceIdA: zfd.text(),
@@ -38,6 +39,8 @@ export async function vote(
 ): Promise<void> {
   const { userId } = await auth();
   if (!userId) throw new Error("User not found");
+
+  const log = logger.child({ userId });
 
   revalidatePath("/rank");
 
@@ -129,5 +132,5 @@ export async function vote(
 
   const performanceTitle = getPerformanceTitle(song, winner.show);
 
-  console.log(`New vote: User ${userId} voted for ${performanceTitle}!`);
+  log.info(`New vote: User ${userId} voted for ${performanceTitle}!`);
 }

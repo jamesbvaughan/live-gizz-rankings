@@ -9,12 +9,7 @@ import {
   shows,
   songs,
 } from "./drizzle/schema";
-import {
-  getAlbumPath,
-  getPerformanceSlugBySongAndShow,
-  getShowPath,
-  getSongPath,
-} from "./utils";
+import { getPerformanceSlugBySongAndShow } from "./utils";
 
 // =============================================================================
 // SHOWS
@@ -39,15 +34,10 @@ export async function getShowBySlug(showSlug: string) {
   return show;
 }
 
-export async function getShowPathById(showId: string) {
-  const show = await getShowById(showId);
-  return getShowPath(show);
-}
-
 // =============================================================================
 // PERFORMANCES
 
-export async function getPerformanceSlug(performance: Performance) {
+async function getPerformanceSlug(performance: Performance) {
   const song = await getSongById(performance.songId);
   const show = await getShowById(performance.showId);
   return getPerformanceSlugBySongAndShow(song, show);
@@ -127,24 +117,8 @@ export async function getSongBySlug(songSlug: string) {
   return song;
 }
 
-export async function getSongPathById(songId: string) {
-  const song = await getSongById(songId);
-  return getSongPath(song);
-}
-
 // =============================================================================
 // ALBUMS
-
-export async function getAlbumById(albumId: string) {
-  const album = await db.query.albums.findFirst({
-    where: eq(shows.id, albumId),
-  });
-  if (album == null) {
-    notFound();
-  }
-
-  return album;
-}
 
 export async function getAlbumBySlug(albumSlug: string) {
   const album = await db.query.albums.findFirst({
@@ -155,9 +129,4 @@ export async function getAlbumBySlug(albumSlug: string) {
   }
 
   return album;
-}
-
-export async function getAlbumPathById(albumId: string) {
-  const album = await getAlbumById(albumId);
-  return getAlbumPath(album);
 }

@@ -11,10 +11,11 @@
     "db:seed": "bun validate-seeds && tsx src/drizzle/seed.ts",
     "validate-seeds": "tsx src/drizzle/validateSeeds.ts",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "oxlint --type-aware",
     "format": "prettier --write .",
     "vale": "vale readme.md src/",
-    "prepare": "husky"
+    "prepare": "husky",
+    "knip": "knip"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.33.0",
@@ -28,7 +29,7 @@
     "@next/env": "^15.5.4",
     "@next/mdx": "^15.5.4",
     "@next/third-parties": "^15.5.4",
-    "@sentry/nextjs": "^9.15.0",
+    "@sentry/nextjs": "^9.46.0",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.4.1",
     "chart.js": "^4.4.7",
@@ -45,30 +46,26 @@
     "zod-form-data": "^2.0.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.15.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/postcss": "latest",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22",
+    "@types/node": "^24.5.2",
     "@types/pluralize": "^0.0.33",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "drizzle-kit": "^0.30.0",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.1",
-    "eslint-plugin-drizzle": "^0.2.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
+    "knip": "^5.64.1",
+    "lint-staged": "^15.5.2",
+    "oxlint": "^1.18.0",
+    "oxlint-tsgolint": "^0.2.0",
     "postcss": "^8",
+    "postcss-load-config": "^6.0.1",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "latest",
     "tailwindcss": "latest",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.9.2"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

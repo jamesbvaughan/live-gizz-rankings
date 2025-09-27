@@ -1,4 +1,4 @@
-import "@/drizzle/envConfig";
+import "./src/drizzle/envConfig";
 
 import { defineConfig } from "drizzle-kit";
 
