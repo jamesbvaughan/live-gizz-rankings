@@ -1,4 +1,4 @@
-export default function LoadingRankPage() {
+export default function LoadingPage() {
   return (
     <div
       className="pointer-events-none"
