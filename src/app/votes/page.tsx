@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
-import { getPerformanceById } from "@/dbUtils";
 import { db } from "@/drizzle/db";
-import { Vote } from "@/drizzle/schema";
+import { Show, Song, Vote, votes } from "@/drizzle/schema";
 import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 import { Converge } from "./Converge";
 import { LeftRightChart } from "./LeftRightChart";
+import { desc } from "drizzle-orm";
+import { logger } from "@/logger";
 
 export const metadata: Metadata = {
   title: "Votes",
@@ -16,13 +17,9 @@ export const metadata: Metadata = {
     "Browse all of the votes on Live Gizz Rankings, a site for browsing and voting on the band's best live performances.",
 };
 
-async function PerformanceLink({ performanceId }: { performanceId: string }) {
-  const performance = await getPerformanceById(performanceId);
-  const performancePath = getPerformancePathBySongAndShow(
-    performance.song,
-    performance.show,
-  );
-  const showTitle = getShowTitle(performance.show);
+function PerformanceLink({ song, show }: { song: Song; show: Show }) {
+  const performancePath = getPerformancePathBySongAndShow(song, show);
+  const showTitle = getShowTitle(show);
 
   return (
     <Link href={performancePath} className="font-bold">
@@ -31,20 +28,22 @@ async function PerformanceLink({ performanceId }: { performanceId: string }) {
   );
 }
 
-async function VoteListItem({ vote }: { vote: Vote }) {
-  const performance = await getPerformanceById(vote.winnerId);
-
-  const losingPerformanceId =
-    vote.winnerId === vote.performance1Id
-      ? vote.performance2Id
-      : vote.performance1Id;
-
+function VoteListItem({
+  vote,
+  song,
+  winningShow,
+  losingShow,
+}: {
+  vote: Vote;
+  song: Song;
+  winningShow: Show;
+  losingShow: Show;
+}) {
   return (
     <li>
       <div>
-        {performance.song.title}:{" "}
-        <PerformanceLink performanceId={vote.winnerId} /> beat{" "}
-        <PerformanceLink performanceId={losingPerformanceId} />
+        {song.title}: <PerformanceLink song={song} show={winningShow} /> beat{" "}
+        <PerformanceLink song={song} show={losingShow} />
       </div>
 
       <div className="text-muted text-sm">
@@ -127,19 +126,17 @@ function LeftRightStats({ votes }: { votes: Vote[] }) {
         <p>
           <b>2025-01-05 update</b>: The fix I mentioned in that last update
           seems to have helped. Counting just the votes since then, the ratio is
-          1.037:1, which is <i>probably</i> within a reasonanble margin of
-          error.
+          1.037:1, which is <i>probably</i> within a reasonable margin of error.
         </p>
       </div>
     </div>
   );
 }
 
-function VotesList({ votes }: { votes: Vote[] }) {
-  const sortedVotes = [...votes].sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
-  );
-
+async function VotesList({ votes }: { votes: Vote[] }) {
+  const allPerformances = await db.query.performances.findMany();
+  const allSongs = await db.query.songs.findMany();
+  const allShows = await db.query.shows.findMany();
   return (
     <details>
       <summary className="select-none">
@@ -147,24 +144,63 @@ function VotesList({ votes }: { votes: Vote[] }) {
       </summary>
 
       <ol className="mt-4 list-disc space-y-2 pl-4">
-        {sortedVotes.map((vote) => (
-          <VoteListItem key={vote.id} vote={vote} />
-        ))}
+        {votes.map((vote) => {
+          const winningPerformance = allPerformances.find(
+            (p) => p.id === vote.winnerId,
+          );
+          const losingPerformanceId =
+            vote.winnerId === vote.performance1Id
+              ? vote.performance2Id
+              : vote.performance1Id;
+          const winningShow = allShows.find(
+            (show) => show.id === winningPerformance?.showId,
+          );
+          const losingShow = allShows.find(
+            (show) => show.id === losingPerformanceId,
+          );
+          const song = allSongs.find(
+            (s) => s.id === winningPerformance?.songId,
+          );
+          if (song == null) {
+            logger.error(`Could not find song for vote ${vote.id}`);
+            return null;
+          }
+          if (winningShow == null) {
+            logger.error(`Could not find winning show for vote ${vote.id}`);
+            return null;
+          }
+          if (losingShow == null) {
+            logger.error(`Could not find losing show for vote ${vote.id}`);
+            return null;
+          }
+
+          return (
+            <VoteListItem
+              key={vote.id}
+              vote={vote}
+              song={song}
+              winningShow={winningShow}
+              losingShow={losingShow}
+            />
+          );
+        })}
       </ol>
     </details>
   );
 }
 
 export default async function Votes() {
-  const votes = await db.query.votes.findMany();
+  const allVotes = await db.query.votes.findMany({
+    orderBy: desc(votes.createdAt),
+  });
 
   return (
     <>
       <PageTitle>All votes</PageTitle>
 
       <PageContent className="space-y-6">
-        <VotesList votes={votes} />
-        <LeftRightStats votes={votes} />
+        <VotesList votes={allVotes} />
+        <LeftRightStats votes={allVotes} />
       </PageContent>
     </>
   );
