@@ -1,3 +1,4 @@
+import { Route } from "next";
 import { Album, Show, Song } from "./drizzle/schema";
 
 // =============================================================================
@@ -10,7 +11,7 @@ export function getShowTitle(show: Show) {
 }
 
 export function getShowPath(show: Show) {
-  return `/shows/${show.slug}`;
+  return `/shows/${show.slug}` as Route;
 }
 
 // =============================================================================
@@ -27,19 +28,19 @@ export function getPerformanceSlugBySongAndShow(song: Song, show: Show) {
 
 export function getPerformancePathBySongAndShow(song: Song, show: Show) {
   const slug = getPerformanceSlugBySongAndShow(song, show);
-  return `/performances/${slug}`;
+  return `/performances/${slug}` as Route;
 }
 
 // =============================================================================
 // SONGS
 
 export function getSongPath(song: Song) {
-  return `/songs/${song.slug}`;
+  return `/songs/${song.slug}` as Route;
 }
 
 // =============================================================================
 // ALBUMS
 
 export function getAlbumPath(album: Album) {
-  return `/albums/${album.slug}`;
+  return `/albums/${album.slug}` as Route;
 }

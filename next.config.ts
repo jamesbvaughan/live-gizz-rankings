@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   experimental: {
     authInterrupts: true,
   },
+  typedRoutes: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   images: {
     remotePatterns: [

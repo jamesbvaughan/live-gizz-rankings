@@ -10,6 +10,7 @@ import {
   songs,
 } from "./drizzle/schema";
 import { getPerformanceSlugBySongAndShow } from "./utils";
+import { Route } from "next";
 
 // =============================================================================
 // SHOWS
@@ -90,7 +91,7 @@ export async function getPerformancePath(
       : performanceOrPerformanceId;
 
   const slug = await getPerformanceSlug(performance);
-  return `/performances/${slug}`;
+  return `/performances/${slug}` as Route;
 }
 
 // =============================================================================
