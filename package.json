@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build --turbopack",
     "build:analyze": "ANALYZE=true bun run build",
     "build:vercel": "bun db:push && bun db:seed && next build",
     "db:push": "drizzle-kit push",

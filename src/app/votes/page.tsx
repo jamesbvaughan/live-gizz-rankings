@@ -152,11 +152,14 @@ async function VotesList({ votes }: { votes: Vote[] }) {
             vote.winnerId === vote.performance1Id
               ? vote.performance2Id
               : vote.performance1Id;
+          const losingPerformance = allPerformances.find(
+            (p) => p.id === losingPerformanceId,
+          );
           const winningShow = allShows.find(
             (show) => show.id === winningPerformance?.showId,
           );
           const losingShow = allShows.find(
-            (show) => show.id === losingPerformanceId,
+            (show) => show.id === losingPerformance?.showId,
           );
           const song = allSongs.find(
             (s) => s.id === winningPerformance?.songId,
