@@ -15,5 +15,9 @@ Sentry.init({
   debug: false,
 
   enableLogs: true,
-  integrations: [Sentry.consoleLoggingIntegration()],
+
+  integrations: [
+    Sentry.consoleLoggingIntegration(),
+    Sentry.postgresIntegration(),
+  ],
 });
