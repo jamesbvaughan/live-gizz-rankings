@@ -96,7 +96,7 @@ export async function SongRow({ song }: { song: Song }) {
                 {pluralize("performance", songPerformances.length, true)}
 
                 <OnlyAdmins>
-                  <Suspense fallback={"FALLBACK"}>
+                  <Suspense fallback={null}>
                     <VoteCount song={song} />
                   </Suspense>
                 </OnlyAdmins>
