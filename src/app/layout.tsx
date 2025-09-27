@@ -11,6 +11,7 @@ import BackgroundCanvas from "./BackgroundCanvas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SentryUserManager } from "./SentryUserManager";
+import * as Sentry from "@sentry/nextjs";
 
 const title = "Live Gizz Rankings";
 const description =
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
   description,
   openGraph: {
     siteName: title,
+  },
+  other: {
+    ...Sentry.getTraceData(),
   },
 };
 

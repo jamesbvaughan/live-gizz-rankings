@@ -17,6 +17,7 @@ Sentry.init({
       blockAllMedia: false,
     }),
     Sentry.consoleLoggingIntegration(),
+    Sentry.browserTracingIntegration(),
   ],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
