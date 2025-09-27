@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 // Force this page to always be dynamic.
-// This can be removed after all edits go through the app.
+// We can remove this after all edits go through the app.
 export const dynamic = "force-dynamic";
 
 async function NominationRow({ nomination }: { nomination: Nomination }) {
