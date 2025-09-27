@@ -16,6 +16,7 @@ Sentry.init({
       maskAllText: false,
       blockAllMedia: false,
     }),
+    Sentry.consoleLoggingIntegration(),
   ],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
@@ -31,6 +32,8 @@ Sentry.init({
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
+
+  enableLogs: true,
 });
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

@@ -9,7 +9,6 @@ import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 import { Converge } from "./Converge";
 import { LeftRightChart } from "./LeftRightChart";
 import { desc } from "drizzle-orm";
-import { logger } from "@/logger";
 
 export const metadata: Metadata = {
   title: "Votes",
@@ -165,15 +164,15 @@ async function VotesList({ votes }: { votes: Vote[] }) {
             (s) => s.id === winningPerformance?.songId,
           );
           if (song == null) {
-            logger.error(`Could not find song for vote ${vote.id}`);
+            console.error(`Could not find song for vote ${vote.id}`);
             return null;
           }
           if (winningShow == null) {
-            logger.error(`Could not find winning show for vote ${vote.id}`);
+            console.error(`Could not find winning show for vote ${vote.id}`);
             return null;
           }
           if (losingShow == null) {
-            logger.error(`Could not find losing show for vote ${vote.id}`);
+            console.error(`Could not find losing show for vote ${vote.id}`);
             return null;
           }
 
