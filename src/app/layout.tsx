@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
@@ -56,6 +57,9 @@ export default function RootLayout({
 
           {/* Vercel analytics */}
           <Analytics />
+
+          {/* Vercel speed insights */}
+          <SpeedInsights />
 
           {/* Cloudflare analytics */}
           {cloudflareAnalyticsToken ? (
