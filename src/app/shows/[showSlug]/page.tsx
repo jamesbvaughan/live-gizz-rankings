@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
+import { isAdmin } from "@/auth/utils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { EloScore } from "@/components/EloScore";
 import { YouTubePlayer } from "@/components/MediaPlayers";
 import {
@@ -89,7 +91,10 @@ async function PerformanceElo({ performanceId }: { performanceId: string }) {
 
 export default async function ShowPage({ params }: Props) {
   const { showSlug } = await params;
-  const show = await getShowBySlug(showSlug);
+  const [show, adminStatus] = await Promise.all([
+    getShowBySlug(showSlug),
+    isAdmin(),
+  ]);
   const showPerformances = await db.query.performances.findMany({
     where: eq(performances.showId, show.id),
     orderBy: asc(performances.showPosition),
@@ -116,7 +121,19 @@ export default async function ShowPage({ params }: Props) {
     <>
       <PageType>Show</PageType>
 
-      <PageTitle>{showTitle}</PageTitle>
+      <div className="flex items-center justify-between">
+        <PageTitle>{showTitle}</PageTitle>
+        {adminStatus && (
+          <div className="flex gap-2">
+            <BoxedButtonLink href={`/performances/add?show=${show.id}` as any}>
+              Add Performance
+            </BoxedButtonLink>
+            <BoxedButtonLink href={`/shows/${show.slug}/edit` as any}>
+              Edit Show
+            </BoxedButtonLink>
+          </div>
+        )}
+      </div>
 
       <PageSubtitle>{formattedDate}</PageSubtitle>
 

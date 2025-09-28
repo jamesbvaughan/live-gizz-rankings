@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import lgrHandwritten from "./lgr-handwritten.png";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 
 function HeaderMenu() {
   return (
@@ -16,13 +17,9 @@ function HeaderMenu() {
         Shows
       </Link>
 
-      <Link
-        prefetch={false}
-        href="/rank"
-        className="border-muted hover:border-foreground hover:text-foreground border-2 px-2 py-1 no-underline"
-      >
+      <BoxedButtonLink prefetch={false} href="/rank">
         Vote
-      </Link>
+      </BoxedButtonLink>
     </div>
   );
 }

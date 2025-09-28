@@ -2,9 +2,11 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { isAdmin } from "@/auth/utils";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { getAlbumPath } from "@/utils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 
 export const metadata: Metadata = {
   title: "Albums",
@@ -12,7 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Albums() {
-  const allAlbums = await db.query.albums.findMany();
+  const [allAlbums, adminStatus] = await Promise.all([
+    db.query.albums.findMany(),
+    isAdmin(),
+  ]);
+
   const albumsByYear = Object.entries(
     Object.groupBy(allAlbums, (album) =>
       new Date(album.releaseDate).getFullYear(),
@@ -21,7 +27,12 @@ export default async function Albums() {
 
   return (
     <>
-      <PageTitle>Albums</PageTitle>
+      <div className="flex items-center justify-between">
+        <PageTitle>Albums</PageTitle>
+        {adminStatus && (
+          <BoxedButtonLink href="/albums/add">Add Album</BoxedButtonLink>
+        )}
+      </div>
 
       <PageContent className="space-y-8">
         {albumsByYear.map(([year, albums]) => {

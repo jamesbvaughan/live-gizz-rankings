@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NotFound() {
+export default function ForbiddenPage() {
   return (
     <div className="space-y-6">
       <h2 className="text-4xl">403 Forbidden</h2>
