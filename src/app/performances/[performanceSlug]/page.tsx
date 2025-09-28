@@ -13,8 +13,12 @@ import {
 import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
 import { getShowPath, getShowTitle, getSongPath } from "@/utils";
 
-type Params = { performanceSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  performanceSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { performanceSlug } = await params;

@@ -16,8 +16,12 @@ import { getAlbumBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import { songs } from "@/drizzle/schema";
 
-type Params = { albumSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  albumSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { albumSlug } = await params;

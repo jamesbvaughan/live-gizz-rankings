@@ -50,7 +50,8 @@
     "jsx-curly-brace-presence": "error",
     "jsx-fragments": "error",
     "self-closing-comp": "error",
-    "consistent-type-imports": "error"
+    "consistent-type-imports": "error",
+    "consistent-type-definitions": "error"
   }
 }
 // vim: ft=jsonc

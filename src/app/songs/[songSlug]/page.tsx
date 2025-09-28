@@ -20,8 +20,12 @@ import { performances } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import { getAlbumPath, getShowTitle } from "@/utils";
 
-type Params = { songSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  songSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { songSlug } = await params;

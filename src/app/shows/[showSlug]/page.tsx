@@ -21,8 +21,12 @@ import type { Show } from "@/drizzle/schema";
 import { performances } from "@/drizzle/schema";
 import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
-type Params = { showSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  showSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { showSlug } = await params;
