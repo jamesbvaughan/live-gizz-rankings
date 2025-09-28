@@ -9,6 +9,8 @@ import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
+import { eq, and } from "drizzle-orm";
+import type { ActionState } from "@/lib/actionState";
 
 const addPerformanceSchema = zfd.formData({
   songId: zfd.text(),
@@ -20,9 +22,9 @@ const addPerformanceSchema = zfd.formData({
 });
 
 export async function addPerformance(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const {
@@ -33,6 +35,20 @@ export async function addPerformance(
     youtubeVideoId,
     youtubeVideoStartTime,
   } = addPerformanceSchema.parse(formData);
+
+  // Check if performance already exists for this song and show
+  const existingPerformance = await db.query.performances.findFirst({
+    where: and(
+      eq(performances.songId, songId),
+      eq(performances.showId, showId),
+    ),
+  });
+  if (existingPerformance) {
+    return {
+      errorMessage: "A performance for this song and show already exists.",
+      formData,
+    };
+  }
 
   const newPerformance = await db.transaction(async (tx) => {
     const [performance] = await tx

@@ -7,9 +7,15 @@ import type { Album, Song } from "@/drizzle/schema";
 import { BoxedInput } from "./BoxedInput";
 import { BoxedSelect } from "./BoxedSelect";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
+import type { ActionState } from "@/lib/actionState";
+import {
+  getFormNumberValue,
+  getFormValue,
+  initialActionState,
+} from "@/lib/actionState";
 
 interface SongFormProps {
-  action: (state: unknown, formData: FormData) => Promise<void>;
+  action: (state: ActionState, formData: FormData) => Promise<ActionState>;
   albums: Album[];
   song?: Song;
   submitLabel?: string;
@@ -23,7 +29,10 @@ export default function SongForm({
   submitLabel = "Save",
   defaultAlbumId,
 }: SongFormProps) {
-  const [_state, formAction, pending] = useActionState(action, null);
+  const [{ errorMessage, formData }, formAction, pending] = useActionState(
+    action,
+    initialActionState,
+  );
 
   // Sort albums by release date, newest first
   const sortedAlbums = [...albums].sort(
@@ -35,6 +44,8 @@ export default function SongForm({
     <form action={formAction} className="group space-y-6" noValidate>
       {song && <input type="hidden" name="songId" value={song.id} />}
 
+      {errorMessage && <p className="text-red">{errorMessage}</p>}
+
       <BoxedInput
         label="Title"
         id="title"
@@ -43,7 +54,7 @@ export default function SongForm({
         required
         minLength={1}
         maxLength={300}
-        defaultValue={song?.title}
+        defaultValue={getFormValue(formData, "title") || song?.title}
         errorMessage="Title is required and must be between 1-300 characters"
       />
 
@@ -56,7 +67,7 @@ export default function SongForm({
         pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$"
         minLength={1}
         maxLength={100}
-        defaultValue={song?.slug}
+        defaultValue={getFormValue(formData, "slug") || song?.slug}
         placeholder="e.g., robot-stop"
         helpText="URL-friendly version of the title (lowercase, hyphens instead of spaces)"
         errorMessage="Slug must be lowercase letters, numbers, and hyphens only (e.g., 'robot-stop')"
@@ -67,7 +78,9 @@ export default function SongForm({
         id="albumId"
         name="albumId"
         required
-        defaultValue={song?.albumId || defaultAlbumId}
+        defaultValue={
+          getFormValue(formData, "albumId") || song?.albumId || defaultAlbumId
+        }
         errorMessage="Please select an album"
       >
         <option value="">Select an album...</option>
@@ -86,7 +99,9 @@ export default function SongForm({
         required
         min={1}
         max={99}
-        defaultValue={song?.albumPosition}
+        defaultValue={
+          getFormNumberValue(formData, "albumPosition") || song?.albumPosition
+        }
         placeholder="1"
         helpText="Track number on the album"
         errorMessage="Album position must be between 1 and 99"

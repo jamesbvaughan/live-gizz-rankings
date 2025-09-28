@@ -7,9 +7,15 @@ import type { Album, Performance, Show, Song } from "@/drizzle/schema";
 import { BoxedInput } from "./BoxedInput";
 import { BoxedSelect } from "./BoxedSelect";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
+import type { ActionState } from "@/lib/actionState";
+import {
+  getFormValue,
+  getFormNumberValue,
+  initialActionState,
+} from "@/lib/actionState";
 
 interface PerformanceFormProps {
-  action: (state: unknown, formData: FormData) => Promise<void>;
+  action: (state: ActionState, formData: FormData) => Promise<ActionState>;
   songs: (Song & { album: Album })[];
   shows: Show[];
   performance?: Performance;
@@ -27,7 +33,10 @@ export default function PerformanceForm({
   defaultSongId,
   defaultShowId,
 }: PerformanceFormProps) {
-  const [_state, formAction, pending] = useActionState(action, null);
+  const [{ errorMessage, formData }, formAction, pending] = useActionState(
+    action,
+    initialActionState,
+  );
 
   // Sort songs by album release date (newest first) then by album position
   const sortedSongs = [...songs].sort((a, b) => {
@@ -51,12 +60,18 @@ export default function PerformanceForm({
         <input type="hidden" name="performanceId" value={performance.id} />
       )}
 
+      {errorMessage && <p className="text-red">{errorMessage}</p>}
+
       <BoxedSelect
         label="Song"
         id="songId"
         name="songId"
         required
-        defaultValue={performance?.songId || defaultSongId}
+        defaultValue={
+          getFormValue(formData, "songId") ||
+          performance?.songId ||
+          defaultSongId
+        }
         errorMessage="Please select a song"
       >
         <option value="">Select a song...</option>
@@ -73,7 +88,11 @@ export default function PerformanceForm({
         id="showId"
         name="showId"
         required
-        defaultValue={performance?.showId || defaultShowId}
+        defaultValue={
+          getFormValue(formData, "showId") ||
+          performance?.showId ||
+          defaultShowId
+        }
         errorMessage="Please select a show"
       >
         <option value="">Select a show...</option>
@@ -92,7 +111,10 @@ export default function PerformanceForm({
         required
         min={1}
         max={99}
-        defaultValue={performance?.showPosition}
+        defaultValue={
+          getFormNumberValue(formData, "showPosition") ||
+          performance?.showPosition
+        }
         placeholder="1"
         helpText="Position of this song in the show setlist"
         errorMessage="Show position must be between 1 and 99"
@@ -103,7 +125,11 @@ export default function PerformanceForm({
         id="bandcampTrackId"
         name="bandcampTrackId"
         type="text"
-        defaultValue={performance?.bandcampTrackId || ""}
+        defaultValue={
+          getFormValue(formData, "bandcampTrackId") ||
+          performance?.bandcampTrackId ||
+          ""
+        }
         placeholder="e.g., 1234567890"
         helpText="The numeric track ID from Bandcamp"
         errorMessage="Must be a valid Bandcamp track ID"
@@ -114,7 +140,11 @@ export default function PerformanceForm({
         id="youtubeVideoId"
         name="youtubeVideoId"
         type="text"
-        defaultValue={performance?.youtubeVideoId || ""}
+        defaultValue={
+          getFormValue(formData, "youtubeVideoId") ||
+          performance?.youtubeVideoId ||
+          ""
+        }
         placeholder="e.g., dQw4w9WgXcQ"
         helpText="The video ID from a YouTube URL"
         errorMessage="Must be a valid YouTube video ID"
@@ -126,7 +156,10 @@ export default function PerformanceForm({
         name="youtubeVideoStartTime"
         type="number"
         min={0}
-        defaultValue={performance?.youtubeVideoStartTime ?? undefined}
+        defaultValue={
+          getFormNumberValue(formData, "youtubeVideoStartTime") ||
+          (performance?.youtubeVideoStartTime ?? undefined)
+        }
         placeholder="0"
         helpText="Start time in seconds for this song in the YouTube video"
         errorMessage="Start time must be 0 or greater"

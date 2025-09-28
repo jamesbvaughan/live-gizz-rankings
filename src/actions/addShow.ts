@@ -9,6 +9,8 @@ import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
 import { getShowPath } from "../utils";
+import { eq } from "drizzle-orm";
+import type { ActionState } from "@/lib/actionState";
 
 const addShowSchema = zfd.formData({
   slug: zfd.text(),
@@ -20,13 +22,23 @@ const addShowSchema = zfd.formData({
 });
 
 export async function addShow(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const { slug, location, date, bandcampAlbumId, youtubeVideoId, imageUrl } =
     addShowSchema.parse(formData);
+
+  const existingShowWithSlug = await db.query.shows.findFirst({
+    where: eq(shows.slug, slug),
+  });
+  if (existingShowWithSlug) {
+    return {
+      errorMessage: `A show with the slug "${slug}" already exists.`,
+      formData,
+    };
+  }
 
   const newShow = await db.transaction(async (tx) => {
     const [show] = await tx
