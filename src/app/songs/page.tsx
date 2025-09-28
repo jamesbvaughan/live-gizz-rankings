@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { isAdmin } from "@/auth/utils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { SongRow } from "@/components/SongRow";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -12,19 +14,27 @@ export const metadata: Metadata = {
 };
 
 export default async function Songs() {
-  const allAlbums = await db.query.albums.findMany({
-    with: {
-      songs: {
-        with: {
-          performances: true,
+  const [allAlbums, adminStatus] = await Promise.all([
+    db.query.albums.findMany({
+      with: {
+        songs: {
+          with: {
+            performances: true,
+          },
         },
       },
-    },
-  });
+    }),
+    isAdmin(),
+  ]);
 
   return (
     <>
-      <PageTitle>All songs</PageTitle>
+      <div className="flex items-center justify-between">
+        <PageTitle>All songs</PageTitle>
+        {adminStatus && (
+          <BoxedButtonLink href="/songs/add">Add Song</BoxedButtonLink>
+        )}
+      </div>
 
       <PageContent>
         <p>
