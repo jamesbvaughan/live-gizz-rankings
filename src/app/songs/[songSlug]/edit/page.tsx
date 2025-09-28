@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { eq } from "drizzle-orm";
-import { notFound } from "next/navigation";
 
 import { editSong } from "@/actions/editSong";
 import { ensureAdmin } from "@/auth/utils";
 import SongForm from "@/components/SongForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { songs } from "@/drizzle/schema";
+import { getSongBySlug } from "@/dbUtils";
 
 interface EditSongPageProps {
   params: Promise<{ songSlug: string }>;
@@ -17,15 +15,7 @@ export async function generateMetadata({
   params,
 }: EditSongPageProps): Promise<Metadata> {
   const { songSlug } = await params;
-  const song = await db.query.songs.findFirst({
-    where: eq(songs.slug, songSlug),
-  });
-
-  if (!song) {
-    return {
-      title: "Song Not Found",
-    };
-  }
+  const song = await getSongBySlug(songSlug);
 
   return {
     title: `Edit Song: ${song.title}`,
@@ -38,15 +28,9 @@ export default async function EditSongPage({ params }: EditSongPageProps) {
 
   const { songSlug } = await params;
   const [song, albums] = await Promise.all([
-    db.query.songs.findFirst({
-      where: eq(songs.slug, songSlug),
-    }),
+    getSongBySlug(songSlug),
     db.query.albums.findMany(),
   ]);
-
-  if (!song) {
-    notFound();
-  }
 
   return (
     <>

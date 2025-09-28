@@ -18,12 +18,6 @@ export async function generateMetadata({
   const { performanceSlug } = await params;
   const performance = await getPerformanceBySlug(performanceSlug);
 
-  if (!performance) {
-    return {
-      title: "Performance Not Found",
-    };
-  }
-
   const [song, show] = await Promise.all([
     getSongById(performance.songId),
     getShowById(performance.showId),
