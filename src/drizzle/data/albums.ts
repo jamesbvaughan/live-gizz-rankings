@@ -5,7 +5,7 @@ import type { Album } from "../schema";
 // =============================================================================
 
 // Ordered by release date
-export const seedAlbumObjects = {
+export const seedAlbums = {
   tbb: {
     title: "12 Bar Bruise",
     slug: "12-bar-bruise",
@@ -217,4 +217,4 @@ export const seedAlbumObjects = {
   },
 } as const satisfies Record<string, Omit<Album, "createdAt">>;
 
-export const seedAlbums = Object.values(seedAlbumObjects) as Album[];
+export const allAlbums = Object.values(seedAlbums) as Album[];

@@ -1,7 +1,7 @@
 import type { Show } from "../schema";
 
 // Ordered by show date
-export const seedShowObjects = {
+export const seedShows = {
   // ====================================================
   // 2013 Tour
   northcote13: {
@@ -811,4 +811,4 @@ export const seedShowObjects = {
   },
 } as const satisfies Record<string, Omit<Show, "createdAt">>;
 
-export const seedShows = Object.values(seedShowObjects);
+export const allShows = Object.values(seedShows) as Show[];

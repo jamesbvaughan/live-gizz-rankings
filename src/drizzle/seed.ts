@@ -1,7 +1,7 @@
-import { seedAlbums } from "./data/albums";
-import { seedPerformances } from "./data/performances";
-import { seedShows } from "./data/shows";
-import { seedSongs } from "./data/songs";
+import { allAlbums } from "./data/albums";
+import { allPerformances } from "./data/performances";
+import { allShows } from "./data/shows";
+import { allSongs } from "./data/songs";
 import { dbHTTP as db } from "./db";
 import { albums, performances, shows, songs } from "./schema";
 
@@ -9,7 +9,7 @@ async function seed() {
   console.log("Seeding database...");
 
   await Promise.all(
-    seedAlbums.map((album) => {
+    allAlbums.map((album) => {
       const { id: _, ...albumWithoutId } = album;
       return db
         .insert(albums)
@@ -19,7 +19,7 @@ async function seed() {
   );
 
   await Promise.all(
-    Object.values(seedSongs).map((song) => {
+    allSongs.map((song) => {
       const { id: _, ...songWithoutId } = song;
       return db
         .insert(songs)
@@ -29,7 +29,7 @@ async function seed() {
   );
 
   await Promise.all(
-    seedShows.map((show) => {
+    allShows.map((show) => {
       const { id: _, ...showWithoutId } = show;
       return db
         .insert(shows)
@@ -39,7 +39,7 @@ async function seed() {
   );
 
   await Promise.all(
-    seedPerformances.map((performance) => {
+    allPerformances.map((performance) => {
       const { id: _id, ...performanceWithoutId } = performance;
       return db.insert(performances).values(performance).onConflictDoUpdate({
         target: performances.id,
