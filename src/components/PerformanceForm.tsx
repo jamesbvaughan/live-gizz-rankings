@@ -97,17 +97,6 @@ export default function PerformanceForm({
       />
 
       <BoxedInput
-        label="Spotify Track ID (optional)"
-        id="spotifyTrackId"
-        name="spotifyTrackId"
-        type="text"
-        defaultValue={performance?.spotifyTrackId || ""}
-        placeholder="e.g., 4iV5W9uYEdYUVa79Axb7Rh"
-        helpText="The track ID from Spotify URL"
-        errorMessage="Must be a valid Spotify track ID"
-      />
-
-      <BoxedInput
         label="Bandcamp Track ID (optional)"
         id="bandcampTrackId"
         name="bandcampTrackId"
