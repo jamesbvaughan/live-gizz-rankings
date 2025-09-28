@@ -91,8 +91,8 @@ export async function SongRow({ song }: { song: Song }) {
               <span>They haven&apos;t played this live yet!</span>
             ) : (
               <span>
-                No performances submitted yet -{" "}
-                <Link href="/nominate">nominate one</Link>!
+                No performances added yet -{" "}
+                <Link href="/performances/add">add one</Link>!
               </span>
             )
           ) : (

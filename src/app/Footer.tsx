@@ -24,8 +24,8 @@ function SiteButtons() {
           changelog
         </Link>
 
-        <Link href="/nominate" className="inline-block">
-          nominate
+        <Link href="/performances/add" className="inline-block">
+          add a performance
         </Link>
 
         <a

@@ -144,10 +144,7 @@ export default async function Song({ params }: Props) {
           neverBeenPlayedLive ? (
             <p>They haven&apos;t played this live yet!</p>
           ) : (
-            <p>
-              No performances of {song.title} have been nominated yet.
-              {/* TODO: Add a link to the nomination page once it exists */}
-            </p>
+            <p>No performances of {song.title} have been added yet.</p>
           )
         ) : (
           <Suspense fallback="Loading performances...">
@@ -158,7 +155,7 @@ export default async function Song({ params }: Props) {
         {!neverBeenPlayedLive && (
           <p className="text-muted">
             Is your favorite performance missing?{" "}
-            <Link href="/nominate">Nominate it here</Link>.
+            <Link href="/performances/add">Add it here</Link>.
           </p>
         )}
 

@@ -21,7 +21,8 @@ export default function HomePage() {
         <p>
           This is still a work-in-progress! If you&apos;d like to help out, the
           most helpful thing you can do is to vote on some performances or{" "}
-          <Link href="/nominate">nominate your favorite performances</Link>.
+          <Link href="/performances/add">add your favorite performances</Link>{" "}
+          if they&apos;re missing.
         </p>
       </div>
 

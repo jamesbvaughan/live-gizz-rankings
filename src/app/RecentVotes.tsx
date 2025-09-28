@@ -62,7 +62,7 @@ export async function RecentVotes() {
           month: "long",
           day: "numeric",
           timeZone: "UTC",
-        }).format(new Date(vote.createdAt));
+        }).format(vote.createdAt);
 
         return (
           <div key={vote.id} className="flex items-start space-x-2">
