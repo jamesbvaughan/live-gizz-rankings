@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { isAdmin } from "@/auth/utils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { SongRow } from "@/components/SongRow";
 import {
   PageContent,
@@ -29,7 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Album({ params }: Props) {
   const { albumSlug } = await params;
-  const album = await getAlbumBySlug(albumSlug);
+  const [album, adminStatus] = await Promise.all([
+    getAlbumBySlug(albumSlug),
+    isAdmin(),
+  ]);
 
   const albumSongs = await db.query.songs.findMany({
     where: eq(songs.albumId, album.id),
@@ -48,7 +53,14 @@ export default async function Album({ params }: Props) {
     <>
       <PageType>Album</PageType>
 
-      <PageTitle>{album.title}</PageTitle>
+      <div className="flex items-center justify-between">
+        <PageTitle>{album.title}</PageTitle>
+        {adminStatus && (
+          <BoxedButtonLink href={`/albums/${album.slug}/edit` as any}>
+            Edit Album
+          </BoxedButtonLink>
+        )}
+      </div>
 
       <PageSubtitle>
         Released on <time>{formattedReleaseDate}</time>

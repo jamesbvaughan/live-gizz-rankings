@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 
+import { addAlbum } from "@/actions/addAlbum";
 import { isAdmin } from "@/auth/utils";
-
-import AddAlbumForm from "./AddAlbumForm";
+import AlbumForm from "@/components/AlbumForm";
 import { PageContent, PageTitle } from "@/components/ui";
 
 export default async function AddAlbumPage() {
@@ -16,7 +16,7 @@ export default async function AddAlbumPage() {
       <PageTitle>Add New Album</PageTitle>
 
       <PageContent>
-        <AddAlbumForm />
+        <AlbumForm action={addAlbum} submitLabel="Add Album" />
       </PageContent>
     </>
   );

@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
+import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
@@ -10,7 +11,8 @@ import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
 import { getAlbumPath } from "../utils";
 
-const addAlbumSchema = zfd.formData({
+const editAlbumSchema = zfd.formData({
+  albumId: zfd.text(),
   title: zfd.text(),
   slug: zfd.text(),
   releaseDate: zfd.text(),
@@ -18,7 +20,7 @@ const addAlbumSchema = zfd.formData({
   bandcampAlbumId: zfd.text(),
 });
 
-export async function addAlbum(
+export async function editAlbum(
   _initialState: unknown,
   formData: FormData,
 ): Promise<void> {
@@ -30,24 +32,27 @@ export async function addAlbum(
     throw new Error("Unauthorized: Admin access required");
   }
 
-  const { title, slug, releaseDate, imageUrl, bandcampAlbumId } =
-    addAlbumSchema.parse(formData);
+  const { albumId, title, slug, releaseDate, imageUrl, bandcampAlbumId } =
+    editAlbumSchema.parse(formData);
 
-  const [newAlbum] = await db
-    .insert(albums)
-    .values({
+  const [updatedAlbum] = await db
+    .update(albums)
+    .set({
       title,
       slug,
       releaseDate,
       imageUrl,
       bandcampAlbumId,
     })
+    .where(eq(albums.id, albumId))
     .returning();
 
-  console.log(`New album added: ${title} by user ${userId}`);
+  console.log(`Album updated: ${title} by user ${userId}`);
+
+  const albumPath = getAlbumPath(updatedAlbum);
 
   revalidatePath("/albums");
+  revalidatePath(albumPath);
 
-  const albumPath = getAlbumPath(newAlbum);
   redirect(albumPath);
 }

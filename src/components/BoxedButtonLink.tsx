@@ -30,7 +30,10 @@ export function BoxedButton({
   ...props
 }: Exclude<ComponentProps<"button">, "className">) {
   return (
-    <button {...props} className="group-invalid:pointer-events-none">
+    <button
+      {...props}
+      className="group-invalid:pointer-events-none enabled:cursor-pointer"
+    >
       <StyledBoxedButton className="group-invalid:border-muted group-invalid:hover:border-muted group-invalid:opacity-50 group-invalid:hover:text-current disabled:opacity-50">
         {children}
       </StyledBoxedButton>
