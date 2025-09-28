@@ -1,0 +1,109 @@
+"use client";
+
+import { useActionState } from "react";
+
+import { Show } from "@/drizzle/schema";
+
+import { BoxedInput } from "./BoxedInput";
+import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
+
+interface ShowFormProps {
+  action: (state: unknown, formData: FormData) => Promise<void>;
+  show?: Show;
+  submitLabel?: string;
+}
+
+export default function ShowForm({
+  action,
+  show,
+  submitLabel = "Save",
+}: ShowFormProps) {
+  const [_state, formAction, pending] = useActionState(action, undefined);
+
+  return (
+    <form action={formAction} className="group space-y-6" noValidate>
+      {show && <input type="hidden" name="showId" value={show.id} />}
+
+      <BoxedInput
+        label="Slug"
+        id="slug"
+        name="slug"
+        type="text"
+        required
+        pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        minLength={1}
+        maxLength={100}
+        defaultValue={show?.slug}
+        placeholder="e.g., 2023-10-15-atlanta-ga"
+        helpText="URL-friendly identifier (lowercase, hyphens, typically date-location format)"
+        errorMessage="Slug must be lowercase letters, numbers, and hyphens only"
+      />
+
+      <BoxedInput
+        label="Location"
+        id="location"
+        name="location"
+        type="text"
+        required
+        minLength={1}
+        maxLength={300}
+        defaultValue={show?.location}
+        placeholder="e.g., Atlanta, GA"
+        helpText="Show venue and location"
+        errorMessage="Location is required and must be between 1-300 characters"
+      />
+
+      <BoxedInput
+        label="Date"
+        id="date"
+        name="date"
+        type="date"
+        required
+        defaultValue={show?.date}
+        helpText="Show date in YYYY-MM-DD format"
+        errorMessage="Please select a valid date"
+      />
+
+      <BoxedInput
+        label="Image URL"
+        id="imageUrl"
+        name="imageUrl"
+        type="url"
+        required
+        defaultValue={show?.imageUrl}
+        placeholder="https://example.com/image.jpg"
+        helpText="URL for an image of the show's cover art"
+        errorMessage="Please provide a valid image URL"
+      />
+
+      <BoxedInput
+        label="Bandcamp Album ID (optional)"
+        id="bandcampAlbumId"
+        name="bandcampAlbumId"
+        type="text"
+        defaultValue={show?.bandcampAlbumId || ""}
+        placeholder="e.g., 1234567890"
+        helpText="The numeric ID from the Bandcamp album URL"
+        errorMessage="Must be a valid Bandcamp album ID"
+      />
+
+      <BoxedInput
+        label="YouTube Video ID (optional)"
+        id="youtubeVideoId"
+        name="youtubeVideoId"
+        type="text"
+        defaultValue={show?.youtubeVideoId || ""}
+        placeholder="e.g., dQw4w9WgXcQ"
+        helpText="The video ID from a YouTube URL"
+        errorMessage="Must be a valid YouTube video ID"
+      />
+
+      <div className="flex gap-4">
+        <BoxedButton type="submit" disabled={pending}>
+          {pending ? `${submitLabel}...` : submitLabel}
+        </BoxedButton>
+        <BoxedButtonLink href="/shows">Cancel</BoxedButtonLink>
+      </div>
+    </form>
+  );
+}
