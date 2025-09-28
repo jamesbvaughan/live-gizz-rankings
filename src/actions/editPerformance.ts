@@ -39,6 +39,15 @@ export async function editPerformance(
     youtubeVideoStartTime,
   } = editPerformanceSchema.parse(formData);
 
+  // Validate that at least one streaming source is provided
+  if (!bandcampTrackId && !youtubeVideoId) {
+    return {
+      errorMessage:
+        "Please provide either a YouTube Video ID or a Bandcamp Track ID so people can listen to this performance.",
+      formData,
+    };
+  }
+
   const existingPerformance = await db.query.performances.findFirst({
     where: eq(performances.id, performanceId),
   });

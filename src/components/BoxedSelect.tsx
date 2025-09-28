@@ -26,11 +26,13 @@ export function BoxedSelect({
       >
         {children}
       </select>
+
       {errorMessage && (
         <p className="mt-1 hidden text-sm text-red-500 peer-user-invalid:block">
           {errorMessage}
         </p>
       )}
+
       {helpText && (
         <p className="text-muted-foreground mt-1 text-sm peer-user-invalid:hidden">
           {helpText}

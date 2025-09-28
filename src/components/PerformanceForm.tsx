@@ -38,16 +38,36 @@ export default function PerformanceForm({
     initialActionState,
   );
 
-  // Sort songs by album release date (newest first) then by album position
-  const sortedSongs = [...songs].sort((a, b) => {
-    const dateCompare =
-      new Date(b.album.releaseDate).getTime() -
-      new Date(a.album.releaseDate).getTime();
-    if (dateCompare !== 0) {
-      return dateCompare;
-    }
-    return a.albumPosition - b.albumPosition;
-  });
+  // Group songs by album, sorted by release date (newest first)
+  const songsByAlbum = songs.reduce(
+    (acc, song) => {
+      const albumKey = song.album.id;
+      if (!acc[albumKey]) {
+        acc[albumKey] = {
+          album: song.album,
+          songs: [],
+        };
+      }
+      acc[albumKey].songs.push(song);
+      return acc;
+    },
+    {} as Record<
+      string,
+      { album: (typeof songs)[0]["album"]; songs: typeof songs }
+    >,
+  );
+
+  // Sort albums by release date (newest first) and songs within each album by position
+  const sortedAlbumGroups = Object.values(songsByAlbum)
+    .sort(
+      (a, b) =>
+        new Date(b.album.releaseDate).getTime() -
+        new Date(a.album.releaseDate).getTime(),
+    )
+    .map((group) => ({
+      ...group,
+      songs: group.songs.sort((a, b) => a.albumPosition - b.albumPosition),
+    }));
 
   // Sort shows by date (newest first)
   const sortedShows = [...shows].sort(
@@ -75,11 +95,17 @@ export default function PerformanceForm({
         errorMessage="Please select a song"
       >
         <option value="">Select a song...</option>
-        {sortedSongs.map((song) => (
-          <option key={song.id} value={song.id}>
-            {song.title} ({song.album.title} -{" "}
-            {new Date(song.album.releaseDate).getFullYear()})
-          </option>
+        {sortedAlbumGroups.map((albumGroup) => (
+          <optgroup
+            key={albumGroup.album.id}
+            label={`${albumGroup.album.title} (${new Date(albumGroup.album.releaseDate).getFullYear()})`}
+          >
+            {albumGroup.songs.map((song) => (
+              <option key={song.id} value={song.id}>
+                {song.albumPosition}. {song.title}
+              </option>
+            ))}
+          </optgroup>
         ))}
       </BoxedSelect>
 
@@ -116,7 +142,7 @@ export default function PerformanceForm({
           performance?.showPosition
         }
         placeholder="1"
-        helpText="Position of this song in the show setlist"
+        helpText="Position of this song in the show setlist. If this was part of a multi-show residency released as a single combined bootleg album, use the track number from the bootleg album."
         errorMessage="Show position must be between 1 and 99"
       />
 
@@ -131,7 +157,7 @@ export default function PerformanceForm({
           ""
         }
         placeholder="e.g., 1234567890"
-        helpText="The numeric track ID from Bandcamp"
+        helpText="The unique track ID from Bandcamp. You can get this from the individual track's page on Bandcamp by copying the HTML embed code for the track and finding the track ID in it."
         errorMessage="Must be a valid Bandcamp track ID"
       />
 
@@ -146,7 +172,7 @@ export default function PerformanceForm({
           ""
         }
         placeholder="e.g., dQw4w9WgXcQ"
-        helpText="The video ID from a YouTube URL"
+        helpText="The video ID from a YouTube URL. This should be the offical upload of the show from the band's channel if available. Otherwise, use the best fan upload that you can find."
         errorMessage="Must be a valid YouTube video ID"
       />
 
@@ -161,7 +187,7 @@ export default function PerformanceForm({
           (performance?.youtubeVideoStartTime ?? undefined)
         }
         placeholder="0"
-        helpText="Start time in seconds for this song in the YouTube video"
+        helpText="Start time in seconds for this song in the YouTube video. You can get this from the YouTube URL by pausing the video at the song start, right-clicking on the video, and selecting 'Copy video URL at current time'."
         errorMessage="Start time must be 0 or greater"
       />
 

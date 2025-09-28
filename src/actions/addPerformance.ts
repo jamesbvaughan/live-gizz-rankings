@@ -36,6 +36,15 @@ export async function addPerformance(
     youtubeVideoStartTime,
   } = addPerformanceSchema.parse(formData);
 
+  // Validate that at least one streaming source is provided
+  if (!bandcampTrackId && !youtubeVideoId) {
+    return {
+      errorMessage:
+        "Please provide either a YouTube Video ID or a Bandcamp Track ID so people can listen to this performance.",
+      formData,
+    };
+  }
+
   // Check if performance already exists for this song and show
   const existingPerformance = await db.query.performances.findFirst({
     where: and(
