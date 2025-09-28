@@ -142,7 +142,6 @@ export const songsNeverPlayedLive = [
   "Paper Mâché",
   "Parking",
   "Party Potential",
-  "Phantom Island",
   "Pipe-Dream",
   "Plasma",
   "Play That Funky Music",
