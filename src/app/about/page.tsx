@@ -81,10 +81,9 @@ export default function NominatePage() {
               </p>
               <p>
                 If there&apos;s a specific performance that you&apos;d like
-                included,{" "}
-                <Link href="/nominate">nominate it for inclusion here</Link> or{" "}
+                included, <Link href="/performances/add">add it here</Link> or{" "}
                 <a href="mailto:james@jamesbvaughan.com">email me</a> and
-                I&apos;ll add it!
+                I&apos;ll help you add it!
               </p>
             </A>
           </QnA>
