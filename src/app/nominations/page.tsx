@@ -1,11 +1,12 @@
 import { desc } from "drizzle-orm";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { getPerformancePath } from "@/dbUtils";
 import { db } from "@/drizzle/db";
-import { Nomination, nominations } from "@/drizzle/schema";
+import type { Nomination } from "@/drizzle/schema";
+import { nominations } from "@/drizzle/schema";
 
 export const metadata: Metadata = {
   title: "Nominations",

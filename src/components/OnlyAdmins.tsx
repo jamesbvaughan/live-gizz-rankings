@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 import { isAdmin } from "@/auth/utils";
 
@@ -8,5 +8,5 @@ export async function OnlyAdmins({ children }: PropsWithChildren) {
     return null;
   }
 
-  return <>{children}</>;
+  return children;
 }

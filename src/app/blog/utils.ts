@@ -4,12 +4,12 @@
 import fs from "fs";
 import path from "path";
 
-type Metadata = {
+interface Metadata {
   title: string;
   publishedAt: string;
   description: string;
   image?: string;
-};
+}
 
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;

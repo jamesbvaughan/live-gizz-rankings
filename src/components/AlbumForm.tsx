@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Album } from "@/drizzle/schema";
+import type { Album } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
@@ -18,7 +18,7 @@ export default function AlbumForm({
   album,
   submitLabel = "Save",
 }: AlbumFormProps) {
-  const [_state, formAction, pending] = useActionState(action, undefined);
+  const [_state, formAction, pending] = useActionState(action, null);
 
   return (
     <form action={formAction} className="group space-y-6" noValidate>

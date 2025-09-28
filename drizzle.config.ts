@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unassigned-import
 import "./src/drizzle/envConfig";
 
 import { defineConfig } from "drizzle-kit";

@@ -1,4 +1,4 @@
-import { Song } from "../schema";
+import type { Song } from "../schema";
 import { seedAlbums } from "./albums";
 
 // =============================================================================

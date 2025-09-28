@@ -1,10 +1,11 @@
 import { YouTubeEmbed } from "@next/third-parties/google";
 
-import { Performance, Show } from "@/drizzle/schema";
+import type { Performance, Show } from "@/drizzle/schema";
 import Link from "next/link";
 
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
+    // eslint-disable-next-line iframe-missing-sandbox
     <iframe
       title="Spotify player"
       className="rounded-xl"
@@ -13,7 +14,7 @@ function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
       src={`https://open.spotify.com/embed/track/${spotifyTrackId}`}
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
-    ></iframe>
+    />
   );
 }
 
@@ -27,13 +28,14 @@ function BandcampPlayer({
   const bgColor = "000000";
   const linkColor = "ff0000";
   return (
+    // eslint-disable-next-line iframe-missing-sandbox
     <iframe
       title="Bandcamp player"
       width="100%"
       height="120"
       src={`https://bandcamp.com/EmbeddedPlayer/album=${bandcampAlbumId}/size=large/bgcol=${bgColor}/linkcol=${linkColor}/tracklist=false/artwork=none/track=${bandcampTrackId}/transparent=true/`}
       loading="lazy"
-    ></iframe>
+    />
   );
 }
 

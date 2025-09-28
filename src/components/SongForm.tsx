@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Album, Song } from "@/drizzle/schema";
+import type { Album, Song } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedSelect } from "./BoxedSelect";
@@ -23,7 +23,7 @@ export default function SongForm({
   submitLabel = "Save",
   defaultAlbumId,
 }: SongFormProps) {
-  const [_state, formAction, pending] = useActionState(action, undefined);
+  const [_state, formAction, pending] = useActionState(action, null);
 
   // Sort albums by release date, newest first
   const sortedAlbums = [...albums].sort(

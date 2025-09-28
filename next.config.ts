@@ -1,6 +1,7 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
-import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
+import type { SentryBuildOptions } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -21,6 +22,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // eslint-disable-next-line require-await
   async headers() {
     return [
       {
@@ -174,4 +176,5 @@ const cspHeader = `
   upgrade-insecure-requests;
 `;
 
+// eslint-disable-next-line prefer-string-replace-all
 const cspHeaderValue = cspHeader.replace(/\n/g, "");

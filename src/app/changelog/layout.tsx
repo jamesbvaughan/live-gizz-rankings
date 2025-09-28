@@ -1,8 +1,8 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 import { PageContent, PageTitle } from "@/components/ui";
 
-export default async function ChangelogLayout({ children }: PropsWithChildren) {
+export default function ChangelogLayout({ children }: PropsWithChildren) {
   return (
     <>
       <PageTitle>Changelog</PageTitle>

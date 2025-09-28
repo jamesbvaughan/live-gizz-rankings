@@ -1,9 +1,10 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { Show, Song, Vote, votes } from "@/drizzle/schema";
+import type { Show, Song, Vote } from "@/drizzle/schema";
+import { votes } from "@/drizzle/schema";
 import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 import { Converge } from "./Converge";

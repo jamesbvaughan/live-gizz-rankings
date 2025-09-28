@@ -2,7 +2,7 @@
 
 import { SignInButton, SignOutButton, useClerk, useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export function AccountButtons() {
   const clerk = useClerk();
@@ -12,6 +12,10 @@ export function AccountButtons() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const openUserProfile = useCallback(() => {
+    clerk.openUserProfile();
+  }, [clerk]);
 
   if (!isClient || !isLoaded) {
     return <div className="text-muted-2 cursor-wait">sign in</div>;
@@ -36,12 +40,7 @@ export function AccountButtons() {
 
       <div className="flex flex-col items-end space-y-2">
         <div className="flex flex-col items-end space-y-1">
-          <button
-            className="hover:text-red"
-            onClick={() => {
-              clerk.openUserProfile();
-            }}
-          >
+          <button className="hover:text-red" onClick={openUserProfile}>
             account
           </button>
 

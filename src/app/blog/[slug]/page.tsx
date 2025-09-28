@@ -1,5 +1,5 @@
 import { evaluate } from "@mdx-js/mdx";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import * as runtime from "react/jsx-runtime";
@@ -13,7 +13,7 @@ import {
 
 import { getBlogPosts } from "../utils";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const posts = getBlogPosts();
 
   return posts.map((post) => ({

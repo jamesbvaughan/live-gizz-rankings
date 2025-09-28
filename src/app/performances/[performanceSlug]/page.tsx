@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { isAdmin } from "@/auth/utils";
@@ -13,8 +13,12 @@ import {
 import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
 import { getShowPath, getShowTitle, getSongPath } from "@/utils";
 
-type Params = { performanceSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  performanceSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { performanceSlug } = await params;
@@ -67,9 +71,7 @@ export default async function PerformancePage({ params }: Props) {
           </Link>
         </PageTitle>
         {adminStatus && (
-          <BoxedButtonLink
-            href={`/performances/${performanceSlug}/edit` as any}
-          >
+          <BoxedButtonLink href={`/performances/${performanceSlug}/edit`}>
             Edit Performance
           </BoxedButtonLink>
         )}

@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Album, Performance, Show, Song } from "@/drizzle/schema";
+import type { Album, Performance, Show, Song } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedSelect } from "./BoxedSelect";
@@ -27,14 +27,16 @@ export default function PerformanceForm({
   defaultSongId,
   defaultShowId,
 }: PerformanceFormProps) {
-  const [_state, formAction, pending] = useActionState(action, undefined);
+  const [_state, formAction, pending] = useActionState(action, null);
 
   // Sort songs by album release date (newest first) then by album position
   const sortedSongs = [...songs].sort((a, b) => {
     const dateCompare =
       new Date(b.album.releaseDate).getTime() -
       new Date(a.album.releaseDate).getTime();
-    if (dateCompare !== 0) return dateCompare;
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
     return a.albumPosition - b.albumPosition;
   });
 

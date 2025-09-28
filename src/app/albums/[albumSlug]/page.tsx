@@ -1,5 +1,5 @@
 import { asc, eq } from "drizzle-orm";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,8 +16,12 @@ import { getAlbumBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import { songs } from "@/drizzle/schema";
 
-type Params = { albumSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  albumSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { albumSlug } = await params;
@@ -57,10 +61,10 @@ export default async function Album({ params }: Props) {
         <PageTitle>{album.title}</PageTitle>
         {adminStatus && (
           <div className="flex gap-2">
-            <BoxedButtonLink href={`/songs/add?album=${album.id}` as any}>
+            <BoxedButtonLink href={`/songs/add?album=${album.id}`}>
               Add Song
             </BoxedButtonLink>
-            <BoxedButtonLink href={`/albums/${album.slug}/edit` as any}>
+            <BoxedButtonLink href={`/albums/${album.slug}/edit`}>
               Edit Album
             </BoxedButtonLink>
           </div>

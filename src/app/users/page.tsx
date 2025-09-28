@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs/server";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { forbidden, unauthorized } from "next/navigation";
 
 import { PageContent, PageTitle } from "@/components/ui";

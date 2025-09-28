@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
   "ignorePatterns": ["next-env.d.ts"],
   "plugins": [
     "eslint",
@@ -12,5 +13,51 @@
     "jsx-a11y",
     "node",
     "promise"
-  ]
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error"
+  },
+  "rules": {
+    // Pedantic rules that I'm not interested in right now
+    "react-in-jsx-scope": "off",
+    "no-unsafe-type-assertion": "off",
+    "max-lines-per-function": "off",
+    "max-dependencies": "off",
+    "max-lines": "off",
+    "max-depth": "off",
+    "max-nested-callbacks": "off",
+    "radix": "off",
+    "typescript/require-await": "off",
+    "jsx-no-jsx-as-prop": "off",
+    "jsx-no-new-object-as-prop": "off",
+    "jsx-no-new-array-as-prop": "off",
+    "jsx-no-new-function-as-prop": "off",
+    // Rules I've customized the config for
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    // Rules that aren't automatically included in any category I've enabled but
+    // that I want.
+    "curly": "error",
+    "jsx-boolean-value": "error",
+    "jsx-curly-brace-presence": "error",
+    "jsx-fragments": "error",
+    "self-closing-comp": "error",
+    "consistent-type-imports": "error",
+    "consistent-type-definitions": "error",
+    "consistent-existence-index-check": "error",
+    "empty-brace-spaces": "error",
+    "no-console-spaces": "error",
+    "prefer-spread": "error",
+    "throw-new-error": "error",
+    "catch-error-name": "error"
+  }
 }
+// vim: ft=jsonc

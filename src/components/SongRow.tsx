@@ -5,7 +5,8 @@ import pluralize from "pluralize";
 import { Suspense } from "react";
 
 import { db } from "@/drizzle/db";
-import { performances, Song, votes } from "@/drizzle/schema";
+import type { Song } from "@/drizzle/schema";
+import { performances, votes } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getPerformancePathBySongAndShow,
@@ -64,6 +65,10 @@ async function TopPerformance({ song }: { song: Song }) {
   );
 }
 
+const loadingTopPerformanceFallback = (
+  <span className="text-right">Loading top performance...</span>
+);
+
 export async function SongRow({ song }: { song: Song }) {
   const songPerformances = await db.query.performances.findMany({
     where: eq(performances.songId, song.id),
@@ -102,11 +107,7 @@ export async function SongRow({ song }: { song: Song }) {
                 </OnlyAdmins>
               </div>
 
-              <Suspense
-                fallback={
-                  <span className="text-right">Loading top performance...</span>
-                }
-              >
+              <Suspense fallback={loadingTopPerformanceFallback}>
                 <TopPerformance song={song} />
               </Suspense>
             </>

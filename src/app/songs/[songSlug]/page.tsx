@@ -1,5 +1,5 @@
 import { desc, eq } from "drizzle-orm";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -15,12 +15,17 @@ import {
 } from "@/components/ui";
 import { getPerformancePath, getShowById, getSongBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
-import { Performance, performances } from "@/drizzle/schema";
+import type { Performance } from "@/drizzle/schema";
+import { performances } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import { getAlbumPath, getShowTitle } from "@/utils";
 
-type Params = { songSlug: string };
-type Props = { params: Promise<Params> };
+interface Params {
+  songSlug: string;
+}
+interface Props {
+  params: Promise<Params>;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { songSlug } = await params;
@@ -38,7 +43,7 @@ async function PerformanceRow({
   performance: Performance;
   index: number;
 }) {
-  const show = await getShowById(performance.showId)!;
+  const show = await getShowById(performance.showId);
   const showTitle = getShowTitle(show);
   const performancePath = await getPerformancePath(performance);
 
@@ -117,10 +122,10 @@ export default async function Song({ params }: Props) {
         <PageTitle>{song.title}</PageTitle>
         {adminStatus && (
           <div className="flex gap-2">
-            <BoxedButtonLink href={`/performances/add?song=${song.id}` as any}>
+            <BoxedButtonLink href={`/performances/add?song=${song.id}`}>
               Add Performance
             </BoxedButtonLink>
-            <BoxedButtonLink href={`/songs/${song.slug}/edit` as any}>
+            <BoxedButtonLink href={`/songs/${song.slug}/edit`}>
               Edit Song
             </BoxedButtonLink>
           </div>

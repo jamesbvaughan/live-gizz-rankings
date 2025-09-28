@@ -1,4 +1,4 @@
-import { Show } from "../schema";
+import type { Show } from "../schema";
 
 // Ordered by show date
 export const seedShows = {
