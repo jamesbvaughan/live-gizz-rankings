@@ -10,6 +10,8 @@ import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
+import { and, ne } from "drizzle-orm";
+import type { ActionState } from "@/lib/actionState";
 
 const editPerformanceSchema = zfd.formData({
   performanceId: zfd.text(),
@@ -22,9 +24,9 @@ const editPerformanceSchema = zfd.formData({
 });
 
 export async function editPerformance(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const {
@@ -41,7 +43,25 @@ export async function editPerformance(
     where: eq(performances.id, performanceId),
   });
   if (!existingPerformance) {
-    throw new Error("Performance not found");
+    return {
+      errorMessage: "Performance not found",
+      formData,
+    };
+  }
+
+  // Check if another performance already exists for this song and show
+  const conflictingPerformance = await db.query.performances.findFirst({
+    where: and(
+      eq(performances.songId, songId),
+      eq(performances.showId, showId),
+      ne(performances.id, performanceId),
+    ),
+  });
+  if (conflictingPerformance) {
+    return {
+      errorMessage: "A performance for this song and show already exists.",
+      formData,
+    };
   }
 
   const updatedPerformance = await db.transaction(async (tx) => {

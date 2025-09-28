@@ -9,6 +9,8 @@ import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
 import { getAlbumPath } from "../utils";
+import { eq } from "drizzle-orm";
+import type { ActionState } from "@/lib/actionState";
 
 const addAlbumSchema = zfd.formData({
   title: zfd.text(),
@@ -19,13 +21,23 @@ const addAlbumSchema = zfd.formData({
 });
 
 export async function addAlbum(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const { title, slug, releaseDate, imageUrl, bandcampAlbumId } =
     addAlbumSchema.parse(formData);
+
+  const existingAlbumWithSlug = await db.query.albums.findFirst({
+    where: eq(albums.slug, slug),
+  });
+  if (existingAlbumWithSlug) {
+    return {
+      errorMessage: `An album with the slug "${slug}" already exists.`,
+      formData,
+    };
+  }
 
   const newAlbum = await db.transaction(async (tx) => {
     const [album] = await tx

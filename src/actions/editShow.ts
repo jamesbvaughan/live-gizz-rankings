@@ -10,6 +10,7 @@ import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
 import { getShowPath } from "../utils";
+import type { ActionState } from "@/lib/actionState";
 
 const editShowSchema = zfd.formData({
   showId: zfd.text(),
@@ -22,9 +23,9 @@ const editShowSchema = zfd.formData({
 });
 
 export async function editShow(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const {
@@ -41,7 +42,21 @@ export async function editShow(
     where: eq(shows.id, showId),
   });
   if (!existingShow) {
-    throw new Error("Show not found");
+    return {
+      errorMessage: "Show not found",
+      formData,
+    };
+  }
+
+  // Check if slug is already used by a different show
+  const existingShowWithSlug = await db.query.shows.findFirst({
+    where: eq(shows.slug, slug),
+  });
+  if (existingShowWithSlug && existingShowWithSlug.id !== showId) {
+    return {
+      errorMessage: `A show with the slug "${slug}" already exists.`,
+      formData,
+    };
   }
 
   const updatedShow = await db.transaction(async (tx) => {

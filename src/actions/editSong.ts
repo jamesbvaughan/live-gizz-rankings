@@ -10,6 +10,7 @@ import { db } from "../drizzle/db";
 import { songs } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
 import { getSongPath } from "../utils";
+import type { ActionState } from "@/lib/actionState";
 
 const editSongSchema = zfd.formData({
   songId: zfd.text(),
@@ -20,9 +21,9 @@ const editSongSchema = zfd.formData({
 });
 
 export async function editSong(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const { songId, title, slug, albumId, albumPosition } =
@@ -32,7 +33,21 @@ export async function editSong(
     where: eq(songs.id, songId),
   });
   if (!existingSong) {
-    throw new Error("Song not found");
+    return {
+      errorMessage: "Song not found",
+      formData,
+    };
+  }
+
+  // Check if slug is already used by a different song
+  const existingSongWithSlug = await db.query.songs.findFirst({
+    where: eq(songs.slug, slug),
+  });
+  if (existingSongWithSlug && existingSongWithSlug.id !== songId) {
+    return {
+      errorMessage: `A song with the slug "${slug}" already exists.`,
+      formData,
+    };
   }
 
   const updatedSong = await db.transaction(async (tx) => {

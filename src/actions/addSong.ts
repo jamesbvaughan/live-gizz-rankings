@@ -9,6 +9,8 @@ import { db } from "../drizzle/db";
 import { songs } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
 import { getSongPath } from "../utils";
+import { eq } from "drizzle-orm";
+import type { ActionState } from "@/lib/actionState";
 
 const addSongSchema = zfd.formData({
   title: zfd.text(),
@@ -18,12 +20,22 @@ const addSongSchema = zfd.formData({
 });
 
 export async function addSong(
-  _initialState: unknown,
+  _initialState: ActionState,
   formData: FormData,
-): Promise<void> {
+): Promise<ActionState> {
   const userId = await ensureAdmin();
 
   const { title, slug, albumId, albumPosition } = addSongSchema.parse(formData);
+
+  const existingSongWithSlug = await db.query.songs.findFirst({
+    where: eq(songs.slug, slug),
+  });
+  if (existingSongWithSlug) {
+    return {
+      errorMessage: `A song with the slug "${slug}" already exists.`,
+      formData,
+    };
+  }
 
   const newSong = await db.transaction(async (tx) => {
     const [song] = await tx

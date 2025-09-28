@@ -6,9 +6,11 @@ import type { Album } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
+import type { ActionState } from "@/lib/actionState";
+import { getFormValue, initialActionState } from "@/lib/actionState";
 
 interface AlbumFormProps {
-  action: (state: unknown, formData: FormData) => Promise<void>;
+  action: (state: ActionState, formData: FormData) => Promise<ActionState>;
   album?: Album;
   submitLabel?: string;
 }
@@ -18,11 +20,16 @@ export default function AlbumForm({
   album,
   submitLabel = "Save",
 }: AlbumFormProps) {
-  const [_state, formAction, pending] = useActionState(action, null);
+  const [{ errorMessage, formData }, formAction, pending] = useActionState(
+    action,
+    initialActionState,
+  );
 
   return (
     <form action={formAction} className="group space-y-6" noValidate>
       {album && <input type="hidden" name="albumId" value={album.id} />}
+
+      {errorMessage && <p className="text-red">{errorMessage}</p>}
 
       <BoxedInput
         label="Title"
@@ -32,7 +39,7 @@ export default function AlbumForm({
         required
         minLength={1}
         maxLength={300}
-        defaultValue={album?.title}
+        defaultValue={getFormValue(formData, "title") || album?.title}
         errorMessage="Title is required and must be between 1-300 characters"
       />
 
@@ -45,7 +52,7 @@ export default function AlbumForm({
         pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$"
         minLength={1}
         maxLength={100}
-        defaultValue={album?.slug}
+        defaultValue={getFormValue(formData, "slug") || album?.slug}
         placeholder="e.g., nonagon-infinity"
         helpText="URL-friendly version of the title (lowercase, hyphens instead of spaces)"
         errorMessage="Slug must be lowercase letters, numbers, and hyphens only (e.g., 'nonagon-infinity')"
@@ -59,7 +66,9 @@ export default function AlbumForm({
         required
         min="1960-01-01"
         max={new Date().toISOString().split("T")[0]}
-        defaultValue={album?.releaseDate}
+        defaultValue={
+          getFormValue(formData, "releaseDate") || album?.releaseDate
+        }
         errorMessage="Please enter a valid date between 1960 and today"
       />
 
@@ -70,7 +79,7 @@ export default function AlbumForm({
         type="url"
         required
         pattern="https?://.*"
-        defaultValue={album?.imageUrl}
+        defaultValue={getFormValue(formData, "imageUrl") || album?.imageUrl}
         placeholder="https://example.com/album-cover.jpg"
         errorMessage="Please enter a valid URL starting with http:// or https://"
       />
@@ -82,7 +91,11 @@ export default function AlbumForm({
         type="text"
         required
         pattern="^[0-9]+$"
-        defaultValue={album?.bandcampAlbumId || undefined}
+        defaultValue={
+          getFormValue(formData, "bandcampAlbumId") ||
+          album?.bandcampAlbumId ||
+          undefined
+        }
         errorMessage="Bandcamp Album ID is required and must contain only numbers"
       />
 
