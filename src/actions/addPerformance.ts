@@ -48,8 +48,8 @@ export async function addPerformance(
   console.log(`New performance added by user ${userId}`);
 
   revalidatePath("/performances");
-  revalidatePath("/songs");
-  revalidatePath("/shows");
+  revalidatePath(`/songs/${songId}`);
+  revalidatePath(`/shows/${showId}`);
 
   const performancePath = await getPerformancePath(newPerformance);
   redirect(performancePath);

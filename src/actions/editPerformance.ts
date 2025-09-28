@@ -54,8 +54,8 @@ export async function editPerformance(
   const performancePath = await getPerformancePath(updatedPerformance);
 
   revalidatePath("/performances");
-  revalidatePath("/songs");
-  revalidatePath("/shows");
+  revalidatePath(`/songs/${songId}`);
+  revalidatePath(`/shows/${showId}`);
   revalidatePath(performancePath);
 
   redirect(performancePath);

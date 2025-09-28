@@ -37,7 +37,7 @@ export async function addSong(
   console.log(`New song added: ${title} by user ${userId}`);
 
   revalidatePath("/songs");
-  revalidatePath("/albums");
+  revalidatePath(`/albums/${albumId}`);
 
   const songPath = getSongPath(newSong);
   redirect(songPath);

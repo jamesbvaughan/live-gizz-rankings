@@ -43,7 +43,7 @@ export async function editSong(
   const songPath = getSongPath(updatedSong);
 
   revalidatePath("/songs");
-  revalidatePath("/albums");
+  revalidatePath(`/albums/${albumId}`);
   revalidatePath(songPath);
 
   redirect(songPath);
