@@ -8,6 +8,8 @@ import { SongRow } from "@/components/SongRow";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { getAlbumPath } from "@/utils";
+import { asc, desc } from "drizzle-orm";
+import { albums, songs } from "@/drizzle/schema";
 
 export const metadata: Metadata = {
   title: "Songs",
@@ -16,8 +18,10 @@ export const metadata: Metadata = {
 export default async function Songs() {
   const [allAlbums, adminStatus] = await Promise.all([
     db.query.albums.findMany({
+      orderBy: desc(albums.releaseDate),
       with: {
         songs: {
+          orderBy: asc(songs.albumPosition),
           with: {
             performances: true,
           },
@@ -44,10 +48,6 @@ export default async function Songs() {
 
         <div className="mt-6 space-y-8">
           {allAlbums.map((album) => {
-            const sortedAlbumSongs = album.songs.sort(
-              (a, b) => a.albumPosition - b.albumPosition,
-            );
-
             const albumPath = getAlbumPath(album);
 
             return (
@@ -68,7 +68,7 @@ export default async function Songs() {
                 </Link>
 
                 <div className="space-y-2">
-                  {sortedAlbumSongs.map((song) => {
+                  {album.songs.map((song) => {
                     return <SongRow key={song.id} song={song} />;
                   })}
                 </div>
