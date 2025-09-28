@@ -7,6 +7,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { songs } from "../drizzle/schema";
+import { logCreate } from "../lib/activityLogger";
 import { getSongPath } from "../utils";
 
 const addSongSchema = zfd.formData({
@@ -24,15 +25,21 @@ export async function addSong(
 
   const { title, slug, albumId, albumPosition } = addSongSchema.parse(formData);
 
-  const [newSong] = await db
-    .insert(songs)
-    .values({
-      title,
-      slug,
-      albumId,
-      albumPosition,
-    })
-    .returning();
+  const newSong = await db.transaction(async (tx) => {
+    const [song] = await tx
+      .insert(songs)
+      .values({
+        title,
+        slug,
+        albumId,
+        albumPosition,
+      })
+      .returning();
+
+    await logCreate("song", song.id, song, userId, tx);
+
+    return song;
+  });
 
   console.log(`New song added: ${title} by user ${userId}`);
 

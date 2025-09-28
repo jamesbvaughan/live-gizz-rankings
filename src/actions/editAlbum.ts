@@ -8,6 +8,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
+import { logUpdate } from "../lib/activityLogger";
 import { getAlbumPath } from "../utils";
 
 const editAlbumSchema = zfd.formData({
@@ -28,17 +29,30 @@ export async function editAlbum(
   const { albumId, title, slug, releaseDate, imageUrl, bandcampAlbumId } =
     editAlbumSchema.parse(formData);
 
-  const [updatedAlbum] = await db
-    .update(albums)
-    .set({
-      title,
-      slug,
-      releaseDate,
-      imageUrl,
-      bandcampAlbumId,
-    })
-    .where(eq(albums.id, albumId))
-    .returning();
+  const existingAlbum = await db.query.albums.findFirst({
+    where: eq(albums.id, albumId),
+  });
+  if (!existingAlbum) {
+    throw new Error("Album not found");
+  }
+
+  const updatedAlbum = await db.transaction(async (tx) => {
+    const [album] = await tx
+      .update(albums)
+      .set({
+        title,
+        slug,
+        releaseDate,
+        imageUrl,
+        bandcampAlbumId,
+      })
+      .where(eq(albums.id, albumId))
+      .returning();
+
+    await logUpdate("album", albumId, existingAlbum, album, userId, tx);
+
+    return album;
+  });
 
   console.log(`Album updated: ${title} by user ${userId}`);
 

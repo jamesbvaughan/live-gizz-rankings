@@ -7,6 +7,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
+import { logCreate } from "../lib/activityLogger";
 import { getShowPath } from "../utils";
 
 const addShowSchema = zfd.formData({
@@ -27,17 +28,23 @@ export async function addShow(
   const { slug, location, date, bandcampAlbumId, youtubeVideoId, imageUrl } =
     addShowSchema.parse(formData);
 
-  const [newShow] = await db
-    .insert(shows)
-    .values({
-      slug,
-      location,
-      date,
-      bandcampAlbumId: bandcampAlbumId || null,
-      youtubeVideoId: youtubeVideoId || null,
-      imageUrl,
-    })
-    .returning();
+  const newShow = await db.transaction(async (tx) => {
+    const [show] = await tx
+      .insert(shows)
+      .values({
+        slug,
+        location,
+        date,
+        bandcampAlbumId: bandcampAlbumId || null,
+        youtubeVideoId: youtubeVideoId || null,
+        imageUrl,
+      })
+      .returning();
+
+    await logCreate("show", show.id, show, userId, tx);
+
+    return show;
+  });
 
   console.log(`New show added: ${location} ${date} by user ${userId}`);
 
