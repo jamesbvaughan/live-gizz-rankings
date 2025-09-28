@@ -124,9 +124,14 @@ export default async function ShowPage({ params }: Props) {
       <div className="flex items-center justify-between">
         <PageTitle>{showTitle}</PageTitle>
         {adminStatus && (
-          <BoxedButtonLink href={`/shows/${show.slug}/edit` as any}>
-            Edit Show
-          </BoxedButtonLink>
+          <div className="flex gap-2">
+            <BoxedButtonLink href={`/performances/add?show=${show.id}` as any}>
+              Add Performance
+            </BoxedButtonLink>
+            <BoxedButtonLink href={`/shows/${show.slug}/edit` as any}>
+              Edit Show
+            </BoxedButtonLink>
+          </div>
         )}
       </div>
 

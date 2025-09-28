@@ -116,9 +116,14 @@ export default async function Song({ params }: Props) {
       <div className="flex items-center justify-between">
         <PageTitle>{song.title}</PageTitle>
         {adminStatus && (
-          <BoxedButtonLink href={`/songs/${song.slug}/edit` as any}>
-            Edit Song
-          </BoxedButtonLink>
+          <div className="flex gap-2">
+            <BoxedButtonLink href={`/performances/add?song=${song.id}` as any}>
+              Add Performance
+            </BoxedButtonLink>
+            <BoxedButtonLink href={`/songs/${song.slug}/edit` as any}>
+              Edit Song
+            </BoxedButtonLink>
+          </div>
         )}
       </div>
 

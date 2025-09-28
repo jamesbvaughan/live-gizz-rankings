@@ -2,7 +2,7 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { forbidden, redirect, unauthorized } from "next/navigation";
 import { zfd } from "zod-form-data";
 
 import { isAdmin } from "../auth/utils";
@@ -22,11 +22,13 @@ export async function addSong(
   formData: FormData,
 ): Promise<void> {
   const { userId } = await auth();
-  if (!userId) throw new Error("User not found");
+  if (!userId) {
+    unauthorized();
+  }
 
   const adminStatus = await isAdmin();
   if (!adminStatus) {
-    throw new Error("Unauthorized: Admin access required");
+    forbidden();
   }
 
   const { title, slug, albumId, albumPosition } = addSongSchema.parse(formData);

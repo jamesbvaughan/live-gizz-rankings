@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { isAdmin } from "@/auth/utils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { MediaPlayers } from "@/components/MediaPlayers";
 import {
   PageContent,
@@ -31,7 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PerformancePage({ params }: Props) {
   const { performanceSlug } = await params;
-  const performance = await getPerformanceBySlug(performanceSlug);
+  const [performance, adminStatus] = await Promise.all([
+    getPerformanceBySlug(performanceSlug),
+    isAdmin(),
+  ]);
   const show = await getShowById(performance.showId);
   const showPath = getShowPath(show);
   const showTitle = getShowTitle(show);
@@ -51,15 +56,24 @@ export default async function PerformancePage({ params }: Props) {
     <>
       <PageType>Performance</PageType>
 
-      <PageTitle>
-        <Link href={songPath} className="no-underline">
-          {song.title}
-        </Link>{" "}
-        -{" "}
-        <Link href={showPath} className="no-underline">
-          {showTitle}
-        </Link>
-      </PageTitle>
+      <div className="flex items-center justify-between">
+        <PageTitle>
+          <Link href={songPath} className="no-underline">
+            {song.title}
+          </Link>{" "}
+          -{" "}
+          <Link href={showPath} className="no-underline">
+            {showTitle}
+          </Link>
+        </PageTitle>
+        {adminStatus && (
+          <BoxedButtonLink
+            href={`/performances/${performanceSlug}/edit` as any}
+          >
+            Edit Performance
+          </BoxedButtonLink>
+        )}
+      </div>
 
       <PageSubtitle>{formattedDate}</PageSubtitle>
 

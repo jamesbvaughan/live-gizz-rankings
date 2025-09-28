@@ -3,13 +3,14 @@
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { redirect, unauthorized } from "next/navigation";
 import { zfd } from "zod-form-data";
 
 import { isAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
 import { getAlbumPath } from "../utils";
+import { forbidden } from "next/navigation";
 
 const editAlbumSchema = zfd.formData({
   albumId: zfd.text(),
@@ -25,11 +26,13 @@ export async function editAlbum(
   formData: FormData,
 ): Promise<void> {
   const { userId } = await auth();
-  if (!userId) throw new Error("User not found");
+  if (!userId) {
+    unauthorized();
+  }
 
   const adminStatus = await isAdmin();
   if (!adminStatus) {
-    throw new Error("Unauthorized: Admin access required");
+    forbidden();
   }
 
   const { albumId, title, slug, releaseDate, imageUrl, bandcampAlbumId } =

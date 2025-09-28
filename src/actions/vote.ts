@@ -13,6 +13,7 @@ import {
   getShowPath,
   getSongPath,
 } from "../utils";
+import { unauthorized } from "next/navigation";
 
 const voteSchema = zfd.formData({
   performanceIdA: zfd.text(),
@@ -37,7 +38,9 @@ export async function vote(
   formData: FormData,
 ): Promise<void> {
   const { userId } = await auth();
-  if (!userId) throw new Error("User not found");
+  if (!userId) {
+    unauthorized();
+  }
 
   revalidatePath("/rank");
 
