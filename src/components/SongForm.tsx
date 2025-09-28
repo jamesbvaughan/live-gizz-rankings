@@ -13,6 +13,7 @@ interface SongFormProps {
   albums: Album[];
   song?: Song;
   submitLabel?: string;
+  defaultAlbumId?: string;
 }
 
 export default function SongForm({
@@ -20,6 +21,7 @@ export default function SongForm({
   albums,
   song,
   submitLabel = "Save",
+  defaultAlbumId,
 }: SongFormProps) {
   const [_state, formAction, pending] = useActionState(action, undefined);
 
@@ -65,7 +67,7 @@ export default function SongForm({
         id="albumId"
         name="albumId"
         required
-        defaultValue={song?.albumId}
+        defaultValue={song?.albumId || defaultAlbumId}
         errorMessage="Please select an album"
       >
         <option value="">Select an album...</option>

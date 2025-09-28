@@ -56,9 +56,14 @@ export default async function Album({ params }: Props) {
       <div className="flex items-center justify-between">
         <PageTitle>{album.title}</PageTitle>
         {adminStatus && (
-          <BoxedButtonLink href={`/albums/${album.slug}/edit` as any}>
-            Edit Album
-          </BoxedButtonLink>
+          <div className="flex gap-2">
+            <BoxedButtonLink href={`/songs/add?album=${album.id}` as any}>
+              Add Song
+            </BoxedButtonLink>
+            <BoxedButtonLink href={`/albums/${album.slug}/edit` as any}>
+              Edit Album
+            </BoxedButtonLink>
+          </div>
         )}
       </div>
 
