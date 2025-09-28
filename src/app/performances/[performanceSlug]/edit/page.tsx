@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { editPerformance } from "@/actions/editPerformance";
-import { ensureAdmin } from "@/auth/utils";
+import { ensureSignedIn } from "@/auth/utils";
 import PerformanceForm from "@/components/PerformanceForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
@@ -38,7 +38,7 @@ export async function generateMetadata({
 export default async function EditPerformancePage({
   params,
 }: EditPerformancePageProps) {
-  await ensureAdmin();
+  await ensureSignedIn();
 
   const { performanceSlug } = await params;
   const [performance, songs, shows] = await Promise.all([

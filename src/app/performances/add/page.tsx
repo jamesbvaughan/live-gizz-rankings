@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { addPerformance } from "@/actions/addPerformance";
-import { ensureAdmin } from "@/auth/utils";
+import { ensureSignedIn } from "@/auth/utils";
 import PerformanceForm from "@/components/PerformanceForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -19,7 +19,7 @@ interface AddPerformancePageProps {
 export default async function AddPerformancePage({
   searchParams,
 }: AddPerformancePageProps) {
-  await ensureAdmin();
+  await ensureSignedIn();
 
   const { song: songId, show: showId } = await searchParams;
   const [songs, shows] = await Promise.all([

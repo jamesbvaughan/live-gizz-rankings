@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
 
-import { ensureAdmin } from "../auth/utils";
+import { ensureSignedIn } from "../auth/utils";
 import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
@@ -27,7 +27,7 @@ export async function editPerformance(
   _initialState: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const userId = await ensureAdmin();
+  const userId = await ensureSignedIn();
 
   const {
     performanceId,

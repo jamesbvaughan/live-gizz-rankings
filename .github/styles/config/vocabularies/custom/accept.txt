@@ -6,5 +6,5 @@ Dependabot
 const
 Elo
 Bandcamp
-ESLint
+eslint
 oxlint

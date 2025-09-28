@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { isAdmin } from "@/auth/utils";
+import { isSignedIn } from "@/auth/utils";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { MediaPlayers } from "@/components/MediaPlayers";
 import {
@@ -37,9 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PerformancePage({ params }: Props) {
   const { performanceSlug } = await params;
-  const [performance, adminStatus] = await Promise.all([
+  const [performance, signedIn] = await Promise.all([
     getPerformanceBySlug(performanceSlug),
-    isAdmin(),
+    isSignedIn(),
   ]);
   const show = await getShowById(performance.showId);
   const showPath = getShowPath(show);
@@ -70,7 +70,7 @@ export default async function PerformancePage({ params }: Props) {
             {showTitle}
           </Link>
         </PageTitle>
-        {adminStatus && (
+        {signedIn && (
           <BoxedButtonLink href={`/performances/${performanceSlug}/edit`}>
             Edit Performance
           </BoxedButtonLink>
