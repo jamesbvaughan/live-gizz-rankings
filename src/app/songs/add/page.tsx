@@ -1,7 +1,5 @@
-import { redirect } from "next/navigation";
-
 import { addSong } from "@/actions/addSong";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import SongForm from "@/components/SongForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -11,10 +9,7 @@ interface AddSongPageProps {
 }
 
 export default async function AddSongPage({ searchParams }: AddSongPageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { album: albumId } = await searchParams;
   const albums = await db.query.albums.findMany();

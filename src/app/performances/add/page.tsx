@@ -1,7 +1,5 @@
-import { redirect } from "next/navigation";
-
 import { addPerformance } from "@/actions/addPerformance";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import PerformanceForm from "@/components/PerformanceForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -13,10 +11,7 @@ interface AddPerformancePageProps {
 export default async function AddPerformancePage({
   searchParams,
 }: AddPerformancePageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { song: songId, show: showId } = await searchParams;
   const [songs, shows] = await Promise.all([

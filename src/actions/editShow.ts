@@ -1,12 +1,11 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { forbidden, redirect, unauthorized } from "next/navigation";
+import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
 
-import { isAdmin } from "../auth/utils";
+import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { getShowPath } from "../utils";
@@ -25,15 +24,7 @@ export async function editShow(
   _initialState: unknown,
   formData: FormData,
 ): Promise<void> {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
-
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    forbidden();
-  }
+  const userId = await ensureAdmin();
 
   const {
     showId,

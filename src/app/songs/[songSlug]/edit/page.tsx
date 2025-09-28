@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { editSong } from "@/actions/editSong";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import SongForm from "@/components/SongForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -13,10 +13,7 @@ interface EditSongPageProps {
 }
 
 export default async function EditSongPage({ params }: EditSongPageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { songSlug } = await params;
   const [song, albums] = await Promise.all([

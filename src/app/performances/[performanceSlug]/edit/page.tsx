@@ -1,7 +1,7 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { editPerformance } from "@/actions/editPerformance";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import PerformanceForm from "@/components/PerformanceForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
@@ -14,10 +14,7 @@ interface EditPerformancePageProps {
 export default async function EditPerformancePage({
   params,
 }: EditPerformancePageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { performanceSlug } = await params;
   const [performance, songs, shows] = await Promise.all([

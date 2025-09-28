@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { editShow } from "@/actions/editShow";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import ShowForm from "@/components/ShowForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -13,10 +13,7 @@ interface EditShowPageProps {
 }
 
 export default async function EditShowPage({ params }: EditShowPageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { showSlug } = await params;
   const show = await db.query.shows.findFirst({

@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { editAlbum } from "@/actions/editAlbum";
-import { isAdmin } from "@/auth/utils";
+import { ensureAdmin } from "@/auth/utils";
 import AlbumForm from "@/components/AlbumForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -13,10 +13,7 @@ interface EditAlbumPageProps {
 }
 
 export default async function EditAlbumPage({ params }: EditAlbumPageProps) {
-  const adminStatus = await isAdmin();
-  if (!adminStatus) {
-    redirect("/");
-  }
+  await ensureAdmin();
 
   const { albumSlug } = await params;
   const album = await db.query.albums.findFirst({
