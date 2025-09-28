@@ -46,18 +46,15 @@ async function GizzTapesNote({ show }: { show: Show }) {
     if (response.status === 404) {
       return <div>No Gizz Tapes notes for this show.</div>;
     }
-    const data = await response.json();
+    const data = (await response.json()) as { notes: string };
     note = data.notes;
   } catch (error) {
     const showTitle = getShowTitle(show);
-    console.error(
-      `Unable to fetch Gizz Tapes notes for ${showTitle}:`,
-      (error as Error).message,
-    );
+    console.error(`Unable to fetch Gizz Tapes notes for ${showTitle}:`, error);
     return <div>Error fetching Gizz Tapes notes for this show.</div>;
   }
 
-  const htmlWithLineBreaks = note.replace(/\n/g, "<br>");
+  const htmlWithLineBreaks = note.replaceAll("\\n", "<br>");
 
   // Sanitize the modified HTML string
   const sanitizedHtml = DOMPurify.sanitize(htmlWithLineBreaks);
@@ -125,10 +122,10 @@ export default async function ShowPage({ params }: Props) {
         <PageTitle>{showTitle}</PageTitle>
         {adminStatus && (
           <div className="flex gap-2">
-            <BoxedButtonLink href={`/performances/add?show=${show.id}` as any}>
+            <BoxedButtonLink href={`/performances/add?show=${show.id}`}>
               Add Performance
             </BoxedButtonLink>
-            <BoxedButtonLink href={`/shows/${show.slug}/edit` as any}>
+            <BoxedButtonLink href={`/shows/${show.slug}/edit`}>
               Edit Show
             </BoxedButtonLink>
           </div>
@@ -219,6 +216,7 @@ export default async function ShowPage({ params }: Props) {
                 {" "}
                 or on Bandcamp:
                 <iframe
+                  sandbox=""
                   title={`Bandcamp player for ${showTitle}`}
                   style={{
                     border: 0,

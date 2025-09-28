@@ -23,7 +23,7 @@ export default function SongForm({
   submitLabel = "Save",
   defaultAlbumId,
 }: SongFormProps) {
-  const [_state, formAction, pending] = useActionState(action, undefined);
+  const [_state, formAction, pending] = useActionState(action, null);
 
   // Sort albums by release date, newest first
   const sortedAlbums = [...albums].sort(

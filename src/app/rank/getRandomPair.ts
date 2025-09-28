@@ -97,5 +97,5 @@ export async function getRandomPairForCurrentUser() {
 
   // Choose a random pair of performances of that song for the user to vote on.
   const pairIndex = Math.floor(Math.random() * unvotedPairsForSong.length);
-  return unvotedPairsForSong[pairIndex]!;
+  return unvotedPairsForSong[pairIndex];
 }

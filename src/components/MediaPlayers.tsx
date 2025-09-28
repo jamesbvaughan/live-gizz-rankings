@@ -6,6 +6,7 @@ import Link from "next/link";
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
     <iframe
+      sandbox=""
       title="Spotify player"
       className="rounded-xl"
       width="100%"
@@ -28,6 +29,7 @@ function BandcampPlayer({
   const linkColor = "ff0000";
   return (
     <iframe
+      sandbox=""
       title="Bandcamp player"
       width="100%"
       height="120"

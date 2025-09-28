@@ -53,7 +53,7 @@ export default function BackgroundCanvas() {
         offscreenCanvasRef.current = canvas.transferControlToOffscreen();
       } catch (error) {
         reportError(error);
-        return undefined;
+        return;
       }
     }
     const offscreenCanvas = offscreenCanvasRef.current;
@@ -64,7 +64,9 @@ export default function BackgroundCanvas() {
       vertices[i] = { x: 0, y: 0 };
     }
 
-    let cssWidth: number, cssHeight: number, dpr: number;
+    let cssWidth: number;
+    let cssHeight: number;
+    let dpr: number;
     function resizeCanvas() {
       dpr = window.devicePixelRatio || 1;
 

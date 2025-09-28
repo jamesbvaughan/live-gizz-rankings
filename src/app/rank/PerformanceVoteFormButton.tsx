@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { clsx } from "clsx";
 import Form from "next/form";
 import { useActionState, useState } from "react";
 

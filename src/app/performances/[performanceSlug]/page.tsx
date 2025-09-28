@@ -67,9 +67,7 @@ export default async function PerformancePage({ params }: Props) {
           </Link>
         </PageTitle>
         {adminStatus && (
-          <BoxedButtonLink
-            href={`/performances/${performanceSlug}/edit` as any}
-          >
+          <BoxedButtonLink href={`/performances/${performanceSlug}/edit`}>
             Edit Performance
           </BoxedButtonLink>
         )}

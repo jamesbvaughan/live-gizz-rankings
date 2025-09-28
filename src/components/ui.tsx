@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { ComponentProps, PropsWithChildren } from "react";
 
 export function PageType({ children }: PropsWithChildren) {

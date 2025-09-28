@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unassigned-import
 import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -36,6 +37,8 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+const clerkAppearance = { baseTheme: dark };
+
 const cloudflareAnalyticsToken = process.env.CLOUDFLARE_ANALYTICS_TOKEN;
 
 export default function RootLayout({
@@ -44,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{ baseTheme: dark }}>
+    <ClerkProvider appearance={clerkAppearance}>
       <html lang="en">
         <body className="bg-background text-foreground overflow-y-scroll">
           <BackgroundCanvas />

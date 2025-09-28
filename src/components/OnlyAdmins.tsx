@@ -8,5 +8,5 @@ export async function OnlyAdmins({ children }: PropsWithChildren) {
     return null;
   }
 
-  return <>{children}</>;
+  return children;
 }

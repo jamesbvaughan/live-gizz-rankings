@@ -1,7 +1,7 @@
-import { allAlbums } from "./data/albums";
-import { allPerformances } from "./data/performances";
-import { allShows } from "./data/shows";
-import { allSongs } from "./data/songs";
+import { seedAlbums } from "./data/albums";
+import { seedPerformances } from "./data/performances";
+import { seedShows } from "./data/shows";
+import { seedSongs } from "./data/songs";
 
 function fail(message: string): never {
   console.log(message);
@@ -12,36 +12,38 @@ console.log("Checking seed data validity...");
 
 // Ensure that UUIDs and slugs are valid and unique
 const uuids = new Set<string>();
-[allAlbums, allSongs, allShows, allPerformances].forEach((seed) => {
-  const slugs = new Set<string>();
-  for (const item of seed) {
-    if (item.id.length !== 36) {
-      fail("Invalid UUID");
-    }
+[seedAlbums, Object.values(seedSongs), seedShows, seedPerformances].forEach(
+  (seed) => {
+    const slugs = new Set<string>();
+    for (const item of seed) {
+      if (item.id.length !== 36) {
+        fail("Invalid UUID");
+      }
 
-    if (uuids.has(item.id)) {
-      fail(`Duplicate UUID: ${item.id}`);
-    }
-    uuids.add(item.id);
+      if (uuids.has(item.id)) {
+        fail(`Duplicate UUID: ${item.id}`);
+      }
+      uuids.add(item.id);
 
-    if ("slug" in item) {
-      if (item.slug.length === 0) {
-        fail("Empty slug");
+      if ("slug" in item) {
+        if (item.slug.length === 0) {
+          fail("Empty slug");
+        }
+        if (item.slug.toLowerCase() !== item.slug) {
+          fail(`Invalid slug: ${item.slug}`);
+        }
+        if (slugs.has(item.slug)) {
+          fail(`Duplicate slug: ${item.slug}`);
+        }
+        slugs.add(item.slug);
       }
-      if (item.slug.toLowerCase() !== item.slug) {
-        fail(`Invalid slug: ${item.slug}`);
-      }
-      if (slugs.has(item.slug)) {
-        fail(`Duplicate slug: ${item.slug}`);
-      }
-      slugs.add(item.slug);
     }
-  }
-});
+  },
+);
 
 // Ensure that release dates are unique
 const releaseDates = new Set<string>();
-for (const album of allAlbums) {
+for (const album of seedAlbums) {
   if (releaseDates.has(album.releaseDate)) {
     fail(`Duplicate release date: ${album.releaseDate}`);
   }
@@ -50,7 +52,7 @@ for (const album of allAlbums) {
 
 // Ensure that song album positions are unique
 const albumPositions = new Set<string>();
-for (const song of allSongs) {
+for (const song of Object.values(seedSongs)) {
   const key = song.albumId + song.albumPosition;
   if (albumPositions.has(key)) {
     fail(`Duplicate album position: ${key}`);
@@ -60,8 +62,8 @@ for (const song of allSongs) {
 
 // Ensure that performance show positions are unique
 const showPositions = new Set<string>();
-for (const performance of allPerformances) {
-  const show = allShows.find((s) => s.id === performance.showId);
+for (const performance of seedPerformances) {
+  const show = seedShows.find((s) => s.id === performance.showId);
   const key = `show: ${show?.slug ?? "SHOW NOT FOUND"} position:${performance.showPosition}`;
   if (showPositions.has(key)) {
     fail(`Duplicate show position: ${key}`);
@@ -71,7 +73,7 @@ for (const performance of allPerformances) {
 
 // Ensure that media IDs, image URLs, and show dates are unique
 const mediaIds = new Set<string>();
-for (const performance of allPerformances) {
+for (const performance of seedPerformances) {
   if (performance.spotifyTrackId) {
     if (mediaIds.has(performance.spotifyTrackId)) {
       fail(`Duplicate Spotify track ID: ${performance.spotifyTrackId}`);
@@ -79,14 +81,16 @@ for (const performance of allPerformances) {
     mediaIds.add(performance.spotifyTrackId);
   }
   if (performance.bandcampTrackId) {
-    const show = allShows.find((s) => s.id === performance.showId)!;
+    const show = seedShows.find((s) => s.id === performance.showId)!;
     if (mediaIds.has(performance.bandcampTrackId)) {
       fail(`Duplicate Bandcamp track ID: ${performance.bandcampTrackId}`);
     }
     mediaIds.add(performance.bandcampTrackId);
 
     const bandcampKey = performance.bandcampTrackId + show.bandcampAlbumId;
-    const song = allSongs.find((s) => s.id === performance.songId);
+    const song = Object.values(seedSongs).find(
+      (s) => s.id === performance.songId,
+    );
     if (mediaIds.has(bandcampKey)) {
       fail(
         `Duplicate Bandcamp track and album ID: ${bandcampKey} (${song?.title ?? "SONG NOT FOUND"} at ${show.slug})`,
@@ -103,7 +107,7 @@ for (const performance of allPerformances) {
     mediaIds.add(youtubeKey);
   }
 }
-for (const show of allShows) {
+for (const show of seedShows) {
   if (show.bandcampAlbumId) {
     if (mediaIds.has(show.bandcampAlbumId)) {
       fail(`Duplicate Bandcamp album ID: ${show.bandcampAlbumId}`);
@@ -121,7 +125,7 @@ for (const show of allShows) {
   }
   mediaIds.add(show.date);
 }
-for (const album of allAlbums) {
+for (const album of seedAlbums) {
   if (album.bandcampAlbumId) {
     if (mediaIds.has(album.bandcampAlbumId)) {
       fail(`Duplicate Bandcamp album ID: ${album.bandcampAlbumId}`);
@@ -136,7 +140,7 @@ for (const album of allAlbums) {
 
 // Ensure that there aren't multiple performances of the same song at a show
 const songsByShow = new Map<string, Set<string>>();
-for (const performance of allPerformances) {
+for (const performance of seedPerformances) {
   const showId = performance.showId;
   const songId = performance.songId;
   if (!songsByShow.has(showId)) {

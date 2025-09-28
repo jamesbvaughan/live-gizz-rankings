@@ -64,6 +64,10 @@ async function TopPerformance({ song }: { song: Song }) {
   );
 }
 
+const loadingTopPerformanceFallback = (
+  <span className="text-right">Loading top performance...</span>
+);
+
 export async function SongRow({ song }: { song: Song }) {
   const songPerformances = await db.query.performances.findMany({
     where: eq(performances.songId, song.id),
@@ -102,11 +106,7 @@ export async function SongRow({ song }: { song: Song }) {
                 </OnlyAdmins>
               </div>
 
-              <Suspense
-                fallback={
-                  <span className="text-right">Loading top performance...</span>
-                }
-              >
+              <Suspense fallback={loadingTopPerformanceFallback}>
                 <TopPerformance song={song} />
               </Suspense>
             </>

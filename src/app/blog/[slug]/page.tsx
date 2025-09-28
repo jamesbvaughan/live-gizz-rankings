@@ -13,7 +13,7 @@ import {
 
 import { getBlogPosts } from "../utils";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const posts = getBlogPosts();
 
   return posts.map((post) => ({

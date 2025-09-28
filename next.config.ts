@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // eslint-disable-next-line require-await
   async headers() {
     return [
       {
@@ -174,4 +175,4 @@ const cspHeader = `
   upgrade-insecure-requests;
 `;
 
-const cspHeaderValue = cspHeader.replace(/\n/g, "");
+const cspHeaderValue = cspHeader.replaceAll("\\n", "");

@@ -38,7 +38,7 @@ async function PerformanceRow({
   performance: Performance;
   index: number;
 }) {
-  const show = await getShowById(performance.showId)!;
+  const show = await getShowById(performance.showId);
   const showTitle = getShowTitle(show);
   const performancePath = await getPerformancePath(performance);
 
@@ -117,10 +117,10 @@ export default async function Song({ params }: Props) {
         <PageTitle>{song.title}</PageTitle>
         {adminStatus && (
           <div className="flex gap-2">
-            <BoxedButtonLink href={`/performances/add?song=${song.id}` as any}>
+            <BoxedButtonLink href={`/performances/add?song=${song.id}`}>
               Add Performance
             </BoxedButtonLink>
-            <BoxedButtonLink href={`/songs/${song.slug}/edit` as any}>
+            <BoxedButtonLink href={`/songs/${song.slug}/edit`}>
               Edit Song
             </BoxedButtonLink>
           </div>

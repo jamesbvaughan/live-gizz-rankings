@@ -27,7 +27,7 @@ export default function PerformanceForm({
   defaultSongId,
   defaultShowId,
 }: PerformanceFormProps) {
-  const [_state, formAction, pending] = useActionState(action, undefined);
+  const [_state, formAction, pending] = useActionState(action, null);
 
   // Sort songs by album release date (newest first) then by album position
   const sortedSongs = [...songs].sort((a, b) => {

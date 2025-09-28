@@ -57,10 +57,10 @@ export default async function Album({ params }: Props) {
         <PageTitle>{album.title}</PageTitle>
         {adminStatus && (
           <div className="flex gap-2">
-            <BoxedButtonLink href={`/songs/add?album=${album.id}` as any}>
+            <BoxedButtonLink href={`/songs/add?album=${album.id}`}>
               Add Song
             </BoxedButtonLink>
-            <BoxedButtonLink href={`/albums/${album.slug}/edit` as any}>
+            <BoxedButtonLink href={`/albums/${album.slug}/edit`}>
               Edit Album
             </BoxedButtonLink>
           </div>

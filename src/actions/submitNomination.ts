@@ -39,7 +39,7 @@ export async function submitNomination(
       message: trimmedMessage,
     });
   } catch (error) {
-    console.error(`Failed to submit nomination: ${(error as Error).message}`);
+    console.error("Failed to submit nomination:", error);
     return { success: false, userError: "Failed to submit nomination" };
   }
 

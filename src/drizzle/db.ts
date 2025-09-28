@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unassigned-import
 import "@/drizzle/envConfig";
 
 import { drizzle as drizzleHTTP } from "drizzle-orm/neon-http";
