@@ -34,7 +34,9 @@ export default function PerformanceForm({
     const dateCompare =
       new Date(b.album.releaseDate).getTime() -
       new Date(a.album.releaseDate).getTime();
-    if (dateCompare !== 0) return dateCompare;
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
     return a.albumPosition - b.albumPosition;
   });
 

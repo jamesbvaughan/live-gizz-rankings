@@ -31,6 +31,11 @@
     "max-nested-callbacks": "off",
     "radix": "off",
     "typescript/require-await": "off",
+    "jsx-no-jsx-as-prop": "off",
+    "jsx-no-new-object-as-prop": "off",
+    "jsx-no-new-array-as-prop": "off",
+    "jsx-no-new-function-as-prop": "off",
+    // Rules I've customized the config for
     "eqeqeq": [
       "error",
       "always",
@@ -38,10 +43,9 @@
         "null": "ignore"
       }
     ],
-    "jsx-no-jsx-as-prop": "off",
-    "jsx-no-new-object-as-prop": "off",
-    "jsx-no-new-array-as-prop": "off",
-    "jsx-no-new-function-as-prop": "off"
+    // Rules that aren't automatically included in any category I've enabled but
+    // that I want.
+    "curly": "error"
   }
 }
 // vim: ft=jsonc
