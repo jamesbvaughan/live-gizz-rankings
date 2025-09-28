@@ -53,9 +53,10 @@ export function AccountButtons() {
           <>
             <hr className="border-muted-2 w-full" />
 
-            <div className="flex flex-col space-y-1">
+            <div className="flex flex-col items-end space-y-1">
               <Link href="/users">users</Link>
               <Link href="/votes">votes</Link>
+              <Link href="/activity">activity</Link>
             </div>
           </>
         ) : null}
