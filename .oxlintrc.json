@@ -51,7 +51,13 @@
     "jsx-fragments": "error",
     "self-closing-comp": "error",
     "consistent-type-imports": "error",
-    "consistent-type-definitions": "error"
+    "consistent-type-definitions": "error",
+    "consistent-existence-index-check": "error",
+    "empty-brace-spaces": "error",
+    "no-console-spaces": "error",
+    "prefer-spread": "error",
+    "throw-new-error": "error",
+    "catch-error-name": "error"
   }
 }
 // vim: ft=jsonc
