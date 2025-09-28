@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
@@ -10,6 +11,26 @@ import { songs } from "@/drizzle/schema";
 
 interface EditSongPageProps {
   params: Promise<{ songSlug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: EditSongPageProps): Promise<Metadata> {
+  const { songSlug } = await params;
+  const song = await db.query.songs.findFirst({
+    where: eq(songs.slug, songSlug),
+  });
+
+  if (!song) {
+    return {
+      title: "Song Not Found",
+    };
+  }
+
+  return {
+    title: `Edit Song: ${song.title}`,
+    description: `Edit details for the King Gizzard & The Lizard Wizard song "${song.title}" on Live Gizz Rankings.`,
+  };
 }
 
 export default async function EditSongPage({ params }: EditSongPageProps) {

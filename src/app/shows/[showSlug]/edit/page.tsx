@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
@@ -11,6 +12,28 @@ import { getShowTitle } from "@/utils";
 
 interface EditShowPageProps {
   params: Promise<{ showSlug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: EditShowPageProps): Promise<Metadata> {
+  const { showSlug } = await params;
+  const show = await db.query.shows.findFirst({
+    where: eq(shows.slug, showSlug),
+  });
+
+  if (!show) {
+    return {
+      title: "Show Not Found",
+    };
+  }
+
+  const showTitle = getShowTitle(show);
+
+  return {
+    title: `Edit Show: ${showTitle}`,
+    description: `Edit details for the King Gizzard & The Lizard Wizard show "${showTitle}" on Live Gizz Rankings.`,
+  };
 }
 
 export default async function EditShowPage({ params }: EditShowPageProps) {

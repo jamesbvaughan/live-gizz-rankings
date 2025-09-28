@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { editPerformance } from "@/actions/editPerformance";
@@ -9,6 +10,29 @@ import { db } from "@/drizzle/db";
 
 interface EditPerformancePageProps {
   params: Promise<{ performanceSlug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: EditPerformancePageProps): Promise<Metadata> {
+  const { performanceSlug } = await params;
+  const performance = await getPerformanceBySlug(performanceSlug);
+
+  if (!performance) {
+    return {
+      title: "Performance Not Found",
+    };
+  }
+
+  const [song, show] = await Promise.all([
+    getSongById(performance.songId),
+    getShowById(performance.showId),
+  ]);
+
+  return {
+    title: `Edit Performance: ${song.title} - ${show.location}`,
+    description: `Edit details for the live performance of "${song.title}" from ${show.location} on Live Gizz Rankings.`,
+  };
 }
 
 export default async function EditPerformancePage({
