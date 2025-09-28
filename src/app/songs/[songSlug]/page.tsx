@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
-import { isAdmin } from "@/auth/utils";
+import { isSignedIn } from "@/auth/utils";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { EloScore } from "@/components/EloScore";
 import {
@@ -101,9 +101,9 @@ async function RankedPerformances({ songId }: { songId: string }) {
 
 export default async function Song({ params }: Props) {
   const { songSlug } = await params;
-  const [song, adminStatus] = await Promise.all([
+  const [song, signedIn] = await Promise.all([
     getSongBySlug(songSlug),
-    isAdmin(),
+    isSignedIn(),
   ]);
 
   const songPerformances = await db.query.performances.findMany({
@@ -120,7 +120,7 @@ export default async function Song({ params }: Props) {
 
       <div className="flex items-center justify-between">
         <PageTitle>{song.title}</PageTitle>
-        {adminStatus && (
+        {signedIn && (
           <div className="flex gap-2">
             <BoxedButtonLink href={`/performances/add?song=${song.id}`}>
               Add Performance

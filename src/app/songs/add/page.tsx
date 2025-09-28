@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
+
 import { addSong } from "@/actions/addSong";
 import { ensureAdmin } from "@/auth/utils";
 import SongForm from "@/components/SongForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
+
+export const metadata: Metadata = {
+  title: "Add Song",
+  description:
+    "Add a new King Gizzard & The Lizard Wizard song to Live Gizz Rankings.",
+};
 
 interface AddSongPageProps {
   searchParams: Promise<{ album?: string }>;

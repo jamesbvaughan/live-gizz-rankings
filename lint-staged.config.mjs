@@ -5,9 +5,9 @@ const lintStagedConfig = {
   "*.{ts,tsx}": () => "bun tsc",
   "*.{ts,tsx,mjs}": ["bun format"],
   "*.{md,mdx,css,json}": [`bun prettier --write`],
-  "*.{md,mdx,tsx}": [`vale`],
+  "*.{md,mdx,tsx}": () => "bun vale",
   "*.{ts,tsx,mjs,mdx}": () => "bun knip",
-  "src/drizzle/data/*.ts": "bun tsx src/drizzle/validateSeeds.ts",
+  "src/drizzle/data/*.ts": () => "bun tsx src/drizzle/validateSeeds.ts",
 };
 
 export default lintStagedConfig;

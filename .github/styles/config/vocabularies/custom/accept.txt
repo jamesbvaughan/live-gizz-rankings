@@ -5,3 +5,6 @@ subreddit
 Dependabot
 const
 Elo
+Bandcamp
+eslint
+oxlint

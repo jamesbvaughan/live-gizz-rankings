@@ -1,0 +1,52 @@
+---
+title: You can now add new performances directly
+publishedAt: 2025-09-27
+description: You no longer need to nominate performances - you can add and edit them directly!
+---
+
+You can now edit the site's data directly in the site itself!
+
+Since launching this site nearly a year ago, the data (albums, songs,
+shows, and performances) has been hard-coded in JavaScript files that live in
+the codebase.
+
+The advantage of that approach is that it made read operations on the data
+simple and helped me avoid incurring any data transfer costs for traffic to and
+from a database.
+The total amount of data is small enough to easily fit in memory, even on
+heavily constrained machines, and this gave me a lot of flexibility when
+iterating on the site in the early stages.
+
+At this point though, the site is getting enough usage that it's become too
+tedious for me to update everything and add nominated performances on my own,
+especially when each update requires code changes and a new deployment.
+
+To start solving that problem, I've added a handful of forms for adding and
+editing different types of data directly in the site itself.
+Most importantly, this mean that any user can now [add performances
+directly](/performances/add),
+rather than just nominating them for me to add.
+
+There remains a lot of work to do though!
+Here are a few specific things I have in mind:
+
+- **Make it easier to get the Bandcamp and YouTube IDs for performances.**
+  Right now it's fully manual and it's the slowest part of adding new
+  performances to the site.
+  It's almost certainly possible to automate this, but I haven't found a good
+  way to do it yet.
+- **Improve the voting experience.**
+  I've got a handful of ideas here.
+  The problem is that as the number of performances on the site grows,
+  the amount of time voters will need to spend comparing uninteresting pairs of
+  performances will grow exponentially.
+  Here are a few ways I could improve that:
+  - Allow voters to filter a voting session down to a specific album or song.
+  - Add an explicit "skip" button to the voting page.
+  - Tune the logic for generating pairs of performances to vote on to show
+    performances with higher scores more often.
+
+Thanks for following along!
+If you'd like to contribute, you can [email me](mailto:james@jamesbvaughan.com),
+or check out [the code](https://github.com/jamesbvaughan/live-gizz-rankings) on
+GitHub, or [add some performances](/performances/add).

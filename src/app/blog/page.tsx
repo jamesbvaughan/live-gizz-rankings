@@ -12,13 +12,13 @@ function BlogPosts() {
       {allBlogs
         .sort(
           (a, b) =>
-            new Date(a.metadata.publishedAt).getTime() -
-            new Date(b.metadata.publishedAt).getTime(),
+            new Date(b.metadata.publishedAt).getTime() -
+            new Date(a.metadata.publishedAt).getTime(),
         )
         .map((post) => (
           <Link
             key={post.slug}
-            className="inline-flex text-lg no-underline"
+            className="flex text-lg no-underline"
             href={`/blog/${post.slug}`}
           >
             <p className="text-muted w-[120px] tabular-nums">

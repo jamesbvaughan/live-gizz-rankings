@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
 
-import { ensureAdmin } from "../auth/utils";
+import { ensureSignedIn } from "../auth/utils";
 import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
@@ -25,7 +25,7 @@ export async function addPerformance(
   _initialState: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const userId = await ensureAdmin();
+  const userId = await ensureSignedIn();
 
   const {
     songId,
@@ -35,6 +35,15 @@ export async function addPerformance(
     youtubeVideoId,
     youtubeVideoStartTime,
   } = addPerformanceSchema.parse(formData);
+
+  // Validate that at least one streaming source is provided
+  if (!bandcampTrackId && !youtubeVideoId) {
+    return {
+      errorMessage:
+        "Please provide either a YouTube Video ID or a Bandcamp Track ID so people can listen to this performance.",
+      formData,
+    };
+  }
 
   // Check if performance already exists for this song and show
   const existingPerformance = await db.query.performances.findFirst({

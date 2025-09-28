@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { editPerformance } from "@/actions/editPerformance";
-import { ensureAdmin } from "@/auth/utils";
+import { ensureSignedIn } from "@/auth/utils";
 import PerformanceForm from "@/components/PerformanceForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getPerformanceBySlug, getShowById, getSongById } from "@/dbUtils";
@@ -11,10 +12,27 @@ interface EditPerformancePageProps {
   params: Promise<{ performanceSlug: string }>;
 }
 
+export async function generateMetadata({
+  params,
+}: EditPerformancePageProps): Promise<Metadata> {
+  const { performanceSlug } = await params;
+  const performance = await getPerformanceBySlug(performanceSlug);
+
+  const [song, show] = await Promise.all([
+    getSongById(performance.songId),
+    getShowById(performance.showId),
+  ]);
+
+  return {
+    title: `Edit Performance: ${song.title} - ${show.location}`,
+    description: `Edit details for the live performance of "${song.title}" from ${show.location} on Live Gizz Rankings.`,
+  };
+}
+
 export default async function EditPerformancePage({
   params,
 }: EditPerformancePageProps) {
-  await ensureAdmin();
+  await ensureSignedIn();
 
   const { performanceSlug } = await params;
   const [performance, songs, shows] = await Promise.all([
