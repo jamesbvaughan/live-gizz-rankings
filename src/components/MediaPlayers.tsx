@@ -5,8 +5,8 @@ import Link from "next/link";
 
 function SpotifyPlayer({ spotifyTrackId }: { spotifyTrackId: string }) {
   return (
+    // eslint-disable-next-line iframe-missing-sandbox
     <iframe
-      sandbox=""
       title="Spotify player"
       className="rounded-xl"
       width="100%"
@@ -28,8 +28,8 @@ function BandcampPlayer({
   const bgColor = "000000";
   const linkColor = "ff0000";
   return (
+    // eslint-disable-next-line iframe-missing-sandbox
     <iframe
-      sandbox=""
       title="Bandcamp player"
       width="100%"
       height="120"

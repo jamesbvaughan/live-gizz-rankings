@@ -215,8 +215,8 @@ export default async function ShowPage({ params }: Props) {
               <>
                 {" "}
                 or on Bandcamp:
+                {/* eslint-disable-next-line iframe-missing-sandbox */}
                 <iframe
-                  sandbox=""
                   title={`Bandcamp player for ${showTitle}`}
                   style={{
                     border: 0,

@@ -175,4 +175,5 @@ const cspHeader = `
   upgrade-insecure-requests;
 `;
 
-const cspHeaderValue = cspHeader.replaceAll("\\n", "");
+// eslint-disable-next-line prefer-string-replace-all
+const cspHeaderValue = cspHeader.replace(/\n/g, "");
