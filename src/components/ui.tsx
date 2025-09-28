@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ComponentProps, PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 
 export function PageType({ children }: PropsWithChildren) {
   return <div className="text-muted text-base font-bold">{children}</div>;

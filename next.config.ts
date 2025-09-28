@@ -1,6 +1,7 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
-import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
+import type { SentryBuildOptions } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {

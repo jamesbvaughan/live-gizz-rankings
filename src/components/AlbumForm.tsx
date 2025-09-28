@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Album } from "@/drizzle/schema";
+import type { Album } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";

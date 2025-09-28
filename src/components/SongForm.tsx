@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Album, Song } from "@/drizzle/schema";
+import type { Album, Song } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedSelect } from "./BoxedSelect";

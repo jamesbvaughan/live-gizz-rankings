@@ -1,6 +1,7 @@
 import { clsx } from "clsx";
-import Link, { LinkProps } from "next/link";
-import { ComponentProps } from "react";
+import type { LinkProps } from "next/link";
+import Link from "next/link";
+import type { ComponentProps } from "react";
 
 function StyledBoxedButton({ className, ...props }: ComponentProps<"div">) {
   return (

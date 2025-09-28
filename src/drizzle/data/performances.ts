@@ -28,7 +28,7 @@
 //
 // =============================================================================
 
-import { Performance } from "../schema";
+import type { Performance } from "../schema";
 import { seedShowObjects } from "./shows";
 import { seedSongs } from "./songs";
 

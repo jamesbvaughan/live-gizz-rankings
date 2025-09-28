@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import { Show } from "@/drizzle/schema";
+import type { Show } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";

@@ -3,13 +3,13 @@
 import {
   CategoryScale,
   Chart,
-  LinearScale,
   LineElement,
+  LinearScale,
   PointElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-import { Vote } from "@/drizzle/schema";
+import type { Vote } from "@/drizzle/schema";
 
 Chart.register(CategoryScale);
 Chart.register(LinearScale);

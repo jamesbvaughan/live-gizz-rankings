@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ import { isAdmin } from "@/auth/utils";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { Show } from "@/drizzle/schema";
+import type { Show } from "@/drizzle/schema";
 import { getShowPath, getShowTitle } from "@/utils";
 
 export const metadata: Metadata = {

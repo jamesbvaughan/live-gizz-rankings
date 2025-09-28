@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";

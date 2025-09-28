@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { db } from "@/drizzle/db";
-import { Album, performances, songs } from "@/drizzle/schema";
+import type { Album } from "@/drizzle/schema";
+import { performances, songs } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import { getAlbumPath, getSongPath } from "@/utils";
 

@@ -5,7 +5,8 @@ import pluralize from "pluralize";
 import { Suspense } from "react";
 
 import { db } from "@/drizzle/db";
-import { performances, Song, votes } from "@/drizzle/schema";
+import type { Song } from "@/drizzle/schema";
+import { performances, votes } from "@/drizzle/schema";
 import { songsNeverPlayedLive } from "@/songsNeverPlayedLive";
 import {
   getPerformancePathBySongAndShow,

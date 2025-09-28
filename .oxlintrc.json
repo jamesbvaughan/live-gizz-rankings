@@ -45,7 +45,12 @@
     ],
     // Rules that aren't automatically included in any category I've enabled but
     // that I want.
-    "curly": "error"
+    "curly": "error",
+    "jsx-boolean-value": "error",
+    "jsx-curly-brace-presence": "error",
+    "jsx-fragments": "error",
+    "self-closing-comp": "error",
+    "consistent-type-imports": "error"
   }
 }
 // vim: ft=jsonc

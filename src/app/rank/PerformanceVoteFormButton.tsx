@@ -5,7 +5,7 @@ import Form from "next/form";
 import { useActionState, useState } from "react";
 
 import { vote } from "@/actions/vote";
-import { Performance, Show } from "@/drizzle/schema";
+import type { Performance, Show } from "@/drizzle/schema";
 import { getShowTitle } from "@/utils";
 
 export function PerformanceFormButtons({

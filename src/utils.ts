@@ -1,5 +1,5 @@
-import { Route } from "next";
-import { Album, Show, Song } from "./drizzle/schema";
+import type { Route } from "next";
+import type { Album, Show, Song } from "./drizzle/schema";
 
 // =============================================================================
 // SHOWS
