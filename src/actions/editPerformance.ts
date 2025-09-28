@@ -9,6 +9,7 @@ import { ensureAdmin } from "../auth/utils";
 import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
+import { logUpdate } from "../lib/activityLogger";
 
 const editPerformanceSchema = zfd.formData({
   performanceId: zfd.text(),
@@ -36,18 +37,38 @@ export async function editPerformance(
     youtubeVideoStartTime,
   } = editPerformanceSchema.parse(formData);
 
-  const [updatedPerformance] = await db
-    .update(performances)
-    .set({
-      songId,
-      showId,
-      showPosition,
-      bandcampTrackId: bandcampTrackId || null,
-      youtubeVideoId: youtubeVideoId || null,
-      youtubeVideoStartTime: youtubeVideoStartTime || null,
-    })
-    .where(eq(performances.id, performanceId))
-    .returning();
+  const existingPerformance = await db.query.performances.findFirst({
+    where: eq(performances.id, performanceId),
+  });
+  if (!existingPerformance) {
+    throw new Error("Performance not found");
+  }
+
+  const updatedPerformance = await db.transaction(async (tx) => {
+    const [performance] = await tx
+      .update(performances)
+      .set({
+        songId,
+        showId,
+        showPosition,
+        bandcampTrackId: bandcampTrackId || null,
+        youtubeVideoId: youtubeVideoId || null,
+        youtubeVideoStartTime: youtubeVideoStartTime || null,
+      })
+      .where(eq(performances.id, performanceId))
+      .returning();
+
+    await logUpdate(
+      "performance",
+      performanceId,
+      existingPerformance,
+      performance,
+      userId,
+      tx,
+    );
+
+    return performance;
+  });
 
   console.log(`Performance updated by user ${userId}`);
 

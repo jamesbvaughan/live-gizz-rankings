@@ -3,6 +3,7 @@ import {
   boolean,
   date,
   integer,
+  jsonb,
   pgTable,
   real,
   text,
@@ -151,3 +152,16 @@ export const nominations = pgTable("nominations", {
 });
 
 export type Nomination = typeof nominations.$inferSelect;
+
+export const activityLogs = pgTable("activity_logs", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: text("user_id").notNull(), // Clerk user ID
+  action: text("action").notNull(), // "create", "update", "delete"
+  entityType: text("entity_type").notNull(), // "album", "song", "show", "performance"
+  entityId: uuid("entity_id").notNull(), // ID of the modified entity
+  entityBefore: jsonb("entity_before").$type<Record<string, any>>(), // null for creates
+  entityAfter: jsonb("entity_after").$type<Record<string, any>>(), // null for deletes
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export type ActivityLog = typeof activityLogs.$inferSelect;

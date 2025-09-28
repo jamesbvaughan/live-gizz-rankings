@@ -8,6 +8,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
+import { logUpdate } from "../lib/activityLogger";
 import { getShowPath } from "../utils";
 
 const editShowSchema = zfd.formData({
@@ -36,18 +37,31 @@ export async function editShow(
     imageUrl,
   } = editShowSchema.parse(formData);
 
-  const [updatedShow] = await db
-    .update(shows)
-    .set({
-      slug,
-      location,
-      date,
-      bandcampAlbumId: bandcampAlbumId || null,
-      youtubeVideoId: youtubeVideoId || null,
-      imageUrl,
-    })
-    .where(eq(shows.id, showId))
-    .returning();
+  const existingShow = await db.query.shows.findFirst({
+    where: eq(shows.id, showId),
+  });
+  if (!existingShow) {
+    throw new Error("Show not found");
+  }
+
+  const updatedShow = await db.transaction(async (tx) => {
+    const [show] = await tx
+      .update(shows)
+      .set({
+        slug,
+        location,
+        date,
+        bandcampAlbumId: bandcampAlbumId || null,
+        youtubeVideoId: youtubeVideoId || null,
+        imageUrl,
+      })
+      .where(eq(shows.id, showId))
+      .returning();
+
+    await logUpdate("show", showId, existingShow, show, userId, tx);
+
+    return show;
+  });
 
   console.log(`Show updated: ${location} ${date} by user ${userId}`);
 

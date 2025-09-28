@@ -8,6 +8,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { songs } from "../drizzle/schema";
+import { logUpdate } from "../lib/activityLogger";
 import { getSongPath } from "../utils";
 
 const editSongSchema = zfd.formData({
@@ -27,16 +28,29 @@ export async function editSong(
   const { songId, title, slug, albumId, albumPosition } =
     editSongSchema.parse(formData);
 
-  const [updatedSong] = await db
-    .update(songs)
-    .set({
-      title,
-      slug,
-      albumId,
-      albumPosition,
-    })
-    .where(eq(songs.id, songId))
-    .returning();
+  const existingSong = await db.query.songs.findFirst({
+    where: eq(songs.id, songId),
+  });
+  if (!existingSong) {
+    throw new Error("Song not found");
+  }
+
+  const updatedSong = await db.transaction(async (tx) => {
+    const [song] = await tx
+      .update(songs)
+      .set({
+        title,
+        slug,
+        albumId,
+        albumPosition,
+      })
+      .where(eq(songs.id, songId))
+      .returning();
+
+    await logUpdate("song", songId, existingSong, song, userId, tx);
+
+    return song;
+  });
 
   console.log(`Song updated: ${title} by user ${userId}`);
 

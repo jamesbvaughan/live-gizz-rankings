@@ -7,6 +7,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
+import { logCreate } from "../lib/activityLogger";
 import { getAlbumPath } from "../utils";
 
 const addAlbumSchema = zfd.formData({
@@ -26,16 +27,22 @@ export async function addAlbum(
   const { title, slug, releaseDate, imageUrl, bandcampAlbumId } =
     addAlbumSchema.parse(formData);
 
-  const [newAlbum] = await db
-    .insert(albums)
-    .values({
-      title,
-      slug,
-      releaseDate,
-      imageUrl,
-      bandcampAlbumId,
-    })
-    .returning();
+  const newAlbum = await db.transaction(async (tx) => {
+    const [album] = await tx
+      .insert(albums)
+      .values({
+        title,
+        slug,
+        releaseDate,
+        imageUrl,
+        bandcampAlbumId,
+      })
+      .returning();
+
+    await logCreate("album", album.id, album, userId, tx);
+
+    return album;
+  });
 
   console.log(`New album added: ${title} by user ${userId}`);
 
