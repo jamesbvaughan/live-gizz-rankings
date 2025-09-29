@@ -1,8 +1,8 @@
-import type { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react";
 
 interface BoxedInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  helpText?: string;
+  helpText?: ReactNode;
   errorMessage?: string;
 }
 

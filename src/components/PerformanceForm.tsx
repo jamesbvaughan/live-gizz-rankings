@@ -13,6 +13,7 @@ import {
   getFormNumberValue,
   initialActionState,
 } from "@/lib/actionState";
+import Link from "next/link";
 
 interface PerformanceFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
@@ -120,6 +121,12 @@ export default function PerformanceForm({
           defaultShowId
         }
         errorMessage="Please select a show"
+        helpText={
+          <>
+            Don&apos;t see the show you&apos;re looking for?{" "}
+            <Link href="/shows/add">Add it</Link>!
+          </>
+        }
       >
         <option value="">Select a show...</option>
         {sortedShows.map((show) => (

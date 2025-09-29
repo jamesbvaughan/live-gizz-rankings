@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
 
-import { ensureAdmin } from "../auth/utils";
+import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
@@ -25,7 +25,7 @@ export async function addShow(
   _initialState: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const userId = await ensureAdmin();
+  const userId = await ensureSignedIn();
 
   const { slug, location, date, bandcampAlbumId, youtubeVideoId, imageUrl } =
     addShowSchema.parse(formData);
