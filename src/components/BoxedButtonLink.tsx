@@ -33,9 +33,9 @@ export function BoxedButton({
   return (
     <button
       {...props}
-      className="group-invalid:pointer-events-none enabled:cursor-pointer"
+      className="group-invalid:pointer-events-none enabled:cursor-pointer disabled:pointer-events-none disabled:opacity-50"
     >
-      <StyledBoxedButton className="group-invalid:border-muted group-invalid:hover:border-muted group-invalid:opacity-50 group-invalid:hover:text-current disabled:opacity-50">
+      <StyledBoxedButton className="group-invalid:border-muted group-invalid:hover:border-muted group-invalid:opacity-50 group-invalid:hover:text-current">
         {children}
       </StyledBoxedButton>
     </button>
