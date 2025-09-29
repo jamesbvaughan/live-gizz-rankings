@@ -34,6 +34,7 @@ export async function sendEditNotification(data: EditNotificationData) {
           details={data.details}
           userInfo={userInfo}
           timestamp={new Date().toLocaleString()}
+          environment={process.env.NODE_ENV || "development"}
         />
       ),
     });

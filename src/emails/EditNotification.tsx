@@ -17,6 +17,7 @@ interface EditNotificationProps {
   details?: string;
   userInfo: string;
   timestamp: string;
+  environment: string;
 }
 
 export default function EditNotification({
@@ -26,6 +27,7 @@ export default function EditNotification({
   details,
   userInfo,
   timestamp,
+  environment,
 }: EditNotificationProps) {
   const previewText = `${entityType.charAt(0).toUpperCase() + entityType.slice(1)} ${details ? details.split(":")[1]?.trim() || entityType : entityType} ${action}d`;
 
@@ -56,6 +58,12 @@ export default function EditNotification({
             )}
             <Text style={text}>
               <strong>Time:</strong> {timestamp}
+            </Text>
+            <Text style={text}>
+              <strong>Environment:</strong>{" "}
+              <span style={environmentBadge(environment)}>
+                {environment.toUpperCase()}
+              </span>
             </Text>
           </Section>
 
@@ -144,3 +152,13 @@ const footer = {
   lineHeight: "1.5",
   margin: "20px 0 0 0",
 };
+
+const environmentBadge = (env: string) => ({
+  backgroundColor: env === "production" ? "#22c55e" : "#f59e0b",
+  color: "white",
+  padding: "2px 6px",
+  borderRadius: "4px",
+  fontSize: "11px",
+  fontWeight: "bold",
+  textTransform: "uppercase" as const,
+});
