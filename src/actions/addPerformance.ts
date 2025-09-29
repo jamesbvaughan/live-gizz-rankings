@@ -7,10 +7,10 @@ import { zfd } from "zod-form-data";
 import { ensureSignedIn } from "../auth/utils";
 import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
-import { performances } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
 import { sendEditNotification } from "../lib/emailNotification";
 import { eq, and } from "drizzle-orm";
+import { nominations, performances } from "../drizzle/schema";
 import type { ActionState } from "@/lib/actionState";
 
 const addPerformanceSchema = zfd.formData({
@@ -20,6 +20,7 @@ const addPerformanceSchema = zfd.formData({
   bandcampTrackId: zfd.text().optional(),
   youtubeVideoId: zfd.text().optional(),
   youtubeVideoStartTime: zfd.numeric().optional(),
+  nominationId: zfd.text().optional(),
 });
 
 export async function addPerformance(
@@ -35,6 +36,7 @@ export async function addPerformance(
     bandcampTrackId,
     youtubeVideoId,
     youtubeVideoStartTime,
+    nominationId,
   } = addPerformanceSchema.parse(formData);
 
   // Validate that at least one streaming source is provided
@@ -75,6 +77,16 @@ export async function addPerformance(
 
     await logCreate("performance", performance.id, performance, userId, tx);
 
+    // Link the nomination to this performance if nomination ID was provided
+    if (nominationId) {
+      await tx
+        .update(nominations)
+        .set({
+          performanceId: performance.id,
+        })
+        .where(eq(nominations.id, nominationId));
+    }
+
     return performance;
   });
 
@@ -90,6 +102,11 @@ export async function addPerformance(
   revalidatePath("/performances");
   revalidatePath(`/songs/${songId}`);
   revalidatePath(`/shows/${showId}`);
+
+  // Revalidate nominations page if a nomination was linked
+  if (nominationId) {
+    revalidatePath("/nominations");
+  }
 
   const performancePath = await getPerformancePath(newPerformance);
   redirect(performancePath);

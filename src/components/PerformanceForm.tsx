@@ -24,6 +24,7 @@ interface PerformanceFormProps {
   defaultSongId?: string;
   defaultShowId?: string;
   defaultYoutubeVideoId?: string;
+  nominationId?: string;
 }
 
 export default function PerformanceForm({
@@ -35,6 +36,7 @@ export default function PerformanceForm({
   defaultSongId,
   defaultShowId,
   defaultYoutubeVideoId,
+  nominationId,
 }: PerformanceFormProps) {
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
@@ -81,6 +83,9 @@ export default function PerformanceForm({
     <form action={formAction} className="group space-y-6" noValidate>
       {performance && (
         <input type="hidden" name="performanceId" value={performance.id} />
+      )}
+      {nominationId && (
+        <input type="hidden" name="nominationId" value={nominationId} />
       )}
 
       {errorMessage && <p className="text-red">{errorMessage}</p>}

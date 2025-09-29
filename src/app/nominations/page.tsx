@@ -15,10 +15,6 @@ export const metadata: Metadata = {
   title: "Nominations",
 };
 
-// Force this page to always be dynamic.
-// We can remove this after all edits go through the app.
-export const dynamic = "force-dynamic";
-
 async function NominationRow({
   nomination,
   showEditLink = false,
@@ -56,7 +52,7 @@ async function NominationRow({
             !nomination.performanceId &&
             !nomination.willNotAdd && (
               <BoxedButtonLink
-                href={`/performances/add?nomination=${encodeURIComponent(nomination.message)}`}
+                href={`/performances/add?nomination=${encodeURIComponent(nomination.message)}&nominationId=${nomination.id}`}
                 className="shrink-0"
               >
                 Add Performance

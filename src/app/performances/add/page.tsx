@@ -78,7 +78,12 @@ function NominationBox({
 }
 
 interface AddPerformancePageProps {
-  searchParams: Promise<{ song?: string; show?: string; nomination?: string }>;
+  searchParams: Promise<{
+    song?: string;
+    show?: string;
+    nomination?: string;
+    nominationId?: string;
+  }>;
 }
 
 export default async function AddPerformancePage({
@@ -86,7 +91,12 @@ export default async function AddPerformancePage({
 }: AddPerformancePageProps) {
   await ensureSignedIn();
 
-  const { song: songId, show: showId, nomination } = await searchParams;
+  const {
+    song: songId,
+    show: showId,
+    nomination,
+    nominationId,
+  } = await searchParams;
   const [songs, shows] = await Promise.all([
     db.query.songs.findMany({
       with: {
@@ -144,6 +154,7 @@ export default async function AddPerformancePage({
           defaultSongId={parsedSongId}
           defaultShowId={parsedShowId}
           defaultYoutubeVideoId={defaultYoutubeVideoId}
+          nominationId={nominationId}
         />
       </PageContent>
     </>
