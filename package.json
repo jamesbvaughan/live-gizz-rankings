@@ -9,8 +9,6 @@
     "build:analyze": "ANALYZE=true bun run build",
     "build:vercel": "bun db:push && next build",
     "db:push": "drizzle-kit push",
-    "db:seed": "bun validate-seeds && tsx src/drizzle/seed.ts",
-    "validate-seeds": "tsx src/drizzle/validateSeeds.ts",
     "start": "next start",
     "lint:oxlint": "oxlint --type-aware",
     "lint:prettier": "prettier .",
