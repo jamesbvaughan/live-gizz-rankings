@@ -24,6 +24,7 @@ export function parseNomination(
     /^(.+?)\s+(?:at|in|live|from|during)\s+/i,
     /^(.+?)\s+-\s+/i,
     /^(.+?)\s+\(/i,
+    /^(.+?),\s+/i, // Handle comma-separated format like "Song, Location"
   ];
 
   let potentialSongName = "";
@@ -37,7 +38,9 @@ export function parseNomination(
 
   // If no pattern matched, try first part before common separators
   if (!potentialSongName) {
-    const firstPart = message.split(/\s+(?:at|in|live|from|during|-|\()/i)[0];
+    const firstPart = message.split(
+      /\s+(?:at|in|live|from|during|-|\()|,\s+/i,
+    )[0];
     if (firstPart && firstPart.length > 2) {
       potentialSongName = firstPart.trim();
     }
@@ -47,6 +50,7 @@ export function parseNomination(
   const locationPatterns = [
     /(?:at|in|live\s+(?:at|in))\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i,
     /(?:from|during)\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i,
+    /,\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i, // Handle comma-separated format like "Song, Location"
   ];
 
   let potentialLocation = "";
@@ -108,24 +112,39 @@ export function parseNomination(
 }
 
 /**
+ * Normalize song names for better matching by handling common variations
+ */
+function normalizeSongName(songName: string): string {
+  return songName
+    .toLowerCase()
+    .replaceAll("-", " ") // Replace hyphens with spaces (e.g., "People-Vultures" -> "People Vultures")
+    .replaceAll(/\s+/g, " ") // Normalize multiple spaces to single space
+    .trim();
+}
+
+/**
  * Calculate similarity between two strings using a combination of techniques
  */
 function calculateSimilarity(str1: string, str2: string): number {
-  // Exact match
-  if (str1 === str2) {
+  // Normalize both strings for comparison
+  const norm1 = normalizeSongName(str1);
+  const norm2 = normalizeSongName(str2);
+
+  // Exact match after normalization
+  if (norm1 === norm2) {
     return 1.0;
   }
 
-  // Check if one string contains the other
-  if (str1.includes(str2) || str2.includes(str1)) {
-    const shorter = str1.length < str2.length ? str1 : str2;
-    const longer = str1.length >= str2.length ? str1 : str2;
+  // Check if one normalized string contains the other
+  if (norm1.includes(norm2) || norm2.includes(norm1)) {
+    const shorter = norm1.length < norm2.length ? norm1 : norm2;
+    const longer = norm1.length >= norm2.length ? norm1 : norm2;
     return (shorter.length / longer.length) * 0.9;
   }
 
-  // Word-based similarity
-  const words1 = str1.split(/\s+/);
-  const words2 = str2.split(/\s+/);
+  // Word-based similarity using normalized strings
+  const words1 = norm1.split(/\s+/);
+  const words2 = norm2.split(/\s+/);
 
   let matchingWords = 0;
   for (const word1 of words1) {
