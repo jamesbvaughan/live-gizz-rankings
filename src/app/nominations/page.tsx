@@ -43,7 +43,7 @@ async function NominationRow({
               <span>{nomination.message}</span>
             )}
           </div>
-          <div className="text-muted text-sm mt-1">
+          <div className="text-muted mt-1 text-sm">
             Submitted{" "}
             {formatDistanceToNow(nomination.createdAt, { addSuffix: true })} by{" "}
             {nomination.userId ?? "an anonymous visitor"}
