@@ -8,6 +8,7 @@ import { db } from "@/drizzle/db";
 import { parseNomination } from "@/lib/nominationParser";
 import type { Show, Song, Album } from "@/drizzle/schema";
 import Link from "next/link";
+import { getShowTitle } from "@/utils";
 
 export const metadata: Metadata = {
   title: "Add Performance",
@@ -34,6 +35,7 @@ function NominationBox({
   parseConfidence,
   defaultYoutubeVideoId,
 }: NominationBoxProps) {
+  const show = shows.find((s) => s.id === parsedShowId);
   return (
     <div className="border-red mb-6 border p-4">
       <h3 className="text-foreground mb-2 font-semibold">
@@ -48,11 +50,7 @@ function NominationBox({
             </span>
           )}
           {parsedSongId && parsedShowId && <span className="mx-1">•</span>}
-          {parsedShowId && (
-            <span>
-              Show: {shows.find((s) => s.id === parsedShowId)?.location}
-            </span>
-          )}
+          {show && <span>Show: {getShowTitle(show)}</span>}
           <span className="text-muted ml-1">
             (confidence: {Math.round(parseConfidence * 100)}%)
           </span>
