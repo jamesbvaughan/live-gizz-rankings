@@ -10,6 +10,7 @@ import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { and, ne } from "drizzle-orm";
 import type { ActionState } from "@/lib/actionState";
 
@@ -100,6 +101,13 @@ export async function editPerformance(
   });
 
   console.log(`Performance updated by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "performance",
+    action: "update",
+    entityId: performanceId,
+    details: `Song: ${songId}, Show: ${showId}`,
+  });
 
   const performancePath = await getPerformancePath(updatedPerformance);
 

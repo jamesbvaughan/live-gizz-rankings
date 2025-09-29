@@ -9,6 +9,7 @@ import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { getAlbumPath } from "../utils";
 import type { ActionState } from "@/lib/actionState";
 
@@ -70,6 +71,13 @@ export async function editAlbum(
   });
 
   console.log(`Album updated: ${title} by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "album",
+    action: "update",
+    entityId: albumId,
+    details: `Title: ${title}`,
+  });
 
   const albumPath = getAlbumPath(updatedAlbum);
 

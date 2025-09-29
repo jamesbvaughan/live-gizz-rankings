@@ -9,6 +9,7 @@ import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { songs } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { getSongPath } from "../utils";
 import type { ActionState } from "@/lib/actionState";
 
@@ -68,6 +69,13 @@ export async function editSong(
   });
 
   console.log(`Song updated: ${title} by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "song",
+    action: "update",
+    entityId: songId,
+    details: `Title: ${title}`,
+  });
 
   const songPath = getSongPath(updatedSong);
 

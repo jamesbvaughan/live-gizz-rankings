@@ -9,6 +9,7 @@ import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { getShowPath } from "../utils";
 import type { ActionState } from "@/lib/actionState";
 
@@ -79,6 +80,13 @@ export async function editShow(
   });
 
   console.log(`Show updated: ${location} ${date} by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "show",
+    action: "update",
+    entityId: showId,
+    details: `Location: ${location}, Date: ${date}`,
+  });
 
   const showPath = getShowPath(updatedShow);
 

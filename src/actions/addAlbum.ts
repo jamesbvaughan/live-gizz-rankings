@@ -8,6 +8,7 @@ import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { albums } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { getAlbumPath } from "../utils";
 import { eq } from "drizzle-orm";
 import type { ActionState } from "@/lib/actionState";
@@ -57,6 +58,13 @@ export async function addAlbum(
   });
 
   console.log(`New album added: ${title} by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "album",
+    action: "create",
+    entityId: newAlbum.id,
+    details: `Title: ${title}`,
+  });
 
   revalidatePath("/albums");
 
