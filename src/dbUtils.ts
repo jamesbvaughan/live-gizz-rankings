@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { db } from "./drizzle/db";
 import type { Performance, Show } from "./drizzle/schema";
-import { performances, shows, songs } from "./drizzle/schema";
+import { nominations, performances, shows, songs } from "./drizzle/schema";
 import { getPerformanceSlugBySongAndShow } from "./utils";
 import type { Route } from "next";
 
@@ -125,4 +125,18 @@ export async function getAlbumBySlug(albumSlug: string) {
   }
 
   return album;
+}
+
+// =============================================================================
+// NOMINATIONS
+
+export async function getNominationById(nominationId: string) {
+  const nomination = await db.query.nominations.findFirst({
+    where: eq(nominations.id, nominationId),
+  });
+  if (nomination == null) {
+    notFound();
+  }
+
+  return nomination;
 }
