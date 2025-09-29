@@ -166,7 +166,21 @@ export default function PerformanceForm({
           ""
         }
         placeholder="e.g., 1234567890"
-        helpText="The unique track ID from Bandcamp. You can get this from the individual track's page on Bandcamp by copying the HTML embed code for the track and finding the track ID in it."
+        helpText={
+          <>
+            The unique track ID from{" "}
+            <Link
+              href="https://bootleggizzard.bandcamp.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Bandcamp
+            </Link>
+            . You can get this from the individual track&apos;s page on Bandcamp
+            by copying the HTML embed code for the track and finding the track
+            ID in it.
+          </>
+        }
         errorMessage="Must be a valid Bandcamp track ID"
       />
 
