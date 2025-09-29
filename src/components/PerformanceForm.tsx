@@ -23,6 +23,7 @@ interface PerformanceFormProps {
   submitLabel?: string;
   defaultSongId?: string;
   defaultShowId?: string;
+  defaultYoutubeVideoId?: string;
 }
 
 export default function PerformanceForm({
@@ -33,6 +34,7 @@ export default function PerformanceForm({
   submitLabel = "Save",
   defaultSongId,
   defaultShowId,
+  defaultYoutubeVideoId,
 }: PerformanceFormProps) {
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
@@ -176,6 +178,7 @@ export default function PerformanceForm({
         defaultValue={
           getFormValue(formData, "youtubeVideoId") ||
           performance?.youtubeVideoId ||
+          defaultYoutubeVideoId ||
           ""
         }
         placeholder="e.g., dQw4w9WgXcQ"

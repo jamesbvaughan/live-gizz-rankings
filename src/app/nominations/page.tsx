@@ -22,9 +22,11 @@ export const dynamic = "force-dynamic";
 async function NominationRow({
   nomination,
   showEditLink = false,
+  showAddPerformanceLink = false,
 }: {
   nomination: Nomination;
   showEditLink?: boolean;
+  showAddPerformanceLink?: boolean;
 }) {
   const performancePath = nomination.performanceId
     ? await getPerformancePath(nomination.performanceId)
@@ -49,14 +51,26 @@ async function NominationRow({
             {nomination.userId ?? "an anonymous visitor"}
           </div>
         </div>
-        {showEditLink && (
-          <BoxedButtonLink
-            href={`/nominations/${nomination.id}/edit`}
-            className="shrink-0"
-          >
-            Edit
-          </BoxedButtonLink>
-        )}
+        <div className="flex gap-2">
+          {showAddPerformanceLink &&
+            !nomination.performanceId &&
+            !nomination.willNotAdd && (
+              <BoxedButtonLink
+                href={`/performances/add?nomination=${encodeURIComponent(nomination.message)}`}
+                className="shrink-0"
+              >
+                Add Performance
+              </BoxedButtonLink>
+            )}
+          {showEditLink && (
+            <BoxedButtonLink
+              href={`/nominations/${nomination.id}/edit`}
+              className="shrink-0"
+            >
+              Edit
+            </BoxedButtonLink>
+          )}
+        </div>
       </div>
     </li>
   );
@@ -65,9 +79,11 @@ async function NominationRow({
 function NominationList({
   nominations,
   showEditLinks = false,
+  showAddPerformanceLinks = false,
 }: {
   nominations: Nomination[];
   showEditLinks?: boolean;
+  showAddPerformanceLinks?: boolean;
 }) {
   return (
     <ul className="ml-6 list-disc space-y-2">
@@ -77,6 +93,7 @@ function NominationList({
             key={nomination.id}
             nomination={nomination}
             showEditLink={showEditLinks}
+            showAddPerformanceLink={showAddPerformanceLinks}
           />
         );
       })}
@@ -119,6 +136,7 @@ export default async function NominationsPage() {
           <NominationList
             nominations={nominationsToBeAdded}
             showEditLinks={adminStatus}
+            showAddPerformanceLinks={adminStatus}
           />
         </div>
 
