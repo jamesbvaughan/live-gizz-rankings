@@ -41,8 +41,8 @@ export default function ShowForm({
         minLength={1}
         maxLength={100}
         defaultValue={getFormValue(formData, "slug") || show?.slug}
-        placeholder="e.g., 2023-10-15-atlanta-ga"
-        helpText="URL-friendly identifier (lowercase, hyphens, typically date-location format)"
+        placeholder="atlanta-2024"
+        helpText="URL-friendly identifier (lowercase, hyphens, typically <location>-<year> format)"
         errorMessage="Slug must be lowercase letters, numbers, and hyphens only"
       />
 
@@ -55,8 +55,8 @@ export default function ShowForm({
         minLength={1}
         maxLength={300}
         defaultValue={getFormValue(formData, "location") || show?.location}
-        placeholder="e.g., Atlanta, GA"
-        helpText="Show venue and location"
+        placeholder="Atlanta"
+        helpText="Show location, typically just a city or festival name"
         errorMessage="Location is required and must be between 1-300 characters"
       />
 
@@ -93,7 +93,7 @@ export default function ShowForm({
           show?.bandcampAlbumId ||
           ""
         }
-        placeholder="e.g., 1234567890"
+        placeholder="e.g. 1234567890"
         helpText="The numeric ID from the Bandcamp album URL"
         errorMessage="Must be a valid Bandcamp album ID"
       />
@@ -106,7 +106,7 @@ export default function ShowForm({
         defaultValue={
           getFormValue(formData, "youtubeVideoId") || show?.youtubeVideoId || ""
         }
-        placeholder="e.g., dQw4w9WgXcQ"
+        placeholder="e.g. dQw4w9WgXcQ"
         helpText="The video ID from a YouTube URL"
         errorMessage="Must be a valid YouTube video ID"
       />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { editShow } from "@/actions/editShow";
-import { ensureAdmin } from "@/auth/utils";
+import { ensureSignedIn } from "@/auth/utils";
 import ShowForm from "@/components/ShowForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getShowTitle } from "@/utils";
@@ -26,7 +26,7 @@ export async function generateMetadata({
 }
 
 export default async function EditShowPage({ params }: EditShowPageProps) {
-  await ensureAdmin();
+  await ensureSignedIn();
 
   const { showSlug } = await params;
   const show = await getShowBySlug(showSlug);

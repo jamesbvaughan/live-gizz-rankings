@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { addShow } from "@/actions/addShow";
-import { ensureAdmin } from "@/auth/utils";
+import { ensureSignedIn } from "@/auth/utils";
 import ShowForm from "@/components/ShowForm";
 import { PageContent, PageTitle } from "@/components/ui";
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AddShowPage() {
-  await ensureAdmin();
+  await ensureSignedIn();
 
   return (
     <>

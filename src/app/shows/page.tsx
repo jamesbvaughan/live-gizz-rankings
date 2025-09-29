@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { isAdmin } from "@/auth/utils";
+import { isSignedIn } from "@/auth/utils";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default async function ShowsPage() {
-  const [allShows, adminStatus] = await Promise.all([
+  const [allShows, signedIn] = await Promise.all([
     db.query.shows.findMany(),
-    isAdmin(),
+    isSignedIn(),
   ]);
 
   const showsByYear: Record<string, Show[]> = {};
@@ -42,7 +42,7 @@ export default async function ShowsPage() {
     <>
       <div className="flex items-center justify-between">
         <PageTitle>Shows with ranked performances</PageTitle>
-        {adminStatus && (
+        {signedIn && (
           <BoxedButtonLink href="/shows/add">Add Show</BoxedButtonLink>
         )}
       </div>

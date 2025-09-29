@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
 
-import { ensureAdmin } from "../auth/utils";
+import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
@@ -26,7 +26,7 @@ export async function editShow(
   _initialState: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const userId = await ensureAdmin();
+  const userId = await ensureSignedIn();
 
   const {
     showId,

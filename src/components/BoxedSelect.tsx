@@ -1,8 +1,8 @@
-import type { SelectHTMLAttributes } from "react";
+import type { ReactNode, SelectHTMLAttributes } from "react";
 
 interface BoxedSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
-  helpText?: string;
+  helpText?: ReactNode;
   errorMessage?: string;
 }
 
