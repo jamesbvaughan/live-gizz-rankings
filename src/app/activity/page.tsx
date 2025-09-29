@@ -83,7 +83,7 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
   const actionColors = {
     create: "text-green-600",
     update: "text-blue-600",
-    delete: "text-red-600",
+    delete: "text-red",
   };
 
   const entityTypeLabels = {
@@ -155,7 +155,7 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
           </summary>
           <div className="mt-2 space-y-2">
             <div>
-              <div className="text-xs font-semibold text-red-600">Before:</div>
+              <div className="text-xs font-semibold text-red">Before:</div>
               <pre className="bg-muted-3 overflow-x-auto rounded p-2 text-xs">
                 {JSON.stringify(log.entityBefore, null, 2)}
               </pre>
