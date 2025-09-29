@@ -8,6 +8,7 @@ import { zfd } from "zod-form-data";
 import { ensureAdmin } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { nominations } from "../drizzle/schema";
+import { sendEditNotification } from "../lib/emailNotification";
 import type { ActionState } from "@/lib/actionState";
 
 const editNominationSchema = zfd.formData({
@@ -34,6 +35,17 @@ export async function editNomination(
     .where(eq(nominations.id, nominationId));
 
   console.log(`Nomination updated: ${nominationId}`);
+
+  await sendEditNotification({
+    entityType: "nomination",
+    action: "update",
+    entityId: nominationId,
+    details: performanceId
+      ? `Linked to performance: ${performanceId}`
+      : willNotAdd
+        ? "Marked as will not add"
+        : "Updated",
+  });
 
   revalidatePath("/nominations");
   redirect("/nominations");

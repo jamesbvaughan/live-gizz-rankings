@@ -8,6 +8,7 @@ import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
 import { shows } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { getShowPath } from "../utils";
 import { eq } from "drizzle-orm";
 import type { ActionState } from "@/lib/actionState";
@@ -59,6 +60,13 @@ export async function addShow(
   });
 
   console.log(`New show added: ${location} ${date} by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "show",
+    action: "create",
+    entityId: newShow.id,
+    details: `${location} - ${date}`,
+  });
 
   revalidatePath("/shows");
 

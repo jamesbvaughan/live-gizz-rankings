@@ -9,6 +9,7 @@ import { getPerformancePath } from "../dbUtils";
 import { db } from "../drizzle/db";
 import { performances } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
+import { sendEditNotification } from "../lib/emailNotification";
 import { eq, and } from "drizzle-orm";
 import type { ActionState } from "@/lib/actionState";
 
@@ -78,6 +79,13 @@ export async function addPerformance(
   });
 
   console.log(`New performance added by user ${userId}`);
+
+  await sendEditNotification({
+    entityType: "performance",
+    action: "create",
+    entityId: newPerformance.id,
+    details: `Song: ${songId}, Show: ${showId}`,
+  });
 
   revalidatePath("/performances");
   revalidatePath(`/songs/${songId}`);
