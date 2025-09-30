@@ -10,10 +10,11 @@ import { db } from "../drizzle/db";
 import { nominations } from "../drizzle/schema";
 import { sendEditNotification } from "../lib/emailNotification";
 import type { ActionState } from "@/lib/actionState";
+import z from "zod/v4";
 
 const editNominationSchema = zfd.formData({
   nominationId: zfd.text(),
-  performanceId: zfd.text().optional(),
+  performanceId: zfd.text(z.string().optional()),
   willNotAdd: zfd.checkbox(),
 });
 
