@@ -46,7 +46,7 @@ export default async function Albums() {
             <div key={year} className="space-y-4">
               <h2 className="text-2xl">{year}</h2>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {albums!.map((album) => {
                   const albumPath = getAlbumPath(album);
 
