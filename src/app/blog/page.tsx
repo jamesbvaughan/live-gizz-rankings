@@ -10,7 +10,7 @@ function BlogPosts() {
   return (
     <div>
       {allBlogs
-        .sort(
+        .toSorted(
           (a, b) =>
             new Date(b.metadata.publishedAt).getTime() -
             new Date(a.metadata.publishedAt).getTime(),

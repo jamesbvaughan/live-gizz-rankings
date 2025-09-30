@@ -80,7 +80,7 @@ export async function SongsWithoutPerformances({
   performanceCount: number;
 }) {
   const allAlbums = await db.query.albums.findMany();
-  const albums = [...allAlbums].sort(
+  const albums = allAlbums.toSorted(
     (a, b) =>
       new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime(),
   );

@@ -77,7 +77,7 @@ export function parseNomination(
         ),
       }))
       .filter((match) => match.score > 0.3) // Minimum threshold
-      .sort((a, b) => b.score - a.score);
+      .toSorted((a, b) => b.score - a.score);
 
     if (songMatches.length > 0) {
       bestSong = songMatches[0].song;
@@ -96,7 +96,7 @@ export function parseNomination(
         ),
       }))
       .filter((match) => match.score > 0.3) // Minimum threshold
-      .sort((a, b) => b.score - a.score);
+      .toSorted((a, b) => b.score - a.score);
 
     if (showMatches.length > 0) {
       bestShow = showMatches[0].show;
