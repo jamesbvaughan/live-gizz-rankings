@@ -28,12 +28,16 @@ export function BoxedButtonLink<RouteType>({
 
 export function BoxedButton({
   children,
+  className,
   ...props
 }: Exclude<ComponentProps<"button">, "className">) {
   return (
     <button
       {...props}
-      className="group-invalid:pointer-events-none enabled:cursor-pointer disabled:pointer-events-none disabled:opacity-50"
+      className={clsx(
+        "group-invalid:pointer-events-none enabled:cursor-pointer disabled:pointer-events-none disabled:opacity-50",
+        className,
+      )}
     >
       <StyledBoxedButton className="group-invalid:border-muted disabled:border-muted group-invalid:hover:border-muted group-invalid:opacity-50 group-invalid:hover:text-current">
         {children}
