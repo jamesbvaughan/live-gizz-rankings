@@ -1,4 +1,4 @@
-import { desc } from "drizzle-orm";
+import { desc, and, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
@@ -8,8 +8,17 @@ import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getPerformancePath } from "@/dbUtils";
 import { db } from "@/drizzle/db";
-import type { Nomination } from "@/drizzle/schema";
-import { nominations } from "@/drizzle/schema";
+import type {
+  Album,
+  Nomination,
+  Performance,
+  Show,
+  Song,
+} from "@/drizzle/schema";
+import { nominations, performances } from "@/drizzle/schema";
+import { parseNomination } from "@/lib/nominationParser";
+import { getPerformanceTitle } from "@/utils";
+import { LinkPerformanceButton } from "./LinkPerformanceButton";
 
 export const metadata: Metadata = {
   title: "Nominations",
@@ -19,14 +28,45 @@ async function NominationRow({
   nomination,
   showEditLink = false,
   showAddPerformanceLink = false,
+  showLinkPerformanceButton = false,
+  songs,
+  shows,
 }: {
   nomination: Nomination;
   showEditLink?: boolean;
   showAddPerformanceLink?: boolean;
+  showLinkPerformanceButton?: boolean;
+  songs: Array<Song & { album: Album }>;
+  shows: Show[];
 }) {
   const performancePath = nomination.performanceId
     ? await getPerformancePath(nomination.performanceId)
     : null;
+
+  // Parse nomination to find potential existing performance
+  let suggestedPerformance: (Performance & { song: Song; show: Show }) | null =
+    null;
+  if (!nomination.performanceId && !nomination.willNotAdd) {
+    const parsed = parseNomination(nomination.message, { songs, shows });
+
+    if (parsed.songId && parsed.showId && parsed.confidence > 0.5) {
+      // Only suggest if confidence is reasonable
+      const existingPerformance = await db.query.performances.findFirst({
+        where: and(
+          eq(performances.songId, parsed.songId),
+          eq(performances.showId, parsed.showId),
+        ),
+        with: {
+          song: true,
+          show: true,
+        },
+      });
+      if (existingPerformance) {
+        suggestedPerformance = existingPerformance;
+      }
+    }
+  }
+
   return (
     <li className="space-y-2">
       <div className="flex items-start justify-between gap-4">
@@ -41,6 +81,23 @@ async function NominationRow({
               <span>{nomination.message}</span>
             )}
           </div>
+          {suggestedPerformance && (
+            <div className="text-muted mt-1 flex items-center gap-2 text-sm">
+              <span>
+                Maybe:{" "}
+                {getPerformanceTitle(
+                  suggestedPerformance.song,
+                  suggestedPerformance.show,
+                )}
+              </span>
+              {showLinkPerformanceButton && (
+                <LinkPerformanceButton
+                  nominationId={nomination.id}
+                  performanceId={suggestedPerformance.id}
+                />
+              )}
+            </div>
+          )}
           <div className="text-muted mt-1 text-sm">
             Submitted{" "}
             {formatDistanceToNow(nomination.createdAt, { addSuffix: true })} by{" "}
@@ -76,10 +133,16 @@ function NominationList({
   nominations,
   showEditLinks = false,
   showAddPerformanceLinks = false,
+  showLinkPerformanceButtons = false,
+  songs,
+  shows,
 }: {
   nominations: Nomination[];
   showEditLinks?: boolean;
   showAddPerformanceLinks?: boolean;
+  showLinkPerformanceButtons?: boolean;
+  songs: Array<Song & { album: Album }>;
+  shows: Show[];
 }) {
   return (
     <ul className="ml-6 list-disc space-y-2">
@@ -90,6 +153,9 @@ function NominationList({
             nomination={nomination}
             showEditLink={showEditLinks}
             showAddPerformanceLink={showAddPerformanceLinks}
+            showLinkPerformanceButton={showLinkPerformanceButtons}
+            songs={songs}
+            shows={shows}
           />
         );
       })}
@@ -98,11 +164,17 @@ function NominationList({
 }
 
 export default async function NominationsPage() {
-  const [allNominations, adminStatus] = await Promise.all([
+  const [allNominations, adminStatus, songs, shows] = await Promise.all([
     db.query.nominations.findMany({
       orderBy: desc(nominations.createdAt),
     }),
     isAdmin(),
+    db.query.songs.findMany({
+      with: {
+        album: true,
+      },
+    }),
+    db.query.shows.findMany(),
   ]);
 
   const nominationsThatWillNotBeAdded = allNominations.filter(
@@ -133,6 +205,9 @@ export default async function NominationsPage() {
             nominations={nominationsToBeAdded}
             showEditLinks={adminStatus}
             showAddPerformanceLinks={adminStatus}
+            showLinkPerformanceButtons={adminStatus}
+            songs={songs}
+            shows={shows}
           />
         </div>
 
@@ -144,6 +219,8 @@ export default async function NominationsPage() {
           <NominationList
             nominations={addedNominations}
             showEditLinks={adminStatus}
+            songs={songs}
+            shows={shows}
           />
         </div>
 
@@ -159,6 +236,8 @@ export default async function NominationsPage() {
           <NominationList
             nominations={nominationsThatWillNotBeAdded}
             showEditLinks={adminStatus}
+            songs={songs}
+            shows={shows}
           />
         </div>
       </PageContent>
