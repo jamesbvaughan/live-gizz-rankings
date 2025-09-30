@@ -46,18 +46,29 @@ export function parseNomination(
     }
   }
 
-  // Extract potential location (everything after " at ", " in ", etc.)
+  // Extract potential location and year
   const locationPatterns = [
-    /(?:at|in|live\s+(?:at|in))\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i,
-    /(?:from|during)\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i,
-    /,\s+(.+?)(?:\s+['']?\d{2,4}|\s*$)/i, // Handle comma-separated format like "Song, Location"
+    /(?:at|in|live\s+(?:at|in))\s+(.+?)(?:\s+['']?(\d{2,4}))?\s*$/i,
+    /(?:from|during)\s+(.+?)(?:\s+['']?(\d{2,4}))?\s*$/i,
+    /,\s+(.+?)(?:\s+['']?(\d{2,4}))?\s*$/i, // Handle comma-separated format like "Song, Location"
   ];
 
   let potentialLocation = "";
+  let potentialYear: number | undefined;
   for (const pattern of locationPatterns) {
     const match = message.match(pattern);
     if (match && match[1]) {
       potentialLocation = match[1].trim();
+      if (match[2]) {
+        // Parse year - handle 2-digit or 4-digit years
+        const yearStr = match[2];
+        if (yearStr.length === 2) {
+          // Assume 20xx for 2-digit years
+          potentialYear = 2000 + Number.parseInt(yearStr, 10);
+        } else {
+          potentialYear = Number.parseInt(yearStr, 10);
+        }
+      }
       break;
     }
   }
@@ -88,13 +99,42 @@ export function parseNomination(
   // Find best matching show
   if (potentialLocation) {
     const showMatches = context.shows
-      .map((show) => ({
-        show,
-        score: calculateLocationSimilarity(
+      .map((show) => {
+        const locationScore = calculateLocationSimilarity(
           potentialLocation.toLowerCase(),
           show.location.toLowerCase(),
-        ),
-      }))
+        );
+
+        // If we have a year, check if it matches
+        let yearScore = 0;
+        if (potentialYear) {
+          const showYear = new Date(show.date).getFullYear();
+          if (showYear === potentialYear) {
+            yearScore = 1.0; // Perfect year match
+          } else if (Math.abs(showYear - potentialYear) === 1) {
+            yearScore = 0.3; // Off by one year (might be a typo)
+          }
+          // If year doesn't match at all, penalize the location score
+          if (yearScore === 0) {
+            return {
+              show,
+              score: locationScore * 0.3, // Heavily penalize wrong year
+            };
+          }
+        }
+
+        // Combine location and year scores
+        // If we have a year match, weight it heavily (70% year, 30% location)
+        // Otherwise just use location score
+        const finalScore = potentialYear
+          ? locationScore * 0.3 + yearScore * 0.7
+          : locationScore;
+
+        return {
+          show,
+          score: finalScore,
+        };
+      })
       .filter((match) => match.score > 0.3) // Minimum threshold
       .toSorted((a, b) => b.score - a.score);
 
