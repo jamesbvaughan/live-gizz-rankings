@@ -122,7 +122,7 @@ export default async function Song({ params }: Props) {
       <div className="flex items-center justify-between">
         <PageTitle>{song.title}</PageTitle>
         <div className="flex gap-2">
-          {signedIn && (
+          {signedIn && !neverBeenPlayedLive && (
             <BoxedButtonLink href={`/performances/add?song=${song.id}`}>
               Add Performance
             </BoxedButtonLink>
@@ -155,11 +155,12 @@ export default async function Song({ params }: Props) {
           </Suspense>
         )}
 
-        {!neverBeenPlayedLive && (
-          <p className="text-muted">
-            Is your favorite performance missing?{" "}
-            <Link href="/performances/add">Add it here</Link>.
-          </p>
+        {songPerformances.length >= 2 && signedIn && (
+          <div className="flex justify-center">
+            <BoxedButtonLink href={`/rank?song=${song.slug}`}>
+              Vote on {song.title} performances
+            </BoxedButtonLink>
+          </div>
         )}
 
         <div>

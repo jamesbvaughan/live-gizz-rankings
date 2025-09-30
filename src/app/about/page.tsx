@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { PropsWithChildren } from "react";
 
 import { PageContent, PageTitle } from "@/components/ui";
 
@@ -8,85 +7,38 @@ export const metadata: Metadata = {
   title: "About",
 };
 
-function QnA({ children }: PropsWithChildren) {
-  return <div className="space-y-2">{children}</div>;
-}
-
-function Q({ children }: PropsWithChildren) {
-  return (
-    <p>
-      <b>{children}</b>
-    </p>
-  );
-}
-
-function A({ children }: PropsWithChildren) {
-  return <div className="text-muted space-y-2">{children}</div>;
-}
-
 export default function NominatePage() {
   return (
     <>
       <PageTitle>About this site</PageTitle>
 
       <PageContent className="space-y-8">
-        <div>
+        <div className="space-y-4">
           <p>
             The purpose of this site is to identify what the fan community
             believes to be King Gizzard &amp; The Lizard Wizard&apos;s best live
             performances of their songs.
           </p>
-        </div>
 
-        <div className="space-y-4 text-lg">
-          <h2 className="text-3xl">FAQ</h2>
+          <p>
+            The rankings are determined by the{" "}
+            <a
+              href="https://en.wikipedia.org/wiki/Elo_rating_system"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Elo rating system
+            </a>
+            , which calculates a score for each performance based on our votes.
+          </p>
 
-          <QnA>
-            <Q>How does the ranking system work?</Q>
-            <A>
-              It uses the{" "}
-              <a
-                href="https://en.wikipedia.org/wiki/Elo_rating_system"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Elo rating system
-              </a>{" "}
-              to calculate a score for each performance based on our votes.
-            </A>
-          </QnA>
-
-          <QnA>
-            <Q>Why is it missing my favorite performance?</Q>
-            <A>
-              <p>
-                I currently maintain the performance data manually, which is a
-                bit tedious.
-              </p>
-              <p>
-                Even if I easily could add <i>every</i> performance to the
-                database, I don&apos;t think I&apos;d want to. There are some
-                songs{" "}
-                <span className="text-muted-2 text-sm">
-                  (<i>*cough* *cough* work this time</i>)
-                </span>{" "}
-                where lots of us have strong opinons about what the <i>best</i>{" "}
-                performance is{" "}
-                <span className="text-muted-2 text-sm">
-                  (<i>*cough* *cough* work this time atlanta &apos;24</i>)
-                </span>{" "}
-                and I want to make sure that people who take the time to vote
-                end up spending that time on performances that we&apos;re all
-                most interested in.
-              </p>
-              <p>
-                If there&apos;s a specific performance that you&apos;d like
-                included, <Link href="/performances/add">add it here</Link> or{" "}
-                <a href="mailto:james@jamesbvaughan.com">email me</a> and
-                I&apos;ll help you add it!
-              </p>
-            </A>
-          </QnA>
+          <p>
+            This site is open source. You can see and contribute to the code{" "}
+            <Link href="https://github.com/jamesbvaughan/live-gizz-rankings">
+              here on GitHub
+            </Link>
+            .
+          </p>
         </div>
 
         <div className="space-y-4 text-lg">
