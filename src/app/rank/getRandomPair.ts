@@ -78,7 +78,7 @@ const SHOW_ALL_PAIRS = false;
  */
 export const allPairs = await generateAllPotentialPairs();
 
-export async function getRandomPairForCurrentUser() {
+export async function getRandomPairForCurrentUser(filterSongId?: string) {
   // Get all of the pairs of performances that the current user has already
   // voted on.
   const userPairs = await getUserPairs();
@@ -87,7 +87,13 @@ export async function getRandomPairForCurrentUser() {
   // Build up a record of every pair of performances that the current user has
   // not already voted on or skipped.
   const unvotedPairs: Record<string, [string, string][]> = {};
-  for (const songId of Object.keys(allPairs)) {
+  const songIdsToCheck = filterSongId ? [filterSongId] : Object.keys(allPairs);
+
+  for (const songId of songIdsToCheck) {
+    if (!allPairs[songId]) {
+      continue;
+    }
+
     for (const pair of allPairs[songId]) {
       const userHasVoted = userPairs.some(
         (userPair) =>

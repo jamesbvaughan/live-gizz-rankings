@@ -4,7 +4,8 @@ import Link from "next/link";
 import { unauthorized } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
-import { getPerformanceById } from "@/dbUtils";
+import { BoxedButtonLink } from "@/components/BoxedButtonLink";
+import { getPerformanceById, getSongBySlug } from "@/dbUtils";
 import { getShowTitle } from "@/utils";
 
 import { getRandomPairForCurrentUser } from "./getRandomPair";
@@ -14,14 +15,40 @@ export const metadata: Metadata = {
   title: "Rank Songs",
 };
 
-export default async function Rank() {
+interface SearchParams {
+  song?: string;
+}
+
+interface Props {
+  searchParams: Promise<SearchParams>;
+}
+
+export default async function Rank({ searchParams }: Props) {
   const { userId } = await auth();
   if (!userId) {
     unauthorized();
   }
 
-  const pair = await getRandomPairForCurrentUser();
+  const { song: songSlug } = await searchParams;
+  const filterSong = songSlug ? await getSongBySlug(songSlug) : null;
+
+  const pair = await getRandomPairForCurrentUser(filterSong?.id);
   if (!pair) {
+    if (filterSong) {
+      return (
+        <div className="space-y-4 text-center">
+          <p>
+            You&apos;ve voted on every pair of {filterSong.title} performances
+            that&apos;s been added to the site.
+          </p>
+          <p>Thank you!</p>
+          <p>
+            <BoxedButtonLink href="/rank">Vote on all songs</BoxedButtonLink>
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-4">
         <p>
@@ -29,11 +56,12 @@ export default async function Rank() {
           to the site. Thank you! People add performances periodically, so check
           back later to see if you&apos;ve got new ones to vote on.
         </p>
+
         <p>
           You can{" "}
           <Link href="/albums">browse all the rankings by album here</Link> or{" "}
-          <a href="mailto:james@jamesbvaughan.com">email me</a> if there are
-          more songs or performances that you&apos;d like to see added here.
+          <Link href="/performances/add">add more performances to vote on</Link>
+          .
         </p>
       </div>
     );
@@ -47,6 +75,13 @@ export default async function Rank() {
 
   return (
     <div className="space-y-10">
+      {filterSong && (
+        <div className="text-muted text-center">
+          Voting session filtered to performances of {filterSong.title}.{" "}
+          <Link href="/rank">Clear filter</Link>
+        </div>
+      )}
+
       <h2 className="text-center text-2xl sm:text-4xl">
         Which <span className="font-bold">{song.title}</span> is better?
       </h2>

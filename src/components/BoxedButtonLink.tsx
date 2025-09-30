@@ -5,10 +5,10 @@ import type { ComponentProps } from "react";
 
 function StyledBoxedButton({ className, ...props }: ComponentProps<"div">) {
   return (
-    <div
+    <span
       {...props}
       className={clsx(
-        "border-muted hover:border-foreground hover:text-foreground border-2 px-2 py-1 no-underline",
+        "border-muted hover:border-foreground hover:text-foreground inline-block border-2 px-2 py-1 no-underline",
         className,
       )}
     />
