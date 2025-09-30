@@ -28,7 +28,7 @@ export default async function ShowsPage() {
     showsByYear[year].push(show);
   }
 
-  const sortedShowsByYear = Object.entries(showsByYear).sort(
+  const sortedShowsByYear = Object.entries(showsByYear).toSorted(
     ([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA),
   );
 

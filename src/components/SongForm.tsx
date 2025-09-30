@@ -35,7 +35,7 @@ export default function SongForm({
   );
 
   // Sort albums by release date, newest first
-  const sortedAlbums = [...albums].sort(
+  const sortedAlbums = albums.toSorted(
     (a, b) =>
       new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime(),
   );

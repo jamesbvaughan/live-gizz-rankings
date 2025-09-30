@@ -64,18 +64,18 @@ export default function PerformanceForm({
 
   // Sort albums by release date (newest first) and songs within each album by position
   const sortedAlbumGroups = Object.values(songsByAlbum)
-    .sort(
+    .toSorted(
       (a, b) =>
         new Date(b.album.releaseDate).getTime() -
         new Date(a.album.releaseDate).getTime(),
     )
     .map((group) => ({
       ...group,
-      songs: group.songs.sort((a, b) => a.albumPosition - b.albumPosition),
+      songs: group.songs.toSorted((a, b) => a.albumPosition - b.albumPosition),
     }));
 
   // Sort shows by date (newest first)
-  const sortedShows = [...shows].sort(
+  const sortedShows = shows.toSorted(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 

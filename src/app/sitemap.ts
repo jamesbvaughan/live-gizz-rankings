@@ -12,12 +12,8 @@ import { getBlogPosts } from "./blog/utils";
 
 const baseUrl = "https://livegizzrankings.com";
 
-function getSitemapEntryForPath(path: string) {
-  return { url: `${baseUrl}${path}` };
-}
-
 function makeSitemapEntriesForPaths(paths: string[]) {
-  return paths.map(getSitemapEntryForPath);
+  return paths.map((path) => ({ url: `${baseUrl}${path}` }));
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

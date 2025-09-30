@@ -23,7 +23,7 @@ export default async function Albums() {
     Object.groupBy(allAlbums, (album) =>
       new Date(album.releaseDate).getFullYear(),
     ),
-  ).sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA));
+  ).toSorted(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA));
 
   return (
     <>
