@@ -53,7 +53,7 @@ export default async function ShowsPage() {
             <div key={year} className="space-y-4">
               <h3 className="text-2xl">{year}</h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {shows.map((show, index) => {
                   const showPath = getShowPath(show);
                   const showTitle = getShowTitle(show);
