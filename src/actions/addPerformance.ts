@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
+import z from "zod/v4";
 
 import { ensureSignedIn } from "../auth/utils";
 import { getPerformancePath } from "../dbUtils";
@@ -17,10 +18,10 @@ const addPerformanceSchema = zfd.formData({
   songId: zfd.text(),
   showId: zfd.text(),
   showPosition: zfd.numeric(),
-  bandcampTrackId: zfd.text().optional(),
-  youtubeVideoId: zfd.text().optional(),
-  youtubeVideoStartTime: zfd.numeric().optional(),
-  nominationId: zfd.text().optional(),
+  bandcampTrackId: zfd.text(z.string().optional()),
+  youtubeVideoId: zfd.text(z.string().optional()),
+  youtubeVideoStartTime: zfd.numeric(z.number().optional()),
+  nominationId: zfd.text(z.string().optional()),
 });
 
 export async function addPerformance(
