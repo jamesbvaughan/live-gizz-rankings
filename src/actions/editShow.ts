@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { zfd } from "zod-form-data";
+import z from "zod/v4";
 
 import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
@@ -18,8 +19,8 @@ const editShowSchema = zfd.formData({
   slug: zfd.text(),
   location: zfd.text(),
   date: zfd.text(),
-  bandcampAlbumId: zfd.text().optional(),
-  youtubeVideoId: zfd.text().optional(),
+  bandcampAlbumId: zfd.text(z.string().optional()),
+  youtubeVideoId: zfd.text(z.string().optional()),
   imageUrl: zfd.text(),
 });
 
