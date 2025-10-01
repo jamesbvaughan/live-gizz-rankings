@@ -50,7 +50,7 @@ interface VideoRowProps {
 
 function VideoRow({ video, index, onUpdate, onRemove }: VideoRowProps) {
   return (
-    <div key={`video-${index}`} className="flex gap-2">
+    <div className="flex gap-2">
       <div className="flex-1">
         <BoxedInput
           label={`Video ${index + 1} - Title`}
