@@ -125,7 +125,7 @@ export function ShowVideoList({ defaultVideos = [] }: ShowVideoListProps) {
 
       {videos.map((video, index) => (
         <VideoRow
-          key={`video-${index}`}
+          key={video.youtubeVideoId}
           video={video}
           index={index}
           onUpdate={updateVideo}
