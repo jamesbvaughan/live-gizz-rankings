@@ -222,12 +222,6 @@ export default async function ShowPage({ params }: Props) {
               </div>
             ))}
           </div>
-        ) : show.youtubeVideoId ? (
-          <div className="space-y-4">
-            <h3 className="text-3xl">Watch this show</h3>
-
-            <YouTubePlayer videoId={show.youtubeVideoId} startTime={null} />
-          </div>
         ) : null}
 
         <div className="space-y-4">
