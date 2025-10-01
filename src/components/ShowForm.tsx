@@ -2,22 +2,25 @@
 
 import { useActionState } from "react";
 
-import type { Show } from "@/drizzle/schema";
+import type { Show, ShowVideo } from "@/drizzle/schema";
 
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
+import { ShowVideoList } from "./ShowVideoList";
 import type { ActionState } from "@/lib/actionState";
 import { getFormValue, initialActionState } from "@/lib/actionState";
 
 interface ShowFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
   show?: Show;
+  videos?: ShowVideo[];
   submitLabel?: string;
 }
 
 export default function ShowForm({
   action,
   show,
+  videos = [],
   submitLabel = "Save",
 }: ShowFormProps) {
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
@@ -56,7 +59,7 @@ export default function ShowForm({
         maxLength={300}
         defaultValue={getFormValue(formData, "location") || show?.location}
         placeholder="Atlanta"
-        helpText="Show location, typically just a city or festival name"
+        helpText="Show location, typically just a country or city or festival name, whatever people commonly use to refer to the show."
         errorMessage="Location is required and must be between 1-300 characters"
       />
 
@@ -67,7 +70,7 @@ export default function ShowForm({
         type="date"
         required
         defaultValue={getFormValue(formData, "date") || show?.date}
-        helpText="Show date in YYYY-MM-DD format"
+        helpText="If there were multiple nights, use the date of the first one."
         errorMessage="Please select a valid date"
       />
 
@@ -94,21 +97,15 @@ export default function ShowForm({
           ""
         }
         placeholder="e.g. 1234567890"
-        helpText="The numeric ID from the Bandcamp album URL"
+        helpText="The Bandcamp numeric album ID. You can get this from the embed code for the album."
         errorMessage="Must be a valid Bandcamp album ID"
       />
 
-      <BoxedInput
-        label="YouTube Video ID (optional)"
-        id="youtubeVideoId"
-        name="youtubeVideoId"
-        type="text"
-        defaultValue={
-          getFormValue(formData, "youtubeVideoId") || show?.youtubeVideoId || ""
-        }
-        placeholder="e.g. dQw4w9WgXcQ"
-        helpText="The video ID from a YouTube URL"
-        errorMessage="Must be a valid YouTube video ID"
+      <ShowVideoList
+        defaultVideos={videos.map((v) => ({
+          youtubeVideoId: v.youtubeVideoId,
+          title: v.title,
+        }))}
       />
 
       <div className="flex gap-4">

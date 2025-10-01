@@ -27,6 +27,7 @@ export type Show = typeof shows.$inferSelect;
 
 export const showsRelations = relations(shows, ({ many }) => ({
   performances: many(performances),
+  videos: many(showVideos),
 }));
 
 export const albums = pgTable("albums", {
@@ -185,3 +186,28 @@ export const skippedPairs = pgTable(
 );
 
 export type SkippedPair = typeof skippedPairs.$inferSelect;
+
+export const showVideos = pgTable(
+  "show_videos",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    showId: uuid("show_id")
+      .notNull()
+      .references(() => shows.id),
+    youtubeVideoId: text("youtube_video_id").notNull(),
+    title: text("title").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+  },
+  (t) => ({
+    showVideo: unique().on(t.showId, t.youtubeVideoId),
+  }),
+);
+
+export type ShowVideo = typeof showVideos.$inferSelect;
+
+export const showVideosRelations = relations(showVideos, ({ one }) => ({
+  show: one(shows, {
+    fields: [showVideos.showId],
+    references: [shows.id],
+  }),
+}));

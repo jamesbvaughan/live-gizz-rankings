@@ -18,7 +18,7 @@ import {
 import { getShowBySlug } from "@/dbUtils";
 import { db } from "@/drizzle/db";
 import type { Show } from "@/drizzle/schema";
-import { performances } from "@/drizzle/schema";
+import { performances, showVideos } from "@/drizzle/schema";
 import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 interface Params {
@@ -98,17 +98,22 @@ export default async function ShowPage({ params }: Props) {
     isAdmin(),
     isSignedIn(),
   ]);
-  const showPerformances = await db.query.performances.findMany({
-    where: eq(performances.showId, show.id),
-    orderBy: asc(performances.showPosition),
-    with: {
-      song: {
-        with: {
-          album: true,
+  const [showPerformances, videos] = await Promise.all([
+    db.query.performances.findMany({
+      where: eq(performances.showId, show.id),
+      orderBy: asc(performances.showPosition),
+      with: {
+        song: {
+          with: {
+            album: true,
+          },
         },
       },
-    },
-  });
+    }),
+    db.query.showVideos.findMany({
+      where: eq(showVideos.showId, show.id),
+    }),
+  ]);
 
   const showTitle = getShowTitle(show);
 
@@ -203,7 +208,21 @@ export default async function ShowPage({ params }: Props) {
           )}
         </div>
 
-        {show.youtubeVideoId ? (
+        {videos.length > 0 ? (
+          <div className="space-y-4">
+            <h3 className="text-3xl">Watch this show</h3>
+
+            {videos.map((video) => (
+              <div key={video.id} className="space-y-2">
+                <h4 className="text-xl">{video.title}</h4>
+                <YouTubePlayer
+                  videoId={video.youtubeVideoId}
+                  startTime={null}
+                />
+              </div>
+            ))}
+          </div>
+        ) : show.youtubeVideoId ? (
           <div className="space-y-4">
             <h3 className="text-3xl">Watch this show</h3>
 
