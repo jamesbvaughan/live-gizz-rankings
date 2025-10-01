@@ -9,6 +9,7 @@ interface Metadata {
   publishedAt: string;
   description: string;
   image?: string;
+  draft?: string;
 }
 
 function parseFrontmatter(fileContent: string) {
