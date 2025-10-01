@@ -10,6 +10,7 @@ function BlogPosts() {
   return (
     <div>
       {allBlogs
+        .filter((post) => post.metadata.draft !== "true")
         .toSorted(
           (a, b) =>
             new Date(b.metadata.publishedAt).getTime() -
