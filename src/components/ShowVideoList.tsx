@@ -15,29 +15,25 @@ function extractYouTubeVideoId(input: string): string {
     return input;
   }
 
-  try {
-    const url = new URL(input);
-    // Handle youtu.be short URLs
-    if (url.hostname === "youtu.be") {
-      return url.pathname.slice(1);
+  const patterns = [
+    // youtube.com/watch?v=VIDEO_ID
+    new URLPattern({ hostname: "*.youtube.com", search: "*v=:videoId*" }),
+    new URLPattern({ hostname: "youtube.com", search: "*v=:videoId*" }),
+    // youtube.com/embed/VIDEO_ID
+    new URLPattern({ hostname: "*.youtube.com", pathname: "/embed/:videoId" }),
+    new URLPattern({ hostname: "youtube.com", pathname: "/embed/:videoId" }),
+    // youtu.be/VIDEO_ID
+    new URLPattern({ hostname: "youtu.be", pathname: "/:videoId" }),
+  ];
+
+  for (const pattern of patterns) {
+    const result = pattern.exec(input);
+    if (result?.pathname?.groups?.videoId) {
+      return result.pathname.groups.videoId;
     }
-    // Handle youtube.com URLs (both /watch?v= and /embed/)
-    if (url.hostname.includes("youtube.com")) {
-      const vParam = url.searchParams.get("v");
-      if (vParam) {
-        return vParam;
-      }
-      // Handle /embed/VIDEO_ID format
-      const embedMatch = url.pathname.match(/\/embed\/([^/?]+)/);
-      if (embedMatch) {
-        return embedMatch[1];
-      }
-    }
-  } catch {
-    // If URL parsing fails, treat it as a video ID
-    return input;
   }
 
+  // If no pattern matched, return as-is (might be a plain video ID)
   return input;
 }
 
