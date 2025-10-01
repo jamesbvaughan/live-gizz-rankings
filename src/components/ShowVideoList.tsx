@@ -15,22 +15,39 @@ function extractYouTubeVideoId(input: string): string {
     return input;
   }
 
-  const patterns = [
-    // youtube.com/watch?v=VIDEO_ID
-    new URLPattern({ hostname: "*.youtube.com", search: "*v=:videoId*" }),
-    new URLPattern({ hostname: "youtube.com", search: "*v=:videoId*" }),
-    // youtube.com/embed/VIDEO_ID
-    new URLPattern({ hostname: "*.youtube.com", pathname: "/embed/:videoId" }),
-    new URLPattern({ hostname: "youtube.com", pathname: "/embed/:videoId" }),
-    // youtu.be/VIDEO_ID
-    new URLPattern({ hostname: "youtu.be", pathname: "/:videoId" }),
-  ];
+  try {
+    const url = new URL(input);
 
-  for (const pattern of patterns) {
-    const result = pattern.exec(input);
-    if (result?.pathname?.groups?.videoId) {
-      return result.pathname.groups.videoId;
+    // Handle youtu.be short URLs
+    const shortUrlPattern = new URLPattern({
+      hostname: "youtu.be",
+      pathname: "/:videoId",
+    });
+    const shortMatch = shortUrlPattern.exec(input);
+    if (shortMatch?.pathname?.groups?.videoId) {
+      return shortMatch.pathname.groups.videoId;
     }
+
+    // Handle youtube.com/embed/VIDEO_ID
+    const embedPattern = new URLPattern({
+      hostname: "{*.youtube.com,youtube.com}",
+      pathname: "/embed/:videoId",
+    });
+    const embedMatch = embedPattern.exec(input);
+    if (embedMatch?.pathname?.groups?.videoId) {
+      return embedMatch.pathname.groups.videoId;
+    }
+
+    // Handle youtube.com/watch?v=VIDEO_ID - extract from search params
+    if (url.hostname.includes("youtube.com")) {
+      const videoId = url.searchParams.get("v");
+      if (videoId) {
+        return videoId;
+      }
+    }
+  } catch {
+    // If URL parsing fails, return as-is
+    return input;
   }
 
   // If no pattern matched, return as-is (might be a plain video ID)
