@@ -7,7 +7,7 @@ import z from "zod/v4";
 
 import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
-import { shows } from "../drizzle/schema";
+import { shows, showVideos } from "../drizzle/schema";
 import { logCreate } from "../lib/activityLogger";
 import { sendEditNotification } from "../lib/emailNotification";
 import { getShowPath } from "../utils";
@@ -21,6 +21,7 @@ const addShowSchema = zfd.formData({
   bandcampAlbumId: zfd.text(z.string().optional()),
   youtubeVideoId: zfd.text(z.string().optional()),
   imageUrl: zfd.text(),
+  videos: zfd.text(z.string().optional()),
 });
 
 export async function addShow(
@@ -29,8 +30,15 @@ export async function addShow(
 ): Promise<ActionState> {
   const userId = await ensureSignedIn();
 
-  const { slug, location, date, bandcampAlbumId, youtubeVideoId, imageUrl } =
-    addShowSchema.parse(formData);
+  const {
+    slug,
+    location,
+    date,
+    bandcampAlbumId,
+    youtubeVideoId,
+    imageUrl,
+    videos: videosJson,
+  } = addShowSchema.parse(formData);
 
   const existingShowWithSlug = await db.query.shows.findFirst({
     where: eq(shows.slug, slug),
@@ -40,6 +48,19 @@ export async function addShow(
       errorMessage: `A show with the slug "${slug}" already exists.`,
       formData,
     };
+  }
+
+  // Parse videos JSON
+  let videos: Array<{ youtubeVideoId: string; title: string }> = [];
+  if (videosJson) {
+    try {
+      videos = JSON.parse(videosJson) as Array<{
+        youtubeVideoId: string;
+        title: string;
+      }>;
+    } catch (error) {
+      console.error("Failed to parse videos JSON:", error);
+    }
   }
 
   const newShow = await db.transaction(async (tx) => {
@@ -56,6 +77,17 @@ export async function addShow(
       .returning();
 
     await logCreate("show", show.id, show, userId, tx);
+
+    // Insert videos
+    if (videos.length > 0) {
+      await tx.insert(showVideos).values(
+        videos.map((video) => ({
+          showId: show.id,
+          youtubeVideoId: video.youtubeVideoId,
+          title: video.title,
+        })),
+      );
+    }
 
     return show;
   });

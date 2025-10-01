@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { eq } from "drizzle-orm";
 
 import { editShow } from "@/actions/editShow";
 import { ensureSignedIn } from "@/auth/utils";
@@ -6,6 +7,8 @@ import ShowForm from "@/components/ShowForm";
 import { PageContent, PageTitle } from "@/components/ui";
 import { getShowTitle } from "@/utils";
 import { getShowBySlug } from "@/dbUtils";
+import { db } from "@/drizzle/db";
+import { showVideos } from "@/drizzle/schema";
 
 interface EditShowPageProps {
   params: Promise<{ showSlug: string }>;
@@ -31,6 +34,10 @@ export default async function EditShowPage({ params }: EditShowPageProps) {
   const { showSlug } = await params;
   const show = await getShowBySlug(showSlug);
 
+  const videos = await db.query.showVideos.findMany({
+    where: eq(showVideos.showId, show.id),
+  });
+
   const showTitle = getShowTitle(show);
 
   return (
@@ -38,7 +45,12 @@ export default async function EditShowPage({ params }: EditShowPageProps) {
       <PageTitle>Edit Show: {showTitle}</PageTitle>
 
       <PageContent>
-        <ShowForm action={editShow} show={show} submitLabel="Update Show" />
+        <ShowForm
+          action={editShow}
+          show={show}
+          videos={videos}
+          submitLabel="Update Show"
+        />
       </PageContent>
     </>
   );

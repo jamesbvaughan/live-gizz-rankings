@@ -8,7 +8,7 @@ import z from "zod/v4";
 
 import { ensureSignedIn } from "../auth/utils";
 import { db } from "../drizzle/db";
-import { shows } from "../drizzle/schema";
+import { shows, showVideos } from "../drizzle/schema";
 import { logUpdate } from "../lib/activityLogger";
 import { sendEditNotification } from "../lib/emailNotification";
 import { getShowPath } from "../utils";
@@ -22,6 +22,7 @@ const editShowSchema = zfd.formData({
   bandcampAlbumId: zfd.text(z.string().optional()),
   youtubeVideoId: zfd.text(z.string().optional()),
   imageUrl: zfd.text(),
+  videos: zfd.text(z.string().optional()),
 });
 
 export async function editShow(
@@ -38,6 +39,7 @@ export async function editShow(
     bandcampAlbumId,
     youtubeVideoId,
     imageUrl,
+    videos: videosJson,
   } = editShowSchema.parse(formData);
 
   const existingShow = await db.query.shows.findFirst({
@@ -61,6 +63,19 @@ export async function editShow(
     };
   }
 
+  // Parse videos JSON
+  let videos: Array<{ youtubeVideoId: string; title: string }> = [];
+  if (videosJson) {
+    try {
+      videos = JSON.parse(videosJson) as Array<{
+        youtubeVideoId: string;
+        title: string;
+      }>;
+    } catch (error) {
+      console.error("Failed to parse videos JSON:", error);
+    }
+  }
+
   const updatedShow = await db.transaction(async (tx) => {
     const [show] = await tx
       .update(shows)
@@ -76,6 +91,19 @@ export async function editShow(
       .returning();
 
     await logUpdate("show", showId, existingShow, show, userId, tx);
+
+    // Delete existing videos and insert new ones
+    await tx.delete(showVideos).where(eq(showVideos.showId, showId));
+
+    if (videos.length > 0) {
+      await tx.insert(showVideos).values(
+        videos.map((video) => ({
+          showId: show.id,
+          youtubeVideoId: video.youtubeVideoId,
+          title: video.title,
+        })),
+      );
+    }
 
     return show;
   });

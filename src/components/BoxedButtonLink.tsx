@@ -35,11 +35,18 @@ export function BoxedButton({
     <button
       {...props}
       className={clsx(
-        "group-invalid:pointer-events-none enabled:cursor-pointer disabled:pointer-events-none disabled:opacity-50",
+        "enabled:cursor-pointer disabled:pointer-events-none disabled:opacity-50",
+        props.type === "submit" && "group-invalid:pointer-events-none",
         className,
       )}
     >
-      <StyledBoxedButton className="group-invalid:border-muted disabled:border-muted group-invalid:hover:border-muted group-invalid:opacity-50 group-invalid:hover:text-current">
+      <StyledBoxedButton
+        className={clsx(
+          "disabled:border-muted",
+          props.type === "submit" &&
+            "group-invalid:hover:border-muted group-invalid:border-muted group-invalid:opacity-50 group-invalid:hover:text-current",
+        )}
+      >
         {children}
       </StyledBoxedButton>
     </button>
