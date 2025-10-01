@@ -39,7 +39,12 @@ function extractYouTubeVideoId(input: string): string {
     }
 
     // Handle youtube.com/watch?v=VIDEO_ID - extract from search params
-    if (url.hostname.includes("youtube.com")) {
+    const allowedHosts = [
+      "youtube.com",
+      "www.youtube.com",
+      "m.youtube.com",
+    ];
+    if (allowedHosts.includes(url.hostname)) {
       const videoId = url.searchParams.get("v");
       if (videoId) {
         return videoId;
