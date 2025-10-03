@@ -6,7 +6,7 @@ import { unauthorized } from "next/navigation";
 import { MediaPlayers } from "@/components/MediaPlayers";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
 import { getPerformanceById, getSongBySlug } from "@/dbUtils";
-import { getShowTitle } from "@/utils";
+import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 import { getRandomPairForCurrentUser } from "./getRandomPair";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
@@ -95,11 +95,19 @@ export default async function Rank({ searchParams }: Props) {
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
         {performances.map((performance) => {
           const showTitle = getShowTitle(performance.show);
+          const performancePath = getPerformancePathBySongAndShow(
+            performance.song,
+            performance.show,
+          );
 
           return (
             <div key={performance.id} className="space-y-4">
               <h3 className="min-h-14 text-xl">
-                Listen to {song.title} at {showTitle}
+                Listen to{" "}
+                <Link href={performancePath} className="no-underline">
+                  {song.title} at {showTitle}
+                </Link>
+                :
               </h3>
 
               <MediaPlayers performance={performance} />
