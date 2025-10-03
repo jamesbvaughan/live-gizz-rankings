@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:email": "email dev",
+    "dev:tunnel": "lt --port 3000 --subdomain live-gizz-rankings",
     "build": "next build --turbopack",
     "build:analyze": "ANALYZE=true bun run build",
     "build:vercel": "bun db:push && next build",
@@ -64,6 +65,7 @@
     "husky": "^9.1.7",
     "knip": "^5.64.1",
     "lint-staged": "^16.2.3",
+    "localtunnel": "^2.0.2",
     "oxlint": "^1.19.0",
     "oxlint-tsgolint": "^0.2.0",
     "postcss": "^8.5.6",
