@@ -8,8 +8,14 @@ import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { activityLogs } from "@/drizzle/schema";
 import type { ActivityLog } from "@/drizzle/schema";
-import { getAlbumPath, getShowPath, getSongPath } from "@/utils";
-import { getPerformancePath } from "@/dbUtils";
+import {
+  getAlbumPath,
+  getPerformancePathBySongAndShow,
+  getPerformanceTitle,
+  getShowPath,
+  getShowTitle,
+  getSongPath,
+} from "@/utils";
 
 export const metadata: Metadata = {
   title: "Activity Log",
@@ -34,6 +40,7 @@ async function getEntityInfo(entityType: string, entityId: string) {
       case "song": {
         const song = await db.query.songs.findFirst({
           where: (songs, { eq }) => eq(songs.id, entityId),
+          with: { album: true },
         });
         if (song) {
           return {
@@ -49,7 +56,7 @@ async function getEntityInfo(entityType: string, entityId: string) {
         });
         if (show) {
           return {
-            name: `${show.location} ${new Date(show.date).getFullYear()}`,
+            name: getShowTitle(show),
             path: getShowPath(show),
           };
         }
@@ -59,14 +66,17 @@ async function getEntityInfo(entityType: string, entityId: string) {
         const performance = await db.query.performances.findFirst({
           where: (performances, { eq }) => eq(performances.id, entityId),
           with: {
-            song: true,
+            song: { with: { album: true } },
             show: true,
           },
         });
         if (performance) {
           return {
-            name: `${performance.song.title} - ${performance.show.location} ${new Date(performance.show.date).getFullYear()}`,
-            path: await getPerformancePath(performance),
+            name: getPerformanceTitle(performance.song, performance.show),
+            path: getPerformancePathBySongAndShow(
+              performance.song,
+              performance.show,
+            ),
           };
         }
         break;
@@ -74,6 +84,49 @@ async function getEntityInfo(entityType: string, entityId: string) {
     }
   } catch (error) {
     console.error(`Error fetching entity ${entityType}:${entityId}:`, error);
+  }
+
+  return null;
+}
+
+function getChangedFields(
+  before: Record<string, any>,
+  after: Record<string, any>,
+): string[] {
+  const changes: string[] = [];
+  const allKeys = new Set([...Object.keys(before), ...Object.keys(after)]);
+
+  for (const key of allKeys) {
+    if (before[key] !== after[key]) {
+      changes.push(key);
+    }
+  }
+
+  return changes;
+}
+
+function formatChangeSummary(
+  action: string,
+  entityBefore: Record<string, any> | null,
+  entityAfter: Record<string, any> | null,
+): string | null {
+  if (action === "create") {
+    return "Created";
+  }
+
+  if (action === "delete") {
+    return "Deleted";
+  }
+
+  if (action === "update" && entityBefore && entityAfter) {
+    const changedFields = getChangedFields(entityBefore, entityAfter);
+    if (changedFields.length === 0) {
+      return "Updated";
+    }
+    if (changedFields.length === 1) {
+      return `Updated ${changedFields[0]}`;
+    }
+    return `Updated ${changedFields.length} fields: ${changedFields.join(", ")}`;
   }
 
   return null;
@@ -94,12 +147,17 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
   };
 
   const entityInfo = await getEntityInfo(log.entityType, log.entityId);
+  const changeSummary = formatChangeSummary(
+    log.action,
+    log.entityBefore,
+    log.entityAfter,
+  );
 
   return (
     <div className="border-muted-2 pb-4 not-last:border-b">
       <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-2">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 flex-wrap">
             <span
               className={`font-semibold capitalize ${actionColors[log.action as keyof typeof actionColors]}`}
             >
@@ -115,7 +173,7 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
             {entityInfo ? (
               <Link
                 href={entityInfo.path}
-                className="text-muted hover:text-foreground font-mono text-sm underline"
+                className="hover:text-foreground font-semibold underline"
               >
                 {entityInfo.name}
               </Link>
@@ -126,12 +184,16 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
             )}
           </div>
 
-          <div className="text-muted mt-2 text-sm">
+          {changeSummary && (
+            <div className="text-muted mt-1 text-sm">{changeSummary}</div>
+          )}
+
+          <div className="text-muted mt-1 text-sm">
             User: <span className="font-mono">{log.userId}</span>
           </div>
         </div>
 
-        <div className="text-muted flex flex-col items-end">
+        <div className="text-muted flex flex-col items-end flex-shrink-0">
           <div>{formatDistanceToNow(log.createdAt, { addSuffix: true })}</div>
           <time className="text-sm">{log.createdAt.toLocaleString()}</time>
         </div>
