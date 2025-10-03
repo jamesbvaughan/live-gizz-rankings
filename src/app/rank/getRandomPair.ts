@@ -17,13 +17,7 @@ async function generateAllPotentialPairs() {
     );
     for (let i = 0; i < performances.length; i++) {
       for (let j = i + 1; j < performances.length; j++) {
-        const flip = Math.random() < 0.5;
-        const firstIndex = flip ? i : j;
-        const secondIndex = flip ? j : i;
-        pairs[song.id].push([
-          performances[firstIndex].id,
-          performances[secondIndex].id,
-        ]);
+        pairs[song.id].push([performances[i].id, performances[j].id]);
       }
     }
   }
@@ -80,9 +74,44 @@ export const allPairs = await generateAllPotentialPairs();
 
 export async function getRandomPairForCurrentUser(filterSongId?: string) {
   // Get all of the pairs of performances that the current user has already
-  // voted on.
+  // voted on or skipped.
   const userPairs = await getUserPairs();
   const userSkippedPairs = await getUserSkippedPairs();
+
+  // Fetch all performances to map performance IDs to song IDs
+  const allPerformances = await db.query.performances.findMany({
+    columns: {
+      id: true,
+      songId: true,
+    },
+  });
+
+  const performanceToSongMap = new Map<string, string>();
+  for (const perf of allPerformances) {
+    performanceToSongMap.set(perf.id, perf.songId);
+  }
+
+  // Count votes per song and per performance
+  const songVoteCounts = new Map<string, number>();
+  const performanceVoteCounts = new Map<string, number>();
+
+  for (const pair of userPairs) {
+    // Both performances in a pair are from the same song
+    const songId = performanceToSongMap.get(pair.performance1Id);
+    if (songId) {
+      songVoteCounts.set(songId, (songVoteCounts.get(songId) || 0) + 1);
+    }
+
+    // Increment performance vote counts
+    performanceVoteCounts.set(
+      pair.performance1Id,
+      (performanceVoteCounts.get(pair.performance1Id) || 0) + 1,
+    );
+    performanceVoteCounts.set(
+      pair.performance2Id,
+      (performanceVoteCounts.get(pair.performance2Id) || 0) + 1,
+    );
+  }
 
   // Build up a record of every pair of performances that the current user has
   // not already voted on or skipped.
@@ -122,11 +151,53 @@ export async function getRandomPairForCurrentUser(filterSongId?: string) {
     return null;
   }
 
-  // Choose a random song for the user to vote on.
-  const songId = songIds[Math.floor(Math.random() * songIds.length)];
-  const unvotedPairsForSong = unvotedPairs[songId];
+  // Find the song with the minimum vote count
+  let minVoteCount = Infinity;
+  let songWithMinVotes: string | null = null;
 
-  // Choose a random pair of performances of that song for the user to vote on.
-  const pairIndex = Math.floor(Math.random() * unvotedPairsForSong.length);
-  return unvotedPairsForSong[pairIndex];
+  for (const songId of songIds) {
+    const voteCount = songVoteCounts.get(songId) || 0;
+    if (voteCount < minVoteCount) {
+      minVoteCount = voteCount;
+      songWithMinVotes = songId;
+    } else if (
+      voteCount === minVoteCount &&
+      songWithMinVotes &&
+      songId < songWithMinVotes
+    ) {
+      // Deterministic tiebreaker: lexicographically smaller ID wins
+      songWithMinVotes = songId;
+    }
+  }
+
+  if (!songWithMinVotes) {
+    return null;
+  }
+
+  const pairsForSong = unvotedPairs[songWithMinVotes];
+
+  // Sort pairs deterministically:
+  // Primary: by minimum vote count of the two performances (ascending)
+  // Secondary: by lexicographic order of concatenated IDs
+  const sortedPairs = pairsForSong.toSorted((a, b) => {
+    const aMinVotes = Math.min(
+      performanceVoteCounts.get(a[0]) || 0,
+      performanceVoteCounts.get(a[1]) || 0,
+    );
+    const bMinVotes = Math.min(
+      performanceVoteCounts.get(b[0]) || 0,
+      performanceVoteCounts.get(b[1]) || 0,
+    );
+
+    if (aMinVotes !== bMinVotes) {
+      return aMinVotes - bMinVotes;
+    }
+
+    // Tiebreaker: lexicographic sort of concatenated sorted IDs
+    const aKey = [a[0], a[1]].toSorted().join(",");
+    const bKey = [b[0], b[1]].toSorted().join(",");
+    return aKey.localeCompare(bKey);
+  });
+
+  return sortedPairs[0];
 }
