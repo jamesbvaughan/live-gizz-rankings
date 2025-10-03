@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 import type { Album, Performance, Show, Song } from "@/drizzle/schema";
 
@@ -14,6 +14,11 @@ import {
   initialActionState,
 } from "@/lib/actionState";
 import Link from "next/link";
+import {
+  extractBandcampTrackId,
+  extractYouTubeVideoId,
+  extractYouTubeStartTime,
+} from "@/lib/extractEmbedCodes";
 
 interface PerformanceFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
@@ -41,6 +46,25 @@ export default function PerformanceForm({
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
     initialActionState,
+  );
+
+  const [bandcampTrackId, setBandcampTrackId] = useState(
+    getFormValue(formData, "bandcampTrackId") ||
+      performance?.bandcampTrackId ||
+      "",
+  );
+
+  const [youtubeVideoId, setYoutubeVideoId] = useState(
+    getFormValue(formData, "youtubeVideoId") ||
+      performance?.youtubeVideoId ||
+      defaultYoutubeVideoId ||
+      "",
+  );
+
+  const [youtubeStartTime, setYoutubeStartTime] = useState<number | undefined>(
+    getFormNumberValue(formData, "youtubeVideoStartTime") ??
+      performance?.youtubeVideoStartTime ??
+      undefined,
   );
 
   // Group songs by album, sorted by release date (newest first)
@@ -165,25 +189,24 @@ export default function PerformanceForm({
         id="bandcampTrackId"
         name="bandcampTrackId"
         type="text"
-        defaultValue={
-          getFormValue(formData, "bandcampTrackId") ||
-          performance?.bandcampTrackId ||
-          ""
-        }
-        placeholder="e.g., 1234567890"
+        value={bandcampTrackId}
+        onChange={(e) => {
+          const extractedId = extractBandcampTrackId(e.target.value);
+          setBandcampTrackId(extractedId);
+        }}
+        placeholder="e.g., 1234567890 or paste embed code"
         helpText={
           <>
-            The unique track ID from{" "}
+            Paste the Bandcamp track ID or the full embed code (either format)
+            and the track ID will be extracted automatically. Get this from the{" "}
             <Link
               href="https://bootleggizzard.bandcamp.com/"
               target="_blank"
               rel="noreferrer"
             >
               Bandcamp
-            </Link>
-            . You can get this from the individual track&apos;s page on Bandcamp
-            by copying the HTML embed code for the track and finding the track
-            ID in it.
+            </Link>{" "}
+            page for the specific track.
           </>
         }
         errorMessage="Must be a valid Bandcamp track ID"
@@ -194,14 +217,20 @@ export default function PerformanceForm({
         id="youtubeVideoId"
         name="youtubeVideoId"
         type="text"
-        defaultValue={
-          getFormValue(formData, "youtubeVideoId") ||
-          performance?.youtubeVideoId ||
-          defaultYoutubeVideoId ||
-          ""
-        }
-        placeholder="e.g., dQw4w9WgXcQ"
-        helpText="The video ID from a YouTube URL. This should be the offical upload of the show from the band's channel if available. Otherwise, use the best fan upload that you can find."
+        value={youtubeVideoId}
+        onChange={(e) => {
+          const input = e.target.value;
+          const extractedId = extractYouTubeVideoId(input);
+          setYoutubeVideoId(extractedId);
+
+          // If a URL with time is pasted, extract and set the start time
+          const extractedTime = extractYouTubeStartTime(input);
+          if (extractedTime !== null) {
+            setYoutubeStartTime(extractedTime);
+          }
+        }}
+        placeholder="e.g., dQw4w9WgXcQ or paste full YouTube URL"
+        helpText="Paste a YouTube URL or video ID. If the URL includes a timestamp, it will auto-fill the start time field below."
         errorMessage="Must be a valid YouTube video ID"
       />
 
@@ -211,10 +240,11 @@ export default function PerformanceForm({
         name="youtubeVideoStartTime"
         type="number"
         min={0}
-        defaultValue={
-          getFormNumberValue(formData, "youtubeVideoStartTime") ||
-          (performance?.youtubeVideoStartTime ?? undefined)
-        }
+        value={youtubeStartTime ?? ""}
+        onChange={(e) => {
+          const value = e.target.value;
+          setYoutubeStartTime(value ? parseInt(value, 10) : undefined);
+        }}
         placeholder="0"
         helpText="Start time in seconds for this song in the YouTube video. You can get this from the YouTube URL by pausing the video at the song start, right-clicking on the video, and selecting 'Copy video URL at current time'."
         errorMessage="Start time must be 0 or greater"

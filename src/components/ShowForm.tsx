@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 import type { Show, ShowVideo } from "@/drizzle/schema";
 
@@ -9,6 +9,7 @@ import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
 import { ShowVideoList } from "./ShowVideoList";
 import type { ActionState } from "@/lib/actionState";
 import { getFormValue, initialActionState } from "@/lib/actionState";
+import { extractBandcampAlbumId } from "@/lib/extractEmbedCodes";
 
 interface ShowFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
@@ -26,6 +27,10 @@ export default function ShowForm({
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
     initialActionState,
+  );
+
+  const [bandcampAlbumId, setBandcampAlbumId] = useState(
+    getFormValue(formData, "bandcampAlbumId") || show?.bandcampAlbumId || "",
   );
 
   return (
@@ -91,13 +96,13 @@ export default function ShowForm({
         id="bandcampAlbumId"
         name="bandcampAlbumId"
         type="text"
-        defaultValue={
-          getFormValue(formData, "bandcampAlbumId") ||
-          show?.bandcampAlbumId ||
-          ""
-        }
-        placeholder="e.g. 1234567890"
-        helpText="The Bandcamp numeric album ID. You can get this from the embed code for the album."
+        value={bandcampAlbumId}
+        onChange={(e) => {
+          const extractedId = extractBandcampAlbumId(e.target.value);
+          setBandcampAlbumId(extractedId);
+        }}
+        placeholder="e.g., 1234567890 or paste embed code"
+        helpText="Paste the Bandcamp album ID or the full embed code (either format) and the album ID will be extracted automatically."
         errorMessage="Must be a valid Bandcamp album ID"
       />
 
