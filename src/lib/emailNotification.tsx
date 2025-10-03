@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import EditNotification from "../emails/EditNotification";
+import { getResendClient } from "./resendClient";
 
 interface EditNotificationData {
   entityType: string;
@@ -44,10 +45,4 @@ export async function sendEditNotification(data: EditNotificationData) {
     // Don't throw errors for notification failures
     console.error("Failed to send email notification:", error);
   }
-}
-
-// Lazy load Resend client
-async function getResendClient() {
-  const { Resend } = await import("resend");
-  return new Resend(process.env.RESEND_API_KEY);
 }
