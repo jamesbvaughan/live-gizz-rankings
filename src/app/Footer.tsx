@@ -24,8 +24,8 @@ function SiteButtons() {
           changelog
         </Link>
 
-        <Link href="/performances/add" className="inline-block">
-          add a performance
+        <Link href="/privacy" className="inline-block">
+          privacy
         </Link>
 
         <a
