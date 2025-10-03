@@ -9,3 +9,4 @@ Bandcamp
 eslint
 oxlint
 params
+shortcode

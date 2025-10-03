@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 import type { Album, Performance, Show, Song } from "@/drizzle/schema";
 
@@ -14,6 +14,22 @@ import {
   initialActionState,
 } from "@/lib/actionState";
 import Link from "next/link";
+
+function extractBandcampTrackId(input: string): string {
+  // If it's already just a track ID (only digits), return as-is
+  if (/^\d+$/.test(input.trim())) {
+    return input.trim();
+  }
+
+  // Handle shortcode format: [bandcamp ... track=1136114588 ...]
+  const shortcodeMatch = input.match(/track=(\d+)/);
+  if (shortcodeMatch) {
+    return shortcodeMatch[1];
+  }
+
+  // If no pattern matched, return as-is
+  return input.trim();
+}
 
 interface PerformanceFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
@@ -41,6 +57,12 @@ export default function PerformanceForm({
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
     initialActionState,
+  );
+
+  const [bandcampTrackId, setBandcampTrackId] = useState(
+    getFormValue(formData, "bandcampTrackId") ||
+      performance?.bandcampTrackId ||
+      "",
   );
 
   // Group songs by album, sorted by release date (newest first)
@@ -165,25 +187,24 @@ export default function PerformanceForm({
         id="bandcampTrackId"
         name="bandcampTrackId"
         type="text"
-        defaultValue={
-          getFormValue(formData, "bandcampTrackId") ||
-          performance?.bandcampTrackId ||
-          ""
-        }
-        placeholder="e.g., 1234567890"
+        value={bandcampTrackId}
+        onChange={(e) => {
+          const extractedId = extractBandcampTrackId(e.target.value);
+          setBandcampTrackId(extractedId);
+        }}
+        placeholder="e.g., 1234567890 or paste embed code"
         helpText={
           <>
-            The unique track ID from{" "}
+            Paste the Bandcamp track ID or the full embed code (either format)
+            and the track ID will be extracted automatically. Get this from the{" "}
             <Link
               href="https://bootleggizzard.bandcamp.com/"
               target="_blank"
               rel="noreferrer"
             >
               Bandcamp
-            </Link>
-            . You can get this from the individual track&apos;s page on Bandcamp
-            by copying the HTML embed code for the track and finding the track
-            ID in it.
+            </Link>{" "}
+            page for the specific track.
           </>
         }
         errorMessage="Must be a valid Bandcamp track ID"

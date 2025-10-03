@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 import type { Album } from "@/drizzle/schema";
 
@@ -8,6 +8,23 @@ import { BoxedInput } from "./BoxedInput";
 import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
 import type { ActionState } from "@/lib/actionState";
 import { getFormValue, initialActionState } from "@/lib/actionState";
+
+function extractBandcampAlbumId(input: string): string {
+  // If it's already just an album ID (only digits), return as-is
+  if (/^\d+$/.test(input.trim())) {
+    return input.trim();
+  }
+
+  // Handle shortcode format: [bandcamp ... album=3446736804 ...]
+  // or iframe format with album= parameter
+  const albumMatch = input.match(/album=(\d+)/);
+  if (albumMatch) {
+    return albumMatch[1];
+  }
+
+  // If no pattern matched, return as-is
+  return input.trim();
+}
 
 interface AlbumFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
@@ -23,6 +40,10 @@ export default function AlbumForm({
   const [{ errorMessage, formData }, formAction, pending] = useActionState(
     action,
     initialActionState,
+  );
+
+  const [bandcampAlbumId, setBandcampAlbumId] = useState(
+    getFormValue(formData, "bandcampAlbumId") || album?.bandcampAlbumId || "",
   );
 
   return (
@@ -91,11 +112,13 @@ export default function AlbumForm({
         type="text"
         required
         pattern="^[0-9]+$"
-        defaultValue={
-          getFormValue(formData, "bandcampAlbumId") ||
-          album?.bandcampAlbumId ||
-          undefined
-        }
+        value={bandcampAlbumId}
+        onChange={(e) => {
+          const extractedId = extractBandcampAlbumId(e.target.value);
+          setBandcampAlbumId(extractedId);
+        }}
+        placeholder="e.g., 1234567890 or paste embed code"
+        helpText="Paste the Bandcamp album ID or the full embed code (either format) and the album ID will be extracted automatically."
         errorMessage="Bandcamp Album ID is required and must contain only numbers"
       />
 
