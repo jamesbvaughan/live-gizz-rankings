@@ -9,23 +9,7 @@ import { BoxedButton, BoxedButtonLink } from "./BoxedButtonLink";
 import { ShowVideoList } from "./ShowVideoList";
 import type { ActionState } from "@/lib/actionState";
 import { getFormValue, initialActionState } from "@/lib/actionState";
-
-function extractBandcampAlbumId(input: string): string {
-  // If it's already just an album ID (only digits), return as-is
-  if (/^\d+$/.test(input.trim())) {
-    return input.trim();
-  }
-
-  // Handle shortcode format: [bandcamp ... album=3446736804 ...]
-  // or iframe format with album= parameter
-  const albumMatch = input.match(/album=(\d+)/);
-  if (albumMatch) {
-    return albumMatch[1];
-  }
-
-  // If no pattern matched, return as-is
-  return input.trim();
-}
+import { extractBandcampAlbumId } from "@/lib/extractEmbedCodes";
 
 interface ShowFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;

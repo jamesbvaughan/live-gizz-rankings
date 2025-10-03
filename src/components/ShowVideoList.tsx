@@ -3,56 +3,11 @@
 import { useState } from "react";
 import { BoxedInput } from "./BoxedInput";
 import { BoxedButton } from "./BoxedButtonLink";
+import { extractYouTubeVideoId } from "@/lib/extractEmbedCodes";
 
 interface Video {
   youtubeVideoId: string;
   title: string;
-}
-
-function extractYouTubeVideoId(input: string): string {
-  // If it's already just a video ID (no slashes or special chars), return as-is
-  if (!/[/:?&]/.test(input)) {
-    return input;
-  }
-
-  try {
-    const url = new URL(input);
-
-    // Handle youtu.be short URLs
-    const shortUrlPattern = new URLPattern({
-      hostname: "youtu.be",
-      pathname: "/:videoId",
-    });
-    const shortMatch = shortUrlPattern.exec(input);
-    if (shortMatch?.pathname?.groups?.videoId) {
-      return shortMatch.pathname.groups.videoId;
-    }
-
-    // Handle youtube.com/embed/VIDEO_ID
-    const embedPattern = new URLPattern({
-      hostname: "{*.youtube.com,youtube.com}",
-      pathname: "/embed/:videoId",
-    });
-    const embedMatch = embedPattern.exec(input);
-    if (embedMatch?.pathname?.groups?.videoId) {
-      return embedMatch.pathname.groups.videoId;
-    }
-
-    // Handle youtube.com/watch?v=VIDEO_ID - extract from search params
-    const allowedHosts = ["youtube.com", "www.youtube.com", "m.youtube.com"];
-    if (allowedHosts.includes(url.hostname)) {
-      const videoId = url.searchParams.get("v");
-      if (videoId) {
-        return videoId;
-      }
-    }
-  } catch {
-    // If URL parsing fails, return as-is
-    return input;
-  }
-
-  // If no pattern matched, return as-is (might be a plain video ID)
-  return input;
 }
 
 interface VideoRowProps {
