@@ -98,7 +98,8 @@ export function ShowVideoList({ defaultVideos = [] }: ShowVideoListProps) {
 
       {videos.map((video, index) => (
         <VideoRow
-          key={video.youtubeVideoId}
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
           video={video}
           index={index}
           onUpdate={updateVideo}
