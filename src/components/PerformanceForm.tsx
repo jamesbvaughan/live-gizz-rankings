@@ -31,6 +31,81 @@ function extractBandcampTrackId(input: string): string {
   return input.trim();
 }
 
+function extractYouTubeVideoId(input: string): string {
+  // If it's already just a video ID (no slashes or special chars), return as-is
+  if (!/[/:?&]/.test(input)) {
+    return input;
+  }
+
+  try {
+    const url = new URL(input);
+
+    // Handle youtu.be short URLs
+    const shortUrlPattern = new URLPattern({
+      hostname: "youtu.be",
+      pathname: "/:videoId",
+    });
+    const shortMatch = shortUrlPattern.exec(input);
+    if (shortMatch?.pathname?.groups?.videoId) {
+      return shortMatch.pathname.groups.videoId;
+    }
+
+    // Handle youtube.com/embed/VIDEO_ID
+    const embedPattern = new URLPattern({
+      hostname: "{*.youtube.com,youtube.com}",
+      pathname: "/embed/:videoId",
+    });
+    const embedMatch = embedPattern.exec(input);
+    if (embedMatch?.pathname?.groups?.videoId) {
+      return embedMatch.pathname.groups.videoId;
+    }
+
+    // Handle youtube.com/watch?v=VIDEO_ID - extract from search params
+    const allowedHosts = ["youtube.com", "www.youtube.com", "m.youtube.com"];
+    if (allowedHosts.includes(url.hostname)) {
+      const videoId = url.searchParams.get("v");
+      if (videoId) {
+        return videoId;
+      }
+    }
+  } catch {
+    // If URL parsing fails, return as-is
+    return input;
+  }
+
+  return input;
+}
+
+function extractYouTubeStartTime(input: string): number | null {
+  try {
+    const url = new URL(input);
+
+    // Check for t parameter in query string (can be ?t=123 or &t=123)
+    const tParam = url.searchParams.get("t");
+    if (tParam) {
+      // Remove 's' suffix if present (e.g., "123s" -> "123")
+      const seconds = parseInt(tParam.replace(/s$/, ""), 10);
+      if (!isNaN(seconds)) {
+        return seconds;
+      }
+    }
+
+    // Check for t in hash (e.g., #t=123)
+    const hashMatch = url.hash.match(/[#&]t=(\d+)/);
+    if (hashMatch) {
+      const seconds = parseInt(hashMatch[1], 10);
+      if (!isNaN(seconds)) {
+        return seconds;
+      }
+    }
+  } catch {
+    // Not a valid URL, no time to extract
+    return null;
+  }
+
+  return null;
+}
+
 interface PerformanceFormProps {
   action: (state: ActionState, formData: FormData) => Promise<ActionState>;
   songs: (Song & { album: Album })[];
@@ -63,6 +138,19 @@ export default function PerformanceForm({
     getFormValue(formData, "bandcampTrackId") ||
       performance?.bandcampTrackId ||
       "",
+  );
+
+  const [youtubeVideoId, setYoutubeVideoId] = useState(
+    getFormValue(formData, "youtubeVideoId") ||
+      performance?.youtubeVideoId ||
+      defaultYoutubeVideoId ||
+      "",
+  );
+
+  const [youtubeStartTime, setYoutubeStartTime] = useState<number | undefined>(
+    getFormNumberValue(formData, "youtubeVideoStartTime") ??
+      performance?.youtubeVideoStartTime ??
+      undefined,
   );
 
   // Group songs by album, sorted by release date (newest first)
@@ -215,14 +303,20 @@ export default function PerformanceForm({
         id="youtubeVideoId"
         name="youtubeVideoId"
         type="text"
-        defaultValue={
-          getFormValue(formData, "youtubeVideoId") ||
-          performance?.youtubeVideoId ||
-          defaultYoutubeVideoId ||
-          ""
-        }
-        placeholder="e.g., dQw4w9WgXcQ"
-        helpText="The video ID from a YouTube URL. This should be the offical upload of the show from the band's channel if available. Otherwise, use the best fan upload that you can find."
+        value={youtubeVideoId}
+        onChange={(e) => {
+          const input = e.target.value;
+          const extractedId = extractYouTubeVideoId(input);
+          setYoutubeVideoId(extractedId);
+
+          // If a URL with time is pasted, extract and set the start time
+          const extractedTime = extractYouTubeStartTime(input);
+          if (extractedTime !== null) {
+            setYoutubeStartTime(extractedTime);
+          }
+        }}
+        placeholder="e.g., dQw4w9WgXcQ or paste full YouTube URL"
+        helpText="Paste a YouTube URL or video ID. If the URL includes a timestamp, it will auto-fill the start time field below."
         errorMessage="Must be a valid YouTube video ID"
       />
 
@@ -232,10 +326,11 @@ export default function PerformanceForm({
         name="youtubeVideoStartTime"
         type="number"
         min={0}
-        defaultValue={
-          getFormNumberValue(formData, "youtubeVideoStartTime") ||
-          (performance?.youtubeVideoStartTime ?? undefined)
-        }
+        value={youtubeStartTime ?? ""}
+        onChange={(e) => {
+          const value = e.target.value;
+          setYoutubeStartTime(value ? parseInt(value, 10) : undefined);
+        }}
         placeholder="0"
         helpText="Start time in seconds for this song in the YouTube video. You can get this from the YouTube URL by pausing the video at the song start, right-clicking on the video, and selecting 'Copy video URL at current time'."
         errorMessage="Start time must be 0 or greater"
