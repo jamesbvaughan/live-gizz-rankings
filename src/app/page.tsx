@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import { RecentVotes } from "./RecentVotes";
+import { RecentShows } from "./RecentShows";
 
 export default function HomePage() {
   return (
@@ -16,13 +17,6 @@ export default function HomePage() {
         <p>
           Use the links at the top of this page to browse the ranked
           performances by song, album, or show.
-        </p>
-
-        <p>
-          This is still a work-in-progress! If you&apos;d like to help out, the
-          most helpful thing you can do is to vote on some performances or{" "}
-          <Link href="/performances/add">add your favorite performances</Link>{" "}
-          if they&apos;re missing.
         </p>
       </div>
 
@@ -41,6 +35,14 @@ export default function HomePage() {
 
         <Suspense fallback={<div>Loading...</div>}>
           <RecentVotes />
+        </Suspense>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-3xl">Recent shows</h2>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <RecentShows />
         </Suspense>
       </div>
     </div>
