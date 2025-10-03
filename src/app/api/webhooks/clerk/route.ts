@@ -1,5 +1,6 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { type NextRequest } from "next/server";
+import { getResendClient } from "@/lib/resendClient";
 
 export async function POST(req: NextRequest) {
   const evt = await verifyWebhook(req);
@@ -38,42 +39,23 @@ async function addToResendAudience(data: {
   firstName?: string;
   lastName?: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
   const audienceId = process.env.RESEND_AUDIENCE_ID;
 
   // Skip if not configured
-  if (!apiKey || !audienceId) {
+  if (!process.env.RESEND_API_KEY || !audienceId) {
     console.log("Resend audience not configured - skipping");
     return;
   }
 
-  try {
-    const response = await fetch(
-      `https://api.resend.com/audiences/${audienceId}/contacts`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          email: data.email,
-          first_name: data.firstName,
-          last_name: data.lastName,
-          unsubscribed: false,
-        }),
-      },
-    );
+  const resend = await getResendClient();
 
-    if (!response.ok) {
-      const error = await response.text();
-      console.error("Failed to add contact to Resend:", error);
-      return;
-    }
+  const result = await resend.contacts.create({
+    audienceId,
+    email: data.email,
+    firstName: data.firstName,
+    lastName: data.lastName,
+    unsubscribed: false,
+  });
 
-    const result = (await response.json()) as { object: string; id: string };
-    console.log("Successfully added contact to Resend:", result);
-  } catch (error) {
-    console.error("Error adding contact to Resend:", error);
-  }
+  console.log("Successfully added contact to Resend:", result);
 }
