@@ -96,6 +96,7 @@ export default function ShowForm({
         id="bandcampAlbumId"
         name="bandcampAlbumId"
         type="text"
+        pattern="^\d{10}$"
         value={bandcampAlbumId}
         onChange={(e) => {
           const extractedId = extractBandcampAlbumId(e.target.value);
@@ -103,7 +104,7 @@ export default function ShowForm({
         }}
         placeholder="e.g., 1234567890 or paste embed code"
         helpText="Paste the Bandcamp album ID or the full embed code (either format) and the album ID will be extracted automatically."
-        errorMessage="Must be a valid Bandcamp album ID"
+        errorMessage="Bandcamp Album ID must be exactly 10 digits"
       />
 
       <ShowVideoList
