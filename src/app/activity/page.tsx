@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { desc } from "drizzle-orm";
+import { auth } from "@clerk/nextjs/server";
+import { desc, eq } from "drizzle-orm";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
+import { Suspense } from "react";
 
 import { ensureAdmin } from "@/auth/utils";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
-import { activityLogs } from "@/drizzle/schema";
+import { activityLogs, activityLogReviews } from "@/drizzle/schema";
 import type { ActivityLog } from "@/drizzle/schema";
+import { ReviewCheckbox } from "./ReviewCheckbox";
+import { FilterToggle } from "./FilterToggle";
 import {
   getAlbumPath,
   getPerformancePathBySongAndShow,
@@ -21,6 +25,8 @@ export const metadata: Metadata = {
   title: "Activity Log",
   description: "View recent activity on Live Gizz Rankings.",
 };
+
+export const dynamic = "force-dynamic";
 
 async function getEntityInfo(entityType: string, entityId: string) {
   try {
@@ -132,7 +138,13 @@ function formatChangeSummary(
   return null;
 }
 
-async function ActivityLogItem({ log }: { log: ActivityLog }) {
+async function ActivityLogItem({
+  log,
+  isReviewed,
+}: {
+  log: ActivityLog;
+  isReviewed: boolean;
+}) {
   const actionColors = {
     create: "text-green-600",
     update: "text-blue-600",
@@ -193,9 +205,12 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
           </div>
         </div>
 
-        <div className="text-muted flex flex-col items-end flex-shrink-0">
-          <div>{formatDistanceToNow(log.createdAt, { addSuffix: true })}</div>
-          <time className="text-sm">{log.createdAt.toLocaleString()}</time>
+        <div className="text-muted flex flex-col items-end gap-2 flex-shrink-0">
+          <div>
+            <div>{formatDistanceToNow(log.createdAt, { addSuffix: true })}</div>
+            <time className="text-sm">{log.createdAt.toLocaleString()}</time>
+          </div>
+          <ReviewCheckbox activityLogId={log.id} isReviewed={isReviewed} />
         </div>
       </div>
 
@@ -246,29 +261,63 @@ async function ActivityLogItem({ log }: { log: ActivityLog }) {
   );
 }
 
-export default async function ActivityPage() {
+export default async function ActivityPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ showAll?: string }>;
+}) {
   await ensureAdmin();
+
+  const { userId } = await auth();
+  const params = await searchParams;
+  const showAll = params.showAll === "true";
 
   const logs = await db.query.activityLogs.findMany({
     orderBy: desc(activityLogs.createdAt),
     limit: 100,
   });
 
+  // Fetch current user's reviews
+  const reviews = userId
+    ? await db.query.activityLogReviews.findMany({
+        where: eq(activityLogReviews.userId, userId),
+      })
+    : [];
+
+  // Create a Set of reviewed activity log IDs for efficient lookup
+  const reviewedLogIds = new Set(reviews.map((r) => r.activityLogId));
+
+  // Filter logs based on showAll parameter and limit to 100
+  const filteredLogs = showAll
+    ? logs.slice(0, 100)
+    : logs.filter((log) => !reviewedLogIds.has(log.id)).slice(0, 100);
+
   return (
     <>
       <PageTitle>Activity Log</PageTitle>
 
       <PageContent className="space-y-6">
-        <p className="text-muted">
-          Recent activity (showing last {logs.length} entries)
-        </p>
+        <div className="flex items-center justify-between">
+          <p className="text-muted">
+            {showAll
+              ? `Showing all activity (${filteredLogs.length} entries)`
+              : `Showing unreviewed activity (${filteredLogs.length} entries)`}
+          </p>
+          <Suspense fallback={<div className="h-9 w-40" />}>
+            <FilterToggle />
+          </Suspense>
+        </div>
 
-        {logs.length === 0 ? (
+        {filteredLogs.length === 0 ? (
           <p className="text-muted">No activity logs found.</p>
         ) : (
           <div className="space-y-4">
-            {logs.map((log) => (
-              <ActivityLogItem key={log.id} log={log} />
+            {filteredLogs.map((log) => (
+              <ActivityLogItem
+                key={log.id}
+                log={log}
+                isReviewed={reviewedLogIds.has(log.id)}
+              />
             ))}
           </div>
         )}
