@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { ensureAdmin } from "@/auth/utils";
 import { PageContent, PageTitle } from "@/components/ui";
 import { InvalidBandcampIds } from "./InvalidBandcampIds";
+import { MissingBandcampTrackIds } from "./MissingBandcampTrackIds";
 
 export const metadata: Metadata = {
   title: "Needs Work",
@@ -26,6 +27,10 @@ export default async function NeedsWorkPage() {
 
         <Suspense fallback={<div className="text-muted">Loading...</div>}>
           <InvalidBandcampIds />
+        </Suspense>
+
+        <Suspense fallback={<div className="text-muted">Loading...</div>}>
+          <MissingBandcampTrackIds />
         </Suspense>
       </PageContent>
     </>
