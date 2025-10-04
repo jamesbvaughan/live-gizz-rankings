@@ -1,6 +1,17 @@
 import { auth } from "@clerk/nextjs/server";
+import { eq } from "drizzle-orm";
 import EditNotification from "../emails/EditNotification";
 import { getResendClient } from "./resendClient";
+import { db } from "@/drizzle/db";
+import { shows, performances, songs, albums } from "@/drizzle/schema";
+import {
+  getShowTitle,
+  getShowPath,
+  getPerformancePathBySongAndShow,
+  getPerformanceTitle,
+  getSongPath,
+  getAlbumPath,
+} from "@/utils";
 
 interface EditNotificationData {
   entityType: string;
@@ -20,7 +31,69 @@ export async function sendEditNotification(data: EditNotificationData) {
     const { userId } = await auth();
     const userInfo = userId || "Unknown user";
 
-    const subject = `🎸 Live Gizz Edit: ${data.action.toUpperCase()} ${data.entityType}`;
+    // Fetch entity title and URL based on type
+    let entityTitle: string | undefined;
+    let entityUrl: string | undefined;
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL || "https://livegizzrankings.com";
+
+    if (data.entityId) {
+      try {
+        switch (data.entityType) {
+          case "show": {
+            const show = await db.query.shows.findFirst({
+              where: eq(shows.id, data.entityId),
+            });
+            if (show) {
+              entityTitle = getShowTitle(show);
+              entityUrl = `${baseUrl}${getShowPath(show)}`;
+            }
+            break;
+          }
+          case "performance": {
+            const performance = await db.query.performances.findFirst({
+              where: eq(performances.id, data.entityId),
+              with: {
+                song: { with: { album: true } },
+                show: true,
+              },
+            });
+            if (performance) {
+              entityTitle = getPerformanceTitle(
+                performance.song,
+                performance.show,
+              );
+              entityUrl = `${baseUrl}${getPerformancePathBySongAndShow(performance.song, performance.show)}`;
+            }
+            break;
+          }
+          case "song": {
+            const song = await db.query.songs.findFirst({
+              where: eq(songs.id, data.entityId),
+            });
+            if (song) {
+              entityTitle = song.title;
+              entityUrl = `${baseUrl}${getSongPath(song)}`;
+            }
+            break;
+          }
+          case "album": {
+            const album = await db.query.albums.findFirst({
+              where: eq(albums.id, data.entityId),
+            });
+            if (album) {
+              entityTitle = album.title;
+              entityUrl = `${baseUrl}${getAlbumPath(album)}`;
+            }
+            break;
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching entity details:", error);
+      }
+    }
+
+    const subject = `🎸 Live Gizz Edit: ${data.action.toUpperCase()} ${data.entityType}${entityTitle ? ` - ${entityTitle}` : ""}`;
 
     const resend = await getResendClient();
     await resend.emails.send({
@@ -32,6 +105,8 @@ export async function sendEditNotification(data: EditNotificationData) {
           entityType={data.entityType}
           action={data.action}
           entityId={data.entityId}
+          entityTitle={entityTitle}
+          entityUrl={entityUrl}
           details={data.details}
           userInfo={userInfo}
           timestamp={new Date().toLocaleString()}

@@ -14,6 +14,8 @@ interface EditNotificationProps {
   entityType: string;
   action: "create" | "update" | "delete";
   entityId?: string;
+  entityTitle?: string;
+  entityUrl?: string;
   details?: string;
   userInfo: string;
   timestamp: string;
@@ -24,6 +26,8 @@ export default function EditNotification({
   entityType,
   action,
   entityId,
+  entityTitle,
+  entityUrl,
   details,
   userInfo,
   timestamp,
@@ -43,6 +47,11 @@ export default function EditNotification({
             <Heading as="h3" style={h3}>
               {action.toUpperCase()} {entityType}
             </Heading>
+            {entityTitle && (
+              <Text style={text}>
+                <strong>Title:</strong> {entityTitle}
+              </Text>
+            )}
             <Text style={text}>
               <strong>User:</strong> {userInfo}
             </Text>
@@ -66,6 +75,14 @@ export default function EditNotification({
               </span>
             </Text>
           </Section>
+
+          {entityUrl && (
+            <Section style={buttonSection}>
+              <Button style={button} href={entityUrl}>
+                View {entityType}
+              </Button>
+            </Section>
+          )}
 
           <Section style={buttonSection}>
             <Button style={button} href="https://livegizzrankings.com/activity">
