@@ -167,6 +167,33 @@ export const activityLogs = pgTable("activity_logs", {
 
 export type ActivityLog = typeof activityLogs.$inferSelect;
 
+export const activityLogReviews = pgTable(
+  "activity_log_reviews",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    activityLogId: uuid("activity_log_id")
+      .notNull()
+      .references(() => activityLogs.id),
+    userId: text("user_id").notNull(), // Clerk user ID
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+  },
+  (t) => ({
+    userActivityLog: unique().on(t.userId, t.activityLogId),
+  }),
+);
+
+export type ActivityLogReview = typeof activityLogReviews.$inferSelect;
+
+export const activityLogReviewsRelations = relations(
+  activityLogReviews,
+  ({ one }) => ({
+    activityLog: one(activityLogs, {
+      fields: [activityLogReviews.activityLogId],
+      references: [activityLogs.id],
+    }),
+  }),
+);
+
 export const skippedPairs = pgTable(
   "skipped_pairs",
   {
