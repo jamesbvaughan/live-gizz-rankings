@@ -189,6 +189,7 @@ export default function PerformanceForm({
         id="bandcampTrackId"
         name="bandcampTrackId"
         type="text"
+        pattern="^\d{10}$"
         value={bandcampTrackId}
         onChange={(e) => {
           const extractedId = extractBandcampTrackId(e.target.value);
@@ -209,7 +210,7 @@ export default function PerformanceForm({
             page for the specific track.
           </>
         }
-        errorMessage="Must be a valid Bandcamp track ID"
+        errorMessage="Bandcamp Track ID must be exactly 10 digits"
       />
 
       <BoxedInput
