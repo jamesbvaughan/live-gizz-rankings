@@ -57,6 +57,7 @@ export function AccountButtons() {
               <Link href="/users">users</Link>
               <Link href="/votes">votes</Link>
               <Link href="/activity">activity</Link>
+              <Link href="/needs-work">needs work</Link>
             </div>
           </>
         ) : null}

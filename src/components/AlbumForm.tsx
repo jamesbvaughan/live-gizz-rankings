@@ -95,7 +95,7 @@ export default function AlbumForm({
         name="bandcampAlbumId"
         type="text"
         required
-        pattern="^\d{10}$"
+        pattern="^\d+$"
         value={bandcampAlbumId}
         onChange={(e) => {
           const extractedId = extractBandcampAlbumId(e.target.value);
@@ -103,7 +103,7 @@ export default function AlbumForm({
         }}
         placeholder="e.g., 1234567890 or paste embed code"
         helpText="Paste the Bandcamp album ID or the full embed code (either format) and the album ID will be extracted automatically."
-        errorMessage="Bandcamp Album ID must be exactly 10 digits"
+        errorMessage="Bandcamp Album ID must contain only digits"
       />
 
       <div className="flex gap-4">
