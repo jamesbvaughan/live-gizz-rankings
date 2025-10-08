@@ -68,7 +68,9 @@ async function migrateShowVideos() {
   process.exit(0);
 }
 
-migrateShowVideos().catch((error) => {
+try {
+  await migrateShowVideos();
+} catch (error) {
   console.error("Migration failed:", error);
   process.exit(1);
-});
+}
