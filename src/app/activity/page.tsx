@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { auth } from "@clerk/nextjs/server";
 import { desc, eq } from "drizzle-orm";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
@@ -266,9 +265,8 @@ export default async function ActivityPage({
 }: {
   searchParams: Promise<{ showAll?: string }>;
 }) {
-  await ensureAdmin();
+  const userId = await ensureAdmin();
 
-  const { userId } = await auth();
   const params = await searchParams;
   const showAll = params.showAll === "true";
 

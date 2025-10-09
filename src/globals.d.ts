@@ -6,5 +6,8 @@ declare global {
     meta?: {
       isAdmin?: boolean;
     };
+    email?: string;
+    username?: string;
+    name?: string;
   }
 }

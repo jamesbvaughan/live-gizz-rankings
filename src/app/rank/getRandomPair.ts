@@ -1,9 +1,8 @@
-import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
-import { unauthorized } from "next/navigation";
 
 import { db } from "@/drizzle/db";
 import { skippedPairs, votes } from "@/drizzle/schema";
+import { ensureSignedIn } from "@/auth/utils";
 
 async function generateAllPotentialPairs() {
   const pairs: Record<string, [string, string][]> = {};
@@ -26,10 +25,7 @@ async function generateAllPotentialPairs() {
 }
 
 async function getUserPairs() {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
+  const userId = await ensureSignedIn();
 
   const userPairs = await db.query.votes.findMany({
     where: eq(votes.voterId, userId),
@@ -43,10 +39,7 @@ async function getUserPairs() {
 }
 
 async function getUserSkippedPairs() {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
+  const userId = await ensureSignedIn();
 
   const userSkippedPairs = await db.query.skippedPairs.findMany({
     where: eq(skippedPairs.userId, userId),
