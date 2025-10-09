@@ -1,7 +1,5 @@
-import { auth } from "@clerk/nextjs/server";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { unauthorized } from "next/navigation";
 
 import { MediaPlayers } from "@/components/MediaPlayers";
 import { BoxedButtonLink } from "@/components/BoxedButtonLink";
@@ -10,6 +8,7 @@ import { getPerformancePathBySongAndShow, getShowTitle } from "@/utils";
 
 import { getRandomPairForCurrentUser } from "./getRandomPair";
 import { PerformanceFormButtons } from "./PerformanceVoteFormButton";
+import { ensureSignedIn } from "@/auth/utils";
 
 export const metadata: Metadata = {
   title: "Rank Songs",
@@ -24,10 +23,7 @@ interface Props {
 }
 
 export default async function Rank({ searchParams }: Props) {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
+  await ensureSignedIn();
 
   const { song: songSlug } = await searchParams;
   const filterSong = songSlug ? await getSongBySlug(songSlug) : null;

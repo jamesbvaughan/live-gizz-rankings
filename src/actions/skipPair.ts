@@ -1,13 +1,12 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
 import { and, eq, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { unauthorized } from "next/navigation";
 import { zfd } from "zod-form-data";
 
 import { db } from "../drizzle/db";
 import { skippedPairs } from "../drizzle/schema";
+import { ensureSignedIn } from "@/auth/utils";
 
 const skipPairSchema = zfd.formData({
   performanceIdA: zfd.text(),
@@ -18,10 +17,7 @@ export async function skipPair(
   _initialState: unknown,
   formData: FormData,
 ): Promise<void> {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
+  const userId = await ensureSignedIn();
 
   revalidatePath("/rank");
 

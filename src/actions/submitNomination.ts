@@ -1,10 +1,10 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 import { db } from "@/drizzle/db";
 import { nominations } from "@/drizzle/schema";
+import { authWithSentry } from "@/auth/utils";
 
 type SubmitNominationState =
   | {
@@ -31,7 +31,7 @@ export async function submitNomination(
     return { success: false, userError: "The message is empty" };
   }
 
-  const { userId } = await auth();
+  const { userId } = await authWithSentry();
 
   try {
     await db.insert(nominations).values({

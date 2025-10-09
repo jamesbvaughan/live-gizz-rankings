@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import EditNotification from "../emails/EditNotification";
 import { getResendClient } from "./resendClient";
@@ -12,6 +11,7 @@ import {
   getSongPath,
   getAlbumPath,
 } from "@/utils";
+import { authWithSentry } from "@/auth/utils";
 
 interface EditNotificationData {
   entityType: string;
@@ -28,7 +28,7 @@ export async function sendEditNotification(data: EditNotificationData) {
   }
 
   try {
-    const { userId } = await auth();
+    const { userId } = await authWithSentry();
     const userInfo = userId || "Unknown user";
 
     // Fetch entity title and URL based on type

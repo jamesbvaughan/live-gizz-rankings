@@ -1,6 +1,5 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
 import { and, eq, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { zfd } from "zod-form-data";
@@ -13,7 +12,7 @@ import {
   getShowPath,
   getSongPath,
 } from "../utils";
-import { unauthorized } from "next/navigation";
+import { ensureSignedIn } from "@/auth/utils";
 
 const voteSchema = zfd.formData({
   performanceIdA: zfd.text(),
@@ -37,10 +36,7 @@ export async function vote(
   _initialState: unknown,
   formData: FormData,
 ): Promise<void> {
-  const { userId } = await auth();
-  if (!userId) {
-    unauthorized();
-  }
+  const userId = await ensureSignedIn();
 
   revalidatePath("/rank");
 
