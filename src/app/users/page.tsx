@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import type { Metadata } from "next";
 import { forbidden, unauthorized } from "next/navigation";
 
@@ -37,6 +37,19 @@ export default async function UsersPage() {
   const users = Object.entries(userToVotes);
   users.sort(([, votesA], [, votesB]) => votesB!.length - votesA!.length);
 
+  const userIds = users.map(([userId]) => userId);
+  const clerk = await clerkClient();
+  const clerkUsers = await clerk.users.getUserList({
+    userId: userIds,
+    limit: 500,
+  });
+  const userIdToUsername = new Map(
+    clerkUsers.data.map((u) => [
+      u.id,
+      u.username ?? u.emailAddresses[0]?.emailAddress ?? u.id,
+    ]),
+  );
+
   return (
     <>
       <PageTitle>Users</PageTitle>
@@ -48,7 +61,7 @@ export default async function UsersPage() {
           <table className="table-auto">
             <thead>
               <tr>
-                <th className="p-4">User ID</th>
+                <th className="p-4">User</th>
                 <th className="p-4">Votes</th>
                 <th className="p-4">L:R</th>
                 <th className="p-4">Nominations</th>
@@ -70,7 +83,9 @@ export default async function UsersPage() {
 
                 return (
                   <tr key={userId}>
-                    <td className="p-2">{userId}</td>
+                    <td className="p-2">
+                      {userIdToUsername.get(userId) ?? userId}
+                    </td>
                     <td className="p-2">{userVotes!.length}</td>
                     <td className="p-2">
                       {leftVotes.length}:{rightVotes.length}
