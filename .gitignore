@@ -48,5 +48,3 @@ yarn-error.log*
 !.github/styles/config/vocabularies/
 .github/styles/config/vocabularies/*
 !.github/styles/config/vocabularies/custom
-
-CLAUDE.md
