@@ -3,12 +3,14 @@ import { desc, eq } from "drizzle-orm";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { Suspense } from "react";
+import { diffLines, type Change } from "diff";
 
 import { ensureAdmin } from "@/auth/utils";
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
 import { activityLogs, activityLogReviews } from "@/drizzle/schema";
 import type { ActivityLog } from "@/drizzle/schema";
+import { getUserDisplayNames } from "@/lib/users";
 import { ReviewCheckbox } from "./ReviewCheckbox";
 import { FilterToggle } from "./FilterToggle";
 import {
@@ -94,6 +96,48 @@ async function getEntityInfo(entityType: string, entityId: string) {
   return null;
 }
 
+function DiffView({ before, after }: { before: any; after: any }) {
+  const beforeStr = JSON.stringify(before, null, 2);
+  const afterStr = JSON.stringify(after, null, 2);
+  const diff = diffLines(beforeStr, afterStr);
+
+  return (
+    <div className="bg-muted-3 overflow-x-auto rounded p-2 text-xs font-mono">
+      {diff.map((part: Change, index: number) => {
+        const color = part.added
+          ? "bg-green-600/20 text-green-400"
+          : part.removed
+            ? "bg-red/20 text-red"
+            : "";
+        const prefix = part.added ? "+ " : part.removed ? "- " : "  ";
+
+        return (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            className={color}
+          >
+            {part.value.split("\n").map((line, lineIndex) => {
+              if (lineIndex === part.value.split("\n").length - 1 && !line) {
+                return null;
+              }
+              return (
+                <div
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={lineIndex}
+                >
+                  {prefix}
+                  {line}
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function getChangedFields(
   before: Record<string, any>,
   after: Record<string, any>,
@@ -140,9 +184,11 @@ function formatChangeSummary(
 async function ActivityLogItem({
   log,
   isReviewed,
+  userDisplayName,
 }: {
   log: ActivityLog;
   isReviewed: boolean;
+  userDisplayName: string;
 }) {
   const actionColors = {
     create: "text-green-600",
@@ -200,7 +246,7 @@ async function ActivityLogItem({
           )}
 
           <div className="text-muted mt-1 text-sm">
-            User: <span className="font-mono">{log.userId}</span>
+            User: <span className="font-mono">{userDisplayName}</span>
           </div>
         </div>
 
@@ -214,47 +260,32 @@ async function ActivityLogItem({
       </div>
 
       {log.action === "create" && log.entityAfter && (
-        <details className="mt-2">
-          <summary className="text-muted hover:text-foreground cursor-pointer text-sm">
-            View created data
-          </summary>
-          <pre className="bg-muted-3 mt-2 overflow-x-auto rounded p-2 text-xs">
+        <div className="mt-2">
+          <div className="text-xs font-semibold text-green-600 mb-1">
+            Created data:
+          </div>
+          <pre className="bg-muted-3 overflow-x-auto rounded p-2 text-xs">
             {JSON.stringify(log.entityAfter, null, 2)}
           </pre>
-        </details>
+        </div>
       )}
 
       {log.action === "update" && log.entityBefore && log.entityAfter && (
-        <details className="mt-2">
-          <summary className="text-muted hover:text-foreground cursor-pointer text-sm">
-            View changes
-          </summary>
-          <div className="mt-2 space-y-2">
-            <div>
-              <div className="text-xs font-semibold text-red">Before:</div>
-              <pre className="bg-muted-3 overflow-x-auto rounded p-2 text-xs">
-                {JSON.stringify(log.entityBefore, null, 2)}
-              </pre>
-            </div>
-            <div>
-              <div className="text-xs font-semibold text-green-600">After:</div>
-              <pre className="bg-muted-3 overflow-x-auto rounded p-2 text-xs">
-                {JSON.stringify(log.entityAfter, null, 2)}
-              </pre>
-            </div>
-          </div>
-        </details>
+        <div className="mt-2">
+          <div className="text-xs font-semibold text-muted mb-1">Changes:</div>
+          <DiffView before={log.entityBefore} after={log.entityAfter} />
+        </div>
       )}
 
       {log.action === "delete" && log.entityBefore && (
-        <details className="mt-2">
-          <summary className="text-muted hover:text-foreground cursor-pointer text-sm">
-            View deleted data
-          </summary>
-          <pre className="bg-muted-3 mt-2 overflow-x-auto rounded p-2 text-xs">
+        <div className="mt-2">
+          <div className="text-xs font-semibold text-red mb-1">
+            Deleted data:
+          </div>
+          <pre className="bg-muted-3 overflow-x-auto rounded p-2 text-xs">
             {JSON.stringify(log.entityBefore, null, 2)}
           </pre>
-        </details>
+        </div>
       )}
     </div>
   );
@@ -290,6 +321,10 @@ export default async function ActivityPage({
     ? logs.slice(0, 100)
     : logs.filter((log) => !reviewedLogIds.has(log.id)).slice(0, 100);
 
+  // Get user display names
+  const uniqueUserIds = [...new Set(filteredLogs.map((log) => log.userId))];
+  const userDisplayNames = await getUserDisplayNames(uniqueUserIds);
+
   return (
     <>
       <PageTitle>Activity Log</PageTitle>
@@ -315,6 +350,7 @@ export default async function ActivityPage({
                 key={log.id}
                 log={log}
                 isReviewed={reviewedLogIds.has(log.id)}
+                userDisplayName={userDisplayNames.get(log.userId) ?? log.userId}
               />
             ))}
           </div>

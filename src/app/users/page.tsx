@@ -1,9 +1,10 @@
-import { clerkClient, currentUser } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import type { Metadata } from "next";
 import { forbidden, unauthorized } from "next/navigation";
 
 import { PageContent, PageTitle } from "@/components/ui";
 import { db } from "@/drizzle/db";
+import { getUserDisplayNames } from "@/lib/users";
 
 import { allPairs } from "../rank/getRandomPair";
 import UsersTable from "./users-table";
@@ -39,17 +40,7 @@ export default async function UsersPage() {
   const users = Object.entries(userToVotes);
 
   const userIds = users.map(([userId]) => userId);
-  const clerk = await clerkClient();
-  const clerkUsers = await clerk.users.getUserList({
-    userId: userIds,
-    limit: 500,
-  });
-  const userIdToUsername = new Map(
-    clerkUsers.data.map((u) => [
-      u.id,
-      u.username ?? u.emailAddresses[0]?.emailAddress ?? u.id,
-    ]),
-  );
+  const userIdToUsername = await getUserDisplayNames(userIds);
 
   const tableData = users.map(([userId, userVotes]) => {
     const nominations = allNominations.filter(
