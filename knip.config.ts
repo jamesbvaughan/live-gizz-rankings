@@ -3,6 +3,7 @@ import type { KnipConfig } from "knip";
 const knipConfig: KnipConfig = {
   entry: [
     "bin/*",
+    "src/proxy.ts",
     "src/app/**/*.mdx",
     "src/app/forbidden.tsx",
     "src/app/unauthorized.tsx",
