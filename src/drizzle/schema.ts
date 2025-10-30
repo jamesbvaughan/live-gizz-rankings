@@ -88,11 +88,10 @@ export const performances = pgTable(
     ratingLastUpdatedAt: timestamp("rating_last_updated_at").defaultNow(),
     createdAt: timestamp("created_at").defaultNow(),
   },
-  (t) => ({
-    // For some reason, this statement always shows a diff with db:push
-    // showSong: unique().on(t.showId, t.songId),
-    youtube: unique().on(t.youtubeVideoId, t.youtubeVideoStartTime),
-  }),
+  (t) => [
+    unique().on(t.showId, t.songId),
+    unique().on(t.youtubeVideoId, t.youtubeVideoStartTime),
+  ],
 );
 
 export type Performance = typeof performances.$inferSelect;
@@ -177,9 +176,7 @@ export const activityLogReviews = pgTable(
     userId: text("user_id").notNull(), // Clerk user ID
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
-  (t) => ({
-    userActivityLog: unique().on(t.userId, t.activityLogId),
-  }),
+  (t) => [unique().on(t.userId, t.activityLogId)],
 );
 
 export type ActivityLogReview = typeof activityLogReviews.$inferSelect;
@@ -207,9 +204,7 @@ export const skippedPairs = pgTable(
       .references(() => performances.id),
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
-  (t) => ({
-    userPair: unique().on(t.userId, t.performanceAId, t.performanceBId),
-  }),
+  (t) => [unique().on(t.userId, t.performanceAId, t.performanceBId)],
 );
 
 export type SkippedPair = typeof skippedPairs.$inferSelect;
@@ -225,9 +220,7 @@ export const showVideos = pgTable(
     title: text("title").notNull(),
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
-  (t) => ({
-    showVideo: unique().on(t.showId, t.youtubeVideoId),
-  }),
+  (t) => [unique().on(t.showId, t.youtubeVideoId)],
 );
 
 export type ShowVideo = typeof showVideos.$inferSelect;
