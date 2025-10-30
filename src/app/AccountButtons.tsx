@@ -2,9 +2,25 @@
 
 import { SignInButton, SignOutButton, useClerk, useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, use, useCallback, useEffect, useState } from "react";
 
-export function AccountButtons() {
+function UnreviewedLogCount({
+  unreviewedLogCountPromise,
+}: {
+  unreviewedLogCountPromise: Promise<number | null>;
+}) {
+  const unreviewedLogCount = use(unreviewedLogCountPromise);
+  if (unreviewedLogCount != null && unreviewedLogCount > 0) {
+    return <> ({unreviewedLogCount})</>;
+  }
+  return null;
+}
+
+export function AccountButtons({
+  unreviewedLogCountPromise,
+}: {
+  unreviewedLogCountPromise: Promise<number | null>;
+}) {
   const clerk = useClerk();
   const { isSignedIn, isLoaded, user } = useUser();
   const [isClient, setIsClient] = useState(false);
@@ -56,7 +72,14 @@ export function AccountButtons() {
             <div className="flex flex-col items-end space-y-1">
               <Link href="/users">users</Link>
               <Link href="/votes">votes</Link>
-              <Link href="/activity">activity</Link>
+              <Link href="/activity">
+                activity
+                <Suspense>
+                  <UnreviewedLogCount
+                    unreviewedLogCountPromise={unreviewedLogCountPromise}
+                  />
+                </Suspense>
+              </Link>
               <Link href="/needs-work">needs work</Link>
             </div>
           </>

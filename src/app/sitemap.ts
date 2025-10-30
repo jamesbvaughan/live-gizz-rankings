@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/shows",
     "/blog",
 
-    // TODO: Maybe add this page in the future
+    // Don't generate sitemaps for performances since there are so many.
     // "/performances",
 
     ...allAlbums.map((album) => getAlbumPath(album)),

@@ -1,6 +1,38 @@
 import Link from "next/link";
 
 import { AccountButtons } from "./AccountButtons";
+import { and, count, eq, isNull } from "drizzle-orm";
+
+import { db } from "@/drizzle/db";
+import { activityLogs, activityLogReviews } from "@/drizzle/schema";
+import { currentUser } from "@clerk/nextjs/server";
+
+async function getUnreviewedLogCount() {
+  let unreviewedCount = null;
+
+  try {
+    const user = await currentUser();
+    if (user) {
+      const [result] = await db
+        .select({ count: count() })
+        .from(activityLogs)
+        .leftJoin(
+          activityLogReviews,
+          and(
+            eq(activityLogs.id, activityLogReviews.activityLogId),
+            eq(activityLogReviews.userId, user.id),
+          ),
+        )
+        .where(isNull(activityLogReviews.id));
+
+      unreviewedCount = result?.count ?? null;
+    }
+  } catch (error) {
+    console.error("Error fetching unreviewed activity count:", error);
+  }
+
+  return unreviewedCount;
+}
 
 function SiteButtons() {
   return (
@@ -40,6 +72,7 @@ function SiteButtons() {
 }
 
 export function Footer() {
+  const unreviewedLogCountPromise = getUnreviewedLogCount();
   return (
     <footer className="space-y-10">
       <hr className="border-red" />
@@ -47,7 +80,7 @@ export function Footer() {
       <div className="text-muted flex items-start justify-between space-x-2 leading-5">
         <SiteButtons />
 
-        <AccountButtons />
+        <AccountButtons unreviewedLogCountPromise={unreviewedLogCountPromise} />
       </div>
     </footer>
   );
