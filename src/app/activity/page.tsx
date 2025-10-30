@@ -303,7 +303,6 @@ export default async function ActivityPage({
 
   const logs = await db.query.activityLogs.findMany({
     orderBy: desc(activityLogs.createdAt),
-    limit: 100,
   });
 
   // Fetch current user's reviews
