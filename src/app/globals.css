@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-@plugin '@tailwindcss/forms' {
+@plugin "@tailwindcss/forms" {
   strategy: "class";
 }
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-background: #0c0a09;
