@@ -89,7 +89,7 @@ export const performances = pgTable(
     createdAt: timestamp("created_at").defaultNow(),
   },
   (t) => [
-    unique().on(t.showId, t.songId),
+    unique().on(t.songId, t.showId),
     unique().on(t.youtubeVideoId, t.youtubeVideoStartTime),
   ],
 );
@@ -176,7 +176,7 @@ export const activityLogReviews = pgTable(
     userId: text("user_id").notNull(), // Clerk user ID
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
-  (t) => [unique().on(t.userId, t.activityLogId)],
+  (t) => [unique().on(t.activityLogId, t.userId)],
 );
 
 export type ActivityLogReview = typeof activityLogReviews.$inferSelect;
