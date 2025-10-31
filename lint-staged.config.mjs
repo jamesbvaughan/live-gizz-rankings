@@ -2,9 +2,8 @@
  * @type {import('lint-staged').Configuration}
  */
 const lintStagedConfig = {
-  "*.{ts,tsx}": () => "bun tsc",
-  "*.{ts,tsx,mjs}": ["bun format"],
-  "*.{md,mdx,css,json}": [`bun prettier --write`],
+  "*.{ts,tsx,mjs}": () => "bun tsc",
+  "*": () => "bun format",
   "*.{md,mdx,tsx}": () => "bun vale",
   "*.{ts,tsx,mjs,mdx}": () => "bun knip",
 };
