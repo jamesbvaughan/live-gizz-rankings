@@ -81,7 +81,6 @@ export const songsNeverPlayedLive = [
   "Happy Birthday To You",
   "Happy Birthday, Lisa",
   "Hear My Eyes: Suspiria Rescoring",
-  "Hell's Itch",
   "Hells Bells",
   "Hey Joe",
   "Hey Pachuco",
