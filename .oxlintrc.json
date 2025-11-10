@@ -29,6 +29,7 @@
     "max-lines": "off",
     "max-depth": "off",
     "max-nested-callbacks": "off",
+    "no-warning-comments": "off",
     "radix": "off",
     "typescript/require-await": "off",
     "jsx-no-jsx-as-prop": "off",
