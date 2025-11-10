@@ -43,7 +43,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "diff": "^8.0.2",
-    "dompurify": "^3.3.0",
     "drizzle-orm": "^0.44.5",
     "next": "16.0.1",
     "pluralize": "^8.0.0",

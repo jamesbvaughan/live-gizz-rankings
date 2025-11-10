@@ -1,5 +1,4 @@
 import { asc, eq } from "drizzle-orm";
-import DOMPurify from "dompurify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,12 +60,15 @@ async function GizzTapesNote({ show }: { show: Show }) {
 
   const htmlWithLineBreaks = note.replaceAll("\\n", "<br>");
 
+  // TODO: Sanitize this again.
+  // I've disabled this because I was having issues with the dompurify package.
+  //
   // Sanitize the modified HTML string
-  const sanitizedHtml = DOMPurify.sanitize(htmlWithLineBreaks);
+  // const sanitizedHtml = DOMPurify.sanitize(htmlWithLineBreaks);
 
   return (
     <div className="space-y-2">
-      <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: htmlWithLineBreaks }} />
 
       <Link
         href={`https://tapes.kglw.net/${gizzTapesShowId}/`}
