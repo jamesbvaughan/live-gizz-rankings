@@ -33,7 +33,7 @@
     "@next/env": "16.0.1",
     "@next/mdx": "16.0.1",
     "@next/third-parties": "16.0.1",
-    "@react-email/components": "^0.5.5",
+    "@react-email/components": "^1.0.0",
     "@sentry/nextjs": "^10.21.0",
     "@tanstack/react-table": "^8.21.3",
     "@types/mdx": "^2.0.13",
