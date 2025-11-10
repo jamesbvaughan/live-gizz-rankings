@@ -35,6 +35,7 @@
     "jsx-no-new-object-as-prop": "off",
     "jsx-no-new-array-as-prop": "off",
     "jsx-no-new-function-as-prop": "off",
+    "strict-boolean-expressions": "off",
     // Rules I've customized the config for
     "eqeqeq": [
       "error",
