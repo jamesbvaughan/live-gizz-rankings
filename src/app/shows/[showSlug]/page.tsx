@@ -1,5 +1,5 @@
 import { asc, eq } from "drizzle-orm";
-import DOMPurify from "isomorphic-dompurify";
+import DOMPurify from "dompurify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
